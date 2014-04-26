@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Amazon RDS Service | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/amazon-rds-service/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/amazon-rds-service/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[[RDS]長期租用Reserved DB Instances]]></title>
-    <link href="http://SammyLin.github.io/blog/rds-long-term-lease-reserved-db-instances/"/>
+    <link href="http://blog.sammylin.tw/rds-long-term-lease-reserved-db-instances/"/>
     <updated>2011-07-30T00:00:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/rds-long-term-lease-reserved-db-instances</id>
+    <id>http://blog.sammylin.tw/rds-long-term-lease-reserved-db-instances</id>
     <content type="html"><![CDATA[<p>其實On Demand DB Instances 貴到嚇死人，因為要長期經營網站，而且又要考慮備援，所以我決定租用Reserved DB Instances，雖然要一次先付一筆年費，但花費下來其實比On-Demand 還要便宜許多。</p>
 
 

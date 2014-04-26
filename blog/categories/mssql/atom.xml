@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: MSSql | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/mssql/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/mssql/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[[MSSQL]清除資料表內所有資料]]></title>
-    <link href="http://SammyLin.github.io/blog/mssql-clear-all-the-data-tables/"/>
+    <link href="http://blog.sammylin.tw/mssql-clear-all-the-data-tables/"/>
     <updated>2011-08-18T00:00:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/mssql-clear-all-the-data-tables</id>
+    <id>http://blog.sammylin.tw/mssql-clear-all-the-data-tables</id>
     <content type="html"><![CDATA[<p><span style="color: #0000ff; font-size: x-small;">TRUNCATE TABLE name</span></p>
 
 

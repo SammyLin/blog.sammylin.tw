@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Windows | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/windows/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/windows/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[做好MSN被盜用的防治方法]]></title>
-    <link href="http://SammyLin.github.io/blog/good-method-of-prevention-of-unauthorized-use-of-msn/"/>
+    <link href="http://blog.sammylin.tw/good-method-of-prevention-of-unauthorized-use-of-msn/"/>
     <updated>2011-10-28T00:00:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/good-method-of-prevention-of-unauthorized-use-of-msn</id>
+    <id>http://blog.sammylin.tw/good-method-of-prevention-of-unauthorized-use-of-msn</id>
     <content type="html"><![CDATA[<p>昨天歷經了一段同事msn被盜帳號，密碼也被改掉了，盜帳號的人一直瘋狂的跟我其他的同事說話，要幫他買點數卡。由於密碼不能改的關係，而且直之也沒有設定備用的信箱，所以導致只能打電話到165防詐騙，他們的解決方法就是「去警局報案」= =||| ，因為帳號裡面有很多資料不可能說換就換，所以真的到警局報案。但是到現在好像還沒有下文，為提醒社會大眾，不要在那麼麻煩了，先做好前置作業，等到真的被盜用，就真的只能像新聞一樣，24小時才能鎖帳號，解除的話也要到<a href="https://security.live.com/acsr.aspx">https://security.live.com/acsr.aspx</a>的網站去解除。你某一兩個朋友可能就真的買了他說的點數卡了….</p>
 
 
@@ -130,9 +130,9 @@
   
   <entry>
     <title type="html"><![CDATA[[Windows]印表機打不開]]></title>
-    <link href="http://SammyLin.github.io/blog/windows-printer-open/"/>
+    <link href="http://blog.sammylin.tw/windows-printer-open/"/>
     <updated>2011-09-08T00:00:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/windows-printer-open</id>
+    <id>http://blog.sammylin.tw/windows-printer-open</id>
     <content type="html"><![CDATA[<p>最近一直有一台電腦就是要印東西時，發現按了列印就會擋掉，一直找不到原因，只能叫同事要印的時候重開機看看吧，沒想到就好了。不過事隔多日，同事反應開了快100次都沒辦法好，上網找了個方法，可以把服務「Print Spooler」重啟就馬上好，就不用重開機了，但這只是治標不治本的方法，但沒辦法，我能力就是有限，最好的方法就是寫一個vbs讓他去執行，一個動作就可以搞定了！
 <a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image32.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image_thumb32.png" alt="image" width="544" height="434" border="0" /></a></p>
 

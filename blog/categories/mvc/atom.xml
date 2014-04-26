@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: MVC | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/mvc/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/mvc/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[[ASP.NET MVC]輸出HTML]]></title>
-    <link href="http://SammyLin.github.io/blog/aspnet-mvc-output-html/"/>
+    <link href="http://blog.sammylin.tw/aspnet-mvc-output-html/"/>
     <updated>2011-07-11T00:00:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/aspnet-mvc-output-html</id>
+    <id>http://blog.sammylin.tw/aspnet-mvc-output-html</id>
     <content type="html"><![CDATA[<p><p>原來在ASP.NET MVC 要輸出文字時，會幫你自動的轉成可以在HTML顯示的符號，很聰明，但是剛剛遇到一個問題就是我是要輸出一個JS，所以裡面有單引號跟雙引號，就是不想讓他輸出成HTML顯示的文字，一般來說我們要將文字從Controller輸出至View時應該會這樣的：</p>  <p>Controller</p>  <div style="border-bottom: silver 1px solid; text-align: left; border-left: silver 1px solid; padding-bottom: 4px; line-height: 12pt; background-color: #f4f4f4; margin: 20px 0px 10px; padding-left: 4px; width: 97.5%; padding-right: 4px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; max-height: 200px; font-size: 8pt; overflow: auto; border-top: silver 1px solid; cursor: text; border-right: silver 1px solid; padding-top: 4px" id="codeSnippetWrapper">   <div style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; background-color: #f4f4f4; border-left-style: none; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; border-right-style: none; font-size: 8pt; overflow: visible; padding-top: 0px" id="codeSnippet">     <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; background-color: white; margin: 0em; border-left-style: none; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; border-right-style: none; font-size: 8pt; overflow: visible; padding-top: 0px"><span style="color: #606060" id="lnum1">   1:</span> <span style="color: #0000ff">public</span> ActionResult test()</pre>
 <!--CRLF--></div></div></p>
 
@@ -214,9 +214,9 @@
   
   <entry>
     <title type="html"><![CDATA[[ASP.NET MVC]編輯模式的下拉式選單]]></title>
-    <link href="http://SammyLin.github.io/blog/asp-net-mvc-edit-mode-drop-down-menu/"/>
+    <link href="http://blog.sammylin.tw/asp-net-mvc-edit-mode-drop-down-menu/"/>
     <updated>2011-07-04T00:00:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/asp-net-mvc-edit-mode-drop-down-menu</id>
+    <id>http://blog.sammylin.tw/asp-net-mvc-edit-mode-drop-down-menu</id>
     <content type="html"><![CDATA[<p><p> 因為剛玩ASP.NET MVC，對於真的很不熟，光搞了下拉式選單@Html.DropDownList我就快被搞死了，而且我又是用LINQ to Entities ，想要把編號放入Value為了要把他轉成數值就出現了問題，找了很久終於被我找到方法可以處理這個雷了&gt;&lt;。簡單到有點…</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image19.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb19.png" width="476" height="251" /></a></p>  <h4>Controllers</h4>  <p>   <div style="border-bottom: silver 1px solid; text-align: left; border-left: silver 1px solid; padding-bottom: 4px; line-height: 12pt; background-color: #f4f4f4; margin: 20px 0px 10px; padding-left: 4px; width: 97.5%; padding-right: 4px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; max-height: 200px; font-size: 8pt; overflow: auto; border-top: silver 1px solid; cursor: text; border-right: silver 1px solid; padding-top: 4px" id="codeSnippetWrapper">     <div style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; background-color: #f4f4f4; border-left-style: none; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; border-right-style: none; font-size: 8pt; overflow: visible; padding-top: 0px" id="codeSnippet">       <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; background-color: white; margin: 0em; border-left-style: none; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; border-right-style: none; font-size: 8pt; overflow: visible; padding-top: 0px"><span style="color: #606060" id="lnum1">   1:</span> <span style="color: #0000ff">public</span> ActionResult match_Create()</pre>
 <!--CRLF--></div></div></p>
 

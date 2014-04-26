@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Visual Studio 2010 | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/visual-studio-2010/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/visual-studio-2010/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[[VS2010]HTML 5 套件下載了…]]></title>
-    <link href="http://SammyLin.github.io/blog/vs2010html-5-e5-a5-97-e4-bb-b6-e4-b8-8b-e8-bc-89-e4-ba-86/"/>
+    <link href="http://blog.sammylin.tw/vs2010html-5-e5-a5-97-e4-bb-b6-e4-b8-8b-e8-bc-89-e4-ba-86/"/>
     <updated>2011-06-17T00:00:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/vs2010html-5-e5-a5-97-e4-bb-b6-e4-b8-8b-e8-bc-89-e4-ba-86</id>
+    <id>http://blog.sammylin.tw/vs2010html-5-e5-a5-97-e4-bb-b6-e4-b8-8b-e8-bc-89-e4-ba-86</id>
     <content type="html"><![CDATA[<p><p><img style="display: block; float: none; margin-left: auto; margin-right: auto" src="http://www.hanselman.com/blog/content/binary/Windows-Live-Writer/HTML5-Support-for-Visual-Studio-2010---W_90C5/vshtml5_thumb.png" />    <br /> 過去在vs2010在編輯HTML 5 的時候比較麻煩(感覺有了vs2010什麼都變的太方便xd)，現在微軟發佈了一個套件，可以讓你的vs2010 支援HTML 5 及 CSS 3的IntelliSense，方便許多。</p>  <table border="2" cellspacing="0" cellpadding="0" width="540"><tbody>     <tr>       <td valign="top" width="540">直接下載：<a href="SP1http://visualstudiogallery.msdn.microsoft.com/a15c3ce9-f58f-42b7-8668-53f6cdc2cd83/file/52418/1/Web%20Standards%20Update.msi" target="_blank">Web Standards Update for Microsoft Visual Studio 2010</a>          <br /> 參考資料：<a href="Editorhttp://www.hanselman.com/blog/AnnouncingTheWebStandardsUpdateHTML5SupportForTheVisualStudio2010Editor.aspx" target="_blank">Announcing the Web Standards Update - HTML5 Support for the Visual Studio 2010</a> </td>     </tr>   </tbody></table>  <p>但只支援VS2010 SP 1喔！~</p></p>
 
 ]]></content>

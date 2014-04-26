@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Free | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/free/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/free/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[在AWS可以免費用Windows Server 2008]]></title>
-    <link href="http://SammyLin.github.io/blog/aws-windows2008/"/>
+    <link href="http://blog.sammylin.tw/aws-windows2008/"/>
     <updated>2012-01-17T09:28:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/aws-windows2008</id>
+    <id>http://blog.sammylin.tw/aws-windows2008</id>
     <content type="html"><![CDATA[<p>自從<code>AWS</code>釋出Free Tier之後，雖然只有免費一年，但是還是有一些剛入門的新手，像我一樣，會去玩一下所謂的雲端是什麼，當初我也是看上他有免費可以玩，所以才會到AWS來玩玩，過去AWS EC2只讓你使用Amazon OS 做免費的項目，在昨天的時候官方網站釋出了好消息，就是可以使用Windows Server 2008的image，可能是AWS內windows的image使用率太低的關係吧，為了讓大家可以先嘗鮮看看，所以才跟微軟做出這樣子的協調。</p>
 
 <p>我們打開來 <a href="https://console.aws.amazon.com/console/home">AWS Management Console</a>來開啟一個新的instance然後把他拉到最下面就可以看到Windows Server 2008 旁邊有星星了(之前有講過星星代表有在Free Tier裡)

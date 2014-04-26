@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Tab | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/tab/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/tab/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[在Vim裡面做分頁]]></title>
-    <link href="http://SammyLin.github.io/blog/vim-tab-edit/"/>
+    <link href="http://blog.sammylin.tw/vim-tab-edit/"/>
     <updated>2012-01-16T14:36:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/vim-tab-edit</id>
+    <id>http://blog.sammylin.tw/vim-tab-edit</id>
     <content type="html"><![CDATA[<p>今天又學到一招好用的東西，就是在<code>vim</code>裡面做Tab(分頁)，用法很簡單。</p>
 
 <h3>開啟第一個Tab</h3>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Annotate | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/annotate/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/annotate/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[[Ruby]在model生成Schema Information-annotate]]></title>
-    <link href="http://SammyLin.github.io/blog/annotate-ruby/"/>
+    <link href="http://blog.sammylin.tw/annotate-ruby/"/>
     <updated>2012-01-18T11:17:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/annotate-ruby</id>
+    <id>http://blog.sammylin.tw/annotate-ruby</id>
     <content type="html"><![CDATA[<p><code>annotate</code>也是一個好用的工具，像我過去要看我table的schema時，還要開mysql GUI tools 來看，不然的話我都忘記我的schema是什麼(初老症越來越嚴重了)，只要安裝<code>annotate</code>的話他會幫你自動產生Schema information 在你的model裡面，就不用一直去看你的table裡的資料，這樣子的話coding的速度就會加快許多。</p>
 
 <!-- more -->

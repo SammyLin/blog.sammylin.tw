@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: FaceBook API | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/facebook-api/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/facebook-api/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[[FaceBook API]搜尋好友]]></title>
-    <link href="http://SammyLin.github.io/blog/search-facebook-friend/"/>
+    <link href="http://blog.sammylin.tw/search-facebook-friend/"/>
     <updated>2012-12-04T21:12:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/search-facebook-friend</id>
+    <id>http://blog.sammylin.tw/search-facebook-friend</id>
     <content type="html"><![CDATA[<p>在<a href="https://developers.facebook.com/docs/reference/api">Graph API</a>找了老半天
 只能夠用API撈到FB的所有好友，但是沒辦法塞入q=???來找到你想要的朋友只有像<code>粉絲頁</code>、<code>所有使用者</code>..等才能用</p>
 

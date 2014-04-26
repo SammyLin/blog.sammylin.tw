@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Design | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/design/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/design/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Golden Grid System]]></title>
-    <link href="http://SammyLin.github.io/blog/golden-grid-system/"/>
+    <link href="http://blog.sammylin.tw/golden-grid-system/"/>
     <updated>2012-04-14T15:35:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/golden-grid-system</id>
+    <id>http://blog.sammylin.tw/golden-grid-system</id>
     <content type="html"><![CDATA[<p>960 Grid System (網格設計系統)也是我最近看<a href="http://bootstrappingdesign.com/">Become the designer</a>這本書我才知道的。
 至於這是什麼呢。</p>
 

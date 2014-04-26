@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: DataBase | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/database/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/database/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[[Rails]Ruby on Rails上建置MongoDB]]></title>
-    <link href="http://SammyLin.github.io/blog/ror-ruby-on-rails-to-build-on-mongodb/"/>
+    <link href="http://blog.sammylin.tw/ror-ruby-on-rails-to-build-on-mongodb/"/>
     <updated>2011-10-30T00:00:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/ror-ruby-on-rails-to-build-on-mongodb</id>
+    <id>http://blog.sammylin.tw/ror-ruby-on-rails-to-build-on-mongodb</id>
     <content type="html"><![CDATA[<p>慢慢開始要繼續Coding了，最近碰到Nosql，想說要在Ruby on Rails上面開發Nosql來玩玩，所以選擇了MongoDB。MongoDB是文件導向的資料庫，是由C++開發的，而且官方開發了許多的Drive，就連我過去使用的C#也包含在裡面，這真是吃人夠夠呀(誤)，MongoDB也有gui的資料庫管理-MongoHub 只是我在寫這篇文章的同時，他的網站好像掛了，如果要下載可以到OSX玩意下載玩玩。</p>
 
 <h3>1.建立Rails框架</h3>
@@ -106,9 +106,9 @@ Database schema versionp</p>
   
   <entry>
     <title type="html"><![CDATA[[DB]簡易抓取正規化資料庫資料]]></title>
-    <link href="http://SammyLin.github.io/blog/db%E6%8A%93%E5%8F%96%E6%AD%A3%E8%A6%8F%E5%8C%96%E8%B3%87%E6%96%99%E5%BA%AB%E8%B3%87%E6%96%99/"/>
+    <link href="http://blog.sammylin.tw/db%E6%8A%93%E5%8F%96%E6%AD%A3%E8%A6%8F%E5%8C%96%E8%B3%87%E6%96%99%E5%BA%AB%E8%B3%87%E6%96%99/"/>
     <updated>2008-12-10T22:46:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/db抓取正規化資料庫資料</id>
+    <id>http://blog.sammylin.tw/db抓取正規化資料庫資料</id>
     <content type="html"><![CDATA[<p>相信對於剛接觸ASP.NET的人來說都會使用內建的控制項來抓資料~</p>
 
 <p>但到了比較熟了以後當然會想說自已來寫程式來抓資料</p>

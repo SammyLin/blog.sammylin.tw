@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Amazon Web Services (AWS) | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/amazon-web-services-aws/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/amazon-web-services-aws/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[在AWS可以免費用Windows Server 2008]]></title>
-    <link href="http://SammyLin.github.io/blog/aws-windows2008/"/>
+    <link href="http://blog.sammylin.tw/aws-windows2008/"/>
     <updated>2012-01-17T09:28:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/aws-windows2008</id>
+    <id>http://blog.sammylin.tw/aws-windows2008</id>
     <content type="html"><![CDATA[<p>自從<code>AWS</code>釋出Free Tier之後，雖然只有免費一年，但是還是有一些剛入門的新手，像我一樣，會去玩一下所謂的雲端是什麼，當初我也是看上他有免費可以玩，所以才會到AWS來玩玩，過去AWS EC2只讓你使用Amazon OS 做免費的項目，在昨天的時候官方網站釋出了好消息，就是可以使用Windows Server 2008的image，可能是AWS內windows的image使用率太低的關係吧，為了讓大家可以先嘗鮮看看，所以才跟微軟做出這樣子的協調。</p>
 
 <p>我們打開來 <a href="https://console.aws.amazon.com/console/home">AWS Management Console</a>來開啟一個新的instance然後把他拉到最下面就可以看到Windows Server 2008 旁邊有星星了(之前有講過星星代表有在Free Tier裡)
@@ -27,9 +27,9 @@
   
   <entry>
     <title type="html"><![CDATA[在AWS上安裝Octopress]]></title>
-    <link href="http://SammyLin.github.io/blog/install-octopress-in-aws/"/>
+    <link href="http://blog.sammylin.tw/install-octopress-in-aws/"/>
     <updated>2011-11-29T22:46:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/install-octopress-in-aws</id>
+    <id>http://blog.sammylin.tw/install-octopress-in-aws</id>
     <content type="html"><![CDATA[<p>安裝了Octopress，感覺還蠻開心的，因為我這個人有點懶，又找不到好的設計朋友，所以只要遇到好技術又加上預設的Theme的又蠻好看的，我就會把他列入我的list裡面(感覺我好不務正業喔= =)</p>
 
 <p>所以我要趕快來做個筆記好去睡覺了。</p>
@@ -177,9 +177,9 @@ To ec2-user@ou-ip:/home/ec2-user/octopress.git/
   
   <entry>
     <title type="html"><![CDATA[[AWS]新增可用地區美國西部(俄勒岡州)]]></title>
-    <link href="http://SammyLin.github.io/blog/aws-new-free-region-the-western-united-states-oregon/"/>
+    <link href="http://blog.sammylin.tw/aws-new-free-region-the-western-united-states-oregon/"/>
     <updated>2011-11-10T00:00:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/aws-new-free-region-the-western-united-states-oregon</id>
+    <id>http://blog.sammylin.tw/aws-new-free-region-the-western-united-states-oregon</id>
     <content type="html"><![CDATA[<p><p>有客戶在俄勒岡州的人或是自己住那邊的人應該是很開心的，但是其他的台灣朋友們，應該沒什麼好開心的~不過基於分享的原則還是跟大家講一下，雖然Amazon在台灣建Data Center機會很渺茫除非台灣政府又有500億要捐出來，不然不大可能。只能祈禱東京的Data Center可以在穩一點嗎？~~~US West (Oregon)的價錢跟US East (Northern Virginia)是一樣的，看來US West(Northern Califoenia)的客戶會跳槽了，因為這邊便宜了一點。</p>  <h4>US West(Oregon)目前支援的服務有</h4>  <ul>   <li>Amazon Elastic Compute Cloud (EC2) and related services (Elastic Block Store, Virtual Private Cloud, Elastic Load Balancing, and Auto Scaling).</li>    <li>Amazon Simple Storage Service (S3).</li>    <li>Amazon SimpleDB.</li>    <li>Amazon Relational Database Service (RDS).</li>    <li>Amazon Simple Queue Service (SQS).</li>    <li>Amazon Simple Notification Service (SNS).</li>    <li>Amazon Elastic MapReduce.</li>    <li>AWS CloudFormation.</li>    <li>Amazon CloudWatch.</li> </ul></p>
 
 ]]></content>
@@ -187,9 +187,9 @@ To ec2-user@ou-ip:/home/ec2-user/octopress.git/
   
   <entry>
     <title type="html"><![CDATA[[AWS]利用EC2架設Wordpress(影音)]]></title>
-    <link href="http://SammyLin.github.io/blog/aws-using-ec2-set-up-wordpress-video/"/>
+    <link href="http://blog.sammylin.tw/aws-using-ec2-set-up-wordpress-video/"/>
     <updated>2011-10-29T00:00:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/aws-using-ec2-set-up-wordpress-video</id>
+    <id>http://blog.sammylin.tw/aws-using-ec2-set-up-wordpress-video</id>
     <content type="html"><![CDATA[<p>第一次做影音的有點害羞，口齒不清或是講的不清楚的請多指教~</p>
 
 
@@ -202,9 +202,9 @@ To ec2-user@ou-ip:/home/ec2-user/octopress.git/
   
   <entry>
     <title type="html"><![CDATA[[分享]10/25 AWS BootCamp]]></title>
-    <link href="http://SammyLin.github.io/blog/share-1025-aws-bootcamp/"/>
+    <link href="http://blog.sammylin.tw/share-1025-aws-bootcamp/"/>
     <updated>2011-10-28T00:00:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/share-1025-aws-bootcamp</id>
+    <id>http://blog.sammylin.tw/share-1025-aws-bootcamp</id>
     <content type="html"><![CDATA[<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/image15.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-style: initial; border-color: initial; border-width: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/image_thumb15.png" alt="image" width="713" border="0" /></a></p>
 
 

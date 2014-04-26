@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Rails on Ruby | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/rails-on-ruby/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/rails-on-ruby/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[[NoSQL]在OS X安裝MongoDB]]></title>
-    <link href="http://SammyLin.github.io/blog/mongodb-nosql-mac-osx-rails-on-ruby/"/>
+    <link href="http://blog.sammylin.tw/mongodb-nosql-mac-osx-rails-on-ruby/"/>
     <updated>2011-10-15T00:00:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/mongodb-nosql-mac-osx-rails-on-ruby</id>
+    <id>http://blog.sammylin.tw/mongodb-nosql-mac-osx-rails-on-ruby</id>
     <content type="html"><![CDATA[<p>最近因為在玩Ruby on Rails的關係，就順便玩了一下NoSQL，因為NoSQL實在太多了，不知道要選什麼！剛好聽說ROR支援MongoDB比較多，所以就先選擇了MongoDB。安裝其實很簡單只要幾個步驟而已.</p>
 
 

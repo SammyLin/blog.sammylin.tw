@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Mongoid | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/mongoid/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/mongoid/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[[rails]建置MongoDB環境利用mongoid]]></title>
-    <link href="http://SammyLin.github.io/blog/rails-mongoid/"/>
+    <link href="http://blog.sammylin.tw/rails-mongoid/"/>
     <updated>2011-12-08T14:18:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/rails-mongoid</id>
+    <id>http://blog.sammylin.tw/rails-mongoid</id>
     <content type="html"><![CDATA[<p>之前用了<code>mongo_mapper</code>感覺很好用，不過發現要裝一些plugin的時候，像是desice時，就會有一些問題的存在，所以我改用<code>mongoid</code>來使用，比較順許多，而且不用在<code>rails g model XXX --orm==mongo_mapper</code>之類的。</p>
 
 <h3>用gem 安裝</h3>

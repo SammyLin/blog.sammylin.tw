@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: 隨便說說 | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/sui-bian-shuo-shuo/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/sui-bian-shuo-shuo/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[李家同講什麼雲端啊！你懂不懂啊…]]></title>
-    <link href="http://SammyLin.github.io/blog/e6-9d-8e-e5-ae-b6-e5-90-8c-e8-ac-9b-e4-bb-80-e9-ba-bc-e9-9b-b2-e7-ab-af-e5-95-8a-ef-bc-81-e4-bd-a0-e6-87-82-e4-b8-8d-e6-87-82-e5-95-8a/"/>
+    <link href="http://blog.sammylin.tw/e6-9d-8e-e5-ae-b6-e5-90-8c-e8-ac-9b-e4-bb-80-e9-ba-bc-e9-9b-b2-e7-ab-af-e5-95-8a-ef-bc-81-e4-bd-a0-e6-87-82-e4-b8-8d-e6-87-82-e5-95-8a/"/>
     <updated>2011-06-15T00:00:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/e6-9d-8e-e5-ae-b6-e5-90-8c-e8-ac-9b-e4-bb-80-e9-ba-bc-e9-9b-b2-e7-ab-af-e5-95-8a-ef-bc-81-e4-bd-a0-e6-87-82-e4-b8-8d-e6-87-82-e5-95-8a</id>
+    <id>http://blog.sammylin.tw/e6-9d-8e-e5-ae-b6-e5-90-8c-e8-ac-9b-e4-bb-80-e9-ba-bc-e9-9b-b2-e7-ab-af-e5-95-8a-ef-bc-81-e4-bd-a0-e6-87-82-e4-b8-8d-e6-87-82-e5-95-8a</id>
     <content type="html"><![CDATA[<p><div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:5737277B-5D6D-4f48-ABFC-DD9C333F4C5D:d4cbd1b1-14df-44dd-97bd-49f9b3bfd394" class="wlWriterEditableSmartContent"><div><object width="448" height="252"><param name="movie" value="http://www.youtube.com/v/IAUbbDHkV1U?hl=en&amp;hd=1" /><embed src="http://www.youtube.com/v/IAUbbDHkV1U?hl=en&amp;hd=1" type="application/x-shockwave-flash" width="448" height="252"></embed></object></div><div style="width:448px;clear:both;font-size:.8em">李家同講雲端~~~</div></div>  <p> 今天早上在FB上面看到一個高中同學分享的一個影片，看來他很不懂「雲端」。本來以為他會為雲端定義一個不該放機密資料或是了解對於雲端計算可以參考的資訊。什麼叫做「<font color="#ff0000" size="5">死了就在雲端</font>」，看來他很怕死吧？以前聽他說一些東西感覺很有參考的價值，沒想到因為這段影片讓我對<em>李家同教授</em>打了個折扣。</p></p>
 
 ]]></content>

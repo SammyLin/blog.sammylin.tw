@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Ruby on Rails | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/ruby-on-rails/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/ruby-on-rails/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[[Rails] 進入網站前驗證]]></title>
-    <link href="http://SammyLin.github.io/blog/http-basic-authenticate/"/>
+    <link href="http://blog.sammylin.tw/http-basic-authenticate/"/>
     <updated>2012-12-04T20:41:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/http-basic-authenticate</id>
+    <id>http://blog.sammylin.tw/http-basic-authenticate</id>
     <content type="html"><![CDATA[<p>有時候專案尚未公開時，還是需要放到網路上讓其他人來瀏覽，這時候為了怕非相關人員看到這個網站的話，就需要有個關卡，通常都會在nginx或apache來設定，但是這往往還要進到server去處理。
 如果在rails上你不想這麼麻煩的話，可以在<code>ApplicationController</code>上直接加上這一行</p>
 
@@ -42,9 +42,9 @@ end</p>
   
   <entry>
     <title type="html"><![CDATA[[Ruby]匯出csv檔時在excel開啟時亂碼]]></title>
-    <link href="http://SammyLin.github.io/blog/export-to-csv-has-mojibake/"/>
+    <link href="http://blog.sammylin.tw/export-to-csv-has-mojibake/"/>
     <updated>2012-07-26T09:40:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/export-to-csv-has-mojibake</id>
+    <id>http://blog.sammylin.tw/export-to-csv-has-mojibake</id>
     <content type="html"><![CDATA[<p>做個筆記吧..前幾次都是開箱文..哈哈，感覺有點偷懶</p>
 
 <p>以前在<code>ASP.NET</code>的時候要把資料倒進Excel或是CSV，是不怎麼痛的，畢竟都是同一家人嘛。但是我今天要在<code>Ruby</code>中倒資料進去CSV的時候，就會有編碼上的問題。</p>
@@ -163,9 +163,9 @@ end</p>
   
   <entry>
     <title type="html"><![CDATA[出現private Method `write_uploader' Called For]]></title>
-    <link href="http://SammyLin.github.io/blog/write-uploader-error/"/>
+    <link href="http://blog.sammylin.tw/write-uploader-error/"/>
     <updated>2012-04-24T22:29:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/write-uploader-error</id>
+    <id>http://blog.sammylin.tw/write-uploader-error</id>
     <content type="html"><![CDATA[<p>用<a href="https://github.com/jnicklas/carrierwave">carrierwave</a>做我的upload plugin
 用的時候很正常，有一天突然噴出了錯誤訊息</p>
 
@@ -195,9 +195,9 @@ end</code></pre></noscript></div>
   
   <entry>
     <title type="html"><![CDATA[[Rails]製作下拉式選單集合]]></title>
-    <link href="http://SammyLin.github.io/blog/simple-form-collection/"/>
+    <link href="http://blog.sammylin.tw/simple-form-collection/"/>
     <updated>2012-04-20T10:34:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/simple-form-collection</id>
+    <id>http://blog.sammylin.tw/simple-form-collection</id>
     <content type="html"><![CDATA[<p>目前的狀況是這樣子的，目前是有做<code>CMS</code>所以需要有</p>
 
 <pre><code># Public(公開)
@@ -241,9 +241,9 @@ zh-TW:
   
   <entry>
     <title type="html"><![CDATA[[Ruby]在model生成Schema Information-annotate]]></title>
-    <link href="http://SammyLin.github.io/blog/annotate-ruby/"/>
+    <link href="http://blog.sammylin.tw/annotate-ruby/"/>
     <updated>2012-01-18T11:17:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/annotate-ruby</id>
+    <id>http://blog.sammylin.tw/annotate-ruby</id>
     <content type="html"><![CDATA[<p><code>annotate</code>也是一個好用的工具，像我過去要看我table的schema時，還要開mysql GUI tools 來看，不然的話我都忘記我的schema是什麼(初老症越來越嚴重了)，只要安裝<code>annotate</code>的話他會幫你自動產生Schema information 在你的model裡面，就不用一直去看你的table裡的資料，這樣子的話coding的速度就會加快許多。</p>
 
 <!-- more -->

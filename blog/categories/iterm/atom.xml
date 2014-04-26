@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: iTerm | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/iterm/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/iterm/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[在iterm2修改字體]]></title>
-    <link href="http://SammyLin.github.io/blog/iterm2-change-font/"/>
+    <link href="http://blog.sammylin.tw/iterm2-change-font/"/>
     <updated>2013-04-21T14:47:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/iterm2-change-font</id>
+    <id>http://blog.sammylin.tw/iterm2-change-font</id>
     <content type="html"><![CDATA[<p><img src="http://farm9.staticflickr.com/8115/8674261553_7e6abea1bf_o.png" alt="" /></p>
 
 <p>Profile > Open Profile</p>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: 筆記 | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/bi-ji/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/bi-ji/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[產生Rails專案裡所有的routes]]></title>
-    <link href="http://SammyLin.github.io/blog/rails-rake-routes/"/>
+    <link href="http://blog.sammylin.tw/rails-rake-routes/"/>
     <updated>2012-01-13T14:30:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/rails-rake-routes</id>
+    <id>http://blog.sammylin.tw/rails-rake-routes</id>
     <content type="html"><![CDATA[<p>最近有高人指點我發現頭腦越來越清晰，考試都可以考一百分了，因為剛開始摸<code>Ruby on Rails</code>的時候太多東西搞不懂了，例如：</p>
 
 <pre><code>&lt;%= link_to `show` , board_path(@board) %&gt;

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: HPX | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/hpx/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/hpx/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[HPX Junior 5]]></title>
-    <link href="http://SammyLin.github.io/blog/hpx-junior-5/"/>
+    <link href="http://blog.sammylin.tw/hpx-junior-5/"/>
     <updated>2012-06-20T09:19:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/hpx-junior-5</id>
+    <id>http://blog.sammylin.tw/hpx-junior-5</id>
     <content type="html"><![CDATA[<h3>我真的猜不透你</h3>
 
 <p><img src="https://lh4.googleusercontent.com/-66cUzaHeWIg/T-E1PRdBvOI/AAAAAAAAB4U/CODLyaY31eU/s800/250762_10150854705421784_1101531581_n-1.jpeg" alt="" /></p>

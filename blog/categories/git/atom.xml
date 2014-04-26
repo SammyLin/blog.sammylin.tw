@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Git | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/git/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[讓你的Command Line知道你在哪一個branch上]]></title>
-    <link href="http://SammyLin.github.io/blog/git-color/"/>
+    <link href="http://blog.sammylin.tw/git-color/"/>
     <updated>2012-01-14T01:00:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/git-color</id>
+    <id>http://blog.sammylin.tw/git-color</id>
     <content type="html"><![CDATA[<p>開始學會用Git了，因為Git的功能還蠻強大的，最近在做Branch的時候，有時候會忘了自己在哪一個Branch上，直到有人介紹我一篇文章(<a href="http://ihower.tw/blog/archives/5436">我的Git偏號設定</a>)。</p>
 
 <p>只要在~/.bash_profile上新增下面幾行</p>
@@ -64,9 +64,9 @@ PS1="[\[\033[1;32m\]\w\[\033[0m\]] \[\033[0m\]\[\033[1;36m\]\$(git_branch)\[\033
   
   <entry>
     <title type="html"><![CDATA[我的Git筆記]]></title>
-    <link href="http://SammyLin.github.io/blog/my-git-note/"/>
+    <link href="http://blog.sammylin.tw/my-git-note/"/>
     <updated>2012-01-12T13:01:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/my-git-note</id>
+    <id>http://blog.sammylin.tw/my-git-note</id>
     <content type="html"><![CDATA[<p>自從看了XDite的<a href="http://rails-101.logdown.com/">Rails 101 &ndash; 火速學會 Ruby on Rails</a>之後，就買了第一台的MAC，發現有好多東西需要學習，就像Git也是我近期才學會的，可能會很少資料，不過慢慢用慢慢的補充資料</p>
 
 <h3>第一個GIT</h3>

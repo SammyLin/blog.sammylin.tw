@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Ruby | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/ruby/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[[Ruby]編碼學問很大]]></title>
-    <link href="http://SammyLin.github.io/blog/nokogiri-encoding/"/>
+    <link href="http://blog.sammylin.tw/nokogiri-encoding/"/>
     <updated>2012-10-10T11:56:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/nokogiri-encoding</id>
+    <id>http://blog.sammylin.tw/nokogiri-encoding</id>
     <content type="html"><![CDATA[<h3>問題：</h3>
 
 <p><a href="http://nokogiri.org">Nokogiri</a>是一個網頁擷取的一個很好的工具，所以我會用他當做我要抓網站資料的首選，就像Nokogiri的網站使用說明一樣，我們只要用下面三行就可以使用Nokogiri，之後在用他內建幾個method來做處理，但今天不講怎麼做處理</p>
@@ -63,9 +63,9 @@ ic = Iconv.new("utf-8//translit//IGNORE","big5")
   
   <entry>
     <title type="html"><![CDATA[[Ruby] Strftime 常用格式 筆記]]></title>
-    <link href="http://SammyLin.github.io/blog/ruby-strftime/"/>
+    <link href="http://blog.sammylin.tw/ruby-strftime/"/>
     <updated>2012-09-07T22:26:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/ruby-strftime</id>
+    <id>http://blog.sammylin.tw/ruby-strftime</id>
     <content type="html"><![CDATA[<p>範例時間：<code>2012-09-07 22:33:25 +0800</code></p>
 
 <h3>時間Time</h3>
@@ -127,9 +127,9 @@ ic = Iconv.new("utf-8//translit//IGNORE","big5")
   
   <entry>
     <title type="html"><![CDATA[[AWS] Ruby可以使用 AWS SDK了]]></title>
-    <link href="http://SammyLin.github.io/blog/aws-ruby-can-use-the-aws-sdk/"/>
+    <link href="http://blog.sammylin.tw/aws-ruby-can-use-the-aws-sdk/"/>
     <updated>2011-07-15T00:00:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/aws-ruby-can-use-the-aws-sdk</id>
+    <id>http://blog.sammylin.tw/aws-ruby-can-use-the-aws-sdk</id>
     <content type="html"><![CDATA[<p>amazon又替AWS新增一個SDK了，也就是Ruby for SDK 這樣的消息，台灣的Ruby大老們應該很開心才對，就像<a title="xdite" href="http://twitter.com/#!/xdite" target="_blank">xdite</a>或是<a title="ihower" href="http://twitter.com/#!/ihower" target="_blank">ihower</a>這樣的高手們應該會想要馬上試試看效果如何，雖然我們Ruby的老爸<u>松本行弘</u>，跑去了Heroku當首席架構師，Heroku本身是以Ruby的雲端運算平台，是屬於PaaS架構現在有了<u>松本行弘</u>的加持，一定可以更加的強大。因為個人也覺得Heroku在開發是Ruby是很方便的，只要幾個指令就可以compile放到Heroku上面了。不過我們今天主要來介紹一下AWS SDK for Ruby。</p>
 
 

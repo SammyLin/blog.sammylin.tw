@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Mysql | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/mysql/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/mysql/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[[Mysql]優化]]></title>
-    <link href="http://SammyLin.github.io/blog/mysql-optimization/"/>
+    <link href="http://blog.sammylin.tw/mysql-optimization/"/>
     <updated>2011-12-03T09:34:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/mysql-optimization</id>
+    <id>http://blog.sammylin.tw/mysql-optimization</id>
     <content type="html"><![CDATA[<p>因為過去都沒有接觸到mysql的環境處理，(DBA很重要的)而我最近架在<code>AWS
 </code>的mysql常常會loading過重，問了一下高手才知道我沒有做MYSQL的優化，查了資料以後才知道MYSQL的優化很簡單</p>
 

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Octopress | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/octopress/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[在你的octopress裝上yahoo站長工具]]></title>
-    <link href="http://SammyLin.github.io/blog/octopress-plugin-yahoo-webmaster/"/>
+    <link href="http://blog.sammylin.tw/octopress-plugin-yahoo-webmaster/"/>
     <updated>2012-01-19T14:25:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/octopress-plugin-yahoo-webmaster</id>
+    <id>http://blog.sammylin.tw/octopress-plugin-yahoo-webmaster</id>
     <content type="html"><![CDATA[<p>很可惜，Octopress沒有Yahoo站長工具，只有<code>Google Analytics</code>所以這樣子的話只好自己裝了，因為每個人有每個不同的習慣，有的愛看Google有的愛看Yahoo，像我有時候會看兩個都看，其實我也不知道要看什麼，看那個人數飆高就有一股爽度，那是一開始啦，到最後已經沒有那種爽度了，我還記得以前每天都會去看，搞的好像看股票一樣，加入Yahoo站長工具，其實不難，基本上只要看的懂HTML，然後把他加進去就好了，不過樣子還蠻不漂亮的，我就把他做成一個plugin，供大家使用囉。</p>
 
 <!-- more -->
@@ -48,9 +48,9 @@ yahoo_webmaster_id: &lt;id&gt;
   
   <entry>
     <title type="html"><![CDATA[Octopress統計文章數量]]></title>
-    <link href="http://SammyLin.github.io/blog/octopress-plugin-article-total/"/>
+    <link href="http://blog.sammylin.tw/octopress-plugin-article-total/"/>
     <updated>2012-01-19T10:19:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/octopress-plugin-article-total</id>
+    <id>http://blog.sammylin.tw/octopress-plugin-article-total</id>
     <content type="html"><![CDATA[<p>最近在訂定一個小目標，就是要在今年破200篇文章，但是octopress的外掛需要自己寫，看了高見龍大大的<a href="http://blog.eddie.com.tw/2011/12/05/add-catetories-to-sidebar-in-octopress/">幫你的Octopress增加文章分類</a>文章，也直接偷偷改了他的程式碼，產生文章數量的silderbar。</p>
 
 <p>把下面的程式碼新增到<code>plugins/article_total.rb</code></p>
@@ -160,9 +160,9 @@ article_my_site_article : 篇文章
   
   <entry>
     <title type="html"><![CDATA[在AWS上安裝Octopress]]></title>
-    <link href="http://SammyLin.github.io/blog/install-octopress-in-aws/"/>
+    <link href="http://blog.sammylin.tw/install-octopress-in-aws/"/>
     <updated>2011-11-29T22:46:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/install-octopress-in-aws</id>
+    <id>http://blog.sammylin.tw/install-octopress-in-aws</id>
     <content type="html"><![CDATA[<p>安裝了Octopress，感覺還蠻開心的，因為我這個人有點懶，又找不到好的設計朋友，所以只要遇到好技術又加上預設的Theme的又蠻好看的，我就會把他列入我的list裡面(感覺我好不務正業喔= =)</p>
 
 <p>所以我要趕快來做個筆記好去睡覺了。</p>
@@ -310,9 +310,9 @@ To ec2-user@ou-ip:/home/ec2-user/octopress.git/
   
   <entry>
     <title type="html"><![CDATA[Hello Octopress]]></title>
-    <link href="http://SammyLin.github.io/blog/hello-octopress/"/>
+    <link href="http://blog.sammylin.tw/hello-octopress/"/>
     <updated>2011-11-29T17:01:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/hello-octopress</id>
+    <id>http://blog.sammylin.tw/hello-octopress</id>
     <content type="html"><![CDATA[<p>我記得我第一次寫<code>Blog</code>是用<a href="http://www.dotblogs.com.tw">點部落</a>，也是因為當初在寫<code>C#</code>，而且這裡主要是Windows相關技術高手的所在地，常常我也來在這拜碼頭，等到退伍之後，自己架了<code>WordPress</code>，但是光是排版文字就花了我很多時間，其實過去我在寫C#的時候，因為<strong>VS2005</strong>到現在的<strong>VS2010</strong>太好用了，很多真正要學的東西我卻不會，所以我現在開始學習如何使用：</p>
 
 <ul>

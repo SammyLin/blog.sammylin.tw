@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Apple | Sammy Lin]]></title>
-  <link href="http://SammyLin.github.io/blog/blog/categories/apple/atom.xml" rel="self"/>
-  <link href="http://SammyLin.github.io/blog/"/>
-  <updated>2014-04-26T13:44:59+08:00</updated>
-  <id>http://SammyLin.github.io/blog/</id>
+  <link href="http://blog.sammylin.tw/blog/categories/apple/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-04-26T14:06:00+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Mac新一代OS 新功能介紹 - Messages]]></title>
-    <link href="http://SammyLin.github.io/blog/imessage-in-os-x/"/>
+    <link href="http://blog.sammylin.tw/imessage-in-os-x/"/>
     <updated>2012-02-17T17:35:00+08:00</updated>
-    <id>http://SammyLin.github.io/blog/imessage-in-os-x</id>
+    <id>http://blog.sammylin.tw/imessage-in-os-x</id>
     <content type="html"><![CDATA[<p><img src="http://farm8.staticflickr.com/7199/6890618943_b0f8d582d3.jpg" alt="iMessages" /></p>
 
 <p>終於等到這一刻了&hellip;..我本人是沒有iPhone的，但是有一台MacBook頂多只能用FaceTime跟我"古錐的"對話，但是有時候還是很不方便呀。因為有很多時候是不適合用FaceTime的，難不成要在辦公室跟"古錐的"甜甜蜜蜜，難不成要閃死一堆人嗎？看來Apple聽到我們的聲音了</p>
