@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Vim | Sammy Lin]]></title>
   <link href="http://blog.sammylin.tw/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://blog.sammylin.tw/"/>
-  <updated>2014-04-26T15:25:52+08:00</updated>
+  <updated>2014-04-27T00:21:17+08:00</updated>
   <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
@@ -22,7 +22,7 @@
 
 <p>我以前是用ASP.NET的時候只有 Visual Studio 可以選擇，我根本沒機會摸到其他的編輯器，直到跳到<code>Ruby on Rails</code>之後，也找了許多IDE，例如：RubyMine, Netbeans，但發現，好像沒有這好用，之後問了許多使用Rails的大大才發現，大家都不用這些，用的都是Sublime Text, Textmate, vim 。</p>
 
-<p>剛開始的時候也是使用vim，然後找了一堆大大的vimrc來裝，但是裝一裝發現，好像還是不大會用 GG ，最後又跳到Sublime Text，因為我是寫Rails的，所以我在在許多partial中進進出出的，很麻煩，我聽到vim有一個plugin叫做<code>vim-rails</code>，可以按<code>gt</code>就可以跳到該行的檔案，所以我又跳回了vim。XDDD</p>
+<p>剛開始的時候也是使用vim，然後找了一堆大大的vimrc來裝，但是裝一裝發現，好像還是不大會用 GG ，最後又跳到Sublime Text，因為我是寫Rails的，所以我在許多partial中進進出出的，很麻煩，我聽到vim有一個plugin叫做<code>vim-rails</code>，可以按<code>gt</code>就可以跳到該行的檔案，所以我又跳回了vim。XDDD</p>
 
 <p><img src="http://farm9.staticflickr.com/8258/8675388026_4345f1da19_o.jpg" alt="" /></p>
 
