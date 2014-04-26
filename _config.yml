@@ -2,13 +2,12 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://SammyLin.github.io/blog
+title: Sammy Lin
+subtitle: 旅居台北的高雄人
+author: Sammy
 simple_search: https://www.google.com/search
 description:
-
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
 # http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
@@ -16,7 +15,7 @@ description:
 date_format: "ordinal"
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
-subscribe_rss: /atom.xml
+subscribe_rss: http://feeds.feedburner.com/igotcloud
 subscribe_email:
 # RSS feeds can list your email address if you like
 email:
@@ -26,10 +25,10 @@ email:
 # ----------------------- #
 
 # If publishing to a subdirectory as in http://site.com/project set 'root: /project'
-root: /
-permalink: /blog/:year/:month/:day/:title/
+root: /blog
+permalink: /:title/
 source: source
-destination: public
+destination: public/blog
 plugins: plugins
 code_dir: downloads/code
 category_dir: blog/categories
@@ -69,16 +68,16 @@ github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:
+twitter_user: "SammyLinTw"
 twitter_tweet_button: true
 
 # Google +1
-google_plus_one: false
+google_plus_one: true
 google_plus_one_size: medium
 
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
-googleplus_user:
+googleplus_user: "113306354398877276439"
 googleplus_hidden: false
 
 # Pinboard
@@ -90,11 +89,11 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+disqus_short_name: "igotcloud"
+disqus_show_comment_count: true
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-23558179-1
 
 # Facebook Like
-facebook_like: false
+facebook_like: true

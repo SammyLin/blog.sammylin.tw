@@ -1,0 +1,49 @@
+---
+layout: post
+title: "讓你的Command Line知道你在哪一個branch上"
+date: 2012-01-14 01:00
+comments: true
+categories: [Git]
+
+---
+
+開始學會用Git了，因為Git的功能還蠻強大的，最近在做Branch的時候，有時候會忘了自己在哪一個Branch上，直到有人介紹我一篇文章([我的Git偏號設定](http://ihower.tw/blog/archives/5436))。
+
+只要在~/.bash_profile上新增下面幾行
+
+<!--more -->
+
+	function git_branch {
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
+    echo "("${ref#refs/heads/}") ";
+	}
+
+	function git_since_last_commit {
+    now=`date +%s`;
+    last_commit=$(git log --pretty=format:%at -1 2> /dev/null) || return;
+    seconds_since_last_commit=$((now-last_commit));
+    minutes_since_last_commit=$((seconds_since_last_commit/60));
+    hours_since_last_commit=$((minutes_since_last_commit/60));
+    minutes_since_last_commit=$((minutes_since_last_commit%60));
+    
+    echo "${hours_since_last_commit}h${minutes_since_last_commit}m ";
+	}
+
+	PS1="[\[\033[1;32m\]\w\[\033[0m\]] \[\033[0m\]\[\033[1;36m\]\$(git_branch)\[\033[0;33m\]\$(git_since_last_commit)\[\033[0m\]$ "
+
+之後執行
+
+` $ source ~/.bash_profile`
+
+![](https://lh3.googleusercontent.com/-Tz9C5lvudTY/TxBlwQLRXII/AAAAAAAABmE/1KnbDCKhqKI/s640/Screen%252520Shot%2525202012-01-14%252520at%252520%2525E4%2525B8%25258A%2525E5%25258D%2525881.11.02.png)
+
+這樣就會變漂亮啦…而且又有上次commit到現在已經過了多久。
+
+如果要改顏色的話可以參考 [printf 顏色設置](http://chunchaichang.blogspot.com/2011/07/printf.html)
+
+### 參考網站
+
+>[我的Git偏號設定](http://ihower.tw/blog/archives/5436) by ihower
+
+> [printf 顏色設置](http://chunchaichang.blogspot.com/2011/07/printf.html) by Tech黑手 - 工作雜記
+

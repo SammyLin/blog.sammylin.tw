@@ -1,0 +1,54 @@
+---
+layout: post
+title: ! '[AWS][EC2]利用SSH連入實體Linux主機'
+categories:
+- Amazon Web Services (AWS)
+- Elastic Compute Cloud(EC2)
+tags:
+- Amazon Linux
+- Amazon Web Services(AWS)
+- Elastic Compute Cloud(EC2)
+- Instance
+- Key
+- PuTTY
+- ssh
+published: true
+comments: true
+---
+<p>在剛剛那篇文章「<a title="http://blog.cornerlife.tw/awsec2%E5%BB%BA%E7%AB%8B%E5%AF%A6%E9%AB%94launch-instance.html" href="http://blog.cornerlife.tw/awsec2%E5%BB%BA%E7%AB%8B%E5%AF%A6%E9%AB%94launch-instance.html" target="_blank">[AWS][EC2]建立實體(Launch Instance)</a>」我們利用了<a href="http://console.aws.amazon.com/ec2/home">AWS Management Console</a>建立了實體，很可惜Amazon 的 Console沒辦法直接連到主機(以後有可能嗎？~~看情況吧~)所以我們用SSH方式連入，請先下載以下兩個軟體：
+<ol>
+	<li><a title="http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe" href="http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe" target="_blank">PuTTY</a></li>
+	<li><a title="http://the.earth.li/~sgtatham/putty/latest/x86/puttygen.exe" href="http://the.earth.li/~sgtatham/putty/latest/x86/puttygen.exe">PuTTYgen</a></li>
+</ol>
+我們從AWS Mangement Console裡看到我們剛剛建立了一個Instance了，注意到下頁面，我們可知道EC2建立Instance後給他了一個私人ip、私人dns 、公用dns，我們等等可以利用「公用DNS」來連入主機，我們剛剛連立的Instance的公用dns「ec2-175-41-204-110.ap-northeast-1.compute.amazonaws.com」所以將他記住後等等我們就會用到了！</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image32.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb32.png" border="0" alt="image" width="544" height="304" /></a></p>
+
+<p><!--more--></p>
+
+<p>1.打開<a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image22.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb22.png" border="0" alt="image" width="66" height="82" /></a>按下「Conversions&gt;Import key」將剛剛建立Instance所產生的Key 檔<a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image23.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb23.png" border="0" alt="image" width="68" height="84" /></a>匯入<a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image24.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb24.png" border="0" alt="image" width="501" height="487" /></a></p>
+
+<p>2.接下來就找到「Save Private key」的按鈕，按下去存檔</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image25.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb25.png" border="0" alt="image" width="501" height="484" /></a></p>
+
+<p>3.取得<a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image26.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb26.png" border="0" alt="image" width="72" height="82" /></a>後，我們開啟<a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image27.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb27.png" border="0" alt="image" width="59" height="65" /></a></p>
+
+<p>4.在Host Name 輸入實體的「公用DNS」</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image28.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb28.png" border="0" alt="image" width="472" height="453" /></a>
+5.在左邊我們找到一個「Connection&gt;SSH&gt;Auth」按下「Browse」的按鈕把剛產生的ppk檔連結輸入，然後按下OPEN</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image29.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb29.png" border="0" alt="image" width="472" height="454" /></a></p>
+
+<p>6.按「是」</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image30.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb30.png" border="0" alt="image" width="468" height="329" /></a></p>
+
+<p>7.登入的帳號是「ec2-user」</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image31.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb31.png" border="0" alt="image" width="544" height="346" /></a></p>
+
+<p>歡迎進入~~~~~</p>
+
+<p>不過他的「公用DNS」時常會換，如果要固定的話只要申請「Elastic IPs」就行了<a href="http://blog.cornerlife.tw/awsec2%e7%82%bainstance%e7%a7%9f%e7%94%a8%e4%b8%80%e5%80%8belastic-ip.html">(如何租用Elastic IP)</a></p>

@@ -1,0 +1,19 @@
+---
+layout: post
+title: "[OS X]purge-bug"
+date: 2012-08-29 09:47
+comments: true
+categories: [OS X]
+---
+
+前些日子把 OSx更新到10.8.1版，平常我用一陣子電腦，記憶體會佔的滿滿的，我就會執行`purge`來清除一下記憶體。但是噴出了錯誤：
+
+
+    [ERROR]<CPPathUtils.c:526>The device-file for this operating system, 'osx-12.1.0.xml', was not found. An attempt to revert to a previous revision of the OS device-file: 'osx-12.0.0.xml' has been made. Please file a Radar report with Apple, on the 'CoreProfile' component, version 'X'.
+
+上網google了以後，發現原來是他10.8.1的Bug
+
+- [OS X Mountain Lion 10.8.1 Update Released](http://osxdaily.com/2012/08/23/os-x-mountain-lion-10-8-1-update-released/)
+- [Anyone know why I got this Terminal Error? [ERROR]     <CPPathUtils.c:526>     The device-file for this operating system, 'osx-12.1.0.xml', was not found.](https://discussions.apple.com/thread/4239648?start=0&tstart=0)
+
+看來只能等更新囉，不過還是可以正常的使用啦，不用擔心

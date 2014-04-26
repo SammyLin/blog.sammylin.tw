@@ -1,0 +1,73 @@
+---
+layout: post
+title: ! '[NoSQL]在OS X安裝MongoDB'
+categories: [Rails on Ruby, OS X, MongoDb]
+---
+<p>最近因為在玩Ruby on Rails的關係，就順便玩了一下NoSQL，因為NoSQL實在太多了，不知道要選什麼！剛好聽說ROR支援MongoDB比較多，所以就先選擇了MongoDB。安裝其實很簡單只要幾個步驟而已.</p>
+
+<p>如果你是32位元的話</p>
+
+<p>$ curl <a title="http://fastdl.mongodb.org/osx/mongodb-osx-i386-2.0.0.tgz" href="http://fastdl.mongodb.org/osx/mongodb-osx-i386-2.0.0.tgz">http://fastdl.mongodb.org/osx/mongodb-osx-i386-2.0.0.tgz</a>&gt; mongodb.taz</p>
+
+<p>64位元</p>
+
+<p><a href="http://fastdl.mongodb.org/osx/mongodb-osx-x86_64-2.0.0.tgz">http://fastdl.mongodb.org/osx/mongodb-osx-x86_64-2.0.0.tgz</a> &gt; mongodb.taz<br />
+解壓縮<!--more--></p>
+
+<p>$ tar xzf mongodb.taz</p>
+
+<p>移動到 local</p>
+
+<p>$ sudo mv mongodb-osx-XXX_XX-2.0.0/ /usr/local/mongodb</p>
+
+<p>為了少打一些參數，我建立了一個mongod.conf檔</p>
+
+<p>$ sudo vi /usr/local/mongodb/mongodb.conf</p>
+
+<p>#預設的Mongodb存放位置是在
+<pre lang="LANGUAGE">/data/dbdbpath = /usr/local/mongodb_data
+# 只給本機存取,如果是不是就把他拿掉吧
+bind_ip = 127.0.0.1
+測試一下可不可以work</pre>
+<pre>$ sudo /usr/local/mongodb//bin/mongod</pre></p>
+
+<p>之後開瀏覽器看一下http://localhost:28017/ 應該就會看到這個畫面
+<img src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/Screen-Shot1032.png" alt="Screen Shot1032.png" width="544" height="306" /></p>
+
+<p>但是關掉不就沒了嗎？…那我們讓mac osx 在自己執行mongodb</p>
+
+<p>$ sudo vi /Library/LaunchDaemons/org.mongodb.mongod.plist
+<pre lang="LANGUAGE"><!--?xml version="1.0" encoding="UTF-8"?--></pre></p>
+
+<p>  Label<br />
+  org.mongodb.mongod<br />
+  ProgramArguments</p>
+
+<p>    /usr/local/mongodb/bin/mongod<br />
+    run<br />
+    --config<br />
+    /usr/local/mongodb/mongod.conf</p>
+
+<p>  RunAtLoad</p>
+
+<p>  KeepAlive</p>
+
+<p>  WorkingDirectory<br />
+  /usr/local/mongodb<br />
+  StandardErrorPath<br />
+  /var/log/mongodb/output.log<br />
+  StandardOutPath<br />
+  /var/log/mongodb/output.log
+&nbsp;
+<pre>我們可以試試把資料丟進去mongodb
+$ /usr/local/mongodb/bin/mongo</pre></p>
+
+<p>MongoDB shell version: 2.0.0<br />
+connecting to: test</p>
+
+<p>#存data到abc這個collection(關聯式資料庫叫做table)</p>
+
+<p>&gt; db.abc.save({name:"sammy",url:"http://blog.igotcloud.com"})</p>
+
+<p>#找出所有abc的資料<br />
+&gt;db.abc.find() { "_id" : ObjectId("4e99637cf6e98d96d71c7d36"), "name" : "sammy", "url" : "http://blog.igotcloud.com" }</p>

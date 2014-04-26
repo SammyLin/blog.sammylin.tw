@@ -1,0 +1,130 @@
+---
+layout: post
+title: "[DB]簡易抓取正規化資料庫資料"
+date: 2008-12-10 22:46
+comments: true
+categories: 
+- ASP.NET
+- DataBase
+tags:
+- Access
+- C#
+- DataBase
+---
+相信對於剛接觸ASP.NET的人來說都會使用內建的控制項來抓資料~
+
+但到了比較熟了以後當然會想說自已來寫程式來抓資料
+
+畢竟有些網頁不大適合使用這些控制項
+
+學會了如何自已寫程式的時候又發現當資料量大的時候
+
+會去google找說如何正規化~
+
+正規化後的資料怎麼抓呢
+
+現在就來介紹一下囉！
+
+這邊範例是使用access(沒辦法筆者窮~><)
+
+資料庫會有兩個資料表
+
+一、program
+
+主要還是id要有的
+
+二、pdate
+
+這邊會有主要的是id跟pid
+
+pid就是program的id
+
+順便一提我的program放的是課程因為課程大多都是固定的
+
+而課程會有好幾次，所以我將課程的日期放入pdate裡
+``` csharp
+<table border="2" width="750" bordercolor="#000000" align="center" cellspacing="0"  cellpadding="8">
+                <tr>
+   <td width="175" height="34" align="center" bordercolor="#000000" bgcolor="#FECCCB">
+            <font size="2">課程名稱</font></td>
+                       <td width="109" height="34" align="center" bordercolor="#000000" bgcolor="#FECCCB">
+           <font size="2">時間</font></td>
+                       <td bordercolor="#000000" bgcolor="#FECCCB" height="34" width="290"  align="center">
+            <font size="2">課程大綱</font></td>
+                       <td width="98" height="34" align="center" bordercolor="#000000" bgcolor="#FECCCB">
+           <font size="2">備註</font></td>                   
+          
+                                         
+                   </tr>
+ <%
+    string strDbCon = "Provider=Microsoft.jet.OLEDB.4.0;" + "Data Source="+ Server.MapPath("App_Data\\course.mdb");
+            //建立資料庫連結
+           OleDbConnection objCon = new OleDbConnection (strDbCon);
+            objCon.Open();
+            string strSQL = "SELECT * FROM program";
+            OleDbCommand objCmd = new OleDbCommand(strSQL, objCon);
+            OleDbDataReader objDataReader = objCmd.ExecuteReader();
+           //讀取資料
+           while (objDataReader.Read())
+          {
+               //建立正規化資料表的連結
+               string strSQL2 = "SELECT * FROM pdate where pid="+objDataReader[0];
+               OleDbCommand objCmd2 = new OleDbCommand(strSQL2, objCon);
+               OleDbDataReader objDataReader2 = objCmd2.ExecuteReader();
+               Response.Write("<tr>");
+               Response.Write("<td width='175'><font size='2'>【" + objDataReader[1] + "】<br>" + objDataReader[2] + "</font></td>");
+               Response.Write("<td width='109'><font size='2' face='Franklin Gothic Demi Cond'>");
+               //讀取正規化資料表的資料
+               while (objDataReader2.Read())
+               {
+                   //判斷資料是否為null
+                   if (!objDataReader2.IsDBNull(2))
+                  {
+                       
+                       DateTime mytime1 = Convert.ToDateTime(objDataReader2[2]);
+                       DateTime mytime2 = Convert.ToDateTime(objDataReader2[3]);
+  
+                                   
+                   if (mytime1.ToString("dd") == mytime2.ToString("dd"))
+                   {
+                       Response.Write(mytime1.ToString("M/d") );
+                   }
+                   else
+                   {
+   
+                       Response.Write(mytime1.ToString("M/dd-") + mytime2.ToString("dd") );
+                   }
+               }
+                   if (objDataReader2.IsDBNull(4))
+                   {
+                       Response.Write("<br/>");
+                 }
+                   else
+                  {
+                      string memo = Convert.ToString(objDataReader2[4]);
+                       Response.Write("("+memo+")<br/>");
+                   }
+              }
+               
+               objDataReader2.Dispose();
+               objDataReader2.Close();
+               
+               Response.Write("</font></td>");
+               Response.Write("<td width='290'><font size='2'>" + objDataReader[3] + "</font></td>");
+               if(objDataReader.IsDBNull(10)){
+                   Response.Write("<td width='98'>.</td>");
+               }
+               else{
+                  Response.Write("<td width='98'><font size='2'>" + objDataReader[10] + "</font></td>");
+               }
+               Response.Write("</tr>");
+              i++;
+           }
+           objDataReader.Dispose();
+           objDataReader.Close();
+           objCon.Dispose();
+           objCon.Close();
+          
+%>
+           </table>
+```

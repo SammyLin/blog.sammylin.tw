@@ -1,0 +1,81 @@
+---
+layout: post
+title: ! '[AWS][EC2]建立實體(Launch Instance)'
+categories:
+- Amazon Web Services (AWS)
+- Elastic Compute Cloud(EC2)
+tags:
+- Amazon Web Services(AWS)
+- Elastic Compute Cloud(EC2)
+- Instance
+- Launch
+published: true
+comments: true
+---
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image7.png"><img style="padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb7.png" border="0" alt="image" width="544" height="321" /></a></p>
+
+<p>Amazon Web Services Elastic Compute Cloud(EC2) 是IaaS因此他的彈性相當的大，升級或是添加軟體都相當的方便，並且不像一般的主機服務商那樣，以月或以年計費，如果沒有那麼大的使用量，那你的C/P值不就是降低很多，話說用多少就算多少(<a title="EC2計價方式" href="http://aws.amazon.com/ec2/#pricing">EC2計價方式</a>)，而EC2他是以Xen做為執行環境，我們想要幾顆CPU，多少的RAM也可以選擇你想要的OS。</p>
+
+<p>申請AWS的帳號可以參考「<a href="http://www.inside.com.tw/2010/11/02/amazon-aws-1">免費玩雲端運算，Amazon Web Service 雲端運算平台攻略 【1】</a>」</p>
+
+<p>今天來學習如何
+<h4><span style="color: #ff0000;">建立一台Instance<!--more--></span></h4>
+1.我們進到了AWS所提供的管理介面「<a href="http://console.aws.amazon.com/ec2/home">AWS Management Console</a>」，就如上圖。</p>
+
+<p>2.在左上角可以選擇你的Instance的位置</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image8.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb8.png" border="0" alt="image" width="199" height="214" /></a></p>
+
+<p>3.在側邊欄我們選擇Instances</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image9.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb9.png" border="0" alt="image" width="177" height="401" /></a></p>
+
+<p>4.在主畫面中點選「Launch Instance」</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image10.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb10.png" border="0" alt="image" width="544" height="322" /></a></p>
+
+<p>5.選擇快速開始，選第一個Basic 32-bit Amazon Linux(一開始先簡單的吧~~)</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image11.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb11.png" border="0" alt="image" width="544" height="358" /></a></p>
+
+<p>P.s Azamon 提供了自已的Amazon Linux 是免費的，其他的像SUSE跟Windows就是要付費的，另外還有<span style="color: #ff0000;">Community AMIs(第三方的映像檔)，</span>也就是有使用者放上來分享做好的映像檔可以使用。</p>
+
+<p>6.設定Instances的類型、可用地區、開啟數量</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image12.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb12.png" border="0" alt="image" width="544" height="373" /></a></p>
+
+<p><span style="color: #ff0000;">Instances只有Micro是免費專案裡面的喔！~~~</span></p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image13.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb13.png" border="0" alt="image" width="544" height="96" /></a></p>
+
+<p>7.接下來是進階設定，這個部分下次在談~</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image14.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb14.png" border="0" alt="image" width="544" height="373" /></a></p>
+
+<p>8.設定主機的標籤(最好還是設定一下，哪天你的實體超過10幾台，你哪記得住哪一台是做什麼的呢？)</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image15.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb15.png" border="0" alt="image" width="544" height="375" /></a></p>
+
+<p>9.建立及取得Key，輸入名稱，建立並下載Key Pair</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image16.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb16.png" border="0" alt="image" width="544" height="373" /></a></p>
+
+<p>P.s Key Pair請保存好，那是你以後要連到主機的關鍵~~</p>
+
+<p>10.建立防火牆群組</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image17.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb17.png" border="0" alt="image" width="544" height="373" /></a></p>
+
+<p>11.最後預覽設定，按下Launch就建立了</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image18.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb18.png" border="0" alt="image" width="544" height="374" /></a></p>
+
+<p>12.建立是需要一段時間的，大概….幾秒吧！</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image19.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb19.png" border="0" alt="image" width="544" height="277" /></a></p>
+
+<p>13.恭喜你這樣就建立好一台Instance了</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image20.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb20.png" border="0" alt="image" width="544" height="319" /></a></p>
+
+<p>By The Way 「CornerLife」也是用EC2建立所建立的！</p>

@@ -1,0 +1,82 @@
+---
+layout: post
+title: "Kindle Fire 開箱文"
+date: 2011-12-28 08:38
+comments: true
+categories: 
+---
+
+好不容易令人期待又覺得會受傷害的東西昨天晚上到手了，網路上沸沸揚揚的批評文章滿天飛，不過`199美金`的東西跟iPod2需要`499美金`那種比起來我覺得CP值很高了。
+![](https://lh4.googleusercontent.com/-JaHx4-YCAlw/TvpuhWXkUzI/AAAAAAAABjg/6cXAuLoo4k8/s400/DSC00585.JPG)
+![](https://lh3.googleusercontent.com/-EGZJ6wZ5vZ4/Tvpuf-wFZ4I/AAAAAAAABjU/H3KD3m9aTX8/s400/DSC00587.JPG)
+![](https://lh5.googleusercontent.com/-8saTF_MH7E8/TvpuZ6qngzI/AAAAAAAABjM/Fb4O2F_UGyU/s400/DSC00588.JPG)
+
+外包裝用的是破壞性的外箱，所以說我一定要撕開才能開箱，看來不能夠假裝包的漂漂亮亮再去賣別人了>_<
+<!--more-->
+
+![](https://lh4.googleusercontent.com/-B6SJCy0Pp4M/TvpuXAlxSXI/AAAAAAAABi8/o9aYNEp27e4/s400/DSC00590.JPG)
+
+打開之後，看到Kindle Fire安靜的躺在裡面~~~
+
+![](https://lh3.googleusercontent.com/-79jMjVjFwnk/TvpuQHKsIQI/AAAAAAAABiw/mn_XYE8uVSs/s400/DSC00592.JPG)
+![](https://lh3.googleusercontent.com/-iUwxtjD-sok/TvpuFd1TSII/AAAAAAAABiM/Z4GIl-FQZJY/s400/DSC00595.JPG)
+
+拿開Kindle Fire之後只有一個變壓器放在裡面
+
+![](https://lh5.googleusercontent.com/-zds2qjxBUm4/TvpuPTwZAJI/AAAAAAAABik/BQQuAtjpOuo/s400/DSC00593.JPG)
+
+這是最後一樣東西了。也就是導覽介紹
+
+![](https://lh3.googleusercontent.com/-TstsEBc9H5I/Tvpt9jaqt3I/AAAAAAAABkQ/quFV-dAYur0/s400/DSC00599.JPG)
+
+拿iPhone4s來比較大小，但是男生用單手拿還是OK的~女生就有點吃力了。
+
+![](https://lh6.googleusercontent.com/-JM1_oBmHtsI/Tvpt3OfvqwI/AAAAAAAABhk/cSGctlcAAdY/s400/DSC00601.JPG)
+
+底座是左邊起是3.5音訊輸出，Mirco-USB，電源鍵
+
+![](https://lh4.googleusercontent.com/-wpY8RWq3HXo/Tvptw-kWvgI/AAAAAAAABhU/fUtu07gHWZo/s400/DSC00604.JPG)
+
+Kindle Fire正面有一個類似鏡頭的東西，但是它不是，它只是個**光感感應器**
+
+![](https://lh6.googleusercontent.com/-TCwqCgcb-JM/TvptoiAxfKI/AAAAAAAABkU/m9_Rkd7XvP8/s640/DSC00605.JPG)
+
+底部是用霧面的，Kindle的字是用壓上去~感覺就不錯看，但我比較注意的是`Make in China`
+
+![](https://lh4.googleusercontent.com/-uAxCaAIBLTY/Tvptpzj-z-I/AAAAAAAABkY/QV-4GV4hC20/s400/DSC00606.JPG)
+
+按下電源鍵之後，就已經是開機畫面了
+
+![](https://lh5.googleusercontent.com/-YUg-M1rsnYU/Tvptg0nnYoI/AAAAAAAABgk/vgfSaZ6s3Es/s400/DSC00611.JPG)
+
+他是不支援3G所以需要連上WiFi，連上之後，你會發現他已經幫你設定好你的Kindle了，因為我買了兩台，所以上面就會寫`Sammy's 2nd Kindle`
+
+### 評價
+
+有勸敗文當然也有不敗文，大家可以參考一下[不要買Kindle Fire的理由 @ 三分鐘熱度](http://sobakome.pixnet.net/blog/post/35761333-%E4%B8%8D%E8%A6%81%E8%B2%B7kindle-fire%E7%9A%84%E7%90%86%E7%94%B1)。
+用了一個晚上的Kindle Fire，199美金是有他的價值在的，因為他是賠錢在賣的，每個人都覺得他有病嗎？其實不是，最主要還是要為他的附加產品增加銷路，影片串流、電子書、音樂、App，但是我們台灣人只能用裡面的電子書而以，其他的都要美國當地的信用卡跟帳單地址，如果你只是要單純看Amazon上的電子書，其實是可以購買的，而其他的功能我是覺得遲早會開放其他國家，但是Amazon的電子書沒有中文的，所以其實要買Kindle Fire的人要三思。
+
+### Kindle Fire 優點
+
+- 只要199美金(這個誘因還蠻大的)
+- 雙核心
+- 直接購買Amazon的產品
+- 可上網
+
+### Kindle Fire 缺點
+
+- 沒有mirco-use的傳輸線
+- 只能用美國的信用卡買App、音樂、影片
+- 不適合長時間觀看(還是其他系列比較適合)
+- 沒有中文輸入
+
+但是如果你心臟大顆的話，可以參考[Kindle Fire 開箱文 (加贈 Root 成功文, 6.2.1 root 文)](http://blog.richliu.com/2011/12/01/1144/)，你就可以安裝Google Market及中文輸入..
+
+參考資料
+> [亞馬遜之火～Amazon Kindle Fire開箱&系統完整攻略](http://www.sogi.com.tw/newforum/article_list.aspx?Topic_ID=6180215)
+
+> [Kindle Fire 開箱文 (加贈 Root 成功文, 6.2.1 root 文)](http://blog.richliu.com/2011/12/01/1144/)
+
+
+
+

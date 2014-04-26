@@ -1,0 +1,7 @@
+---
+layout: post
+title: ! '[WordPress]支援CDN及S3的外掛-W3 Total Cache'
+categories: [Amazon Web Services (AWS), Elastic Compute Cloud(EC2), Simple Storage Service(S3), WordPress]
+
+---
+<p><p>最近發現一個好外掛，其實我的部落格是用EC2建置的，但是哪天如果EC2掛點的話，我怎麼跟各位相親父老交待，我本人也不是系統出身的，因此我的系統也是一邊學一邊做，看有沒有辦法把EC2的備援做到最好的狀況，希望未來像<a title="http://www.tts.bz/" href="http://www.tts.bz/">Ken Lee</a>一樣。</p>  <table border="0" cellspacing="0" cellpadding="2" width="540"><tbody>     <tr>       <td valign="top" width="540">         <p><strong>名稱：W3 Total Cache</strong></p>          <p>網址：<a title="http://wordpress.org/extend/plugins/w3-total-cache" href="http://wordpress.org/extend/plugins/w3-total-cache">http://wordpress.org/extend/plugins/w3-total-cache</a></p>       </td>     </tr>   </tbody></table>  <p>其實W3 Total Cache因為有支援Amazon S3 跟Amazon CloudFront的關係，令我想要去玩一下他，目前我的網站，所有靜態檔案(圖片、css)都是放在s3上面的，如果仔細看的話我的圖片是放在<a href="http://blog1.cornerlife.tw">Http://blog1.cornerlife.tw</a> 其實這個網址是CNAME到 <a href="http://blog1.cornerlife.tw.s3-ap-northeast-1.amazonaws.com">Http://blog1.cornerlife.tw.s3-ap-northeast-1.amazonaws.com</a>的。</p>  <p>如果你要使用S3又要用自己的Domain name的話，那你的Bucket記得要用你的domain name建立Bucket 否則他是無法讀取你的檔案。</p></p>

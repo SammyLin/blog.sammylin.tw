@@ -1,0 +1,37 @@
+---
+layout: post
+title: ! '[AWS][C#][EC2]指定地區'
+categories:
+- Amazon Web Services (AWS)
+- AWS SDK for .NET
+tags:
+- Amazon Web Services(AWS)
+- C#
+- Region
+- US-East
+published: true
+comments: true
+---
+<p><p>「You have 1 Amazon EC2 instance(s) running in the US-East (Northern Virginia) region.」</p>  <p>大家看了這段有沒有覺得很怪…明明就是有好幾個地區但在<a href="http://docs.amazonwebservices.com/sdkfornet/latest/apidocs/Index.html" target="_blank">AWS SDK for .NET Documentation</a>找的時候也找不到方法，只能找US-East地區的EC2，最後原來發現是要改這裡。</p>  <div style="border-bottom: silver 1px solid; text-align: left; border-left: silver 1px solid; padding-bottom: 4px; line-height: 12pt; background-color: #f4f4f4; margin: 20px 0px 10px; padding-left: 4px; width: 97.5%; padding-right: 4px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; max-height: 200px; font-size: 8pt; overflow: auto; border-top: silver 1px solid; cursor: text; border-right: silver 1px solid; padding-top: 4px" id="codeSnippetWrapper">   <div style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px" id="codeSnippet">     <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"><span style="color: #606060" id="lnum1">   1:</span> AmazonEC2 ec2 = AWSClientFactory.CreateAmazonEC2Client(</pre>
+<!--CRLF--></div></div></p>
+
+<p>    <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"><span style="color: #606060" id="lnum2">   2:</span>                 appConfig[<span style="color: #006080">&quot;AWSAccessKey&quot;</span>],</pre>
+<!--CRLF--></p>
+
+<p>    <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"><span style="color: #606060" id="lnum3">   3:</span>                 appConfig[<span style="color: #006080">&quot;AWSSecretKey&quot;</span>], <span style="color: #0000ff">new</span> AmazonEC2Config().WithServiceURL(<span style="color: #006080"><a href="https://ec2.ap-southeast-1.amazonaws.com">https://ec2.ap-southeast-1.amazonaws.com</a></span>);</pre>
+<!--CRLF-->
+</p>
+
+<p><p>只要在appConfig[<span style="color: #006080">&quot;AWSSecretKey&quot;</span>], 後面加上new AmazonEC2Config().WithServiceURL(&quot;地區位址&quot;)</p></p>
+
+<p><ul>
+  <li>英國-https://ec2.eu-west-1.amazonaws.com</li></ul></p>
+
+<p>  <li>美國(加州)-https://ec2.us-east-1.amazonaws.com</li></p>
+
+<p>  <li>亞太(東京)-https://ec2.ap-northeast-1.amazonaws.com</li></p>
+
+<p>  <li>美國(弗吉尼亞州)-https://ec2.us-west-1.amazonaws.com</li></p>
+
+<p>  <li>亞太(新加波)-https://ec2.ap-southeast-1.amazonaws.com</li>
+</p>

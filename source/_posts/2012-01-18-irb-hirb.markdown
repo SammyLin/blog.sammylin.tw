@@ -1,0 +1,13 @@
+---
+layout: post
+title: "irb好用的查看資料庫的工具-hirb"
+date: 2012-01-18 10:55
+comments: true
+categories: [Ruby on Rails, irb]
+---
+
+因為[高見龍](http://blog.eddie.com.tw/)大大有寫了一篇好用的文章了，所以不再贅述。
+
+連結是[http://blog.eddie.com.tw/2010/04/09/hirb-the-convenient-gem-for-console-and-irb/](http://blog.eddie.com.tw/2010/04/09/hirb-the-convenient-gem-for-console-and-irb/)
+
+對於要查看資料庫的時候是很好用的。這也是跟[小蟹](http://wildjcrt.pixnet.net/blog)大大學來的XD

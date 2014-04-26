@@ -1,0 +1,13 @@
+---
+layout: post
+title: ! '[AWS][IAM]AWS Identity and Access Management (身份識別與存取管理)'
+categories:
+- Amazon Web Services (AWS)
+- Identity and Access Management
+tags:
+- Amazon Web Services(AWS)
+- Identity and Access Management(IAM)
+published: true
+comments: true
+---
+<p><p> AWS是個強大的雲端系統，單純一個管理者是不夠的，可能需要有人開發，有人監控，有人分析，也有人付錢XD，對於只有一個帳號是很危險且不安全，因此Amazon也有一個功能就是「AWS Identity and Access Management(身份識別與存取管理)」</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image21.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb20.png" width="521" height="362" /></a></p>  <p>(圖片來自：<a href="http://docs.amazonwebservices.com/IAM/latest/UserGuide/index.html?AccessPolicyLanguage.html">http://docs.amazonwebservices.com/IAM/latest/UserGuide/index.html?AccessPolicyLanguage.html</a>)</p>  <p>IAM的功能：</p>  <ol>   <li><font color="#ff0000">建立使用者：</font>新增一個使用者可以進入你所使用的帳戶之中，而且可以使用AWS的系統程式。</li>    <li><font color="#ff0000">分配和管理安裝認證：</font>每一個使用者都可以使用所擁有的Access Keys和 Security Credentials。</li>    <li><font color="#ff0000">群組化：</font>可以容易的建立群組及加入群組的權限。</li>    <li><font color="#ff0000">集中管理使用者權限：</font>限制使用者執行操作AWS的功能，例如(API及資源)。</li>    <li><font color="#ff0000">使用者登入限制：</font>可以限制使用者登入的時間、IP，或是可否使用SSL。</li>    <li><font color="#ff0000">單一帳單：</font>所有使用者開的機器或使用的量費用計在同一個帳單上。</li> </ol>  <p>IAM也不收任何的費用，你可以在AWS中開許多的帳號給別人時間，但要記得他們所建立機器算的費用還是你的喔。</p>  <p>不過IAM好處真的很多，不僅可以限制使用者的操作，也可以在S3中利用權限來分享檔案，也可以使用<a href="http://console.aws.amazon.com/">AWS Management Console</a>來管理帳號。</p>  <p>但美中不足的地方，好像沒有記錄使用者的操作。</p>  <table border="1" cellspacing="0" cellpadding="0" width="540"><tbody>     <tr>       <td valign="top" width="540">參考文件：         <p><a title="Identity and Access Management in the AWS Management Console" href="http://aws.typepad.com/aws/2011/05/identity-and-access-management-console-support.html" target="_blank" /><a href="http://aws.amazon.com/iam/">http://aws.amazon.com/iam/</a></p>       </td>     </tr>   </tbody></table></p>

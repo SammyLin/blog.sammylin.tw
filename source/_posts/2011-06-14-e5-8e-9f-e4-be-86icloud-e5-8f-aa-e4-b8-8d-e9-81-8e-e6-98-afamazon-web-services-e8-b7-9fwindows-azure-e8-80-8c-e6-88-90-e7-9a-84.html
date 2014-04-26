@@ -1,0 +1,14 @@
+---
+layout: post
+title: 原來iCloud只不過是Amazon Web Services跟Windows Azure而成的
+categories:
+- Amazon Web Services (AWS)
+- 小道消息
+tags:
+- Amazon Web Services(AWS)
+- iCloud
+- Windows Azure
+published: true
+comments: true
+---
+<p><p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image47.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb45.png" width="280" height="308" /></a></p>  <p>嘖………原來iCloud的服務還不過是用Amazon Web Services跟Windows Azure的。</p>  <p>引用<a href="http://microsoftfeed.com/2011/apple-icloud-uses-windows-azure-services/">http://microsoftfeed.com/2011/apple-icloud-uses-windows-azure-services/</a></p>  <blockquote>   <p>Guys at <a href="http://www.infiniteapple.net/">InfiniteApple</a> found out that Apple’s recently announced iCloud services actually uses <a href="http://aws.amazon.com/ec2/">Amazon Cloud Services</a> and <a href="http://www.microsoft.com/windowsazure/">Windows Azure</a> for hosting data. <strong><a href="http://www.infiniteapple.net/apple-icloud-azure-use-tested-confirmed/">Click here</a></strong> to see the complete details and pictures.</p>    <p>Here is a small part of the packet dumps that shows the use of Windows Azure Services:</p> </blockquote>  <blockquote>   <p>PUT https://mssat000001.blob.core.windows.net:443/cnt/1234.5678 HTTP/1.1     <br />Host: mssat000001.blob.core.windows.net:443</p>    <p>HTTP/1.1 201 Created     <br />Content-MD5: [redacted]      <br />Last-Modified: [redacted]      <br />ETag: [redacted]      <br /><strong>Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0</strong>      <br />x-ms-request-id: [redacted]      <br />x-ms-version: 2009-09-19      <br />Date: [redacted]      <br />Connection: close      <br />Content-Length: 0</p> </blockquote> <img src="http://www.infiniteapple.net/wp-content/blogs.dir/10/files/2011/06/icloud1.jpg" width="540" height="233" />  <p>原圖引用：<a href="http://www.infiniteapple.net/is-icloud-utilizing-microsoft-azure-and-amazons-cloud-services/">http://www.infiniteapple.net/is-icloud-utilizing-microsoft-azure-and-amazons-cloud-services/</a></p></p>

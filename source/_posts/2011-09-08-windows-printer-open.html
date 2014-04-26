@@ -1,0 +1,19 @@
+---
+layout: post
+title: ! '[Windows]印表機打不開'
+categories: [Windows]
+published: true
+comments: true
+---
+<p>最近一直有一台電腦就是要印東西時，發現按了列印就會擋掉，一直找不到原因，只能叫同事要印的時候重開機看看吧，沒想到就好了。不過事隔多日，同事反應開了快100次都沒辦法好，上網找了個方法，可以把服務「Print Spooler」重啟就馬上好，就不用重開機了，但這只是治標不治本的方法，但沒辦法，我能力就是有限，最好的方法就是寫一個vbs讓他去執行，一個動作就可以搞定了！
+<a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image32.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image_thumb32.png" alt="image" width="544" height="434" border="0" /></a></p>
+
+<p>寫成vbs
+<pre lang="LANGUAGE" line="1">
+Set ServiceSet = GetObject("winmgmts:").ExecQuery("select * from Win32_Service where Name='Spooler'")</pre></p>
+
+<p>for each Service in ServiceSet<br />
+Service.StopService()<br />
+Service.StartService()<br />
+next
+</p>

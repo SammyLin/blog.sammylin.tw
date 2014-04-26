@@ -1,0 +1,81 @@
+---
+layout: post
+title: ! '[ASP.NET]一行程式碼建立ASP.NET資料表-Dynamic Data'
+categories:
+- ASP.NET
+tags:
+- Asp.net
+- Dynamic Data
+published: true
+comments: true
+---
+<p>剛剛參加完Tech Day 2009回來聽到了最新的技術，不過很可惜，沒有想像多那麼多新的技術。</p>
+
+<p>那麼話說回來有聽到<a href="http://studyhost.blogspot.com/">董大偉老師</a>有講到ASP.NET會有強大的改變，其中有一個技術就是「Dynamic Data的技術」</p>
+
+<p>首先..現有Web Control有缺少了什麼？所以導致GridView、FormView、DetailsView與資料庫之間嚴重的相依性。</p>
+
+<p>當資料表欄位異動時，須重新整理.aspx前端UI(每當多一個欄位就要去修改，當十個網頁有連結同一個Table就要修改十頁)過去雖然有Template機制，卻強烈的與資料庫相依。</p>
+
+<p><!--more--></p>
+
+<p>那麼說到底何謂Dynamic Data可以做什麼呢？
+<ul>
+	<li>提供一組機制讓開發人員快速建立資料驅動(Data-Drovem)的Web Application</li>
+	<li>可達成資料庫與.aspx頁面設計分離，一組樣版、處理所有(大多數)資料表</li>
+	<li>前端頁面會自動依照DataModel中的Table、field、Relations..等進行資料呈現，並且提供維護功能</li>
+	<li>允許使用者自行客製化動態輸出與驗證(與傳統DataControl不同，作在DataModel層，而非在.aspx中)</li>
+	<li>利用Page Templates技術，提供各種資料呈現介面</li>
+	<li>利用Dynamic Data fields動態呈現各種資料型別</li>
+	<li>內建資料驗證機制，可依照Db中的型別自動進行驗證</li>
+	<li>無縫整合ASP.NET Web Control以進行客製化，提高彈性</li>
+	<li>可透過Web.Config進行設定</li>
+</ul>
+說了那麼多Dynamic Data 怎麼做呢？
+<ol>
+	<li>建立Dynamic Data LinqToSql Appication</li>
+	<li>加入資料庫</li>
+	<li>設定Global.asax</li>
+	<li>收工</li>
+</ol>
+真的有那麼簡單嗎？試試看就資料啦</p>
+
+<p>1.建立新的專案選「Dynamic Data 實體Web應用程式」</p>
+
+<p><img title="image" src="https://lh3.googleusercontent.com/-7PALbtk0zEc/UMaRVTx76YI/AAAAAAAACBw/1iMOVcWl35w/s800/image_2.png" border="0" alt="image" width="644" height="428" /></p>
+
+<p>2.加入資料庫；新增項目Ling To SQL類別</p>
+
+<p><img title="image" src="https://lh6.googleusercontent.com/-sP2fiU5-swo/UMaRWoWh-wI/AAAAAAAACB4/mdcpyvTP3RU/s800/image_6.png" border="0" alt="image" width="644" height="391" /></p>
+
+<p>3.設定Global.asax</p>
+
+<p>找出//model.RegisterContext(typeof(YourDataContextType), new ContextConfiguration() { ScaffoldAllTables = false });</p>
+
+<p>取消註解後</p>
+
+<p>model.RegisterContext(typeof(DataClasses1DataContext), new ContextConfiguration() { ScaffoldAllTables = true});</p>
+
+<p>將第一個紅色字打上你的DataContextType，第二個打上true</p>
+
+<p>4.收工！</p>
+
+<p><img title="image" src="https://lh5.googleusercontent.com/-Z1PAsq6tNjs/UMaRVX3lQTI/AAAAAAAACBs/Vj9ZFzLnJ80/s800/image_12.png" border="0" alt="image" width="644" height="361" /></p>
+
+<p>List：</p>
+
+<p><img title="image" src="https://lh4.googleusercontent.com/-gY9qDL7e1Co/UMaRWbRo8VI/AAAAAAAACB0/7058_NTzE2Q/s800/image_20.png" border="0" alt="image" width="573" height="484" /></p>
+
+<p>Edir：</p>
+
+<p><img title="image" src="https://lh4.googleusercontent.com/-T14Hrxts6e8/UMaRVTkQTLI/AAAAAAAACBo/KIeMvE4jgiU/s800/image_18.png" border="0" alt="image" width="571" height="484" /></p>
+
+<p>Insert</p>
+
+<p><img title="image" src="https://lh5.googleusercontent.com/-tBl9WdLOUAc/UMaRWuewIOI/AAAAAAAACB8/NDeEYxbf3L8/s800/image_22.png" border="0" alt="image" width="576" height="484" /></p>
+
+<p>這是一個很方便的一個應用程式</p>
+
+<p>我也沒有寫任何的程式碼，就能產生這樣的應用程式</p>
+
+<p>資料來源：Tech Days 2009 董大偉「總覽集Web應用程式開發技術之大成於一身的『ASP.NET』課程</p>

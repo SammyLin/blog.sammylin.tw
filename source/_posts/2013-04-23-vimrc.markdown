@@ -1,0 +1,105 @@
+---
+layout: post
+title: "My vimrc"
+date: 2013-04-23 20:55
+comments: true
+categories: [vim]
+---
+
+### 說實在的，我比較笨
+
+我以前是用ASP.NET的時候只有 Visual Studio 可以選擇，我根本沒機會摸到其他的編輯器，直到跳到`Ruby on Rails`之後，也找了許多IDE，例如：RubyMine, Netbeans，但發現，好像沒有這好用，之後問了許多使用Rails的大大才發現，大家都不用這些，用的都是Sublime Text, Textmate, vim 。
+
+剛開始的時候也是使用vim，然後找了一堆大大的vimrc來裝，但是裝一裝發現，好像還是不大會用 GG ，最後又跳到Sublime Text，因為我是寫Rails的，所以我在在許多partial中進進出出的，很麻煩，我聽到vim有一個plugin叫做`vim-rails`，可以按`gt`就可以跳到該行的檔案，所以我又跳回了vim。XDDD
+
+![](http://farm9.staticflickr.com/8258/8675388026_4345f1da19_o.jpg)
+
+<!-- more -->
+
+但我發現vim需多plugin的強大，是我真的不知道的，自從我一個一個慢慢把vimrc設定好之後，我才豁然開朗，靠~原來vim這麼屌~
+
+所以....
+
+![](http://farm9.staticflickr.com/8525/8677088700_761f36f87e_o.png)
+
+但女人也可以用。不過不用就不是真男人了嗎？
+
+唉呦~自己用習慣就好了啦
+
+轉回正題：
+
+## 我的vimrc：[https://github.com/SammyLin/vimrc](https://github.com/SammyLin/vimrc)
+
+### 加了什麼plugin
+
+* [pathogen.vim](https://github.com/tpope/vim-pathogen): Manages the runtime path of the plugins
+* [NERD Tree](https://github.com/scrooloose/nerdtree): A tree explorer plugin for vim
+* [vim-powerline](https://github.com/Lokaltog/vim-powerline): The ultimate vim statusline utility
+* [vim-fugitive](https://github.com/tpope/vim-fugitive): a Git wrapper so awesome, it should be illegal
+* [snipMate.vim](https://github.com/garbas/vim-snipmate): snipMate.vim aims to be a concise vim script that implements some of TextMate's snippets features in Vim
+* [tlib_vim](https://github.com/tomtom/tlib_vim): Some utility functions for VIM
+* [vim-addon-mw-utils](https://github.com/MarcWeber/vim-addon-mw-utils): interpret a file by function and cacim](https://github.com/kien/ctrlp.vim): Fuzzy file, buffer, mru and tag finder. In my config it's mapped to `<Ctrl+F>`, because `<Ctrl+P>` is used by YankRing
+* [vim-rails](https://github.com/tpope/vim-rails): Ruby on Rails power tools
+* [mru.vim](https://github.com/vim-scripts/mru.vim): Plugin to manage Most Recently Used (MRU) files
+* [tComment](https://github.com/vim-scripts/tComment): An extensible & universal comment plugin that also handles embedded filetypes
+* [vim-indent-object](https://github.com/m diff in the gutter (sign column).
+* [ZenCoding](https://github.com/mattn/zencoding-vim): zen-coding for vim: http://code.google.com/p/zen-coding/
+* [vim-smartinput](https://github.com/kana/vim-smartinput): Vim plugin: Provide smart input assistant
+* [vim-ruby](https://github.com/vim-ruby/vim-ruby): Vim/Ruby Configuration Files
+* [matchit.zip](https://github.com/vim-scripts/matchit.zip): extended % matching for HTML, LaTeX, and many other languages
+* [AutoComplPop](https://github.com/vim-scripts/AutoComplPop): Automatically opens popup menu for completions)
+* [vim-markdown](https://github.com/plasticboy/vim-markdown): Markdown Vim Mode
+* [vim-coffee-script](https://github.com/kchmck/vim-coffee-script): CoffeeScript support for vim
+* [scss-syntax.vim](https://github.com/cakebaker/scss-syntax.vim): Vim syntax file for scss (Sassy CSS)
+* [vim-octopress](https://github.com/tangledhelix/vim-octopress): Octopress support for Vim
+
+## 我的color scheme (kolor)
+
+![image](https://github.com/SammyLin/vimrc/raw/master/screenshots/kolor-1.png)
+
+![image](https://github.com/SammyLin/vimrc/raw/master/screenshots/kolor-2.png)
+
+## 我比較常用的指令
+
+### Open/Close NERDTree
+
+    ,n
+
+### Open CtrlP
+
+    Control + p
+
+### Display the MRU file list
+
+    ,f
+
+### Display CtrlP CtrlPBuffer
+
+    ,b
+
+### To suspend your running vim
+
+    Control + z
+
+    # will suspend the process and get back to your shell
+
+    $ fg
+
+### Toggle comment
+
+    Control + _
+
+### Finding a word
+
+    /<word>
+
+    or
+
+    ?<word>
+
+    # Pressing the n key, will allow you to go directly to the next occurrence of the word.
+
+## 參考的vimrc
+
+* [Amix](https://github.com/amix/vimrc)
+* [高見龍](https://github.com/kaochenlong/eddie-vim)

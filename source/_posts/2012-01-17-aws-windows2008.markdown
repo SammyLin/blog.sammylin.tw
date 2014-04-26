@@ -1,0 +1,12 @@
+---
+layout: post
+title: "在AWS可以免費用Windows server 2008"
+date: 2012-01-17 09:28
+comments: true
+categories: [Amazon Web Services (AWS), Free, Windows server 2008]
+---
+
+自從`AWS`釋出Free Tier之後，雖然只有免費一年，但是還是有一些剛入門的新手，像我一樣，會去玩一下所謂的雲端是什麼，當初我也是看上他有免費可以玩，所以才會到AWS來玩玩，過去AWS EC2只讓你使用Amazon OS 做免費的項目，在昨天的時候官方網站釋出了好消息，就是可以使用Windows Server 2008的image，可能是AWS內windows的image使用率太低的關係吧，為了讓大家可以先嘗鮮看看，所以才跟微軟做出這樣子的協調。
+
+我們打開來 [AWS Management Console](https://console.aws.amazon.com/console/home)來開啟一個新的instance然後把他拉到最下面就可以看到Windows Server 2008 旁邊有星星了(之前有講過星星代表有在Free Tier裡)
+![](https://lh3.googleusercontent.com/-yb9diAY9gtI/TxTO3V2B8rI/AAAAAAAABnA/E5CvtwroOj0/s640/Screen%252520Shot%2525202012-01-17%252520at%252520%2525E4%2525B8%25258A%2525E5%25258D%2525889.27.25.png)

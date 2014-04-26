@@ -1,0 +1,26 @@
+---
+layout: post
+title: ! '[Ruby]在Lion安裝ree失敗'
+categories: [Ruby on Rails]
+---
+<p>因為升級lion的關係，<br />
+我也重灌了ruby的環境<br />
+不知道為什麼在灌ree(Ruby Enterprise Edition)的時候出現了以下錯誤</p>
+
+<p>$rvm install ree</p>
+
+<p>ERROR: Error running './installer -a /Users/&lt;UserName&gt;/.rvm/rubies/ree-1.8.7-2011.03  --no-tcmalloc --dont-install-useful-gems ', please read /Users/&lt;UserName&gt;/.rvm/log/ree-1.8.7-2011.03/install.log<br />
+ERROR: There has been an error while trying to run the ree installer. Halting the installation.</p>
+
+<p>按照他所說的我們到log看一下Error結果是以下</p>
+
+<p>*** ERROR: Ruby is not installed ***<br />
+The Ruby Enterprise Edition installer is written in Ruby. This source tarball bundles precompiled versions of Ruby for many platforms for the purpose of running this installer, but unfortunately we did not include a precompiled Ruby binary for the current platform. So please install Ruby manually, then run this installer again.</p>
+
+<p>上網google一下，發現應該是profile的問題
+<a href="http://stackoverflow.com/questions/6804195/cant-install-ruby-enterprise-edition-with-rvm-on-osx-lion">http://stackoverflow.com/questions/6804195/cant-install-ruby-enterprise-edition-with-rvm-on-osx-lion</a></p>
+
+<p>我們先把原來的ree刪除之後修改profile再重新安裝一次ree<br />
+$ rvm remove ree<br />
+$ export CC=/usr/bin/gcc-4.2<br />
+$ rvm install --force ree</p>

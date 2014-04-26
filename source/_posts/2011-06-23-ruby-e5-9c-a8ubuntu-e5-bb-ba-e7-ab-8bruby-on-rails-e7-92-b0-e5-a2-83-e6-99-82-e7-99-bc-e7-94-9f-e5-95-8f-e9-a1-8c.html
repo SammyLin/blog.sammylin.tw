@@ -1,0 +1,18 @@
+---
+layout: post
+title: ! '[Ruby]在Ubuntu建立Ruby on Rails環境時發生問題'
+categories:
+- Ruby on Rails
+- Ubuntu
+tags:
+- OpenSSL support for Ruby... not found
+- Ruby on Rails
+- Ubuntu
+published: true
+comments: true
+---
+<p><p> 剛剛在試著建立Ruby on Rails 環境時，都安裝到一半，卻發生了</p>  <table border="2" cellspacing="0" cellpadding="0" width="540"><tbody>     <tr>       <td valign="top" width="540">         <p>Checking for required software...</p>          <p> * GNU C++ compiler... found at /usr/bin/g++           <br /> * Curl development headers with SSL support... found            <br /> * OpenSSL development headers... found            <br /> * Zlib development headers... found            <br /> * Ruby development headers... found            <br /> * OpenSSL support for Ruby... <font color="#ff0000">not found             <br /></font> * RubyGems... found            <br /> * Rake... found at /home/sammy/.rvm/wrappers/ruby-1.9.2-p180/rake            <br /> * rack... found            <br /> * Apache 2... found at /usr/sbin/apache2            <br /> * Apache 2 development headers... found at /usr/bin/apxs2            <br /> * Apache Portable Runtime (APR) development headers... found at /usr/bin/apr-1-config            <br /> * Apache Portable Runtime Utility (APU) development headers... found at /usr/bin/apu-1-config</p>          <p>Some required software is not installed.           <br />But don't worry, this installer will tell you how to install them.</p>          <p>Press Enter to continue, or Ctrl-C to abort.</p>       </td>     </tr>   </tbody></table>  <p>找不到 OpenSSL support for Ruby</p>  <p>還好有google大神讓我找到方法了&gt;&lt;</p>  <p>解決方式：</p>  <pre /><font color="#0000ff" size="2" face="Tahoma">cd $HOME<br />
+cd .rvm/src/ruby-1.9.2-p0/ext/openssl<br />
+ruby extconf.rb<br />
+make<br />
+make install</font></p>

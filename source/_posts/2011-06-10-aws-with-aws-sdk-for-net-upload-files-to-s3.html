@@ -1,0 +1,76 @@
+---
+layout: post
+title: ! '[AWS]用AWS SDK for .NET  上傳檔案至S3'
+categories:
+- Amazon Web Services (AWS)
+- AWS SDK for .NET
+- Simple Storage Service(S3)
+tags:
+- .NET
+- Amazon Web Services(AWS)
+- SDK
+- Simple Storage Service(S3)
+- 上傳檔案
+published: true
+comments: true
+---
+<p>AWS的中文介紹雖然沒有很少，但是AWS SDK for .NET的介紹少之又少，所以只能用破破的英文來看一些原文資料，希望可以藉由分享讓大家可以比較快進入AWS的世界。
+<table width="540" border="2" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="540">NOTE.<br />
+AWS SDK for .NET：<a title="http://aws.amazon.com/sdkfornet/" href="http://aws.amazon.com/sdkfornet/">http://aws.amazon.com/sdkfornet/</a>
+AWS SDK for .NET Documentation ：<a href="http://aws.amazon.com/documentation/sdkfornet/">http://aws.amazon.com/documentation/sdkfornet/</a>
+基本介紹：<a href="http://blog.cornerlife.tw/awschello-world-for-net.html" target="_blank">[AWS][C#]Hello World for .NET</a></td>
+</tr>
+</tbody>
+</table>
+<div id="codeSnippetWrapper" style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 20px 0px 10px; width: 96.16%; font-family: 'Courier New', courier, monospace; direction: ltr; height: 320px; max-height: 200px; font-size: 8pt; overflow: auto; cursor: text; border: silver 1px solid; padding: 4px;">
+<div id="codeSnippet" style="text-align: left; line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum1" style="color: #606060;"> 1:</span> NameValueCollection appConfig = ConfigurationManager.AppSettings;</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum2" style="color: #606060;"> 2:</span> AmazonS3 s3Client = AWSClientFactory.CreateAmazonS3Client(</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum3" style="color: #606060;"> 3:</span>            appConfig[<span style="color: #006080;">"AWSAccessKey"</span>],</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum4" style="color: #606060;"> 4:</span>            appConfig[<span style="color: #006080;">"AWSSecretKey"</span>]</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum5" style="color: #606060;"> 5:</span>            );</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum6" style="color: #606060;"> 6:</span> ListBucketsResponse response = s3Client.ListBuckets();</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum7" style="color: #606060;"> 7:</span> Console.WriteLine(<span style="color: #006080;">"---------S3 Bucket 列表---------"</span>);</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum8" style="color: #606060;"> 8:</span> <span style="color: #0000ff;">foreach</span> (var item <span style="color: #0000ff;">in</span> response.Buckets)</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum9" style="color: #606060;"> 9:</span> {</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum10" style="color: #606060;"> 10:</span>     Console.WriteLine(<span style="color: #006080;">"Bucket名稱："</span> + item.BucketName);</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum11" style="color: #606060;"> 11:</span> }</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum12" style="color: #606060;"> 12:</span> <span style="color: #008000;">//上傳資料 </span></pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum13" style="color: #606060;"> 13:</span> PutObjectRequest ObjectRequest = <span style="color: #0000ff;">new</span> PutObjectRequest();</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum14" style="color: #606060;"> 14:</span> ObjectRequest.WithBucketName(<span style="color: #006080;">"***"</span>)<span style="color: #008000;">//放置Bucket位置</span></pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum15" style="color: #606060;"> 15:</span>     .WithCannedACL(S3CannedACL.PublicRead)//存取原則</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum16" style="color: #606060;"> 16:</span>     .WithFilePath(<span style="color: #006080;">@"d:\456.txt"</span>)<span style="color: #008000;">//上傳檔案位置</span></pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum17" style="color: #606060;"> 17:</span>     .WithKey(<span style="color: #006080;">"456.txt"</span>);<span style="color: #008000;">//在AWS上的檔案名稱</span></pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum18" style="color: #606060;"> 18:</span></pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum19" style="color: #606060;"> 19:</span> S3Response myResponse = s3Client.PutObject(ObjectRequest);</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum20" style="color: #606060;"> 20:</span> <span style="color: #008000;">//上傳資料end</span></pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum21" style="color: #606060;"> 21:</span> Console.WriteLine(<span style="color: #006080;">"上傳完成"</span>);</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum22" style="color: #606060;"> 22:</span> Console.Read();</pre>
+&nbsp;</div></div></p>
+
+<p>
+</p>
