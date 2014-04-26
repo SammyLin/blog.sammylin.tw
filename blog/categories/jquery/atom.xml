@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Jquery | Sammy Lin]]></title>
+  <link href="http://SammyLin.github.io/blog/blog/categories/jquery/atom.xml" rel="self"/>
+  <link href="http://SammyLin.github.io/blog/"/>
+  <updated>2014-04-26T13:25:55+08:00</updated>
+  <id>http://SammyLin.github.io/blog/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[Jquery]設定下拉選單的初始值]]></title>
+    <link href="http://SammyLin.github.io/blog/jquery-set-selectbox/"/>
+    <updated>2011-11-30T11:13:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/jquery-set-selectbox</id>
+    <content type="html"><![CDATA[<p><code>html
+&lt;select id ="selectbox"&gt;
+&lt;option value="google"&gt;google&lt;/option&gt;
+&lt;option value="yahoo"&gt;yahoo&lt;/option&gt;
+&lt;option value="bing"&gt;bing&lt;/option&gt;
+&lt;/seltion&gt;
+</code></p>
+
+<p><code>js
+$('#selectbox option[value=google]').attr('selected','selected');
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>

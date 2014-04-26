@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Amazon RDS Service | Sammy Lin]]></title>
+  <link href="http://SammyLin.github.io/blog/blog/categories/amazon-rds-service/atom.xml" rel="self"/>
+  <link href="http://SammyLin.github.io/blog/"/>
+  <updated>2014-04-26T13:25:55+08:00</updated>
+  <id>http://SammyLin.github.io/blog/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[RDS]長期租用Reserved DB Instances]]></title>
+    <link href="http://SammyLin.github.io/blog/rds-long-term-lease-reserved-db-instances/"/>
+    <updated>2011-07-30T00:00:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/rds-long-term-lease-reserved-db-instances</id>
+    <content type="html"><![CDATA[<p>其實On Demand DB Instances 貴到嚇死人，因為要長期經營網站，而且又要考慮備援，所以我決定租用Reserved DB Instances，雖然要一次先付一筆年費，但花費下來其實比On-Demand 還要便宜許多。</p>
+
+
+
+
+<p>我們以Stand Deployment，Small Db Instance 來計算一年365天一天24小時，如果使用一年的話會是美金1138.8元</p>
+
+
+
+
+<p><span style="color: #ff0000; font-size: medium;">365*24*0.13元= 1138.8元</span></p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image53.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb54.png" alt="image" width="544" height="261" border="0" /></a></p>
+
+
+
+
+<p>然而使用Reserved DB Instances的話，以相同規格的Standard Deplyment Small DB Instance來算的話，你只要先繳交一年的年費，而之後就可以用優惠的價格來使用Instance，但如果你買了10台Reserved DB Instance， 但只開了1台DB Instance，雖然只會計算1台的時間，而你10台Reserved DB Instance算是白繳年費了，而這個白繳年費是不能退費的(我有切身之痛呀~)，要小心的使用。我們來計算一下到底便宜多少。<!--more--></p>
+
+
+
+
+<p>以一年的來說</p>
+
+
+
+
+<p>年費+(使用時間*優惠價格)=一年所付</p>
+
+
+
+
+<p><span style="color: #ff0000; font-size: medium;">239+(365*24*0.062)=782元</span></p>
+
+
+
+
+<p>如果以三年來說</p>
+
+
+
+
+<p><span style="color: #ff0000; font-size: medium;">368+(3*365*24*0.062)=1997.36</span></p>
+
+
+
+
+<p>算起來開一台一年期的Reserved DB Instance 會便宜<span style="color: #ff0000; font-size: medium;">32%</span>也就是打了68折</p>
+
+
+
+
+<p>如果開一台三年期的Reserved DB Instance 的話就會便宜<span style="color: #ff0000; font-size: medium;">42%</span>也就是打了58折</p>
+
+
+
+
+<p>租越久越便宜。</p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image54.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb55.png" alt="image" width="544" height="522" border="0" /></a></p>
+
+
+
+
+<p>那要怎麼開啟呢，其實很簡單。</p>
+
+
+
+
+<p>進到Console介面點選Purchase Reserved DB Instances</p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image55.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb56.png" alt="image" width="544" height="176" border="0" /></a></p>
+
+
+
+
+<p>填入你要的規格</p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image56.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb57.png" alt="image" width="544" height="430" border="0" /></a></p>
+
+
+
+
+<p>他就會出現在List裡面</p>
+
+
+
+
+<p>接下來你就可以開一台DB Instance，或是你原來就有一台DB Instnce跟你買的Reserved DB Instances 一樣他之後的計費就會用優惠價來計算了！</p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image57.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb58.png" alt="image" width="544" height="179" border="0" /></a></p>
+
+]]></content>
+  </entry>
+  
+</feed>

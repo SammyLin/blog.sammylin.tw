@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Routes | Sammy Lin]]></title>
+  <link href="http://SammyLin.github.io/blog/blog/categories/routes/atom.xml" rel="self"/>
+  <link href="http://SammyLin.github.io/blog/"/>
+  <updated>2014-04-26T13:25:55+08:00</updated>
+  <id>http://SammyLin.github.io/blog/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[產生Rails專案裡所有的routes]]></title>
+    <link href="http://SammyLin.github.io/blog/rails-rake-routes/"/>
+    <updated>2012-01-13T14:30:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/rails-rake-routes</id>
+    <content type="html"><![CDATA[<p>最近有高人指點我發現頭腦越來越清晰，考試都可以考一百分了，因為剛開始摸<code>Ruby on Rails</code>的時候太多東西搞不懂了，例如：</p>
+
+<pre><code>&lt;%= link_to `show` , board_path(@board) %&gt;
+&lt;%= link_to `edit` , edit_board_path(@board) %&gt;
+&lt;%= link_to `back` , boards_path %&gt;
+</code></pre>
+
+<p><code>link_to</code>照字面上的意思，或是直接在瀏覽器看，很容易了解他是<code>超連結</code>的意思，第一個變數，看的出來是超連結的文字，最後呢？那是啥鬼？過去的我雖然寫過C#，跟HTML，我無法跟這一串東西連結起來，直到我一直照抄<a href="http://rails-101.logdown.com/">Rails 101</a>，然後自己修改自己做一些小功能，才慢慢理解。但是用很笨的方法啦，不過原來有超簡單的方式可以解決我過去的疑惑，也是<a href="http://wildjcrt.pixnet.net/blog"><em>小蟹大師</em></a>跟我說我才知道有這個功能，Ruby on Rails真是太厲害了！</p>
+
+<p>如果你對於 path不熟的話可以用這招~~只不過如果你的routes如果太多的話，就會需要比較久的時間產生出所有URL Helper、URL 網址和對應的Controller Action。</p>
+
+<pre><code>$ rake routes
+             board_posts GET    /boards/:board_id/posts(.:format)          {:controller=&gt;"posts", :action=&gt;"index"}
+                     POST   /boards/:board_id/posts(.:format)          {:controller=&gt;"posts", :action=&gt;"create"}
+      new_board_post GET    /boards/:board_id/posts/new(.:format)      {:controller=&gt;"posts", :action=&gt;"new"}
+     edit_board_post GET    /boards/:board_id/posts/:id/edit(.:format) {:controller=&gt;"posts", :action=&gt;"edit"}
+          board_post GET    /boards/:board_id/posts/:id(.:format)      {:controller=&gt;"posts", :action=&gt;"show"}
+                     PUT    /boards/:board_id/posts/:id(.:format)      {:controller=&gt;"posts", :action=&gt;"update"}
+                     DELETE /boards/:board_id/posts/:id(.:format)      {:controller=&gt;"posts", :action=&gt;"destroy"}
+              boards GET    /boards(.:format)                          {:controller=&gt;"boards", :action=&gt;"index"}
+                     POST   /boards(.:format)                          {:controller=&gt;"boards", :action=&gt;"create"}
+           new_board GET    /boards/new(.:format)                      {:controller=&gt;"boards", :action=&gt;"new"}
+          edit_board GET    /boards/:id/edit(.:format)                 {:controller=&gt;"boards", :action=&gt;"edit"}
+               board GET    /boards/:id(.:format)                      {:controller=&gt;"boards", :action=&gt;"show"}
+                     PUT    /boards/:id(.:format)                      {:controller=&gt;"boards", :action=&gt;"update"}
+                     DELETE /boards/:id(.:format)                      {:controller=&gt;"boards", :action=&gt;"destroy"}
+                root        /                                          {:controller=&gt;"boards", :action=&gt;"index"}
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

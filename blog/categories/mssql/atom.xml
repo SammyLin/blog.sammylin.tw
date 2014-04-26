@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: MSSql | Sammy Lin]]></title>
+  <link href="http://SammyLin.github.io/blog/blog/categories/mssql/atom.xml" rel="self"/>
+  <link href="http://SammyLin.github.io/blog/"/>
+  <updated>2014-04-26T13:25:55+08:00</updated>
+  <id>http://SammyLin.github.io/blog/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[MSSQL]清除資料表內所有資料]]></title>
+    <link href="http://SammyLin.github.io/blog/mssql-clear-all-the-data-tables/"/>
+    <updated>2011-08-18T00:00:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/mssql-clear-all-the-data-tables</id>
+    <content type="html"><![CDATA[<p><span style="color: #0000ff; font-size: x-small;">TRUNCATE TABLE name</span></p>
+
+
+
+
+<p>TRUNCATE TABLE 在功能上與沒有 WHERE 子句的 DELETE 陳述式相同：兩者都會移除資料表中所有的資料列，但 TRUNCATE TABLE 速度較快，且比 DELETE 使用較少的系統與交易記錄檔資源。</p>
+
+
+
+
+<p>TRUNCATE TABLE 從資料表中移除所有的資料列，但資料表結構、條件約束、索引等等都會保留。新資料列之識別使用的計數器會重設為資料行的初始值。如果您要保留識別計數器，請改使用 DELETE。如果您要移除資料表定義及其資料，請使用 DROP TABLE 陳述式。</p>
+
+
+
+
+<p>使用沒有 WHERE 子句的 DELETE 陳述式代替。因為 TRUNCATE TABLE 不會有記錄，它無法啟動觸發程序。</p>
+
+
+
+
+<p><span style="color: #ff0000;">*使用後table的識別計數器會重回1,但若使用delete識別計數器不會重回1</span></p>
+
+
+
+
+<p><span style="color: #ff0000;">資料來源：</span><a href="http://itgroup.blueshop.com.tw/blackncc/blog9?n=convew&amp;i=4329"><span style="color: #ff0000;">http://itgroup.blueshop.com.tw/blackncc/blog9?n=convew&amp;i=4329</span></a></p>
+
+]]></content>
+  </entry>
+  
+</feed>

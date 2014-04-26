@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: OS X | Sammy Lin]]></title>
+  <link href="http://SammyLin.github.io/blog/blog/categories/os-x/atom.xml" rel="self"/>
+  <link href="http://SammyLin.github.io/blog/"/>
+  <updated>2014-04-26T13:25:55+08:00</updated>
+  <id>http://SammyLin.github.io/blog/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[評測]Magican Mac清除垃圾工具]]></title>
+    <link href="http://SammyLin.github.io/blog/magican/"/>
+    <updated>2012-09-18T20:08:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/magican</id>
+    <content type="html"><![CDATA[<p>在Mac裡如果想到清除垃圾工具，第一個應該會想到的是<a href="http://macpaw.com/">CleanMyMac</a>，不過要花$29.95美金，因為我是個省吃儉用的人，所以想一想就算了，還是不要好了，最近發現一個軟體，還不錯。</p>
+
+<ul>
+<li><h2><a href="http://www.magicansoft.com/">Magican</a></h2></li>
+<li>容量：3.8MB</li>
+</ul>
+
+
+<p><img src="https://lh6.googleusercontent.com/-5uHa3hTvExM/UFhqMcvk-9I/AAAAAAAAB7k/yXCyAwUPLnY/s640/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25888.33.08.png" alt="" /></p>
+
+<p>畫面其實很乾淨，沒有很亂，左邊是Menu</p>
+
+<h2>功能</h2>
+
+<ul>
+<li>清除你Mac的圾垃</li>
+<li>檢查有無木馬</li>
+<li>監控Mac狀態</li>
+<li>查詢硬體資訊</li>
+<li>釋放記憶體</li>
+</ul>
+
+
+<!-- more -->
+
+
+<p><img src="https://lh4.googleusercontent.com/-3r6hxDzKgIc/UFhviQNCqwI/AAAAAAAAB8E/A7ywQp9xvck/s640/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25888.53.411.png" alt="" /></p>
+
+<p>會有一個一直在最上層的小視窗，內容是天氣、網路上下載的速率還有可用記憶體，按下長的很像reload的按鈕，可以釋放記憶體。</p>
+
+<p><img src="https://lh3.googleusercontent.com/-7NJpEZn-pho/UFhwqgMIovI/AAAAAAAAB8Q/jNQdH4iQRoc/s800/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25889.01.20.png" alt="" /></p>
+
+<p>滑鼠移到右上角還可以切換顯示模式，但只有網路上下載速率、CPU跟GPU的溫度。</p>
+
+<p><img src="https://lh4.googleusercontent.com/-QeUT-kkDodY/UFhxTJcjBbI/AAAAAAAAB8Y/9vYCDkmNtkE/s800/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25889.03.40.png" alt="" /></p>
+
+<p>點一下中間，還會顯示RAM跟CPU的使用狀態、還有目前天氣的溫度。</p>
+
+<p><img src="https://lh5.googleusercontent.com/-xKNqVgt_E_Q/UFhyCUXbvjI/AAAAAAAAB8k/uY8V0PQUsfU/s800/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25889.06.45.png" alt="" /></p>
+
+<p>如果要Cleanup的話，會先掃描你的要分析的東西。</p>
+
+<p><img src="https://lh4.googleusercontent.com/-U8CmerIUfOU/UFhy1eZOYJI/AAAAAAAAB88/bd3lMFjWZvM/s800/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25889.09.33.png" alt="" /></p>
+
+<p>之後會跟找到幾個檔案，容量是多少這時候會你就可以清囉~~ 4.7G 還蠻多的>&ldquo;&lt;</p>
+
+<p><img src="https://lh5.googleusercontent.com/-947PfYfCZrI/UFh0kEzQ7cI/AAAAAAAAB9E/hO7g7QZmWug/s800/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25889.17.37.png" alt="" /></p>
+
+<p>監控你的Mac狀態，這個介面我覺得還不錯很舒服，可以看CPU、硬碟、RAM、系統溫度、網路上下載速率、電池使用量。</p>
+
+<p><img src="https://lh5.googleusercontent.com/-Ldhuj1vCD_o/UFh1motq0HI/AAAAAAAAB9M/ePx1gL6zlwA/s800/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25889.22.01.png" alt="" /></p>
+
+<p>可以新增toolbox，目前只有三個</p>
+
+<ul>
+<li>MagicanDocument &ndash; 會幫你整理Mac的文件，把所有的iwork、pdf…等，整理出來</li>
+<li>MagicanFile &ndash; 作用跟Finder一樣，但是比較多功能</li>
+<li>MaficenRest &ndash; 提醒你該休息了，可以設定幾分鐘休息一下。</li>
+</ul>
+
+
+<p><code>Magican</code>感覺還不錯，而且還是免費的，看來我的Mac必用軟體清單可以多一個了XDDD</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[OS X]purge-bug]]></title>
+    <link href="http://SammyLin.github.io/blog/purge-bug/"/>
+    <updated>2012-08-29T09:47:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/purge-bug</id>
+    <content type="html"><![CDATA[<p>前些日子把 OSx更新到10.8.1版，平常我用一陣子電腦，記憶體會佔的滿滿的，我就會執行<code>purge</code>來清除一下記憶體。但是噴出了錯誤：</p>
+
+<pre><code>[ERROR]&lt;CPPathUtils.c:526&gt;The device-file for this operating system, 'osx-12.1.0.xml', was not found. An attempt to revert to a previous revision of the OS device-file: 'osx-12.0.0.xml' has been made. Please file a Radar report with Apple, on the 'CoreProfile' component, version 'X'.
+</code></pre>
+
+<p>上網google了以後，發現原來是他10.8.1的Bug</p>
+
+<ul>
+<li><a href="http://osxdaily.com/2012/08/23/os-x-mountain-lion-10-8-1-update-released/">OS X Mountain Lion 10.8.1 Update Released</a></li>
+<li><a href="https://discussions.apple.com/thread/4239648?start=0&amp;tstart=0">Anyone know why I got this Terminal Error? [ERROR]     &lt;CPPathUtils.c:526>     The device-file for this operating system, &lsquo;osx-12.1.0.xml&rsquo;, was not found.</a></li>
+</ul>
+
+
+<p>看來只能等更新囉，不過還是可以正常的使用啦，不用擔心</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mac新一代OS 新功能介紹 - Messages]]></title>
+    <link href="http://SammyLin.github.io/blog/imessage-in-os-x/"/>
+    <updated>2012-02-17T17:35:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/imessage-in-os-x</id>
+    <content type="html"><![CDATA[<p><img src="http://farm8.staticflickr.com/7199/6890618943_b0f8d582d3.jpg" alt="iMessages" /></p>
+
+<p>終於等到這一刻了&hellip;..我本人是沒有iPhone的，但是有一台MacBook頂多只能用FaceTime跟我"古錐的"對話，但是有時候還是很不方便呀。因為有很多時候是不適合用FaceTime的，難不成要在辦公室跟"古錐的"甜甜蜜蜜，難不成要閃死一堆人嗎？看來Apple聽到我們的聲音了</p>
+
+<p>下一代的作業系統<code>Mountain Lion</code>中文叫做<code>山獅</code>(看來這次改版的很快)，官方的介紹網站：<a href="http://www.apple.com/macosx/mountain-lion/">http://www.apple.com/macosx/mountain-lion/</a></p>
+
+<p>至於有什麼新的功能呢，看來很多人有寫，而且我也沒有那麼熱血，就先玩玩可以直接下載的Messages Bata</p>
+
+<!-- more -->
+
+
+<p>下載網址：<a href="http://www.apple.com/macosx/mountain-lion/messages-beta/">http://www.apple.com/macosx/mountain-lion/messages-beta/</a></p>
+
+<p>安裝完成之後，需要重新開機才能使用</p>
+
+<p><img src="http://farm8.staticflickr.com/7191/6890650383_a0abf4fa84_z.jpg" alt="" /></p>
+
+<p><code>Messages</code>還結合了 Google Talk的功能，你也可以直接用，只是聯絡人他是在另一個視窗上面(設計有點怪)</p>
+
+<p><img src="http://farm8.staticflickr.com/7176/6890658935_85e37a503e.jpg" alt="" /></p>
+
+<p>不過無論如何，我這種沒有智慧型手機的人，也可以偷偷的跟我家"古錐的"私下偷偷的恩愛了…</p>
+
+<p>但是如果下次出<code>what's app</code>跟<code>LINE</code>的OS X版那會更好的&hellip;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[分享]個人常用OSX(MAC)軟體]]></title>
+    <link href="http://SammyLin.github.io/blog/share-personal-common-mac-software/"/>
+    <updated>2011-10-30T00:00:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/share-personal-common-mac-software</id>
+    <content type="html"><![CDATA[<p>其實我買Macbook才不到兩三個月的時間，為了找適合自己的軟體其實找了很累人就是了，有些是免費的，不過還有一些軟體是付費的，這兩者其實還是有差別的，有的軟體還是需要付費的還是比較好用(天下沒有白吃的午餐咩)，而且為了往後我電腦不小心掛點，我決定寫一篇文章來提醒自己這些是我找的還不錯的軟體。</p>
+
+
+
+
+<p>每個人有每個適合用的軟體，如果有推薦或是更好用的軟體歡迎分享，畢竟我是個Apple的新手~~哈哈
+<h4>1.離線編輯</h4>
+<a href="http://illuminex.com/ecto/"><img style="border: 0px initial initial;" title="ecto.png" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/ecto.png" alt="ecto" width="80" height="80" border="0" />Ecto</a></p>
+
+
+
+
+<p>軟體名稱：Ecto<a href="http://www.red-sweater.com/marsedit/">
+</a>費用：免費<br />
+官方網站：<a href="http://illuminex.com/ecto/">http://illuminex.com/ecto/</a>
+簡單說明 ：因為過去我在PC上面都是用Windows Live Writer來編輯的，到了Mac，離線編輯的軟體很多，我選了ecto，用離線編輯最大的主因其實就是我常常會把螢幕截取下來貼到文章裡面，所以在線上編輯我就會變的很麻煩，還要一直上傳照片，所以我才愛用離線編輯器來寫我的部落格。<!--more-->
+<h4>2.螢幕截取</h4>
+<h4><img title="LittleSnapper.png" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/LittleSnapper.png" alt="LittleSnapper" width="87" height="80" border="0" /></h4>
+軟體名稱：LittleSnapper<br />
+費用：免費<a href="http://www.red-sweater.com/marsedit/">
+</a>官方網站：<a href="http://www.realmacsoftware.com/littlesnapper/">http://www.realmacsoftware.com/littlesnapper/</a>
+簡單說明 ：Mac其實有內建的螢幕截取，但是我的圖片裡面可能會做一些文字編輯或是把我的重要隱私馬賽克，LittleSnapper可以方便的做到這一點，而且可以幫你做整理，分門別類的把過去拍下來的圖片做一個整理。 但是免費版的只能拍30張照片，不過用完之後把他刪掉就可以繼續拍了~
+<h4>3.批次處理圖片</h4>
+<img title="QuickScale.png" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/QuickScale.png" alt="QuickScale" width="78" height="80" border="0" /></p>
+
+
+
+
+<p>軟體名稱：QuickScale<br />
+費用：$5.99(美金)<a href="http://www.red-sweater.com/marsedit/">
+</a>官方網站：<a href="http://www.codingmammoth.com/quickscale.php">http://www.codingmammoth.com/quickscale.php</a>
+簡單說明 ：因為我遇過之前我的文章被對岸的朋友拿去使用又沒有告之，而且還大剌剌的在我的圖片上貼了他們網站的浮水印，所以之後我的圖片大部份都會做浮水印。QuickScale 可以批次幫你的圖片做縮放及上浮水印。
+<h4>4.錄製螢幕</h4>
+<img title="ScreenFlow.png" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/ScreenFlow.png" alt="ScreenFlow" width="82" height="80" border="0" /></p>
+
+
+
+
+<p>軟體名稱：ScreenFlow<br />
+費用：$99.99(美金)<a href="http://www.red-sweater.com/marsedit/">
+</a>官方網站：<a href="http://www.telestream.net/screen-flow/">http://www.telestream.net/screen-flow/</a>
+簡單說明 ：這個軟體是貴了一點，不過貴的很值得，一般的軟體錄製之後就直接做匯出，但是ScreenFlow可以做後製，可以幫你的影片做浮水印或是幫你重要的隱私做模糊化。很酷的是他可以一邊做螢幕的錄製還可以視訊錄製，如果不是很害羞的人可以把你的大頭放在你的右下角(我是很害羞啦~xd)
+<h4>5.遠端連線</h4>
+<img title="Remote-Desktop-Connection.png" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/Remote-Desktop-Connection.png" alt="Remote Desktop Connection" width="92" height="80" border="0" />
+軟體名稱：Remote Desktop Connection<br />
+費用：免費<a href="http://www.red-sweater.com/marsedit/">
+</a>官方網站：<a href="http://www.microsoft.com/downloads/zh-tw/details.aspx?familyid=68346e0d-44d3-4065-99bb-b664b27ee1f0&amp;displaylang=zh-tw">http://www.microsoft.com/downloads/zh-tw/details.aspx?familyid=68346e0d-44d3-4065-99bb-b664b27ee1f0&amp;displaylang=zh-tw</a>
+簡單說明 ：要連線到PC的遠端桌面這個是獨一無二的選擇了。</p>
+
+
+
+
+<p><img title="TeamViewer.png" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/TeamViewer.png" alt="TeamViewer" width="83" height="80" border="0" /></p>
+
+
+
+
+<p>軟體名稱：TeamViewer<br />
+費用：免費<a href="http://www.red-sweater.com/marsedit/">
+</a>官方網站：<a href="http://www.teamviewer.com/">http://www.teamviewer.com</a>
+簡單說明 ：很簡單就可以遠端連線到別人的桌面，也有出Windows的版本，所以不用怕拿到mac就連不到別人的桌面了。
+<h4>6.資料庫管理GUI</h4>
+<img style="border: 0px initial initial;" title="Navicat.png" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/Navicat.png" alt="Navicat" width="81" height="80" border="0" /></p>
+
+
+
+
+<p>軟體名稱：Navicat Lite<br />
+費用： 免費<br />
+官方網站：<a href="http://navicat.de/cht">http://navicat.de/cht
+</a>簡單說明 ：因為資料庫不是我的專業，如果有軟體可以輔助我應該就是Navicat你可以連線到Mysql ,SQL Server ,SQLite ,Oracle ,PostgreSQL。目前Navicat似乎中止了Navicat Lite的服務，如果你要下載的話，請到這裡<a href="http://www.macupdate.com/app/mac/32916/navicat-lite">http://www.macupdate.com/app/mac/32916/navicat-lite</a>，
+<h4>7.心智圖</h4>
+<img title="XMind.png" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/XMind.png" alt="XMind" width="81" height="80" border="0" /></p>
+
+
+
+
+<p>軟體名稱：XMind<br />
+費用：免費<a href="http://www.red-sweater.com/marsedit/">
+</a>官方網站：<a href="http://www.xmind.net/">http://www.xmind.net/</a>
+簡單說明 ：一般來說畫心智圖，XMind已經很完整了，而且他也有Windows的版本，可以互相共用。
+<h4>8.筆記軟體</h4>
+<img title="Evernote.png" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/Evernote.png" alt="Evernote" width="78" height="80" border="0" /></p>
+
+
+
+
+<p>軟體名稱：Evernote<br />
+費用：免費<a href="http://www.red-sweater.com/marsedit/">
+</a>官方網站：<a href="http://www.evernote.com/">http://www.evernote.com/</a>
+簡單說明 ：用了很久的筆記本軟體，我都用到中途就不想用或是忘記他，Evernote你可以把你的筆記上Tag，分類，也可以用搜尋把你過去的筆記找出來，更可以分享你的筆記給別人。</p>
+
+
+
+
+<p><img title="Wunderlist.png" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/Wunderlist.png" alt="Wunderlist" width="85" height="80" border="0" /></p>
+
+
+
+
+<p>軟體名稱：Wunderlist<br />
+費用：免費<a href="http://www.red-sweater.com/marsedit/">
+</a>官方網站：<a href="http://www.6wunderkinder.com/wunderlist/">http://www.6wunderkinder.com/wunderlist/</a>
+簡單說明 ：這是個好用的待辦資料，簡單明瞭，沒什麼多餘的功能，所以才讓我愛上XD。
+<h4>9.空間</h4>
+<img title="Dropbox.png" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/Dropbox.png" alt="Dropbox" width="84" height="80" border="0" /></p>
+
+
+
+
+<p>軟體名稱：Dropbox<br />
+費用：免費<a href="http://www.red-sweater.com/marsedit/">
+</a>官方網站：<a href="http://www.dropbox.com/">http://www.dropbox.com/</a>
+簡單說明 ：也是個簡單好用的雲端空間，Windows或是Mac都可以使用，免費版的有2G的空間
+<h4>10.即時通</h4>
+<img title="Skype.png" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/Skype.png" alt="Skype" width="89" height="80" border="0" /></p>
+
+
+
+
+<p>軟體名稱：Skype<br />
+費用：免費<a href="http://www.red-sweater.com/marsedit/">
+</a>官方網站：<a href="http://www.skype.com/">http://www.skype.com/</a>
+簡單說明 ：從網路電話起家，可以用訊息傳遞也能打電話，不過好像有很多家都可以打網路電話，不過還是Skype佔大宗。</p>
+
+
+
+
+<p><img title="Adium.png" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/Adium.png" alt="Adium" width="81" height="80" border="0" /></p>
+
+
+
+
+<p>軟體名稱：adium<br />
+費用：免費<a href="http://www.red-sweater.com/marsedit/">
+</a>官方網站：<a href="http://adium.im/">http://adium.im/</a>
+簡單說明 ：可以整合你的即時通軟體，msn、yahoo、gtalk…等等的。
+<h4>11.終端機</h4>
+<img title="iTerm.png" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/iTerm.png" alt="iTerm" width="92" height="80" border="0" /></p>
+
+
+
+
+<p>軟體名稱：iTerm<a href="http://www.red-sweater.com/marsedit/">
+</a>官方網站：<a href="http://iterm.sourceforge.net/">http://iterm.sourceforge.net/</a>
+簡單說明 ：還蠻有名的終端機程式
+<h4>12.簡報</h4>
+<img title="Keynote.png" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/Keynote1.png" alt="Keynote" width="68" height="80" border="0" /></p>
+
+
+
+
+<p>軟體名稱：Keynote<br />
+費用：$19.99(美金)<a href="http://www.red-sweater.com/marsedit/">
+</a>官方網站：<a href="http://www.apple.com/tw/iwork/keynote/">http://www.apple.com/tw/iwork/keynote/</a>
+簡單說明 ：Keynote是apple旗下的產品，可能是apple自己的對於編輯slide還蠻順手的，而且可以轉成PPT檔。</p>
+
+
+
+
+<p><img title="PowerPoint.png" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/PowerPoint.png" alt="PowerPoint" width="83" height="80" border="0" /></p>
+
+
+
+
+<p>軟體名稱：PowerPoint<br />
+費用：$4190(新台幣)<a href="http://www.red-sweater.com/marsedit/">
+</a>官方網站：<a href="http://www.microsoft.com/taiwan/mac">http://www.microsoft.com/taiwan/mac</a>
+簡單說明 ：微軟的簡報軟體，如果是常用PowerPoint也是很容易上手的。
+<h4>13.休閒軟體</h4>
+<img title="PPS.png" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/PPS.png" alt="PPS" width="80" height="80" border="0" /></p>
+
+
+
+
+<p>軟體名稱：PPS<br />
+費用：免費<a href="http://www.red-sweater.com/marsedit/">
+</a>官方網站：<a href="http://www.pps.tv/">http://www.pps.tv/</a>
+簡單說明 ：休息的時候可以看的一個網路電視。</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[NoSQL]在OS X安裝MongoDB]]></title>
+    <link href="http://SammyLin.github.io/blog/mongodb-nosql-mac-osx-rails-on-ruby/"/>
+    <updated>2011-10-15T00:00:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/mongodb-nosql-mac-osx-rails-on-ruby</id>
+    <content type="html"><![CDATA[<p>最近因為在玩Ruby on Rails的關係，就順便玩了一下NoSQL，因為NoSQL實在太多了，不知道要選什麼！剛好聽說ROR支援MongoDB比較多，所以就先選擇了MongoDB。安裝其實很簡單只要幾個步驟而已.</p>
+
+
+
+
+<p>如果你是32位元的話</p>
+
+
+
+
+<p>$ curl <a title="http://fastdl.mongodb.org/osx/mongodb-osx-i386-2.0.0.tgz" href="http://fastdl.mongodb.org/osx/mongodb-osx-i386-2.0.0.tgz">http://fastdl.mongodb.org/osx/mongodb-osx-i386-2.0.0.tgz</a>&gt; mongodb.taz</p>
+
+
+
+
+<p>64位元</p>
+
+
+
+
+<p><a href="http://fastdl.mongodb.org/osx/mongodb-osx-x86_64-2.0.0.tgz">http://fastdl.mongodb.org/osx/mongodb-osx-x86_64-2.0.0.tgz</a> &gt; mongodb.taz<br />
+解壓縮<!--more--></p>
+
+
+
+
+<p>$ tar xzf mongodb.taz</p>
+
+
+
+
+<p>移動到 local</p>
+
+
+
+
+<p>$ sudo mv mongodb-osx-XXX_XX-2.0.0/ /usr/local/mongodb</p>
+
+
+
+
+<p>為了少打一些參數，我建立了一個mongod.conf檔</p>
+
+
+
+
+<p>$ sudo vi /usr/local/mongodb/mongodb.conf</p>
+
+
+
+
+<p>#預設的Mongodb存放位置是在
+<pre lang="LANGUAGE">/data/dbdbpath = /usr/local/mongodb_data
+# 只給本機存取,如果是不是就把他拿掉吧
+bind_ip = 127.0.0.1
+測試一下可不可以work</pre>
+<pre>$ sudo /usr/local/mongodb//bin/mongod</pre></p>
+
+
+
+
+<p>之後開瀏覽器看一下http://localhost:28017/ 應該就會看到這個畫面
+<img src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/Screen-Shot1032.png" alt="Screen Shot1032.png" width="544" height="306" /></p>
+
+
+
+
+<p>但是關掉不就沒了嗎？…那我們讓mac osx 在自己執行mongodb</p>
+
+
+
+
+<p>$ sudo vi /Library/LaunchDaemons/org.mongodb.mongod.plist
+<pre lang="LANGUAGE"><!--?xml version="1.0" encoding="UTF-8"?--></pre></p>
+
+
+
+
+<p>  Label<br />
+  org.mongodb.mongod<br />
+  ProgramArguments</p>
+
+
+
+
+<p>    /usr/local/mongodb/bin/mongod<br />
+    run<br />
+    --config<br />
+    /usr/local/mongodb/mongod.conf</p>
+
+
+
+
+<p>  RunAtLoad</p>
+
+
+
+
+<p>  KeepAlive</p>
+
+
+
+
+<p>  WorkingDirectory<br />
+  /usr/local/mongodb<br />
+  StandardErrorPath<br />
+  /var/log/mongodb/output.log<br />
+  StandardOutPath<br />
+  /var/log/mongodb/output.log
+&nbsp;
+<pre>我們可以試試把資料丟進去mongodb
+$ /usr/local/mongodb/bin/mongo</pre></p>
+
+
+
+
+<p>MongoDB shell version: 2.0.0<br />
+connecting to: test</p>
+
+
+
+
+<p>#存data到abc這個collection(關聯式資料庫叫做table)</p>
+
+
+
+
+<p>&gt; db.abc.save({name:"sammy",url:"http://blog.igotcloud.com"})</p>
+
+
+
+
+<p>#找出所有abc的資料<br />
+&gt;db.abc.find() { "_id" : ObjectId("4e99637cf6e98d96d71c7d36"), "name" : "sammy", "url" : "http://blog.igotcloud.com" }</p>
+
+]]></content>
+  </entry>
+  
+</feed>

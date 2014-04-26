@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Mysql | Sammy Lin]]></title>
+  <link href="http://SammyLin.github.io/blog/blog/categories/mysql/atom.xml" rel="self"/>
+  <link href="http://SammyLin.github.io/blog/"/>
+  <updated>2014-04-26T13:25:55+08:00</updated>
+  <id>http://SammyLin.github.io/blog/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[Mysql]優化]]></title>
+    <link href="http://SammyLin.github.io/blog/mysql-optimization/"/>
+    <updated>2011-12-03T09:34:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/mysql-optimization</id>
+    <content type="html"><![CDATA[<p>因為過去都沒有接觸到mysql的環境處理，(DBA很重要的)而我最近架在<code>AWS
+</code>的mysql常常會loading過重，問了一下高手才知道我沒有做MYSQL的優化，查了資料以後才知道MYSQL的優化很簡單</p>
+
+<h3>修改配置檔/etc/my.cnf</h3>
+
+<p>MYSQL有官方推薦的配置檔，當然是最穩最好的，官方配置檔放在<code>/usr/share/mysql</code></p>
+
+<pre><code>cd /usr/share/mysql/
+</code></pre>
+
+<ul>
+<li>my-small.cnf(小於64MB的記憶體)</li>
+<li>my-medium.cnf (64~128MB的記憶體)</li>
+<li>my-large.cnf (128~512MB的記憶體)</li>
+<li>my-huge.cnf (1~2GB的記憶體)</li>
+<li>my-innodb-heavy-4G.cnf (4GB的記憶體)</li>
+</ul>
+
+
+<p>可以選一個適合你的主機的配置檔並將配置檔複製到 /etc/my.cnf</p>
+
+<pre><code>#cp  /usr/share/mysql/my-large.cnf  /etc/my.cnf
+
+#service mysqld restart
+</code></pre>
+
+<h3>將資料表最佳化</h3>
+
+<pre><code>mysqlcheck -a -c -o -r --all-databases -uroot -p
+</code></pre>
+
+<h3>重建資料表索引</h3>
+
+<pre><code>service mysqld stop
+
+myisamchk -s /var/lib/mysql/*/*.MYI
+
+service mysqld start
+</code></pre>
+
+<h2>參考網站</h2>
+
+<blockquote><p><a href="http://163.32.219.6/blog/u882061/cce-linux/2009/10/31/1237">只要十分鐘，快速優化 MySQL 資料庫</a></p></blockquote>
+]]></content>
+  </entry>
+  
+</feed>

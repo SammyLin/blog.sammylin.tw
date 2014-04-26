@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Yahoo Webmaster | Sammy Lin]]></title>
+  <link href="http://SammyLin.github.io/blog/blog/categories/yahoo-webmaster/atom.xml" rel="self"/>
+  <link href="http://SammyLin.github.io/blog/"/>
+  <updated>2014-04-26T13:25:55+08:00</updated>
+  <id>http://SammyLin.github.io/blog/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[在你的octopress裝上yahoo站長工具]]></title>
+    <link href="http://SammyLin.github.io/blog/octopress-plugin-yahoo-webmaster/"/>
+    <updated>2012-01-19T14:25:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/octopress-plugin-yahoo-webmaster</id>
+    <content type="html"><![CDATA[<p>很可惜，Octopress沒有Yahoo站長工具，只有<code>Google Analytics</code>所以這樣子的話只好自己裝了，因為每個人有每個不同的習慣，有的愛看Google有的愛看Yahoo，像我有時候會看兩個都看，其實我也不知道要看什麼，看那個人數飆高就有一股爽度，那是一開始啦，到最後已經沒有那種爽度了，我還記得以前每天都會去看，搞的好像看股票一樣，加入Yahoo站長工具，其實不難，基本上只要看的懂HTML，然後把他加進去就好了，不過樣子還蠻不漂亮的，我就把他做成一個plugin，供大家使用囉。</p>
+
+<!-- more -->
+
+
+<p>建立一個檔案<code>source/_includes/custom/yahoo_webmaster.html</code>把下面這些丟進去
+<div><script src='https://gist.github.com/1638433.js'></script>
+<noscript><pre><code>{% if site.yahoo_webmaster_id %}
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://tw.js.webmaster.yahoo.com/{{ site.yahoo_webmaster_id }}/ystat.js&quot;&gt;&lt;/script&gt;
+&lt;noscript&gt;&lt;a href=&quot;http://tw.webmaster.yahoo.com&quot;&gt;&lt;img src=http://tw.img.webmaster.yahoo.com/{{ site.yahoo_webmaster_id }}/ystats.gif&gt;&lt;/a&gt;&lt;/noscript&gt;
+{% endif %}
+</code></pre></noscript></div>
+</p>
+
+<p>然後開啟<code>_config.yml</code>加入以下的程式碼</p>
+
+<pre><code># Yahoo Webmaster
+yahoo_webmaster_id: &lt;id&gt;
+</code></pre>
+
+<p>如果不知道的話可以進到<a href="http://tw.webmaster.yahoo.com/stats/">Yahoo站長工具</a>建立你的網站，進到詳細資料，他的網址最後面就會有一個參數叫unit_id，後面就是你的ID了</p>
+
+<p>最後就是要把你的站長工具放入你的頁面，因為考慮到有些人可能會開啟<code>統計貼紙</code>所以我把他放在<code>aside</code>裡面</p>
+
+<p>所以只要在<code>_config.yml</code>找到default_asides:後面加上<code>custom/yahoo_webmaster.html</code>就完成啦</p>
+]]></content>
+  </entry>
+  
+</feed>

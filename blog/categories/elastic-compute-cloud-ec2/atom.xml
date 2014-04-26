@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Elastic Compute Cloud(EC2) | Sammy Lin]]></title>
+  <link href="http://SammyLin.github.io/blog/blog/categories/elastic-compute-cloud-ec2/atom.xml" rel="self"/>
+  <link href="http://SammyLin.github.io/blog/"/>
+  <updated>2014-04-26T13:25:55+08:00</updated>
+  <id>http://SammyLin.github.io/blog/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[AWS]利用EC2架設Wordpress(影音)]]></title>
+    <link href="http://SammyLin.github.io/blog/aws-using-ec2-set-up-wordpress-video/"/>
+    <updated>2011-10-29T00:00:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/aws-using-ec2-set-up-wordpress-video</id>
+    <content type="html"><![CDATA[<p>第一次做影音的有點害羞，口齒不清或是講的不清楚的請多指教~</p>
+
+
+
+
+<p><object style="height: 390px; width: 640px;" width="640" height="360" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="src" value="http://www.youtube.com/v/N8EUoJRek3c?version=3&amp;feature=player_detailpage" /><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><embed style="height: 390px; width: 640px;" width="640" height="360" type="application/x-shockwave-flash" src="http://www.youtube.com/v/N8EUoJRek3c?version=3&amp;feature=player_detailpage" allowfullscreen="true" allowscriptaccess="always" /></object></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[Rails]Install Ruby on Rails on AWS EC2]]></title>
+    <link href="http://SammyLin.github.io/blog/rails-install-ruby-on-rails-on-aws-ec2/"/>
+    <updated>2011-09-28T23:34:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/rails-install-ruby-on-rails-on-aws-ec2</id>
+    <content type="html"><![CDATA[<p>最近在學Ruby on Rails安裝環境吃了一點苦頭，作一點記錄~~~
+First Launch a instance
+choose ths ami</p>
+
+<h3>ami:Basic 32-bit Amazon Linux AMI 2011.09 (AMI Id: ami-dcfa4edd)</h3>
+
+<p><code>sudo yum update</code></p>
+
+<p><code>sudo yum upgrade</code></p>
+
+<p><code>sudo yum install git</code></p>
+
+<p><code>sudo yum install mysql mysql-server</code></p>
+
+<p><code>$ sudo yum install build-essential zlib1g-dev libssl-dev libreadline5-dev</code></p>
+
+<p><code>$ sudo yum install gcc gcc-c++ make patch openssl-devel readline-devel</code></p>
+
+<p><code>$ sudo yum install ruby-devel ruby-irb ruby-rdoc ruby-ri</code></p>
+
+<h3>install RVM</h3>
+
+<p><code>$ bash &lt; &lt;(curl -s https://rvm.beginrescueend.com/install/rvm)</code></p>
+
+<p><code>$ echo "[[ -s $HOME/.rvm/scripts/rvm ]] &amp;&amp; source $HOME/.rvm/scripts/rvm" &gt;&gt; ~/.bash_profile</code></p>
+
+<p><code>$ source ~/.bash_profile</code></p>
+
+<h3>install REE</h3>
+
+<p><code>$ rvm install --force ree</code></p>
+
+<h3>install sqlite3 and mysql</h3>
+
+<p><code>$ sudo yum install sqlite-devel ruby-mysql mysql-devel</code></p>
+
+<h3>install RubyGem</h3>
+
+<p><code>$ wget http://rubyforge.org/frs/download.php/75309/rubygems-1.8.10.tgz</code></p>
+
+<p><code>$ tar -xvzf  rubygems-1.8.10.tgz</code></p>
+
+<p><code>$ cd rubygems-8-10</code></p>
+
+<p><code>$ ruby setup.rb</code></p>
+
+<h3>install Rails</h3>
+
+<p><code>$ gem install rails -v=3.0.7</code></p>
+
+<p><code>$ gem install mysql</code></p>
+
+<h3>install Passenger</h3>
+
+<p><code>$ gem install passenger</code></p>
+
+<h3>install CUR with SSL</h3>
+
+<p><code>$ sudo yum install curl-devel</code></p>
+
+<p><code>$ sudo yum install httpd-devel</code></p>
+
+<h3>install Passenger on Apache</h3>
+
+<p><code>$ sudo passenger-install-apache2-module</code></p>
+
+<h3>vim httpd.conf</h3>
+
+<p><code>$ sudo vim /etc/httpd/conf/httpd.conf</code></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>LoadModule passenger_module /home/ec2-user/.rvm/gems/ree-1.8.7-2011.03/gems/passenger-3.0.9/ext/apache2/mod_passenger.so
+</span><span class='line'>PassengerRoot /home/ec2-user/.rvm/gems/ree-1.8.7-2011.03/gems/passenger-3.0.9
+</span><span class='line'>PassengerRuby /home/ec2-user/.rvm/wrappers/ree-1.8.7-2011.03/ruby&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>&lt;VirtualHost *:80>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>  ServerName forum.local 
+</span><span class='line'>
+</span><span class='line'>DocumentRoot /home/ec2-user/projects/forum/public 
+</span><span class='line'>
+</span><span class='line'>&lt;Directory /home/ec2-user/projects/forum/public&gt; 
+</span><span class='line'>
+</span><span class='line'>   AllowOverride all 
+</span><span class='line'>
+</span><span class='line'>   Options -MultiViews 
+</span><span class='line'>
+</span><span class='line'>&lt;/Directory&gt;
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>&lt;/VirtualHost></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>建立Projects</h3>
+
+<p><code>$ mkdir -p ~/projects/</code></p>
+
+<p><code>$ cd ~/projects/</code></p>
+
+<p><code>$ rails new forum</code></p>
+
+<p><code>$ sudo chmod 705 /home/ec2-user/projects/</code></p>
+
+<p>Reference:</p>
+
+<p>火速學會Ruby on Rails :<a href="http://rails-101.logdown.com/">http://rails-101.logdown.com/</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[WordPress]支援CDN及S3的外掛-W3 Total Cache]]></title>
+    <link href="http://SammyLin.github.io/blog/wordpress-cdn-and-s3-support-plug-w3-total-cache/"/>
+    <updated>2011-09-21T00:00:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/wordpress-cdn-and-s3-support-plug-w3-total-cache</id>
+    <content type="html"><![CDATA[<p><p>最近發現一個好外掛，其實我的部落格是用EC2建置的，但是哪天如果EC2掛點的話，我怎麼跟各位相親父老交待，我本人也不是系統出身的，因此我的系統也是一邊學一邊做，看有沒有辦法把EC2的備援做到最好的狀況，希望未來像<a title="http://www.tts.bz/" href="http://www.tts.bz/">Ken Lee</a>一樣。</p>  <table border="0" cellspacing="0" cellpadding="2" width="540"><tbody>     <tr>       <td valign="top" width="540">         <p><strong>名稱：W3 Total Cache</strong></p>          <p>網址：<a title="http://wordpress.org/extend/plugins/w3-total-cache" href="http://wordpress.org/extend/plugins/w3-total-cache">http://wordpress.org/extend/plugins/w3-total-cache</a></p>       </td>     </tr>   </tbody></table>  <p>其實W3 Total Cache因為有支援Amazon S3 跟Amazon CloudFront的關係，令我想要去玩一下他，目前我的網站，所有靜態檔案(圖片、css)都是放在s3上面的，如果仔細看的話我的圖片是放在<a href="http://blog1.cornerlife.tw">Http://blog1.cornerlife.tw</a> 其實這個網址是CNAME到 <a href="http://blog1.cornerlife.tw.s3-ap-northeast-1.amazonaws.com">Http://blog1.cornerlife.tw.s3-ap-northeast-1.amazonaws.com</a>的。</p>  <p>如果你要使用S3又要用自己的Domain name的話，那你的Bucket記得要用你的domain name建立Bucket 否則他是無法讀取你的檔案。</p></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[EC2]CPU 負載 100% 死當 解決方法]]></title>
+    <link href="http://SammyLin.github.io/blog/ec2-cpu-load-when-100-solution-died/"/>
+    <updated>2011-07-27T00:00:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/ec2-cpu-load-when-100-solution-died</id>
+    <content type="html"><![CDATA[<p>這個月來我架的EC2，因為CPU 100%達到了三次，自已的就算了，另外幫客戶架的也是如此，我們來看一下我開的EC2 Instance type
+<table width="200" border="1" cellspacing="1" cellpadding="1">
+<tbody>
+<tr>
+<td valign="top" width="100"></td>
+<td valign="top" width="100">Micro Instance</td>
+</tr>
+<tr>
+<td valign="top" width="100">記憶體</td>
+<td valign="top" width="100">613 MB</td>
+</tr>
+<tr>
+<td valign="top" width="100">CPU Unit</td>
+<td valign="top" width="100">Up to 2 ECUs</td>
+</tr>
+<tr>
+<td valign="top" width="100">CPU Cores</td>
+<td valign="top" width="100">1 Core</td>
+</tr>
+</tbody>
+</table>
+因為個人是偏向使用那麼大的運算不會去升自己的主機，除非量大，不然的話應該還是夠用就行了，但發生了這個狀況我也回逤過去的CPU使用率，發現其實在流量方面是沒有什麼問題，因為平常都會只會保持在10%左右，就算上次因為Google+的關係寫了一篇<a href="http://blog.cornerlife.tw/googleplus1.html" target="_blank">Google+的功能</a>流量爆增8倍，也是沒有發生死當的情況！</p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image49.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb50.png" alt="image" width="299" height="131" border="0" /></a></p>
+
+
+
+
+<p>只能請出Google大神了，發現其實也有人使用Micro Instance有這個狀況<a href="http://crm2.tw/?p=1005" target="_blank">[CRM2] 網站已經恢復正常</a>(看來很多人都這樣子~~~)</p>
+
+
+
+
+<p>經過高人指點之後，才驚覺自己的RAM太小了</p>
+
+
+
+
+<p>馬上SSH到我的Instance用free 看了一下我的RAM<!--more--></p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image50.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb51.png" alt="image" width="544" height="81" border="0" /></a></p>
+
+
+
+
+<p>看來我的RAM只剩下15M而以，一定不夠用的。</p>
+
+
+
+
+<p>解決方式</p>
+
+
+
+
+<p>只能像Windows 開個分頁檔(虛擬記憶體)，就能處理現階段的問題(又能省一筆了xd)
+<table width="540" border="1" cellspacing="1" cellpadding="1">
+<tbody>
+<tr>
+<td valign="top" width="540">#建立一個swap檔，命名為swapfile放在根目錄</td></tr></tbody></table></p>
+
+
+
+
+<p>sudo dd if=/dev/zero of=/swapfile bs=1024 count=1024000;</p>
+
+
+
+
+<p>#設定swap分割區</p>
+
+
+
+
+<p>sudo mkswap /swapfile</p>
+
+
+
+
+<p>#啟用該swap分割區</p>
+
+
+
+
+<p>sudo swapon /swapfile
+
+
+
+<a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image51.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb52.png" alt="image" width="544" height="75" border="0" /></a></p>
+
+
+
+
+<p>已經啟用Swap，也在使用了。</p>
+
+
+
+
+<p>如果要開機就啟用就用以下的方法
+<table width="540" border="1" cellspacing="1" cellpadding="1">
+<tbody>
+<tr>
+<td valign="top" width="540">#設定開機時啟用</td></tr></tbody></table></p>
+
+
+
+
+<p>vi /etc/fstab</p>
+
+
+
+
+<p>加入這一行</p>
+
+
+
+
+<p>/swapfile swap swap defailts 0 0
+
+
+</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[AWS][EC2]新功能EC2支援redhat]]></title>
+    <link href="http://SammyLin.github.io/blog/awsec2-e6-96-b0-e5-8a-9f-e8-83-bdec2-e6-94-af-e6-8f-b4redhat/"/>
+    <updated>2011-06-22T00:00:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/awsec2-e6-96-b0-e5-8a-9f-e8-83-bdec2-e6-94-af-e6-8f-b4redhat</id>
+    <content type="html"><![CDATA[<p><p> <a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/1.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: left; border-top: 0px; border-right: 0px; padding-top: 0px" title="未命名-1" border="0" alt="未命名-1" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/1_thumb.png" width="183" height="128" /></a></p>  <p> 在美國時間2011/6/20，Amazon發佈了EC2對於redhat的支援，對一些愛用redhat可能是個好消息，不過說實在我是沒有用過(這不是自曝其短嗎~&gt;&lt;)，沒有關係，反正只是分享一些消息而以啦！在同一時間也看到一個好消息，而筆者昨天也在測試，還蠻好玩的就是「CloudFormation」的功能，晚一點也來做個介紹，那我們先看一下圖片吧！~~~   <br /></p>  <p>在快速啟動裡多了兩個redhat，在這裡是提供Red Hat Enterprise Linux 6.1的。   <br /></p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image54.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb52.png" width="544" height="358" /></a></p>  <p>或者是說可以到三方提供的AMI，裡是就有5.5, 5.6,&#160; 6.0, 6.1版的。</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image55.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb53.png" width="544" height="357" /></a></p>  <table border="2" cellspacing="0" cellpadding="0" width="540"><tbody>     <tr>       <td valign="top" width="540"><font color="#ff0000" size="2">Note: 不過目前只提供按時計價(On-Demand Instances)及Spot Requests，尚未提供預付主機(Reserved Instances)。</font></td>     </tr>   </tbody></table>  <h3>RedHat的價錢：   <br /><font size="2"><font style="font-weight: normal">(參考網站：</font></font><a href="http://aws.amazon.com/rhel/"><font size="2"><font style="font-weight: normal">http://aws.amazon.com/rhel/</font></font></a><font size="2"><font style="font-weight: normal">)</font></font></h3>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image56.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb54.png" width="544" height="350" /></a></p></p>
+
+]]></content>
+  </entry>
+  
+</feed>

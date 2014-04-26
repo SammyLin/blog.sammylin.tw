@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>在AWS上安裝Octopress - Sammy Lin</title>
+  <meta name="author" content="Sammy">
+
+  
+  <meta name="description" content="安裝了Octopress，感覺還蠻開心的，因為我這個人有點懶，又找不到好的設計朋友，所以只要遇到好技術又加上預設的Theme的又蠻好看的，我就會把他列入我的list裡面(感覺我好不務正業喔= =) 所以我要趕快來做個筆記好去睡覺了。 上一篇有提到一些高手的文章， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://SammyLin.github.io/blog/install-octopress-in-aws">
+  <link href="/blog/favicon.png" rel="icon">
+  <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
+  <script src="/blog/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/blog/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23558179-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/blog/">Sammy Lin</a></h1>
+  
+    <h2>旅居台北的高雄人</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/igotcloud" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:SammyLin.github.io/blog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/blog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">在AWS上安裝Octopress</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-29T22:46:00+08:00" pubdate data-updated="true">Nov 29<span>th</span>, 2011</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>安裝了Octopress，感覺還蠻開心的，因為我這個人有點懶，又找不到好的設計朋友，所以只要遇到好技術又加上預設的Theme的又蠻好看的，我就會把他列入我的list裡面(感覺我好不務正業喔= =)</p>
+
+<p>所以我要趕快來做個筆記好去睡覺了。</p>
+
+<p><a href="http://blog.igotcloud.com/hello-octopress/">上一篇</a>有提到一些高手的文章，寫一下怎麼在<code>AWS</code>架設自己的<code>OctoPress</code></p>
+
+<!--more-->
+
+
+<h3>開啟一台EC2 &amp; 架出WebService的環境</h3>
+
+<p>這邊不多說，大家可以參考我之前的文章，該文章是架出Ruby on Rails的環境，大家可以參考著看
+<a href="http://blog.igotcloud.com/rails-install-ruby-on-rails-on-aws-ec2">[Rails]Install Ruby on Rails on AWS EC2</a></p>
+
+<p>或是參考<a href="http://blog.igotcloud.com/aws-using-ec2-set-up-wordpress-video/">[AWS]利用EC2架設Wordpress(影音)</a></p>
+
+<h3>本機安裝Ruby的環境</h3>
+
+<p>這邊也可以直接參考<a href="http://ihower.tw/rails3/installation.html">安裝Rails開發環境</a>
+或是購買XDite的電子書<a href="http://rails-101.logdown.com/">Rails 101 &ndash; 火速學會 Ruby on Rails</a>
+剛剛<a href="http://blog.eddie.com.tw/">高見龍</a>大大有提醒到一點，其實要編譯<code>OctoPress</code>只需要Ruby的環境而以，而我一開始就是接觸Ruby on Rails的環境，所以誤以為都是需要Ruby on Rails的，真是謝謝<a href="http://blog.eddie.com.tw/">高見龍</a>大大的解說。</p>
+
+<h3>安裝Octopress 在本機端</h3>
+
+<p>如果你想要直接安裝在Server端的話也是可以(但是應該很少人會這樣做)，所以我們在可以到<a href="http://octopress.org/">Octopress官網</a>下載或是直接用git clone到本機上</p>
+
+<pre><code>$ mkdir project
+$ cd preject
+$ git clone git://github.com/imathis/octopress.git
+</code></pre>
+
+<h3>安裝gem 初始化Octopress</h3>
+
+<pre><code>$ cd octopress
+$ bundle install
+$ rake install
+</code></pre>
+
+<h3>預覽Octopress</h3>
+
+<pre><code>$ rake preview
+</code></pre>
+
+<p>開啟瀏覽器進入<a href="http://127.0.0.1:4000">http://127.0.0.1:4000</a>應該會看到這個畫面
+<img src="https://lh4.googleusercontent.com/-e2GIUphxpq4/TtT7CBTTv5I/AAAAAAAABes/QOp3QMadoyo/s640/Google%252520Chrome.jpg" alt="&quot;預覽Octpress&quot;" /></p>
+
+<h3>Octpress的基本設定</h3>
+
+<p>打開<code>_config.yml</code>你可以設定</p>
+
+<figure class='code'><figcaption><span>_config.yml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">url</span><span class="p">:</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">yoursite</span><span class="o">.</span><span class="n">com</span>
+</span><span class='line'><span class="c1">#你的網址</span>
+</span><span class='line'><span class="ss">title</span><span class="p">:</span> <span class="no">My</span> <span class="no">Octopress</span> <span class="no">Blog</span>
+</span><span class='line'><span class="c1">#Blog的名稱</span>
+</span><span class='line'><span class="ss">subtitle</span><span class="p">:</span> <span class="n">A</span> <span class="n">blogging</span> <span class="n">framework</span> <span class="k">for</span> <span class="n">hackers</span><span class="o">.</span>
+</span><span class='line'><span class="c1">#BLog的副標</span>
+</span><span class='line'><span class="ss">author</span><span class="p">:</span> <span class="no">Your</span> <span class="no">Name</span>
+</span><span class='line'><span class="c1">#你的名字</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>其他詳細設定請看<a href="http://octopress.org/docs/configuring/">官網文件</a></p>
+
+<h3>建立第一篇文章</h3>
+
+<p>我們利用<code>rake</code>來產生一個markdown檔，它也會順便幫你建立表頭的基本設定</p>
+
+<pre><code>$ rake new_post["post-name"]
+Creating new post: source/_posts/2011-11-29-post-name.markdown
+</code></pre>
+
+<h3>開始寫第一篇文章</h3>
+
+<p>你可以用<code>gedit</code>或是<code>TextEdit</code>都行，不過我們都是懶人的話，建議是用<a href="http://mouapp.com/">Mou</a>來編輯會比較好，因為ocropress是用markdown的語法，如果不會的話可以參考<a href="http://markdown.tw/">markdown.tw</a>或是<a href="http://daringfireball.net/projects/markdown/basics">Daring Fireball</a></p>
+
+<h3>產生靜態網頁</h3>
+
+<p>我們用markdown寫的檔案都是放在<code>source\_post</code>利用<code>rake</code>會幫你把markdown轉成靜態網站放在<code>public\</code></p>
+
+<pre><code>$ rake generate
+## Generating Site with Jekyll
+unchanged sass/screen.scss
+Configuration from /project/octopress/_config.yml
+Building site: source -&gt; public
+Successfully generated site: source -&gt; public
+</code></pre>
+
+<h3>佈署到AWS上</h3>
+
+<h4>Server端</h4>
+
+<p>建立一個repository</p>
+
+<pre><code>$ mkdir octopress.git
+$ cd octopress.git
+$ git init --bare
+Initialized empty Git repository in /home/ec2-user/octopress.git/
+</code></pre>
+
+<p>建立網站目錄及設定自動check out 最後一個版本到你的網站目錄下</p>
+
+<pre><code>$ mkdir /var/www/octopress
+$ echo GIT_WORK_TREE=/var/www/octopressg git checkout -f &gt;&gt; hooks/post-receive
+$ chmod +x hooks/post-receive
+</code></pre>
+
+<h4>本機端</h4>
+
+<p>因為EC2是用key-pair做登入，所以我們如果不做任何修改的話，我們可以直接照以下的方法push到你的主機裡</p>
+
+<pre><code>$ ssh-add octopuses.pem 
+#把Key-pair 加到ssh-agent
+$ git remote add web ec2-user@you-ip:/home/ec2-user/octopress.git/
+$ git add . -f
+$ git commit -m 'new octopuses'
+$ git push web
+Counting objects: 469, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (177/177), done.
+Writing objects: 100% (253/253), 78.46 KiB, done.
+Total 253 (delta 139), reused 0 (delta 0)
+To ec2-user@ou-ip:/home/ec2-user/octopress.git/
+8ea6b76..50b9b9e  master -&gt; master
+</code></pre>
+
+<h3>設定apache</h3>
+
+<p>這個也可以在<a href="http://blog.igotcloud.com/rails-install-ruby-on-rails-on-aws-ec2">[Rails]Install Ruby on Rails on AWS EC2</a>找的到</p>
+
+<h3>參考文章</h3>
+
+<blockquote><p><a href="http://blog.eddie.com.tw/2011/10/11/how-to-install-octopress-on-heroku/">How to Install Octopress on Heroku</a></p>
+
+<p><a href="http://blog.xdite.net/posts/2011/10/07/what-is-octopress/">Why Octpress</a></p>
+
+<p><a href="http://blog.yorkxin.org/2011/11/26/import-from-wpcom-to-octopress">Octopress 搬家記 (1) &mdash; Wordpress.com 舊文轉移</a></p></blockquote>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sammy</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-29T22:46:00+08:00" pubdate data-updated="true">Nov 29<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/blog/categories/amazon-web-services-aws/'>Amazon Web Services (AWS)</a>, <a class='category' href='/blog/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/blog/categories/ruby-on-rails/'>Ruby on Rails</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://SammyLin.github.io/blog/install-octopress-in-aws/" data-via="SammyLinTw" data-counturl="http://SammyLin.github.io/blog/install-octopress-in-aws/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/hello-octopress/" title="Previous Post: Hello Octopress">&laquo; Hello Octopress</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/jquery-set-selectbox/" title="Next Post: [Jquery]設定下拉選單的初始值">[Jquery]設定下拉選單的初始值 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/vimrc/">My Vimrc</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/iterm2-change-font/">在iterm2修改字體</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/the-vim-enabled-mouse-can-not-be-copied/">[VIM]啟用滑鼠時無法複製</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/search-facebook-friend/">[FaceBook API]搜尋好友</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/http-basic-authenticate/">[Rails] 進入網站前驗證</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/113306354398877276439?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Sammy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'igotcloud';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://SammyLin.github.io/blog/install-octopress-in-aws/';
+        var disqus_url = 'http://SammyLin.github.io/blog/install-octopress-in-aws/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

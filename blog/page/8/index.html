@@ -1,0 +1,642 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Sammy Lin</title>
+  <meta name="author" content="Sammy">
+
+  
+  <meta name="description" content="因為剛玩ASP.NET MVC，對於真的很不熟，光搞了下拉式選單@Html.DropDownList我就快被搞死了，而且我又是用LINQ to Entities ，想要把編號放入Value為了要把他轉成數值就出現了問題，找了很久終於被我找到方法可以處理這個雷了&gt;&lt;。簡單到有點… &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://SammyLin.github.io/blog/blog/page/8">
+  <link href="/blog/favicon.png" rel="icon">
+  <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
+  <script src="/blog/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/blog/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23558179-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/blog/">Sammy Lin</a></h1>
+  
+    <h2>旅居台北的高雄人</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/igotcloud" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:SammyLin.github.io/blog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/blog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/asp-net-mvc-edit-mode-drop-down-menu/">[ASP.NET MVC]編輯模式的下拉式選單</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-04T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/asp-net-mvc-edit-mode-drop-down-menu/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/asp-net-mvc-edit-mode-drop-down-menu/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><p> 因為剛玩ASP.NET MVC，對於真的很不熟，光搞了下拉式選單@Html.DropDownList我就快被搞死了，而且我又是用LINQ to Entities ，想要把編號放入Value為了要把他轉成數值就出現了問題，找了很久終於被我找到方法可以處理這個雷了&gt;&lt;。簡單到有點…</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image19.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb19.png" width="476" height="251" /></a></p>  <h4>Controllers</h4>  <p>   <div style="border-bottom: silver 1px solid; text-align: left; border-left: silver 1px solid; padding-bottom: 4px; line-height: 12pt; background-color: #f4f4f4; margin: 20px 0px 10px; padding-left: 4px; width: 97.5%; padding-right: 4px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; max-height: 200px; font-size: 8pt; overflow: auto; border-top: silver 1px solid; cursor: text; border-right: silver 1px solid; padding-top: 4px" id="codeSnippetWrapper">     <div style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; background-color: #f4f4f4; border-left-style: none; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; border-right-style: none; font-size: 8pt; overflow: visible; padding-top: 0px" id="codeSnippet">       <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; background-color: white; margin: 0em; border-left-style: none; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; border-right-style: none; font-size: 8pt; overflow: visible; padding-top: 0px"><span style="color: #606060" id="lnum1">   1:</span> <span style="color: #0000ff">public</span> ActionResult match_Create()</pre>
+<!--CRLF--></div></div></p>
+
+<p>      <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; background-color: #f4f4f4; margin: 0em; border-left-style: none; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; border-right-style: none; font-size: 8pt; overflow: visible; padding-top: 0px"><span style="color: #606060" id="lnum2">   2:</span> {</pre>
+<!--CRLF--></p>
+
+<p>      <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; background-color: white; margin: 0em; border-left-style: none; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; border-right-style: none; font-size: 8pt; overflow: visible; padding-top: 0px"><span style="color: #606060" id="lnum3">   3:</span>     ViewBag.type_id = <span style="color: #0000ff">new</span> SelectList(_db.type, <span style="color: #006080">&quot;type_id&quot;</span>, <span style="color: #006080">&quot;type_name&quot;</span>); </pre>
+<!--CRLF--></p>
+
+<p>      <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; background-color: #f4f4f4; margin: 0em; border-left-style: none; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; border-right-style: none; font-size: 8pt; overflow: visible; padding-top: 0px"><span style="color: #606060" id="lnum4">   4:</span>     </pre>
+<!--CRLF--></p>
+
+<p>      <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; background-color: white; margin: 0em; border-left-style: none; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; border-right-style: none; font-size: 8pt; overflow: visible; padding-top: 0px"><span style="color: #606060" id="lnum5">   5:</span>     <span style="color: #0000ff">return</span> View();</pre>
+<!--CRLF--></p>
+
+<p>      <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; background-color: #f4f4f4; margin: 0em; border-left-style: none; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; border-right-style: none; font-size: 8pt; overflow: visible; padding-top: 0px"><span style="color: #606060" id="lnum6">   6:</span> }</pre>
+<!--CRLF-->
+  
+</p></p>
+
+<p><h4>Views</h4></p>
+
+<p><div style="border-bottom: silver 1px solid; text-align: left; border-left: silver 1px solid; padding-bottom: 4px; line-height: 12pt; background-color: #f4f4f4; margin: 20px 0px 10px; padding-left: 4px; width: 97.5%; padding-right: 4px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; max-height: 200px; font-size: 8pt; overflow: auto; border-top: silver 1px solid; cursor: text; border-right: silver 1px solid; padding-top: 4px" id="codeSnippetWrapper">
+  <div style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; background-color: #f4f4f4; border-left-style: none; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; border-right-style: none; font-size: 8pt; overflow: visible; padding-top: 0px" id="codeSnippet">
+    <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; background-color: white; margin: 0em; border-left-style: none; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; border-right-style: none; font-size: 8pt; overflow: visible; padding-top: 0px"><span style="color: #606060" id="lnum1">   1:</span> <span style="color: #0000ff">&lt;</span><span style="color: #800000">div</span> <span style="color: #ff0000">class</span><span style="color: #0000ff">=&quot;editor-field&quot;</span><span style="color: #0000ff">&gt;</span></pre>
+<!--CRLF--></div></div></p>
+
+<p>    <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; background-color: #f4f4f4; margin: 0em; border-left-style: none; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; border-right-style: none; font-size: 8pt; overflow: visible; padding-top: 0px"><span style="color: #606060" id="lnum2">   2:</span>     @Html.DropDownList(&quot;type_id&quot;,&quot;---請選擇--&quot;) </pre>
+<!--CRLF--></p>
+
+<p>    <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; background-color: white; margin: 0em; border-left-style: none; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; border-right-style: none; font-size: 8pt; overflow: visible; padding-top: 0px"><span style="color: #606060" id="lnum3">   3:</span>     @Html.ValidationMessageFor(model =<span style="color: #0000ff">&gt;</span> model.type_id)</pre>
+<!--CRLF--></p>
+
+<p>    <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; background-color: #f4f4f4; margin: 0em; border-left-style: none; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; border-right-style: none; font-size: 8pt; overflow: visible; padding-top: 0px"><span style="color: #606060" id="lnum4">   4:</span> <span style="color: #0000ff">&lt;/</span><span style="color: #800000">div</span><span style="color: #0000ff">&gt;</span></pre>
+<!--CRLF-->
+
+<?php wp_cycle(); ?></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/googleplus1/">[Google+]小技巧與功能介紹(一)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-01T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/googleplus1/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/googleplus1/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image4.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: block; float: none; margin-left: auto; margin-right: auto; padding-top: 0px; border-width: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb4.png" alt="image" width="346" height="232" border="0" /></a></p>
+
+<p>這兩天的大家的湧入<a href="https://plus.google.com/" target="_blank">Google+</a>實在很酷，真不知道FaceBook的流量有沒有減少，哈哈，昨天我也做了一個跟<a href="http://blog.cornerlife.tw/google-vs-facebook-%e5%8a%9f%e8%83%bd%e5%a4%a7%e6%af%94%e8%bc%83.html" target="_blank">FaceBook的比較</a>看來大家對於Google+的評價還頗高的，跟Buzz還有wave比起來真的有所大改變，我們首先看一下網路上有人為Google+做的小小說明什麼是Google+：</p>
+
+<p><object style="height: 390px; width: 540px;" width="540" height="390" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="src" value="https://www.youtube.com/v/Hv4TEHujXi0?version=3" /><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><embed style="height: 390px; width: 540px;" width="540" height="390" type="application/x-shockwave-flash" src="https://www.youtube.com/v/Hv4TEHujXi0?version=3" allowfullscreen="true" allowscriptaccess="always" /></object></p>
+
+<p></div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/googleplus1/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/google-e5-96-9c-e6-ad-a1google-e7-9a-84-e4-bd-88-e6-99-af-e5-97-8e-ef-bc-9fgmail-e4-b9-9f-e6-9c-89/">[Google]喜歡Google+的佈景嗎？Gmail也有</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-01T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/google-e5-96-9c-e6-ad-a1google-e7-9a-84-e4-bd-88-e6-99-af-e5-97-8e-ef-bc-9fgmail-e4-b9-9f-e6-9c-89/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/google-e5-96-9c-e6-ad-a1google-e7-9a-84-e4-bd-88-e6-99-af-e5-97-8e-ef-bc-9fgmail-e4-b9-9f-e6-9c-89/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><p>&#160;</p> <img src="http://t2.gstatic.com/images?q=tbn:ANd9GcRtu2IdqDm8_huS1ULxsT06Lj6bPX1tHYVN-KJeSZMUAAj2eLj5" width="350" height="144" />  <p> 自從昨天的瘋Google+，開始大家應該都發現Google搜尋也改成Google+的佈景是一樣的，那麼Gmail呢？怎麼沒變，其實是有的，Google已經默默的把新的佈景加了兩個，而且他的名字設定的很奇怪，叫「預覽」，我一度懷疑Googler把他打錯了＝ ＝｜｜｜</p>  <p align="center"><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb.png" width="196" height="136" /></a></p>  <p align="left"> 其實這兩個差別就在一個行距比較高，一個比較低，如果你想要一次看比較多的訊息的話，就可以不要用密集的佈景。</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image2.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb2.png" width="544" height="347" /></a></p>  <p> 感覺有跟上Google+的流行了，其實就算你沒有申請到Google+的帳號，可以試試換個佈景來感受一下Google+的Fu了～～</p>  <p>2011/7/1 09:58更新</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image3.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb3.png" width="544" height="380" /></a></p>  <p>剛剛才發現~看來日曆也突然更新了，我發覺我愛上了這個佈景，簡約，可能未來我家的色系也會變這樣吧XD(這樣人生會不會沒色彩了～～～）</p></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/google-vs-facebook-function-of-comparative/">Google + vs FaceBook 功能大比較</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-30T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/google-vs-facebook-function-of-comparative/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/google-vs-facebook-function-of-comparative/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><p align="center"><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image80.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb79.png" width="270" height="163" /></a></p>  <p>昨天Google推出了Google+的服務之後，許多人都在要邀請的帳號，但沒想到今天早上突然筆者就收到一封信說我被邀請了，我也去湊個熱鬧來玩玩看，到底FaceBook跟Google+有什麼差別別，筆者在這邊來做個比較。</p></div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/google-vs-facebook-function-of-comparative/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/googlegoogle-ef-bc-8c-e5-a2-9e-e5-8a-a0-e7-a4-be-e7-be-a4-e7-9a-84-e4-ba-92-e5-8b-95-e6-80-a7/">[Google]Google+，增加社群的互動性</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-29T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/googlegoogle-ef-bc-8c-e5-a2-9e-e5-8a-a0-e7-a4-be-e7-be-a4-e7-9a-84-e4-ba-92-e5-8b-95-e6-80-a7/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/googlegoogle-ef-bc-8c-e5-a2-9e-e5-8a-a0-e7-a4-be-e7-be-a4-e7-9a-84-e4-ba-92-e5-8b-95-e6-80-a7/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><p>今天早上，我搭捷運的時候，聽到有一個人說有一個社群網站超厲害，叫做什麼Google+，那時候我大笑了，因為他一定沒聽說過什麼叫做FaceBook，這才是最大的社群網站，不過FaceBook的遊戲或是有的沒有的垃圾資訊實在太多了，有點討人厭就是了。</p>  <p align="center"><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image79.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb78.png" width="281" height="87" /></a></p>  <p>美國時間的2011/6/28早上的時候，在<a href="http://googleblog.blogspot.com" target="_blank">Google Bolg</a>介紹了一個新功能Google +，這是一個Google的社群網站，跟前幾年發表的功能<a href="https://wave.google.com/wave/" target="_blank">Wave</a>或是<a href="https://wave.google.com/wave/" target="_blank">Buzz</a>不大一樣，不過我覺得應該是會結合在一起吧！這是一個全新的思維，而主要的功能有</p></div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/googlegoogle-ef-bc-8c-e5-a2-9e-e5-8a-a0-e7-a4-be-e7-be-a4-e7-9a-84-e4-ba-92-e5-8b-95-e6-80-a7/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/e7-ac-ac-e4-b8-80-e5-8f-b0facebook-e5-b0-88-e7-94-a8-e6-a9-9f-e5-8f-af-e8-83-bd-e5-9c-a8hp-touchpad-e4-b8-8d-e5-9c-a8ipad/">第一台FaceBook專用機可能在HP TouchPad不在iPad</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-28T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/e7-ac-ac-e4-b8-80-e5-8f-b0facebook-e5-b0-88-e7-94-a8-e6-a9-9f-e5-8f-af-e8-83-bd-e5-9c-a8hp-touchpad-e4-b8-8d-e5-9c-a8ipad/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/e7-ac-ac-e4-b8-80-e5-8f-b0facebook-e5-b0-88-e7-94-a8-e6-a9-9f-e5-8f-af-e8-83-bd-e5-9c-a8hp-touchpad-e4-b8-8d-e5-9c-a8ipad/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image76.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb75.png" width="365" height="307" /></a></p>  <table border="2" cellspacing="0" cellpadding="0" width="540"><tbody>     <tr>       <td valign="top" width="540">資料來源：<a href="http://techcrunch.com/2011/06/27/facebook-tablet-app-hp-touchpad/">http://techcrunch.com/2011/06/27/facebook-tablet-app-hp-touchpad/</a></td>     </tr>   </tbody></table>  <p>看來FaceBook不想要在iPad上推出來，據文中指出因為Apple跟FaceBook處於緊張的階段，看來在iPad上推出是不大可能了，話說其實在圖上看起來，跟一般在iPad上的FaceBook沒什麼兩樣嘛~~<a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image77.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb76.png" width="544" height="409" /></a></p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image78.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb77.png" width="544" height="416" /></a></p></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/google-e4-bb-80-e9-ba-bc-e7-94-a8-e5-98-b4-e5-b7-b4-e4-b9-9f-e5-8f-af-e4-bb-a5google/">[Google]什麼~~用嘴巴也可以Google~</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-27T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/google-e4-bb-80-e9-ba-bc-e7-94-a8-e5-98-b4-e5-b7-b4-e4-b9-9f-e5-8f-af-e4-bb-a5google/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/google-e4-bb-80-e9-ba-bc-e7-94-a8-e5-98-b4-e5-b7-b4-e4-b9-9f-e5-8f-af-e4-bb-a5google/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image75.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb74.png" width="544" height="316" /></a></p>  <p> Google也可以用嘴巴來喔，真是太強了，繼上次的<a href="http://blog.cornerlife.tw/google%e4%b8%8d%e7%94%a8%e5%9c%a8%e6%89%93%e9%97%9c%e9%8d%b5%e5%ad%97%e4%ba%86-%e4%bb%a5%e5%9c%96%e6%90%9c%e5%b0%8b-image-search.html" target="_blank">Google以圖找圖的功能</a>之後現在又可以用講的來Google，剛剛試了一下，發現中文、英文、阿拉伯數字巄ㄟ通，不過試到日文<font color="#666666" size="1">(阿依稀ㄉㄟ嚕)</font>跟韓文<font color="#666666" size="1">(沙拉黑優)</font>還有法文<font color="#666666" size="1">(崩糾)</font>，發現都沒辦法順利的顯示正確的單字，不過已經很強大了，玩了很久，也發現，其實還是有些字可能咬字要清楚才能正確的判斷你說的字，不過講Google怎麼講的咬字再不清楚，他還是找的到，真是太強了= =|||</p>  <table border="2" cellspacing="0" cellpadding="0" width="540"><tbody>     <tr>       <td valign="top" width="540">NOTE.. <font color="#ff0000">又是只有英文版搶先使用，如果是中文版是不行的喔！</font></td>     </tr>   </tbody></table></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/ruby-e5-9c-a8ubuntu-e5-bb-ba-e7-ab-8bruby-on-rails-e7-92-b0-e5-a2-83-e6-99-82-e7-99-bc-e7-94-9f-e5-95-8f-e9-a1-8c/">[Ruby]在Ubuntu建立Ruby on Rails環境時發生問題</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-23T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/ruby-e5-9c-a8ubuntu-e5-bb-ba-e7-ab-8bruby-on-rails-e7-92-b0-e5-a2-83-e6-99-82-e7-99-bc-e7-94-9f-e5-95-8f-e9-a1-8c/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/ruby-e5-9c-a8ubuntu-e5-bb-ba-e7-ab-8bruby-on-rails-e7-92-b0-e5-a2-83-e6-99-82-e7-99-bc-e7-94-9f-e5-95-8f-e9-a1-8c/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><p> 剛剛在試著建立Ruby on Rails 環境時，都安裝到一半，卻發生了</p>  <table border="2" cellspacing="0" cellpadding="0" width="540"><tbody>     <tr>       <td valign="top" width="540">         <p>Checking for required software&#8230;</p>          <p> * GNU C++ compiler&#8230; found at /usr/bin/g++           <br /> * Curl development headers with SSL support&#8230; found            <br /> * OpenSSL development headers&#8230; found            <br /> * Zlib development headers&#8230; found            <br /> * Ruby development headers&#8230; found            <br /> * OpenSSL support for Ruby&#8230; <font color="#ff0000">not found             <br /></font> * RubyGems&#8230; found            <br /> * Rake&#8230; found at /home/sammy/.rvm/wrappers/ruby-1.9.2-p180/rake            <br /> * rack&#8230; found            <br /> * Apache 2&#8230; found at /usr/sbin/apache2            <br /> * Apache 2 development headers&#8230; found at /usr/bin/apxs2            <br /> * Apache Portable Runtime (APR) development headers&#8230; found at /usr/bin/apr-1-config            <br /> * Apache Portable Runtime Utility (APU) development headers&#8230; found at /usr/bin/apu-1-config</p>          <p>Some required software is not installed.           <br />But don&#8217;t worry, this installer will tell you how to install them.</p>          <p>Press Enter to continue, or Ctrl-C to abort.</p>       </td>     </tr>   </tbody></table>  <p>找不到 OpenSSL support for Ruby</p>  <p>還好有google大神讓我找到方法了&gt;&lt;</p>  <p>解決方式：</p>  <pre /><font color="#0000ff" size="2" face="Tahoma">cd $HOME<br />
+cd .rvm/src/ruby-1.9.2-p0/ext/openssl<br />
+ruby extconf.rb<br />
+make<br />
+make install</font></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/aws-e4-ba-86-e8-a7-a3-e5-93-aa-e5-80-8b-e5-9c-b0-e5-8d-80-e5-bb-b6-e9-81-b2-e6-9c-80-e7-9f-ad/">[AWS] 了解哪個地區延遲最短</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-23T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/aws-e4-ba-86-e8-a7-a3-e5-93-aa-e5-80-8b-e5-9c-b0-e5-8d-80-e5-bb-b6-e9-81-b2-e6-9c-80-e7-9f-ad/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/aws-e4-ba-86-e8-a7-a3-e5-93-aa-e5-80-8b-e5-9c-b0-e5-8d-80-e5-bb-b6-e9-81-b2-e6-9c-80-e7-9f-ad/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><p> 之前本來想做個研究，就是利用Ping的方式了解哪個地區(reigion)延遲時間最短，沒想到已經有網站做出來了，還蠻方便的，筆記下來XD</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image74.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb73.png" width="544" height="392" /></a></p>  <table border="1" cellspacing="0" cellpadding="0" width="540"><tbody>     <tr>       <td valign="top" width="540">網頁：<a href="http://www.cloudping.info/">http://www.cloudping.info/</a></td>     </tr>   </tbody></table></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/awsec2-e6-96-b0-e5-8a-9f-e8-83-bdec2-e6-94-af-e6-8f-b4redhat/">[AWS][EC2]新功能EC2支援redhat</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-22T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/awsec2-e6-96-b0-e5-8a-9f-e8-83-bdec2-e6-94-af-e6-8f-b4redhat/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/awsec2-e6-96-b0-e5-8a-9f-e8-83-bdec2-e6-94-af-e6-8f-b4redhat/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><p> <a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/1.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: left; border-top: 0px; border-right: 0px; padding-top: 0px" title="未命名-1" border="0" alt="未命名-1" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/1_thumb.png" width="183" height="128" /></a></p>  <p> 在美國時間2011/6/20，Amazon發佈了EC2對於redhat的支援，對一些愛用redhat可能是個好消息，不過說實在我是沒有用過(這不是自曝其短嗎~&gt;&lt;)，沒有關係，反正只是分享一些消息而以啦！在同一時間也看到一個好消息，而筆者昨天也在測試，還蠻好玩的就是「CloudFormation」的功能，晚一點也來做個介紹，那我們先看一下圖片吧！~~~   <br /></p>  <p>在快速啟動裡多了兩個redhat，在這裡是提供Red Hat Enterprise Linux 6.1的。   <br /></p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image54.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb52.png" width="544" height="358" /></a></p>  <p>或者是說可以到三方提供的AMI，裡是就有5.5, 5.6,&#160; 6.0, 6.1版的。</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image55.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb53.png" width="544" height="357" /></a></p>  <table border="2" cellspacing="0" cellpadding="0" width="540"><tbody>     <tr>       <td valign="top" width="540"><font color="#ff0000" size="2">Note: 不過目前只提供按時計價(On-Demand Instances)及Spot Requests，尚未提供預付主機(Reserved Instances)。</font></td>     </tr>   </tbody></table>  <h3>RedHat的價錢：   <br /><font size="2"><font style="font-weight: normal">(參考網站：</font></font><a href="http://aws.amazon.com/rhel/"><font size="2"><font style="font-weight: normal">http://aws.amazon.com/rhel/</font></font></a><font size="2"><font style="font-weight: normal">)</font></font></h3>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image56.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb54.png" width="544" height="350" /></a></p></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/blog/page/9/">&larr; Older</a>
+    
+    <a href="/blog/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/blog/page/7/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/vimrc/">My Vimrc</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/iterm2-change-font/">在iterm2修改字體</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/the-vim-enabled-mouse-can-not-be-copied/">[VIM]啟用滑鼠時無法複製</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/search-facebook-friend/">[FaceBook API]搜尋好友</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/http-basic-authenticate/">[Rails] 進入網站前驗證</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/113306354398877276439?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Sammy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'igotcloud';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

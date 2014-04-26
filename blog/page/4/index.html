@@ -1,0 +1,781 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Sammy Lin</title>
+  <meta name="author" content="Sammy">
+
+  
+  <meta name="description" content="上個星期因為七年級生專業Elite群的關係認識了小蟹，因為我很久就知道Rails每周三都會有聚會，但遲遲不敢去，因為我才剛學Ruby on Rails所以才想說學到一個程度才過去會比較好，直到在FB上面小蟹大大的鼓勵之下，我就前來Rails的聚會，人沒有很多，我去的時候也只有小蟹一人獨自在那邊， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://SammyLin.github.io/blog/blog/page/4">
+  <link href="/blog/favicon.png" rel="icon">
+  <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
+  <script src="/blog/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/blog/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23558179-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/blog/">Sammy Lin</a></h1>
+  
+    <h2>旅居台北的高雄人</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/igotcloud" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:SammyLin.github.io/blog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/blog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/Rails-Tuesday/">第一次Rails 聚會</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-12T10:55:00+08:00" pubdate data-updated="true">Jan 12<span>th</span>, 2012</time>
+        
+           | <a href="/blog/Rails-Tuesday/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/Rails-Tuesday/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>上個星期因為<a href="https://www.facebook.com/groups/224664680919484/">七年級生專業Elite群</a>的關係認識了<a href="http://wildjcrt.pixnet.net/blog">小蟹</a>，因為我很久就知道Rails每周三都會有聚會，但遲遲不敢去，因為我才剛學<code>Ruby on Rails</code>所以才想說學到一個程度才過去會比較好，直到在FB上面小蟹大大的鼓勵之下，我就前來Rails的聚會，人沒有很多，我去的時候也只有<code>小蟹</code>一人獨自在那邊，這是我們第一次見面，互相交換名片之後，我開始講說我遇到的困難，小蟹也一一的指點迷津，這應該是除了老師跟跟網路上的資訊之外，教我最多東西的一次了，感覺有被打通任堵二脈了fu。</p>
+
+<p>我是高雄人，大學是讀<code>文化大學</code>，雖然那時候有一些家庭革命，不過我還是堅持上來台北念書，雖然免不了又要回到高雄當兵，最後當完兵之後，還是又跑回來台北工作，其實有幾個原因：</p>
+
+<ul>
+<li>女友的關係XD</li>
+<li>台北的資訊技術相關的研討會跟聚會多</li>
+<li>因為第二項的關係所以增廣見聞的機會就多了</li>
+</ul>
+
+
+<p>如果有人對Rails有興趣的話可以到<a href="http://registrano.com/events/58466a">Rails Tuesday</a>，雖然我只去過一次XD，但是去一次就功力大增了~</p>
+
+<p>另外如果你剛好也是七年級的話也可以來參加<a href="https://www.facebook.com/groups/224664680919484/">七年級生專業Elite群</a>
+因為我是在這邊才遇到良師的，如果所以你是某個領域的高手、好手、菜鳥都可以來分享一下，或者是你還在社會上彷徨無助的話，我相信這邊也是有人會幫助你的。</p>
+
+<blockquote><p><a href="https://www.facebook.com/groups/224664680919484/">七年級生專業Elite群</a></p>
+
+<p><a href="http://registrano.com/events/58466a">Rails Tuesday</a></p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/kindle/">Kindle Fire 開箱文</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-28T08:38:00+08:00" pubdate data-updated="true">Dec 28<span>th</span>, 2011</time>
+        
+           | <a href="/blog/kindle/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/kindle/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>好不容易令人期待又覺得會受傷害的東西昨天晚上到手了，網路上沸沸揚揚的批評文章滿天飛，不過<code>199美金</code>的東西跟iPod2需要<code>499美金</code>那種比起來我覺得CP值很高了。
+<img src="https://lh4.googleusercontent.com/-JaHx4-YCAlw/TvpuhWXkUzI/AAAAAAAABjg/6cXAuLoo4k8/s400/DSC00585.JPG" alt="" />
+<img src="https://lh3.googleusercontent.com/-EGZJ6wZ5vZ4/Tvpuf-wFZ4I/AAAAAAAABjU/H3KD3m9aTX8/s400/DSC00587.JPG" alt="" />
+<img src="https://lh5.googleusercontent.com/-8saTF_MH7E8/TvpuZ6qngzI/AAAAAAAABjM/Fb4O2F_UGyU/s400/DSC00588.JPG" alt="" /></p>
+
+<p>外包裝用的是破壞性的外箱，所以說我一定要撕開才能開箱，看來不能夠假裝包的漂漂亮亮再去賣別人了>_&lt;</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/kindle/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/rails-mongoid/">[rails]建置MongoDB環境利用mongoid</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-08T14:18:00+08:00" pubdate data-updated="true">Dec 8<span>th</span>, 2011</time>
+        
+           | <a href="/blog/rails-mongoid/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/rails-mongoid/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>之前用了<code>mongo_mapper</code>感覺很好用，不過發現要裝一些plugin的時候，像是desice時，就會有一些問題的存在，所以我改用<code>mongoid</code>來使用，比較順許多，而且不用在<code>rails g model XXX --orm==mongo_mapper</code>之類的。</p>
+
+<h3>用gem 安裝</h3>
+
+<figure class='code'><figcaption><span>Gemfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s2">&quot;mongoid&quot;</span><span class="p">,</span> <span class="s2">&quot;~&gt; 2.3&quot;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s2">&quot;bson_ext&quot;</span><span class="p">,</span> <span class="s2">&quot;~&gt; 1.4&quot;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;devise&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>$ bundle install</code></p>
+
+<h3>產生資料庫設定檔</h3>
+
+<p><code>$ rails g mongoid:config</code></p>
+
+<figure class='code'><figcaption><span>config/mongoid.yml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">development</span><span class="p">:</span>
+</span><span class='line'>  <span class="ss">host</span><span class="p">:</span> <span class="n">localhost</span>
+</span><span class='line'>  <span class="ss">database</span><span class="p">:</span> <span class="n">demo3_development</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">test</span><span class="p">:</span>
+</span><span class='line'>  <span class="ss">host</span><span class="p">:</span> <span class="n">localhost</span>
+</span><span class='line'>  <span class="ss">database</span><span class="p">:</span> <span class="n">demo3_test</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># set these environment variables on your prod server</span>
+</span><span class='line'><span class="ss">production</span><span class="p">:</span>
+</span><span class='line'>  <span class="ss">host</span><span class="p">:</span> <span class="o">&lt;</span><span class="sx">%= ENV[&#39;MONGOID_HOST&#39;] %&gt;</span>
+</span><span class='line'><span class="sx">  port: &lt;%=</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;MONGOID_PORT&#39;</span><span class="o">]</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  username: &lt;%= ENV[&#39;MONGOID_USERNAME&#39;] %&gt;</span>
+</span><span class='line'>  <span class="ss">password</span><span class="p">:</span> <span class="o">&lt;</span><span class="sx">%= ENV[&#39;MONGOID_PASSWORD&#39;] %&gt;</span>
+</span><span class='line'><span class="sx">  database: &lt;%=</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;MONGOID_DATABASE&#39;</span><span class="o">]</span> <span class="o">%&gt;</span>
+</span><span class='line'>  <span class="c1"># slaves:</span>
+</span><span class='line'>  <span class="c1">#   - host: slave1.local</span>
+</span><span class='line'>  <span class="c1">#     port: 27018</span>
+</span><span class='line'>  <span class="c1">#   - host: slave2.local</span>
+</span><span class='line'>  <span class="c1">#     port: 27019</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/rails-mongoid/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/mysql-optimization/">[Mysql]優化</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-03T09:34:00+08:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2011</time>
+        
+           | <a href="/blog/mysql-optimization/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/mysql-optimization/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>因為過去都沒有接觸到mysql的環境處理，(DBA很重要的)而我最近架在<code>AWS
+</code>的mysql常常會loading過重，問了一下高手才知道我沒有做MYSQL的優化，查了資料以後才知道MYSQL的優化很簡單</p>
+
+<h3>修改配置檔/etc/my.cnf</h3>
+
+<p>MYSQL有官方推薦的配置檔，當然是最穩最好的，官方配置檔放在<code>/usr/share/mysql</code></p>
+
+<pre><code>cd /usr/share/mysql/
+</code></pre>
+
+<ul>
+<li>my-small.cnf(小於64MB的記憶體)</li>
+<li>my-medium.cnf (64~128MB的記憶體)</li>
+<li>my-large.cnf (128~512MB的記憶體)</li>
+<li>my-huge.cnf (1~2GB的記憶體)</li>
+<li>my-innodb-heavy-4G.cnf (4GB的記憶體)</li>
+</ul>
+
+
+<p>可以選一個適合你的主機的配置檔並將配置檔複製到 /etc/my.cnf</p>
+
+<pre><code>#cp  /usr/share/mysql/my-large.cnf  /etc/my.cnf
+
+#service mysqld restart
+</code></pre>
+
+<h3>將資料表最佳化</h3>
+
+<pre><code>mysqlcheck -a -c -o -r --all-databases -uroot -p
+</code></pre>
+
+<h3>重建資料表索引</h3>
+
+<pre><code>service mysqld stop
+
+myisamchk -s /var/lib/mysql/*/*.MYI
+
+service mysqld start
+</code></pre>
+
+<h2>參考網站</h2>
+
+<blockquote><p><a href="http://163.32.219.6/blog/u882061/cce-linux/2009/10/31/1237">只要十分鐘，快速優化 MySQL 資料庫</a></p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/rails-rails-mongo-devise/">[Rails]安裝devise在mongo_mapper</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-03T00:03:00+08:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2011</time>
+        
+           | <a href="/blog/rails-rails-mongo-devise/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/rails-rails-mongo-devise/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>參考了<a href="http://blog.xdite.net/">XDite</a>的<code>Rails 101</code>慢慢的上手了，而我希望可以配合<code>MongoDB</code>來建立我的網站不過還有些地方跟<code>Rails 101</code>不大一樣，所以來筆記一下了</p>
+
+<p>使用者機制在<code>Rails</code>很快就可以完成，因為我們可以直接用別人開發過的Plugin，就可以懶懶的完成你所要的功能了，在<code>Rails 101</code>上面推薦的使用者Plugin是<code>Devise</code></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/rails-rails-mongo-devise/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/jquery-set-selectbox/">[Jquery]設定下拉選單的初始值</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-30T11:13:00+08:00" pubdate data-updated="true">Nov 30<span>th</span>, 2011</time>
+        
+           | <a href="/blog/jquery-set-selectbox/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/jquery-set-selectbox/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;select</span> <span class="na">id =</span><span class="s">&quot;selectbox&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'><span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;google&quot;</span><span class="nt">&gt;</span>google<span class="nt">&lt;/option&gt;</span>
+</span><span class='line'><span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;yahoo&quot;</span><span class="nt">&gt;</span>yahoo<span class="nt">&lt;/option&gt;</span>
+</span><span class='line'><span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;bing&quot;</span><span class="nt">&gt;</span>bing<span class="nt">&lt;/option&gt;</span>
+</span><span class='line'><span class="nt">&lt;/seltion&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#selectbox option[value=google]&#39;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;selected&#39;</span><span class="p">,</span><span class="s1">&#39;selected&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/install-octopress-in-aws/">在AWS上安裝Octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-29T22:46:00+08:00" pubdate data-updated="true">Nov 29<span>th</span>, 2011</time>
+        
+           | <a href="/blog/install-octopress-in-aws/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/install-octopress-in-aws/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>安裝了Octopress，感覺還蠻開心的，因為我這個人有點懶，又找不到好的設計朋友，所以只要遇到好技術又加上預設的Theme的又蠻好看的，我就會把他列入我的list裡面(感覺我好不務正業喔= =)</p>
+
+<p>所以我要趕快來做個筆記好去睡覺了。</p>
+
+<p><a href="http://blog.igotcloud.com/hello-octopress/">上一篇</a>有提到一些高手的文章，寫一下怎麼在<code>AWS</code>架設自己的<code>OctoPress</code></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/install-octopress-in-aws/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/hello-octopress/">Hello Octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-29T17:01:00+08:00" pubdate data-updated="true">Nov 29<span>th</span>, 2011</time>
+        
+           | <a href="/blog/hello-octopress/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/hello-octopress/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>我記得我第一次寫<code>Blog</code>是用<a href="http://www.dotblogs.com.tw">點部落</a>，也是因為當初在寫<code>C#</code>，而且這裡主要是Windows相關技術高手的所在地，常常我也來在這拜碼頭，等到退伍之後，自己架了<code>WordPress</code>，但是光是排版文字就花了我很多時間，其實過去我在寫C#的時候，因為<strong>VS2005</strong>到現在的<strong>VS2010</strong>太好用了，很多真正要學的東西我卻不會，所以我現在開始學習如何使用：</p>
+
+<ul>
+<li><strong>Git</strong> (版本管理系統)</li>
+<li><strong>Mac</strong> (一台好用的電腦)</li>
+<li><strong>SCSS</strong> (省下你編輯CSS的時間)</li>
+<li><strong>Jquery</strong> (最好用的JS程式庫)</li>
+<li><strong>HTML5</strong> (最新的HTML，還在學Flash的人別學了~)</li>
+<li><strong>Ruby on Rails</strong> (快速建立你的網站)</li>
+<li><strong>Amazon Web Service</strong> (雲瑞服務)</li>
+</ul>
+
+
+<p>最近看到<a href="http://blog.xdite.net/">XDite</a>(XDite是個很強的高手，我時常在關注他的訊息)發表了有關<a href="http://octopress.org/">Octopress</a>的文章，如果想要知道什麼是Octopresss可以看<a href="http://blog.xdite.net/posts/2011/10/07/what-is-octopress/">這篇文章</a>，介紹的很詳細。</p>
+
+<p>所以我也架了一個octopress，因為我最近在玩的是<code>AWS</code>所以我覺得我應該是要用<code>AWS</code>架起來才對，網路上有需多文章都是講如何用架到<a href="http://heroku.com/">Heroku</a>或是<a href="https://github.com/">Github</a>，都是很方便的。
+下面有幾篇文章大家可以參考一下：</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/hello-octopress/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/gmail-accessories-tips/">[Gmail]附件提示</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-26T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/gmail-accessories-tips/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/gmail-accessories-tips/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>不知道是什麼時候開始的，不過我覺得這個是個很好的功能，就是Gmail你在撰寫郵件中，如果文字裡有「附件」兩個字的話，送出郵件時卻沒有附加檔案的話，gmail就會提示你。</p>
+
+<p><img src="http://blog-img.igotcloud.com/wp-content/uploads/2011/11/Screen-Shot-2011-11-26-at-%E4%B8%8B%E5%8D%884.04.48.png" alt="Screen Shot 2011-11-26 at 下午4.04.48.png" width="426" height="174" /></p>
+
+<p>英文版本的話，就是打「see attachment」或是「I’ve attached」(不過中文版好像沒有支援附件的英文單字)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/aws-new-free-region-the-western-united-states-oregon/">[AWS]新增可用地區美國西部(俄勒岡州)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-10T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/aws-new-free-region-the-western-united-states-oregon/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/aws-new-free-region-the-western-united-states-oregon/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><p>有客戶在俄勒岡州的人或是自己住那邊的人應該是很開心的，但是其他的台灣朋友們，應該沒什麼好開心的~不過基於分享的原則還是跟大家講一下，雖然Amazon在台灣建Data Center機會很渺茫除非台灣政府又有500億要捐出來，不然不大可能。只能祈禱東京的Data Center可以在穩一點嗎？~~~US West (Oregon)的價錢跟US East (Northern Virginia)是一樣的，看來US West(Northern Califoenia)的客戶會跳槽了，因為這邊便宜了一點。</p>  <h4>US West(Oregon)目前支援的服務有</h4>  <ul>   <li>Amazon Elastic Compute Cloud (EC2) and related services (Elastic Block Store, Virtual Private Cloud, Elastic Load Balancing, and Auto Scaling).</li>    <li>Amazon Simple Storage Service (S3).</li>    <li>Amazon SimpleDB.</li>    <li>Amazon Relational Database Service (RDS).</li>    <li>Amazon Simple Queue Service (SQS).</li>    <li>Amazon Simple Notification Service (SNS).</li>    <li>Amazon Elastic MapReduce.</li>    <li>AWS CloudFormation.</li>    <li>Amazon CloudWatch.</li> </ul></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/blog/page/5/">&larr; Older</a>
+    
+    <a href="/blog/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/blog/page/3/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/vimrc/">My Vimrc</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/iterm2-change-font/">在iterm2修改字體</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/the-vim-enabled-mouse-can-not-be-copied/">[VIM]啟用滑鼠時無法複製</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/search-facebook-friend/">[FaceBook API]搜尋好友</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/http-basic-authenticate/">[Rails] 進入網站前驗證</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/113306354398877276439?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Sammy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'igotcloud';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

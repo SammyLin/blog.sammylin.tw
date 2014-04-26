@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>[AWS][EC2]為Instance租用一個Elastic IP - Sammy Lin</title>
+  <meta name="author" content="Sammy">
+
+  
+  <meta name="description" content="Instance的私人、公用DNS及私人IP都會會變動的，在你重開機之後，他就會改變，筆者上次就被這個給嚇到了想說原來的架好的網站怎麼突然上不去，而且回到aws web Console明明Instance是running，經過一連串的檢查，原來是dns跟ip都跑掉了，害我一陣慌亂~~， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://SammyLin.github.io/blog/awsec2%E7%82%BAinstance%E7%A7%9F%E7%94%A8%E4%B8%80%E5%80%8Belastic-ip">
+  <link href="/blog/favicon.png" rel="icon">
+  <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
+  <script src="/blog/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/blog/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23558179-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/blog/">Sammy Lin</a></h1>
+  
+    <h2>旅居台北的高雄人</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/igotcloud" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:SammyLin.github.io/blog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/blog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">[AWS][EC2]為Instance租用一個Elastic IP</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-29T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><p> Instance的私人、公用DNS及私人IP都會會變動的，在你重開機之後，他就會改變，筆者上次就被這個給嚇到了想說原來的架好的網站怎麼突然上不去，而且回到aws web Console明明Instance是running，經過一連串的檢查，原來是dns跟ip都跑掉了，害我一陣慌亂~~，所以如果你是需要一個長期安定不改變的ip的話那就申請一個Elastic IP吧！(真奇怪~~IPv4不是發完了嗎？怎麼還可以這樣子的申請，所以如果不要用的話要記得取消掉喔，不然是要多收錢的喔！)</p>  <h4><font color="#0000ff">申請Elastic IP</font></h4>  <p>1.在左側欄點「Elasitc IPs」</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image33.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb33.png" width="171" height="386" /></a></p>  <p>2.點選「Allocate New Address」</p><!--more--><p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image34.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb34.png" width="544" height="304" /></a></p>  <p>3.問說是要把IP用在哪個地方，我們選擇「EC2」，按下「Yes,Allocate」</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image35.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb35.png" width="244" height="156" /></a></p>  <p>4.就有一個IP跑出來了，接下來我們將ip和Instance綁定，在該IP上按右鍵選「Associate」</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image36.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb36.png" width="544" height="305" /></a></p>  <p>5.選擇你要綁定的Instance(在後面那個TesUserOfInstance就是我們所輸入的標籤，知道下標籤的重要了吧xd)</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image37.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb37.png" width="437" height="196" /></a></p>  <p>6.完成…(有沒有那麼簡單呀xd)</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image38.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb38.png" width="544" height="305" /></a></p>  <p>如果要取消綁定的話，也是很簡單的</p>  <h4><font color="#0000ff">取消綁定</font></h4>  <p>1.在該IP按下右鍵選「Disassociate」</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image39.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb39.png" width="544" height="304" /></a></p>  <p>2.再一次確認..</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image40.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb40.png" width="318" height="213" /></a></p>  <p>3.完成取消綁定</p>  <p>&#160;</p>  <p>IP快要不夠了，請大家省著點用，如果不用的話就把他釋放出來吧~</p>  <h4><font color="#0000ff">釋放IP</font></h4>  <p>1.在該ip上面按右鍵選擇「Release」</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image41.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb41.png" width="544" height="304" /></a></p>  <p>2.確認是否釋放~~</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image42.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb42.png" width="317" height="190" /></a></p>  <p>3.還給Amazon了！~~</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image43.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb43.png" width="544" height="306" /></a></p>  <p>&#160;</p>  <h6><font color="#ff0000"> 如果有租用虛擬主機或是實體主機的大大們，應該可以深深了解，每次在要ip都是一件很麻煩的事，在這裡只要點點點，就可以完成了，但是IPv4快不夠了，在這邊好像還沒看到有IPv6的申請，我覺得應該快了吧XD…</font></h6></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sammy</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-29T00:00:00+08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/blog/categories/amazon-web-services-aws/'>Amazon Web Services (AWS)</a>, <a class='category' href='/blog/blog/categories/elastic-compute-cloud-ec2/'>Elastic Compute Cloud(EC2)</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://SammyLin.github.io/blog/awsec2%E7%82%BAinstance%E7%A7%9F%E7%94%A8%E4%B8%80%E5%80%8Belastic-ip/" data-via="SammyLinTw" data-counturl="http://SammyLin.github.io/blog/awsec2%E7%82%BAinstance%E7%A7%9F%E7%94%A8%E4%B8%80%E5%80%8Belastic-ip/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/awsec2%E5%BB%BA%E7%AB%8B%E5%AF%A6%E9%AB%94launch-instance/" title="Previous Post: [AWS][EC2]建立實體(Launch Instance)">&laquo; [AWS][EC2]建立實體(Launch Instance)</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/awscec2%E6%8C%87%E5%AE%9A%E5%9C%B0%E5%8D%80/" title="Next Post: [AWS][C#][EC2]指定地區">[AWS][C#][EC2]指定地區 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/vimrc/">My Vimrc</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/iterm2-change-font/">在iterm2修改字體</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/the-vim-enabled-mouse-can-not-be-copied/">[VIM]啟用滑鼠時無法複製</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/search-facebook-friend/">[FaceBook API]搜尋好友</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/http-basic-authenticate/">[Rails] 進入網站前驗證</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/113306354398877276439?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Sammy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'igotcloud';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://SammyLin.github.io/blog/awsec2%E7%82%BAinstance%E7%A7%9F%E7%94%A8%E4%B8%80%E5%80%8Belastic-ip/';
+        var disqus_url = 'http://SammyLin.github.io/blog/awsec2%E7%82%BAinstance%E7%A7%9F%E7%94%A8%E4%B8%80%E5%80%8Belastic-ip/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

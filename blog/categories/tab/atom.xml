@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Tab | Sammy Lin]]></title>
+  <link href="http://SammyLin.github.io/blog/blog/categories/tab/atom.xml" rel="self"/>
+  <link href="http://SammyLin.github.io/blog/"/>
+  <updated>2014-04-26T13:25:55+08:00</updated>
+  <id>http://SammyLin.github.io/blog/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[在Vim裡面做分頁]]></title>
+    <link href="http://SammyLin.github.io/blog/vim-tab-edit/"/>
+    <updated>2012-01-16T14:36:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/vim-tab-edit</id>
+    <content type="html"><![CDATA[<p>今天又學到一招好用的東西，就是在<code>vim</code>裡面做Tab(分頁)，用法很簡單。</p>
+
+<h3>開啟第一個Tab</h3>
+
+<pre><code>:tabedit &lt;filename&gt;
+</code></pre>
+
+<p>or</p>
+
+<pre><code>:tabe &lt;filename&gt;
+</code></pre>
+
+<!-- more -->
+
+
+<h3>切換下一個Tab</h3>
+
+<pre><code>:tabnext
+</code></pre>
+
+<p>or</p>
+
+<pre><code>:tabn
+</code></pre>
+
+<p>or</p>
+
+<pre><code>gt
+</code></pre>
+
+<h3>切換上一個Tab</h3>
+
+<pre><code>:tabNext
+</code></pre>
+
+<p>or</p>
+
+<pre><code>:tabN
+</code></pre>
+
+<p>or</p>
+
+<pre><code>gT
+</code></pre>
+
+<h3>切換到第一個Tab</h3>
+
+<pre><code>:tabrewind
+</code></pre>
+
+<p>or</p>
+
+<pre><code>:tabr
+</code></pre>
+
+<h3>切換到最後一個Tab</h3>
+
+<pre><code>:tablast
+</code></pre>
+
+<p>or</p>
+
+<pre><code>:tabl
+</code></pre>
+
+<h3>顯示所有的Tab</h3>
+
+<pre><code>:tabs
+</code></pre>
+
+<h3>用vim開啟多個檔案</h3>
+
+<pre><code>$ vim -p &lt;filename1&gt; &lt;filename2&gt; &lt;filename3&gt;
+</code></pre>
+
+<h4>參考網站</h4>
+
+<blockquote><p><a href="http://nicaliu.pixnet.net/blog/post/18589570">vim 的小玩意：tab 怎麼玩？</a> at 尼卡 Nica</p>
+
+<p><a href="http://navyblueshellingford.blogspot.com/2008/02/vim-tab.html">vim tab 功能</a> at shelling</p></blockquote>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>[jQuery]jQuery EasyUI做資料驗證 - Sammy Lin</title>
+  <meta name="author" content="Sammy">
+
+  
+  <meta name="description" content="大家應該很熟析jQuery了，jQuery已經很簡單了，jQurey EasyUI更簡單了，他是base在jQuery的Web UI 框架裡，你可以用很少很少的JS來做你想要的功能，沒辦法，我就是太懶了而且我也沒有一個很高強的前端網頁工程師，所以才會想要用很簡單的東西來做到我想要的效果(哈~~) &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://SammyLin.github.io/blog/jquery-jquery-easyui-to-do-data-validation">
+  <link href="/blog/favicon.png" rel="icon">
+  <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
+  <script src="/blog/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/blog/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23558179-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/blog/">Sammy Lin</a></h1>
+  
+    <h2>旅居台北的高雄人</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/igotcloud" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:SammyLin.github.io/blog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/blog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">[jQuery]jQuery EasyUI做資料驗證</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-19T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>大家應該很熟析jQuery了，jQuery已經很簡單了，jQurey EasyUI更簡單了，他是base在jQuery的Web UI 框架裡，你可以用很少很少的JS來做你想要的功能，沒辦法，我就是太懶了而且我也沒有一個很高強的前端網頁工程師，所以才會想要用很簡單的東西來做到我想要的效果(哈~~)
+<table width="540" border="1" cellspacing="1" cellpadding="1">
+<tbody>
+<tr>
+<td valign="top" width="540">jQuery EasyUI官方網站：<a href="http://www.jeasyui.com/">http://www.jeasyui.com/</a>
+jQuery EasyUI 下載：<a href="http://www.jeasyui.com/download/index.php">http://www.jeasyui.com/download/index.php</a></td>
+</tr>
+</tbody>
+</table>
+匯入js</p>
+
+<p><!--more--></p>
+
+<p>&nbsp;
+<div id="codeSnippetWrapper" style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 20px 0px 10px; width: 97.5%; font-family: 'Courier New', courier, monospace; direction: ltr; max-height: 200px; font-size: 8pt; overflow: auto; cursor: text; border: silver 1px solid; padding: 4px;">
+<div id="codeSnippet" style="text-align: left; line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum1" style="color: #606060;"> 1:</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">link</span> <span style="color: #ff0000;">rel</span><span style="color: #0000ff;">="stylesheet"</span> <span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/css"</span> <span style="color: #ff0000;">href</span><span style="color: #0000ff;">="../themes/default/easyui.css"</span><span style="color: #0000ff;">&gt;</span></pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum2" style="color: #606060;"> 2:</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script</span> <span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/javascript"</span> <span style="color: #ff0000;">src</span><span style="color: #0000ff;">="../jquery-1.6.min.js"</span><span style="color: #0000ff;">/&gt;</span></pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum3" style="color: #606060;"> 3:</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script</span> <span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/javascript"</span> <span style="color: #ff0000;">src</span><span style="color: #0000ff;">="../jquery.easyui.min.js"</span><span style="color: #0000ff;">/&gt;</span></pre>
+&nbsp;</div></div></p>
+
+<p>
+
+HTML
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum1" style="color: #606060;"> 1:</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input</span> <span style="color: #ff0000;">class</span><span style="color: #0000ff;">="easyui-validatebox"</span> <span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text"</span> <span style="color: #ff0000;">required</span><span style="color: #0000ff;">="true"</span><span style="color: #0000ff;">&gt;</span></pre>
+&nbsp;</p>
+
+<p>跟平常我們在做一個textbox其實只是多加了一個 <span style="color: #ff0000;">required</span>的參數，令這個textbox做驗証</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image45.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb46.png" alt="image" width="293" height="37" border="0" /></a></p>
+
+<p>required的參數預設是false的，你要讓他啟用的話是要帶入true，而jQuery EasyUI還有其他的可以使用的參數以下介紹給大家知道：
+<table width="542" border="1" cellspacing="1" cellpadding="1">
+<tbody>
+<tr>
+<td valign="top" width="112"><span style="color: #ff0000; font-size: x-small;"><strong>屬性</strong></span></td>
+<td valign="top" width="60"><span style="color: #ff0000; font-size: x-small;"><strong>型別</strong></span></td>
+<td valign="top" width="163"><span style="color: #ff0000; font-size: x-small;"><strong>描述</strong></span></td>
+<td valign="top" width="200"><span style="color: #ff0000; font-size: x-small;"><strong>預設</strong></span></td>
+</tr>
+<tr>
+<td valign="top" width="112"><span style="font-size: x-small;">required</span></td>
+<td valign="top" width="60"><span style="font-size: x-small;">布林值</span></td>
+<td valign="top" width="163"><span style="font-size: x-small;">這個欄位是不是必填</span></td>
+<td valign="top" width="200"><span style="font-size: x-small;">false</span></td>
+</tr>
+<tr>
+<td valign="top" width="112"><span style="font-size: x-small;">validType</span></td>
+<td valign="top" width="60"><span style="font-size: x-small;">String</span></td>
+<td valign="top" width="163"><span style="font-size: x-small;">驗<span style="font-size: x-small;">證</span> 的類型(E-mail、Url)</span></td>
+<td valign="top" width="200"><span style="font-size: x-small;">null</span></td>
+</tr>
+<tr>
+<td valign="top" width="112"><span style="font-size: x-small;">missingMessage</span></td>
+<td valign="top" width="60"><span style="font-size: x-small;">String</span></td>
+<td valign="top" width="163"><span style="font-size: x-small;">欄位為空值，提示文字</span></td>
+<td valign="top" width="200"><span style="font-size: x-small;">This field is required</span></td>
+</tr>
+<tr>
+<td valign="top" width="112"><span style="font-size: x-small;">invalidMessage</span></td>
+<td valign="top" width="60"><span style="font-size: x-small;">String</span></td>
+<td valign="top" width="163"><span style="font-size: x-small;">欄位驗證失敗，提示文字</span></td>
+<td valign="top" width="200"><span style="font-size: x-small;">Please Enter a valid XXX</span></td>
+</tr>
+</tbody>
+</table>
+在validType中我們也可以使用預定的驗證類型，當然也是可以自定，這邊就介紹如何使用，validType：
+<table width="490" border="1" cellspacing="1" cellpadding="1">
+<tbody>
+<tr>
+<td valign="top" width="237"><span style="color: #ff0000; font-size: x-small;"><strong>validType參數</strong></span></td>
+<td valign="top" width="248"><span style="color: #ff0000; font-size: x-small;"><strong>描述</strong></span></td>
+</tr>
+<tr>
+<td valign="top" width="237"><span style="font-size: x-small;">email</span></td>
+<td valign="top" width="248"><span style="font-size: x-small;">Email驗證</span></td>
+</tr>
+<tr>
+<td valign="top" width="237"><span style="font-size: x-small;">url</span></td>
+<td valign="top" width="248"><span style="font-size: x-small;">URL驗證</span></td>
+</tr>
+<tr>
+<td valign="top" width="237"><span style="font-size: x-small;">length[x,y]</span></td>
+<td valign="top" width="248"><span style="font-size: x-small;">字串數驗證，x為最小值,y為最大值</span></td>
+</tr>
+</tbody>
+</table>
+<div id="codeSnippetWrapper">
+<pre id="codeSnippet" style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">Name:<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input</span> <span style="color: #ff0000;">class</span><span style="color: #0000ff;">="easyui-validatebox"</span> <span style="color: #ff0000;">required</span><span style="color: #0000ff;">="true"</span> <span style="color: #ff0000;">validType</span><span style="color: #0000ff;">="length[1,3]"</span><span style="color: #0000ff;">&gt;</span>Email:<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input</span> <span style="color: #ff0000;">class</span><span style="color: #0000ff;">="easyui-validatebox"</span> <span style="color: #ff0000;">validType</span><span style="color: #0000ff;">="email"</span><span style="color: #0000ff;">&gt;</span>URL:<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input</span> <span style="color: #ff0000;">class</span><span style="color: #0000ff;">="easyui-validatebox"</span> <span style="color: #ff0000;">required</span><span style="color: #0000ff;">="true"</span> <span style="color: #ff0000;">validType</span><span style="color: #0000ff;">="url"</span><span style="color: #0000ff;">&gt;</span></pre>
+&nbsp;</div></p>
+
+<p>
+官方Demo：<a href="http://www.jeasyui.com/tutorial/form/form3_demo.html">http://www.jeasyui.com/tutorial/form/form3_demo.html</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sammy</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-19T00:00:00+08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/blog/categories/jquery/'>jQuery</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://SammyLin.github.io/blog/jquery-jquery-easyui-to-do-data-validation/" data-via="SammyLinTw" data-counturl="http://SammyLin.github.io/blog/jquery-jquery-easyui-to-do-data-validation/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/aws-ruby-can-use-the-aws-sdk/" title="Previous Post: [AWS] Ruby可以使用 AWS SDK了">&laquo; [AWS] Ruby可以使用 AWS SDK了</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/amazon-s3-already-has-44-9-billion-objects/" title="Next Post: Amazon S3 己經擁有449億個物件">Amazon S3 己經擁有449億個物件 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/vimrc/">My Vimrc</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/iterm2-change-font/">在iterm2修改字體</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/the-vim-enabled-mouse-can-not-be-copied/">[VIM]啟用滑鼠時無法複製</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/search-facebook-friend/">[FaceBook API]搜尋好友</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/http-basic-authenticate/">[Rails] 進入網站前驗證</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/113306354398877276439?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Sammy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'igotcloud';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

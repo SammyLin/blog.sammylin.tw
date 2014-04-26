@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Identity and Access Management | Sammy Lin]]></title>
+  <link href="http://SammyLin.github.io/blog/blog/categories/identity-and-access-management/atom.xml" rel="self"/>
+  <link href="http://SammyLin.github.io/blog/"/>
+  <updated>2014-04-26T13:25:55+08:00</updated>
+  <id>http://SammyLin.github.io/blog/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[AWS][IAM]利用AWS Management Console建立AWS帳號使用者]]></title>
+    <link href="http://SammyLin.github.io/blog/awsiam-using-aws-management-console-users-to-establish-aws-account/"/>
+    <updated>2011-06-07T00:00:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/awsiam-using-aws-management-console-users-to-establish-aws-account</id>
+    <content type="html"><![CDATA[<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image22.png"><img style="background-image: none; margin: 0px 6px 0px 0px; padding-left: 0px; padding-right: 0px; display: inline; float: left; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb21.png" alt="image" width="343" height="259" align="left" border="0" /></a> 在上一篇<a href="http://blog.cornerlife.tw/awsaws-identity-and-access-management-%e8%ba%ab%e4%bb%bd%e8%ad%98%e5%88%a5%e8%88%87%e5%ad%98%e5%8f%96%e7%ae%a1%e7%90%86.html" target="_blank">[AWS][IAM]AWS Identity and Access Management (身份識別與存取管理)</a>中談到，可以在自已的AWS帳號中建來多個使用者、管理者來管理AWS的物件或操作其限制的功能，或是存取S3中的資料，雖然其AWS Management Console目前看來功能很強大，許多基本的操作都可以進行，沒有錯~就是「基本」，然而要進行一些比較進階的，像定時操作等等的功能，還是要特別透過AWS for SDK來做，所以筆者這邊一開始都是先一一從簡單的功能介紹，並且把AWS的東西都大致介紹完畢後，才會慢慢走向進階的操作，這一切都只是分享最主要還是為我自已做個筆記啦，畢竟我的記性很差(呵~)
+<table width="540" border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="540">
+<h5>AWS Identity and Access Management</h5>
+操作頁面：<a href="https://console.aws.amazon.com/iam/home">https://console.aws.amazon.com/iam/home</a>
+參考文件：<a href="http://aws.amazon.com/documentation/iam/">http://aws.amazon.com/documentation/iam/</a></td>
+</tr>
+</tbody>
+</table>
+<h4></h4>
+<!--more-->
+<h4>建立使用者</h4>
+1.我們直接利用小幫手來建立就好..點選「Creatr a New Group of Users」</p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image23.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb22.png" alt="image" width="241" height="38" border="0" /></a></p>
+
+
+
+
+<p>2.輸入群組名稱(Group Name)</p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image24.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb23.png" alt="image" width="544" height="239" border="0" /></a></p>
+
+
+
+
+<p>3.設定權限(Set Permissions)，下面有選擇原則範本(Select Policy Template)、自定原則(Custom Policy)、沒有權限(No Permissions)。這邊選Administrator Access。<a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image25.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb24.png" alt="image" width="544" height="457" border="0" /></a>
+<table width="540" border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="540"><strong>NOTE</strong>.自定原則產生器：<a href="http://awspolicygen.s3.amazonaws.com/policygen.html">http://awspolicygen.s3.amazonaws.com/policygen.html</a></td>
+</tr>
+</tbody>
+</table>
+4.系統馬上幫你建立一個原則名稱(Policy Name)及原則文件(Policy Document)，直接按Countinue。</p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image26.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb25.png" alt="image" width="544" height="395" border="0" /></a></p>
+
+
+
+
+<p>5.輸入你剛剛建立群組中的使用者：</p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image27.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb26.png" alt="image" width="544" height="469" border="0" /></a>
+<table width="540" border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="540"><strong>NOTE</strong>.產生Access Key給每一個使用者(Generate an access key for each User)方便未來使用者可以用Access Key 來使用API。</td>
+</tr>
+</tbody>
+</table>
+6.確認所建立的資料是否正確。</p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image28.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb27.png" alt="image" width="544" height="305" border="0" /></a></p>
+
+
+
+
+<p>7.完成建立使用者，系統會要求你下載Sercurity Credentials</p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image29.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb28.png" alt="image" width="544" height="177" border="0" /></a></p>
+
+
+
+
+<p>8.如果要用使用者登入的話，就必需設定密碼。</p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image30.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb29.png" alt="image" width="544" height="202" border="0" /></a></p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image31.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb30.png" alt="image" width="544" height="171" border="0" /></a></p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image32.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb31.png" alt="image" width="544" height="217" border="0" /></a></p>
+
+
+
+
+<p>8.箭頭所指的地方就是使用者登入的網址</p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image33.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb32.png" alt="image" width="544" height="283" border="0" /></a></p>
+
+
+
+
+<p>9.當然也可以用<a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image34.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb33.png" alt="image" width="134" height="32" border="0" /></a>來建立一個帳戶別名。</p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image35.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb34.png" alt="image" width="489" height="160" border="0" /></a></p>
+
+
+
+
+<p>10.建立一個帳戶別名，以後登入就比較好較了。</p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image36.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb35.png" alt="image" width="449" height="132" border="0" /></a></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[AWS][IAM]AWS Identity and Access Management (身份識別與存取管理)]]></title>
+    <link href="http://SammyLin.github.io/blog/aws-iam/"/>
+    <updated>2011-06-04T00:00:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/aws-iam</id>
+    <content type="html"><![CDATA[<p><p> AWS是個強大的雲端系統，單純一個管理者是不夠的，可能需要有人開發，有人監控，有人分析，也有人付錢XD，對於只有一個帳號是很危險且不安全，因此Amazon也有一個功能就是「AWS Identity and Access Management(身份識別與存取管理)」</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image21.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb20.png" width="521" height="362" /></a></p>  <p>(圖片來自：<a href="http://docs.amazonwebservices.com/IAM/latest/UserGuide/index.html?AccessPolicyLanguage.html">http://docs.amazonwebservices.com/IAM/latest/UserGuide/index.html?AccessPolicyLanguage.html</a>)</p>  <p>IAM的功能：</p>  <ol>   <li><font color="#ff0000">建立使用者：</font>新增一個使用者可以進入你所使用的帳戶之中，而且可以使用AWS的系統程式。</li>    <li><font color="#ff0000">分配和管理安裝認證：</font>每一個使用者都可以使用所擁有的Access Keys和 Security Credentials。</li>    <li><font color="#ff0000">群組化：</font>可以容易的建立群組及加入群組的權限。</li>    <li><font color="#ff0000">集中管理使用者權限：</font>限制使用者執行操作AWS的功能，例如(API及資源)。</li>    <li><font color="#ff0000">使用者登入限制：</font>可以限制使用者登入的時間、IP，或是可否使用SSL。</li>    <li><font color="#ff0000">單一帳單：</font>所有使用者開的機器或使用的量費用計在同一個帳單上。</li> </ol>  <p>IAM也不收任何的費用，你可以在AWS中開許多的帳號給別人時間，但要記得他們所建立機器算的費用還是你的喔。</p>  <p>不過IAM好處真的很多，不僅可以限制使用者的操作，也可以在S3中利用權限來分享檔案，也可以使用<a href="http://console.aws.amazon.com/">AWS Management Console</a>來管理帳號。</p>  <p>但美中不足的地方，好像沒有記錄使用者的操作。</p>  <table border="1" cellspacing="0" cellpadding="0" width="540"><tbody>     <tr>       <td valign="top" width="540">參考文件：         <p><a title="Identity and Access Management in the AWS Management Console" href="http://aws.typepad.com/aws/2011/05/identity-and-access-management-console-support.html" target="_blank" /><a href="http://aws.amazon.com/iam/">http://aws.amazon.com/iam/</a></p>       </td>     </tr>   </tbody></table></p>
+
+]]></content>
+  </entry>
+  
+</feed>

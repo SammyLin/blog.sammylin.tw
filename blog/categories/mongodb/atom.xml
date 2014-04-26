@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Mongodb | Sammy Lin]]></title>
+  <link href="http://SammyLin.github.io/blog/blog/categories/mongodb/atom.xml" rel="self"/>
+  <link href="http://SammyLin.github.io/blog/"/>
+  <updated>2014-04-26T13:25:55+08:00</updated>
+  <id>http://SammyLin.github.io/blog/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[rails]建置MongoDB環境利用mongoid]]></title>
+    <link href="http://SammyLin.github.io/blog/rails-mongoid/"/>
+    <updated>2011-12-08T14:18:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/rails-mongoid</id>
+    <content type="html"><![CDATA[<p>之前用了<code>mongo_mapper</code>感覺很好用，不過發現要裝一些plugin的時候，像是desice時，就會有一些問題的存在，所以我改用<code>mongoid</code>來使用，比較順許多，而且不用在<code>rails g model XXX --orm==mongo_mapper</code>之類的。</p>
+
+<h3>用gem 安裝</h3>
+
+<p><code>ruby Gemfile
+gem "mongoid", "~&gt; 2.3"
+gem "bson_ext", "~&gt; 1.4"
+gem 'devise'
+</code>
+<code>$ bundle install</code></p>
+
+<h3>產生資料庫設定檔</h3>
+
+<p><code>$ rails g mongoid:config</code>
+``` ruby config/mongoid.yml
+development:
+  host: localhost
+  database: demo3_development</p>
+
+<p>test:
+  host: localhost
+  database: demo3_test</p>
+
+<h1>set these environment variables on your prod server</h1>
+
+<p>production:
+  host: &lt;%= ENV[&lsquo;MONGOID_HOST&rsquo;] %>
+  port: &lt;%= ENV[&lsquo;MONGOID_PORT&rsquo;] %>
+  username: &lt;%= ENV[&lsquo;MONGOID_USERNAME&rsquo;] %>
+  password: &lt;%= ENV[&lsquo;MONGOID_PASSWORD&rsquo;] %>
+  database: &lt;%= ENV[&lsquo;MONGOID_DATABASE&rsquo;] %>
+  # slaves:
+  #   &ndash; host: slave1.local
+  #     port: 27018
+  #   &ndash; host: slave2.local
+  #     port: 27019
+```</p>
+
+<!--more-->
+
+
+<h3>修改 config/application.rb</h3>
+
+<p><code>vim /config/application.rb</code>
+``` ruby config/application.rb
+require &ldquo;action_controller/railtie&rdquo;
+require &ldquo;action_mailer/railtie&rdquo;
+require &ldquo;active_resource/railtie&rdquo;
+require &ldquo;rails/test_unit/railtie&rdquo;</p>
+
+<h1>把rails/all前面加上</h1>
+
+<h1>require &lsquo;rails/all&rsquo;</h1>
+
+<p>```</p>
+
+<h3>產生devise設定檔</h3>
+
+<p><code>$ rails g devise:install</code></p>
+
+<p>```</p>
+
+<pre><code>  create  config/initializers/devise.rb
+  create  config/locales/devise.en.yml
+</code></pre>
+
+<p>===============================================================================</p>
+
+<p>Some setup you must do manually if you haven&rsquo;t yet:</p>
+
+<ol>
+<li><p> Setup default url options for your specific environment. Here is an
+ example of development environment:</p>
+
+<p>   config.action_mailer.default_url_options = { :host => &lsquo;localhost:3000&rsquo; }</p>
+
+<p> This is a required Rails configuration. In production it must be the
+ actual host of your application</p></li>
+<li><p> Ensure you have defined root_url to <em>something</em> in your config/routes.rb.
+ For example:</p>
+
+<p>   root :to => &ldquo;home#index&rdquo;</p></li>
+<li><p> Ensure you have flash messages in app/views/layouts/application.html.erb.
+ For example:</p>
+
+<p>   <p class="notice">&lt;%= notice %></p>
+   <p class="alert">&lt;%= alert %></p></p></li>
+<li><p> If you are deploying Rails 3.1 on Heroku, you may want to set:</p>
+
+<p>   config.assets.initialize_on_precompile = false</p>
+
+<p> On config/application.rb forcing your application to not access the DB
+ or load models when precompiling your assets.</p></li>
+</ol>
+
+
+<p>===============================================================================
+<code>``
+</code>$ rails g devise User`</p>
+
+<h3>建立一個鷹架</h3>
+
+<p><code>$ rails g scaffold board name:string</code></p>
+
+<h3>修改加入root :to</h3>
+
+<p><code>vim config/routes.rb</code>
+<code>ruby config/routes/rb
+root :to =&gt; "boards#index"
+</code></p>
+
+<h3>刪除預設首頁</h3>
+
+<p><code>rm public/index.html</code></p>
+
+<h3>增加使用者管理至主版頁面</h3>
+
+<p><code>vim app/views/layouts/application.html.erb</code></p>
+
+<p>將下面這個介面放在<code>&lt;%= yield %&gt;</code>上面</p>
+
+<p>``` ruby app/views/layouts/application.html.erb
+&lt;% if user_signed_in? %></p>
+
+<ul>
+ <li>
+  <%= link_to('Edit registration', edit_user_registration_path) %>
+  </li>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+  </li>
+</ul>
+
+
+<p>&lt;% else %></p>
+
+<ul>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>  
+  </li>
+  <li>
+  <%= link_to('Register', new_user_registration_path)  %>
+  </li>
+</ul>
+
+
+<p>&lt;% end %>
+```</p>
+
+<h3>預覽</h3>
+
+<p><code>$ rails s</code></p>
+
+<p>打開溜覽器進入<a href="http://127.0.0.1:3000">http://127.0.0.1:3000</a></p>
+
+<p>你就會看到以下畫面
+<img src="https://lh3.googleusercontent.com/-zP1qQNfkY5Q/TuCGA8dTZlI/AAAAAAAABfI/4nl52LlLPto/s400/Screen%252520Shot%2525202011-12-08%252520at%252520%2525E4%2525B8%25258B%2525E5%25258D%2525885.38.25.jpg" alt="" /></p>
+
+<h4>註冊</h4>
+
+<p><img src="https://lh3.googleusercontent.com/-vll9mK2RRoE/TuCHapM0tqI/AAAAAAAABfg/2lm6PW69znI/s640/Screen%252520Shot%2525202011-12-08%252520at%252520%2525E4%2525B8%25258B%2525E5%25258D%2525885.43.19.jpg" alt="" /></p>
+
+<h4>登入後畫面</h4>
+
+<p><img src="https://lh6.googleusercontent.com/-Oes4BaXlwv8/TuCHahKrp2I/AAAAAAAABfc/r4sEp5tThyc/s640/Screen%252520Shot%2525202011-12-08%252520at%252520%2525E4%2525B8%25258B%2525E5%25258D%2525885.43.38.jpg" alt="" /></p>
+
+<h4>登入畫面</h4>
+
+<p><img src="https://lh6.googleusercontent.com/-VX9XHmio9_4/TuCHbcjU8lI/AAAAAAAABfk/8VMGykwSiFU/s640/Screen%252520Shot%2525202011-12-08%252520at%252520%2525E4%2525B8%25258B%2525E5%25258D%2525885.43.53.jpg" alt="" /></p>
+
+<h4>修改個人資料</h4>
+
+<p><img src="https://lh5.googleusercontent.com/-ReZup33N5hA/TuCHavp2E6I/AAAAAAAABfo/2Zvbv361zrA/s640/Screen%252520Shot%2525202011-12-08%252520at%252520%2525E4%2525B8%25258B%2525E5%25258D%2525885.44.02.jpg" alt="" /></p>
+]]></content>
+  </entry>
+  
+</feed>

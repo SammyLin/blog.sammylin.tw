@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: FaceBook API | Sammy Lin]]></title>
+  <link href="http://SammyLin.github.io/blog/blog/categories/facebook-api/atom.xml" rel="self"/>
+  <link href="http://SammyLin.github.io/blog/"/>
+  <updated>2014-04-26T13:25:55+08:00</updated>
+  <id>http://SammyLin.github.io/blog/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[FaceBook API]搜尋好友]]></title>
+    <link href="http://SammyLin.github.io/blog/search-facebook-friend/"/>
+    <updated>2012-12-04T21:12:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/search-facebook-friend</id>
+    <content type="html"><![CDATA[<p>在<a href="https://developers.facebook.com/docs/reference/api">Graph API</a>找了老半天
+只能夠用API撈到FB的所有好友，但是沒辦法塞入q=???來找到你想要的朋友只有像<code>粉絲頁</code>、<code>所有使用者</code>..等才能用</p>
+
+<p>這時候只好派出<a href="https://developers.facebook.com/docs/reference/fql/">FQL</a>了</p>
+
+<pre><code>SELECT name, uid FROM user WHERE uid IN ( SELECT uid2 FROM friend WHERE uid1=me() ) AND strpos(lower(name),'&lt;you want search name&gt;') ==0
+</code></pre>
+
+<!-- more -->
+
+
+<p>馬上就可以輸入幾個關鍵字就可以抓到你要的好友名單了</p>
+
+<p>就像是這樣 <a href="http://goo.gl/VYpbM">DEMO</a>
+(請記得取得token)</p>
+
+<p>如果要做分頁的話</p>
+
+<pre><code>SELECT uid ,name FROM user WHERE uid IN ( SELECT uid2 FROM friend WHERE uid1=me() ) AND strpos(lower(name),'&lt;you want search name&gt;') ==0 LIMIT 10 OFFSET 200;
+</code></pre>
+
+<p>就可以帶入你要的page</p>
+
+<p>=======</p>
+
+<p>補充一下，<code>FQL</code>是不能有COUNT()的，所以如果要取得count的話，只能把資料撈出來然後算他的數量。 不過遇到你的需要跟FB取的Field多的話，可以先用下面這行</p>
+
+<pre><code>SELECT '' FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = USERID)
+</code></pre>
+
+<p>因為取得的Field少，所以response的會比較快。</p>
+
+<h2>參考資料</h2>
+
+<blockquote><p><a href="http://blogs.x2line.com/al/archive/2007/10/07/3287.aspx">http://blogs.x2line.com/al/archive/2007/10/07/3287.aspx</a></p></blockquote>
+]]></content>
+  </entry>
+  
+</feed>

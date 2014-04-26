@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>[Mysql]MySQL Replication(Master-Slave)備援 - Sammy Lin</title>
+  <meta name="author" content="Sammy">
+
+  
+  <meta name="description" content="Mysql做備援的方式有很多種，這次講一個最基本的方式Master-Slave，其實網路上許多方法，大家可以去找找看，而今天的環境是使用Amazon Linux 32位元的，但是其實操作都大同小異。
+看到上面那張圖，就是今天要做的，只是單純的把Database資料即時備份到另一個Slave &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://SammyLin.github.io/blog/mysql-mysql-replication-master-slave-redundancy">
+  <link href="/blog/favicon.png" rel="icon">
+  <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
+  <script src="/blog/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/blog/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23558179-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/blog/">Sammy Lin</a></h1>
+  
+    <h2>旅居台北的高雄人</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/igotcloud" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:SammyLin.github.io/blog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/blog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">[Mysql]MySQL Replication(Master-Slave)備援</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-20T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/image1.png" alt="" /></p>
+
+<p>Mysql做備援的方式有很多種，這次講一個最基本的方式Master-Slave，其實網路上許多方法，大家可以去找找看，而今天的環境是使用Amazon Linux 32位元的，但是其實操作都大同小異。
+看到上面那張圖，就是今天要做的，只是單純的把Database資料即時備份到另一個Slave Database裡。</p>
+
+<!--more-->
+
+
+<h3>Master 部份</h3>
+
+<p><code>$ vim /etc/my.cnf</code></p>
+
+<pre><code>server-id = 1   #此id不可以重覆
+log-bin = mysql-bin  #指定產生binlog檔案的開頭檔名
+</code></pre>
+
+<p><code>$ mysql -u root –p</code></p>
+
+<h4>建立同步用的帳號，用來給Slave database存取資料用，並給他權限Grant、Replication slave</h4>
+
+<p><code>mysql&gt;CREATE USER ‘同步帳號’@’%’ IDENTIFIED BY ‘密碼’;</code></p>
+
+<p><code>mysql&gt;GRANT REPLICATION SLAVE ON *.* TO ‘同步帳號’@’%’;</code></p>
+
+<h4>先關閉資料庫的寫入功能</h4>
+
+<p><code>mysql &gt;FLUSH TABLES WITH READ LOCK;</code></p>
+
+<p><code>mysql &gt;exit</code></p>
+
+<h4>將全部的資料庫匯出至mysql.sql</h4>
+
+<p><code>$ mysqldump -u root -p –all-databases &gt; mysql.sql</code></p>
+
+<h4>把sql檔給B主機也就是slave主機</h4>
+
+<p><code>$ scp -p mysql.sql 帳號@B主機:/home/ec2-user</code></p>
+
+<h4>重開機之後讓他開始產生binlog</h4>
+
+<p><code>$ service mysqld restart</code></p>
+
+<p><code>$ mysql -u root -p</code></p>
+
+<h4>記住下面的File 跟 Position</h4>
+
+<p><code>mysql &gt; show master status;</code></p>
+
+<p>| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB |
+| mysql-bin.000002 | 187146 |                      |                           |</p>
+
+<h4>解鎖</h4>
+
+<p><code>mysql &gt; unlock tables;</code></p>
+
+<h3>Slave部份</h3>
+
+<p><code>$ vim /etc/my.cnf</code></p>
+
+<pre><code>server-id = 2  #此id不可以重覆
+log-slave-updates   #告訴slave讀取binlog，啟動slave的重要選項之一
+log-bin = mysql-bin   #指定產生binlog檔案的開頭檔名
+binlog_format = mixed    #設定binlog的儲存格式，(maxed為預設值)
+relay-log = host_name-relay-bin    #記錄著binlog處理的過程，可以執行【FLUSH LOGS】讓mysql自動刪除較舊的檔案
+replicate-do-db = mytest    #限制slave只同步mytest資料庫的資料
+master-connect-retry = 60   #當slave無法連線至master時，間隔60秒嘗試連線(預設為60秒)
+</code></pre>
+
+<h4>把資料倒到Slave主機裡</h4>
+
+<p><code>$ mysql -u root -p &gt; /home/ec2-user/mysql.sql</code></p>
+
+<p><code>$ mysql –u root –p</code></p>
+
+<h4>建立跟Master 的連結，剛剛要記的File跟Position把他填到master_log跟master_log_pos裡</h4>
+
+<p><code>mysql &gt; CHANGE MASTER TO MASTER_HOST='A主機', MASTER_USER='同步用帳號', MASTER_PASSWORD='密碼', master_log_file='mysql-bin.000002', master_log_pos=187146;</code></p>
+
+<h4>重新啟用mysql服務</h4>
+
+<p><code>$ service mysqld restart</code></p>
+
+<p>大功告成
+為了確認Slave是否有在連結跟交換資料，到Slave主機中</p>
+
+<p><code>$ mysql –u root –p</code></p>
+
+<p><code>mysql &gt; show slave status \G</code></p>
+
+<p>如果有出現這兩行就表示成功了！</p>
+
+<pre><code>Slave_IO_Running: Yes
+Slave_SQL_Running: Yes
+</code></pre>
+
+<blockquote><p>參考網站</p>
+
+<p><a href="http://blog.wu-boy.com/2008/12/mysql-%E5%AF%A6%E5%81%9A-mysql-master-master-replication-%E5%90%8C%E6%AD%A5/">[MySQL] 實做 MySQL Master-Master Replication 同步</a></p>
+
+<p><a href="http://homeserver.com.tw/mysql/mysql-replication-master-slave%E8%B2%A0%E8%BC%89%E5%B9%B3%E8%A1%A1/">MySQL Replication(Master Slave負載平衡)</a></p></blockquote>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sammy</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-20T00:00:00+08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/blog/categories/mysql/'>Mysql</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://SammyLin.github.io/blog/mysql-mysql-replication-master-slave-redundancy/" data-via="SammyLinTw" data-counturl="http://SammyLin.github.io/blog/mysql-mysql-replication-master-slave-redundancy/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/iis-an-error-occurred-loading-a-configuration-file-failed-to-start-monitoring-changes-to-xxx-because-the-network-bios-command-limit-has-been-reached/" title="Previous Post: [IIS]載入組態檔時發生錯誤: 無法開始監視 XXX 的變更，因為已經到達網路 BIOS 命令限制。">&laquo; [IIS]載入組態檔時發生錯誤: 無法開始監視 XXX 的變更，因為已經到達網路 BIOS 命令限制。</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/good-method-of-prevention-of-unauthorized-use-of-msn/" title="Next Post: 做好MSN被盜用的防治方法">做好MSN被盜用的防治方法 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/vimrc/">My Vimrc</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/iterm2-change-font/">在iterm2修改字體</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/the-vim-enabled-mouse-can-not-be-copied/">[VIM]啟用滑鼠時無法複製</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/search-facebook-friend/">[FaceBook API]搜尋好友</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/http-basic-authenticate/">[Rails] 進入網站前驗證</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/113306354398877276439?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Sammy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'igotcloud';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

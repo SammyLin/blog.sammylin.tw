@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Mac | Sammy Lin]]></title>
+  <link href="http://SammyLin.github.io/blog/blog/categories/mac/atom.xml" rel="self"/>
+  <link href="http://SammyLin.github.io/blog/"/>
+  <updated>2014-04-26T13:25:55+08:00</updated>
+  <id>http://SammyLin.github.io/blog/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[評測]Magican Mac清除垃圾工具]]></title>
+    <link href="http://SammyLin.github.io/blog/magican/"/>
+    <updated>2012-09-18T20:08:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/magican</id>
+    <content type="html"><![CDATA[<p>在Mac裡如果想到清除垃圾工具，第一個應該會想到的是<a href="http://macpaw.com/">CleanMyMac</a>，不過要花$29.95美金，因為我是個省吃儉用的人，所以想一想就算了，還是不要好了，最近發現一個軟體，還不錯。</p>
+
+<ul>
+<li><h2><a href="http://www.magicansoft.com/">Magican</a></h2></li>
+<li>容量：3.8MB</li>
+</ul>
+
+
+<p><img src="https://lh6.googleusercontent.com/-5uHa3hTvExM/UFhqMcvk-9I/AAAAAAAAB7k/yXCyAwUPLnY/s640/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25888.33.08.png" alt="" /></p>
+
+<p>畫面其實很乾淨，沒有很亂，左邊是Menu</p>
+
+<h2>功能</h2>
+
+<ul>
+<li>清除你Mac的圾垃</li>
+<li>檢查有無木馬</li>
+<li>監控Mac狀態</li>
+<li>查詢硬體資訊</li>
+<li>釋放記憶體</li>
+</ul>
+
+
+<!-- more -->
+
+
+<p><img src="https://lh4.googleusercontent.com/-3r6hxDzKgIc/UFhviQNCqwI/AAAAAAAAB8E/A7ywQp9xvck/s640/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25888.53.411.png" alt="" /></p>
+
+<p>會有一個一直在最上層的小視窗，內容是天氣、網路上下載的速率還有可用記憶體，按下長的很像reload的按鈕，可以釋放記憶體。</p>
+
+<p><img src="https://lh3.googleusercontent.com/-7NJpEZn-pho/UFhwqgMIovI/AAAAAAAAB8Q/jNQdH4iQRoc/s800/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25889.01.20.png" alt="" /></p>
+
+<p>滑鼠移到右上角還可以切換顯示模式，但只有網路上下載速率、CPU跟GPU的溫度。</p>
+
+<p><img src="https://lh4.googleusercontent.com/-QeUT-kkDodY/UFhxTJcjBbI/AAAAAAAAB8Y/9vYCDkmNtkE/s800/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25889.03.40.png" alt="" /></p>
+
+<p>點一下中間，還會顯示RAM跟CPU的使用狀態、還有目前天氣的溫度。</p>
+
+<p><img src="https://lh5.googleusercontent.com/-xKNqVgt_E_Q/UFhyCUXbvjI/AAAAAAAAB8k/uY8V0PQUsfU/s800/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25889.06.45.png" alt="" /></p>
+
+<p>如果要Cleanup的話，會先掃描你的要分析的東西。</p>
+
+<p><img src="https://lh4.googleusercontent.com/-U8CmerIUfOU/UFhy1eZOYJI/AAAAAAAAB88/bd3lMFjWZvM/s800/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25889.09.33.png" alt="" /></p>
+
+<p>之後會跟找到幾個檔案，容量是多少這時候會你就可以清囉~~ 4.7G 還蠻多的>&ldquo;&lt;</p>
+
+<p><img src="https://lh5.googleusercontent.com/-947PfYfCZrI/UFh0kEzQ7cI/AAAAAAAAB9E/hO7g7QZmWug/s800/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25889.17.37.png" alt="" /></p>
+
+<p>監控你的Mac狀態，這個介面我覺得還不錯很舒服，可以看CPU、硬碟、RAM、系統溫度、網路上下載速率、電池使用量。</p>
+
+<p><img src="https://lh5.googleusercontent.com/-Ldhuj1vCD_o/UFh1motq0HI/AAAAAAAAB9M/ePx1gL6zlwA/s800/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25889.22.01.png" alt="" /></p>
+
+<p>可以新增toolbox，目前只有三個</p>
+
+<ul>
+<li>MagicanDocument &ndash; 會幫你整理Mac的文件，把所有的iwork、pdf…等，整理出來</li>
+<li>MagicanFile &ndash; 作用跟Finder一樣，但是比較多功能</li>
+<li>MaficenRest &ndash; 提醒你該休息了，可以設定幾分鐘休息一下。</li>
+</ul>
+
+
+<p><code>Magican</code>感覺還不錯，而且還是免費的，看來我的Mac必用軟體清單可以多一個了XDDD</p>
+]]></content>
+  </entry>
+  
+</feed>

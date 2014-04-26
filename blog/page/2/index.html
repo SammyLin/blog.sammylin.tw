@@ -1,0 +1,847 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Sammy Lin</title>
+  <meta name="author" content="Sammy">
+
+  
+  <meta name="description" content="做個筆記吧..前幾次都是開箱文..哈哈，感覺有點偷懶 以前在ASP.NET的時候要把資料倒進Excel或是CSV，是不怎麼痛的，畢竟都是同一家人嘛。但是我今天要在Ruby中倒資料進去CSV的時候，就會有編碼上的問題。 我們在Ruby中如果要有中文的話，其實我們都會在.rb最上面加一行 # &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://SammyLin.github.io/blog/blog/page/2">
+  <link href="/blog/favicon.png" rel="icon">
+  <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
+  <script src="/blog/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/blog/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23558179-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/blog/">Sammy Lin</a></h1>
+  
+    <h2>旅居台北的高雄人</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/igotcloud" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:SammyLin.github.io/blog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/blog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/export-to-csv-has-mojibake/">[Ruby]匯出csv檔時在excel開啟時亂碼</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-26T09:40:00+08:00" pubdate data-updated="true">Jul 26<span>th</span>, 2012</time>
+        
+           | <a href="/blog/export-to-csv-has-mojibake/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/export-to-csv-has-mojibake/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>做個筆記吧..前幾次都是開箱文..哈哈，感覺有點偷懶</p>
+
+<p>以前在<code>ASP.NET</code>的時候要把資料倒進Excel或是CSV，是不怎麼痛的，畢竟都是同一家人嘛。但是我今天要在<code>Ruby</code>中倒資料進去CSV的時候，就會有編碼上的問題。</p>
+
+<p>我們在<code>Ruby</code>中如果要有中文的話，其實我們都會在.rb最上面加一行</p>
+
+<pre><code># encoding : utf-8
+</code></pre>
+
+<p>如果要匯出CSV的話<code>Ruby</code>在有一個<a href="http://ruby-doc.org/stdlib-1.9.2/libdoc/csv/rdoc/CSV.html">Class</a>可以用</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="c1"># encoding : utf-8</span>
+</span><span class='line'>    <span class="nb">require</span> <span class="s1">&#39;CSV&#39;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">shom_method</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="no">CSV</span><span class="o">.</span><span class="n">generate</span> <span class="k">do</span> <span class="o">|</span><span class="n">csv</span><span class="o">|</span>
+</span><span class='line'>        <span class="n">csv</span> <span class="o">&lt;&lt;</span> <span class="o">[</span><span class="s1">&#39;編號&#39;</span><span class="p">,</span> <span class="s1">&#39;姓名&#39;</span><span class="o">]</span>
+</span><span class='line'>        <span class="n">members</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">member</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">csv</span> <span class="o">&lt;&lt;</span> <span class="o">[</span><span class="n">num</span><span class="p">,</span> <span class="nb">name</span><span class="o">]</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>用PC的筆記本打開看&hellip;.沒錯是ok的！
+然後用Excel一開&hellip;哇勒~是亂碼..</p>
+
+<p>查了一下是因為我一開始設定的編碼是<code>utf-8</code>，所以我匯出檔案的編碼會是<code>utf-8</code>，因為Excel開的時候就會出現亂碼&hellip;</p>
+
+<p>不過有一個笨方法&hellip;叫User把csv檔用筆記本打開之後用<code>ANSI</code>存檔後用Excel開就ok啦&hellip;..</p>
+
+<p>但是我沒這個膽&hellip;</p>
+
+<h2>解決方式</h2>
+
+<p>我也沒有找到一個很好的處理方式&hellip;</p>
+
+<p>目前比較簡單的方式其實就是在檔頭加上<code>\uFEFF</code>字元</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="c1"># encoding : utf-8</span>
+</span><span class='line'>    <span class="nb">require</span> <span class="s1">&#39;CSV&#39;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">some_method</span>
+</span><span class='line'>      <span class="s2">&quot;\uFEFF</span><span class="si">#{</span><span class="n">get_csv</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">get_csv</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="no">CSV</span><span class="o">.</span><span class="n">generate</span> <span class="k">do</span> <span class="o">|</span><span class="n">csv</span><span class="o">|</span>
+</span><span class='line'>        <span class="n">csv</span> <span class="o">&lt;&lt;</span> <span class="o">[</span><span class="s1">&#39;編號&#39;</span><span class="p">,</span> <span class="s1">&#39;姓名&#39;</span><span class="o">]</span>
+</span><span class='line'>        <span class="n">members</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">member</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">csv</span> <span class="o">&lt;&lt;</span> <span class="o">[</span><span class="n">num</span><span class="p">,</span> <span class="nb">name</span><span class="o">]</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>但是這個方法在Excel 2007，還是會亂碼，不過在Excel 2003、2010都是可以。</p>
+
+<p>如果有人可以提供更好的方法就留個給給我吧&hellip;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/vim-compulsive-use-hjkl/">在vim裡強迫使用hjkl</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-13T09:09:00+08:00" pubdate data-updated="true">Jul 13<span>th</span>, 2012</time>
+        
+           | <a href="/blog/vim-compulsive-use-hjkl/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/vim-compulsive-use-hjkl/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>其實我用vim的時間其實不長啦，應該也還不到一年的時間，以前都是用<code>Visual Studio</code>，真的是完全不習慣，雖然有<a href="http://www.sublimetext.com/2">Sublime Text</a>或是<a href="http://macromates.com/">TextMate</a>這些比較介面上漂亮的的東西，不過其實<code>vim</code>也可以在ssh到別的主機時，可以直接用<code>vim</code>來開code就好了，不用還要下載回來修改完又要上傳，而且vim其實有很多plugin可以用，也真的很方便，重點是帥氣啦。
+好吧..回到主題</p>
+
+<h3>修改vimrc</h3>
+
+<p>進到 .vimrc 裡加上這四行</p>
+
+<pre><code>map &lt;Left&gt; :echo "Use h you asshole!"&lt;cr&gt;
+map &lt;Right&gt; :echo "Use l you asshole!"&lt;cr&gt;
+map &lt;Up&gt; :echo "Use k you asshole!"&lt;cr&gt;
+map &lt;Down&gt; :echo "Use j you asshole!"&lt;cr&gt;
+</code></pre>
+
+<p>不過就是把上下左右鍵改成echo 就行了&hellip;
+感謝<a href="http://gogojimmy.net/">Jimmy</a>的教我..</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/hpx-junior-5/">HPX Junior 5</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-20T09:19:00+08:00" pubdate data-updated="true">Jun 20<span>th</span>, 2012</time>
+        
+           | <a href="/blog/hpx-junior-5/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/hpx-junior-5/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>我真的猜不透你</h3>
+
+<p><img src="https://lh4.googleusercontent.com/-66cUzaHeWIg/T-E1PRdBvOI/AAAAAAAAB4U/CODLyaY31eU/s800/250762_10150854705421784_1101531581_n-1.jpeg" alt="" /></p>
+
+<p>沒有想過，來HPX Junior 還可以那麼感動。那天是我第三次參加HPX的活動，不過是我第一次參加HPX Junior，其實我個性比較悶燒一點(有嗎？= =)，所以其實我不大會主動去說：「你好，我可以認識你嗎？」，但在這邊雖然我還沒辦法辦到，不過在HPX裡，交流認識新朋友是很重要的。所以「活動開始前不可以坐下來」&hellip;強迫去認識新朋友，開發陌生市場(搞的很像直銷XDDD)。每到一次HPX我都會認識到一些朋友，然後在去跟之前認識到的朋友再更加的朋友下去。希望下次我可以訂一個目標就是每到HPX至少認識到幾個人&hellip;</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/hpx-junior-5/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/mens-wallet-made-from-washable-kraft-paper/">[開箱文]紙樣。YANG 極簡超薄款可水洗牛皮紙短夾</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-30T16:10:00+08:00" pubdate data-updated="true">Apr 30<span>th</span>, 2012</time>
+        
+           | <a href="/blog/mens-wallet-made-from-washable-kraft-paper/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/mens-wallet-made-from-washable-kraft-paper/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="https://lh5.googleusercontent.com/-kkIGkNbmBhc/T55KcbT5LrI/AAAAAAAAB1o/9e_sbCTOmok/s640/IMG_1033.JPG" alt="" /></p>
+
+<p>哈~我敗家了>_&lt;</p>
+
+<p>什麼東西讓我可以敗下去勒~</p>
+
+<p>就是這個紙樣出品的短夾</p>
+
+<p>是來自於台灣的設計師「<a href="http://www.pinkoi.com/store/sidonieyang">紙樣。YANG</a></p>
+
+<p>又輕又薄，又是以環保為前提的一個設計工作室，
+而且接受客製化，短夾上就有印上我的英文縮寫(哈哈~~)</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/mens-wallet-made-from-washable-kraft-paper/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/write-uploader-error/">出現private Method `write_uploader&#8217; Called For</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-24T22:29:00+08:00" pubdate data-updated="true">Apr 24<span>th</span>, 2012</time>
+        
+           | <a href="/blog/write-uploader-error/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/write-uploader-error/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>用<a href="https://github.com/jnicklas/carrierwave">carrierwave</a>做我的upload plugin
+用的時候很正常，有一天突然噴出了錯誤訊息</p>
+
+<pre><code>NoMethodError in Admin::ArticlesController#update
+
+private method `write_uploader' called for #&lt;Article:0x007f8f6cd1c3d0&gt;
+</code></pre>
+
+<p>解了老半天也上網google了一下，也到Github上找<a href="https://github.com/jnicklas/carrierwave/issues/511">issue</a>，都沒辦法！</p>
+
+<p>最後才發現</p>
+
+<div><script src='https://gist.github.com/2485397.js'></script>
+<noscript><pre><code>class Article &lt; ActiveRecord::Base                                                                                                                       
+  default_scope order('post_date DESC')
+  #scope :public, where( :post_status =&gt; 'public' )
+  scope :public_article, where( :post_status =&gt; 'public' )
+  mount_uploader :article_image, ArticleImageUploader
+end</code></pre></noscript></div>
+
+
+<p> 我有一個<code>scope</code>叫做<code>public</code>，經過<a href="http://stackoverflow.com/questions/7658359/what-is-objectprivate-and-objectpublic-in-ruby">小小的了解</a>發現雖然不是不是保留字，不過是拿來當修飾詞的，雖然不是每一個method都會用到，不過拿來用可能會有問題！</p>
+
+<p> 所以只要把<code>scope :public</code>改成其他的字就行了</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/simple-form-collection/">[Rails]製作下拉式選單集合</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-20T10:34:00+08:00" pubdate data-updated="true">Apr 20<span>th</span>, 2012</time>
+        
+           | <a href="/blog/simple-form-collection/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/simple-form-collection/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>目前的狀況是這樣子的，目前是有做<code>CMS</code>所以需要有</p>
+
+<pre><code># Public(公開)
+# Private(私人)
+# Draft(草稿)
+</code></pre>
+
+<p>這三種，不過這個集合可以用類似<a href="https://github.com/jeffp/enumerated_attribute">jeffp/enumerated_attribute</a>的gem配合或者是說用<a href="https://github.com/twinslash/enumerize">twinslash/enumerize</a>，不過我更懶，我直接把data丟到collection裡面就好了，因為其他地方是用不大到的~</p>
+
+<pre><code>#view/articles/_form.html.erb 
+&lt;%= f.input :post_status, :collection =&gt; ["public", "private", "draft"]%&gt;
+</code></pre>
+
+<p>因為我使用的是<a href="https://github.com/plataformatec/simple_form">plataformatec/simple_form</a>的關係，所以他自動幫我產生一個select的下拉式選單，應該是長這樣子</p>
+
+<p><img src="https://lh3.googleusercontent.com/-gKzIpoD9cSE/T5DP9853W2I/AAAAAAAABwo/3fcIwnDxQq0/s800/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-20%2520%25E4%25B8%258A%25E5%258D%258810.50.34.png" alt="" /></p>
+
+<p>但是如果是需要多國語系的話</p>
+
+<pre><code>#view/articles/_form.html.erb 
+&lt;%= f.input :post_status, :collection =&gt; [[t(".public"),"public"], [t(".private"), "private"], [t(".draft"), "draft"]]%&gt;
+</code></pre>
+
+<p>再來就是新增你的i18n的語系檔，我個人的習慣是另外新增一個檔案，我目前的controller叫做articles所以我建立一個i18n的中文yml檔時就會是這樣子</p>
+
+<pre><code># config/locales/articles.zh-TW.yml
+zh-TW:
+    articles:
+      form:
+        public: 公開
+        private: 私人
+        draft: 草稿
+</code></pre>
+
+<p>然後要記得重啟server
+就會成功了</p>
+
+<p><img src="https://lh4.googleusercontent.com/-zrcnqhAxZ4Q/T5DRrfHqOQI/AAAAAAAABw4/U64XX2hvhwE/s800/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-20%2520%25E4%25B8%258A%25E5%258D%258811.01.43.png" alt="" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/golden-grid-system/">Golden Grid System</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-14T15:35:00+08:00" pubdate data-updated="true">Apr 14<span>th</span>, 2012</time>
+        
+           | <a href="/blog/golden-grid-system/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/golden-grid-system/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>960 Grid System (網格設計系統)也是我最近看<a href="http://bootstrappingdesign.com/">Become the designer</a>這本書我才知道的。
+至於這是什麼呢。</p>
+
+<p>網路上有很多參考資料，不在贅述。以下有參考網站</p>
+
+<ul>
+<li><a href="http://www.cadiis.com.tw/web-page-size-960-grid-system.html">[網頁設計] 網頁尺寸的黃金比例：960 Grid System(網格設計)</a></li>
+<li><a href="http://www.jsolutions.biz/blog/web-design/960-grid-system-demo-part-1/">使用 960 Grid System 製作網頁示範（上）</a></li>
+<li><a href="http://www.jsolutions.biz/blog/web-design/960-grid-system-demo-part-2/">使用 960 Grid System 製作網頁示範（下）</a></li>
+<li><a href="http://960.gs/">960 Grid System</a></li>
+</ul>
+
+
+<p>網路上也有資源可以在你的網站上面直接用js的方法顯示網格，再利用FireBug之類的外掛修改你的CSS。
+像是</p>
+
+<ul>
+<li><a href="http://goldengridsystem.com/">Golden Grid System</a></li>
+</ul>
+
+
+<p>我除了修改我自己的網站之外，我還會看別人的網站，所以不可能會在他的網站上加上js吧。</p>
+
+<p>為了方便，我利用<a href="http://goldengridsystem.com/">Golden Grid System</a>裡的js，直接自己做一個</p>
+
+<p>大家把下面這個連結拉到<code>我的最愛</code>就可以在右上角看到</p>
+
+<p><a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://goldengridsystem.com/assets/GGS.js');document.body.appendChild(e)%7D)());">Display 960 Grid</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/imessage-in-os-x/">Mac新一代OS 新功能介紹 - Messages</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-17T17:35:00+08:00" pubdate data-updated="true">Feb 17<span>th</span>, 2012</time>
+        
+           | <a href="/blog/imessage-in-os-x/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/imessage-in-os-x/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="http://farm8.staticflickr.com/7199/6890618943_b0f8d582d3.jpg" alt="iMessages" /></p>
+
+<p>終於等到這一刻了&hellip;..我本人是沒有iPhone的，但是有一台MacBook頂多只能用FaceTime跟我&#8221;古錐的&#8221;對話，但是有時候還是很不方便呀。因為有很多時候是不適合用FaceTime的，難不成要在辦公室跟&#8221;古錐的&#8221;甜甜蜜蜜，難不成要閃死一堆人嗎？看來Apple聽到我們的聲音了</p>
+
+<p>下一代的作業系統<code>Mountain Lion</code>中文叫做<code>山獅</code>(看來這次改版的很快)，官方的介紹網站：<a href="http://www.apple.com/macosx/mountain-lion/">http://www.apple.com/macosx/mountain-lion/</a></p>
+
+<p>至於有什麼新的功能呢，看來很多人有寫，而且我也沒有那麼熱血，就先玩玩可以直接下載的Messages Bata</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/imessage-in-os-x/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/jeremy-lin/">從林書豪身上學到十個人生哲學</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-16T13:47:00+08:00" pubdate data-updated="true">Feb 16<span>th</span>, 2012</time>
+        
+           | <a href="/blog/jeremy-lin/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/jeremy-lin/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>平常不看籃球的我，最近看到好幾篇有關<code>林書豪</code>的新聞，一開始我還不以意，想說只是一個台灣人去NBA打球如此。但是經過了好幾篇的深入報導才發現，<code>林書豪</code>不只是個台灣人去NBA打球，在他身上發現了許多故事。forbes富比士網站上，有一篇報導叫做《在周一上班前林書豪教我們的10門課》。</p>
+
+<p><img src="http://farm8.staticflickr.com/7047/6885095799_babca66bc9.jpg" alt="" /></p>
+
+<h3>1. Believe in yourself when no one else does.(一定相信自己，就算別人不相信)</h3>
+
+<p>「至於你相不信，反正我都信了」最佳代言人是大陸的鐵道發言人。如果你自已不相信自已了，你還想叫別人相信嗎？我想也很難了，給自己一個機會，相信自己才能為自己創造出一片天，創業的人不都是這樣子的嗎？</p>
+
+<h3>2. Seize the opportunity when it comes up.(機會不等人)</h3>
+
+<p>我常跟我朋友說，機會是不等人的，如果你還在思考，這樣子好不好那樣子好不好，猶豫不決的當下，機會已經跟別人跑了。你這個時候有可能就在後悔了。</p>
+
+<h3>3. Your family will always be there for you, so be there for them.(你的家人永遠會支持你，所以你一定要為他們更加努力)</h3>
+
+<p>如果你不是做什麼壞事或是危險的事，相信最支持你的應該就是你的家人了。所以你要努力的做給家人看，讓自己成為家人的驕傲，而不是負擔。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/jeremy-lin/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/glasses-odbo/">又來開箱了，這次開個odbo無螺絲鏡框</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-19T23:49:00+08:00" pubdate data-updated="true">Jan 19<span>th</span>, 2012</time>
+        
+           | <a href="/blog/glasses-odbo/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/glasses-odbo/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>自從我原來那支眼鏡，因為當兵的時候被磨的很嚴重，之後我就換戴隱型眼鏡，不過我發現我長時間看電腦的時間非常的長，所以眼睛慢慢的變的很吃力，加上我又有閃光的關係，看電腦過久之後我的眼睛沒有很乾，但是會很澀，最慘的是就視線會糊掉。</p>
+
+<p>所以太座就因為這樣子的關係，而且老早就想配眼鏡了，所以星期一我們就相約去配眼鏡了，很高興，我的度數已經有兩三年沒有再增加了(看來是年紀已經到一個程度了吧~)。
+最後選了<a href="http://www.nikon-lenswear.com.tw/single_description.php">nikon非球面鏡片</a>配<a href="http://www.wenhsiung.com.tw/index.php?option=product&amp;proType=label&amp;task=showpage&amp;cateid=165&amp;cur=1&amp;id=1334">odbo的鏡框</a></p>
+
+<p><img src="https://lh3.googleusercontent.com/-6VmPidrqFPI/TxkBkAG98xI/AAAAAAAABnc/qa4B9QFa_Sw/s640/IMG_0602.JPG" alt="" /></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/glasses-odbo/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/blog/page/3/">&larr; Older</a>
+    
+    <a href="/blog/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/vimrc/">My Vimrc</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/iterm2-change-font/">在iterm2修改字體</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/the-vim-enabled-mouse-can-not-be-copied/">[VIM]啟用滑鼠時無法複製</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/search-facebook-friend/">[FaceBook API]搜尋好友</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/http-basic-authenticate/">[Rails] 進入網站前驗證</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/113306354398877276439?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Sammy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'igotcloud';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

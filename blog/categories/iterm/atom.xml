@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: iTerm | Sammy Lin]]></title>
+  <link href="http://SammyLin.github.io/blog/blog/categories/iterm/atom.xml" rel="self"/>
+  <link href="http://SammyLin.github.io/blog/"/>
+  <updated>2014-04-26T13:25:55+08:00</updated>
+  <id>http://SammyLin.github.io/blog/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[在iterm2修改字體]]></title>
+    <link href="http://SammyLin.github.io/blog/iterm2-change-font/"/>
+    <updated>2013-04-21T14:47:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/iterm2-change-font</id>
+    <content type="html"><![CDATA[<p><img src="http://farm9.staticflickr.com/8115/8674261553_7e6abea1bf_o.png" alt="" /></p>
+
+<p>Profile > Open Profile</p>
+
+<p>找到你Dafault的Profile</p>
+
+<p>按下 Edit Profile</p>
+
+<p>右欄有一個Text的Tab</p>
+
+<p>找到 regular font下面的 Change font，就可以修改字體了</p>
+
+<p>至於 Non-ASCII Font 我就不知道跟Regular Font有什麼關係</p>
+
+<p>不過改了Reglar Font 其實就行了</p>
+
+<p>我個人是使用<code>Source Code Pro</code>，而這個字體是免費的。放心大家下載</p>
+
+<h3><a href="http://sourceforge.net/projects/sourcecodepro.adobe/">下載網址</a></h3>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://SammyLin.github.io/blog/sitemap.xml 

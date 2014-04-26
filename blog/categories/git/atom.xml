@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Git | Sammy Lin]]></title>
+  <link href="http://SammyLin.github.io/blog/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://SammyLin.github.io/blog/"/>
+  <updated>2014-04-26T13:25:55+08:00</updated>
+  <id>http://SammyLin.github.io/blog/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[讓你的Command Line知道你在哪一個branch上]]></title>
+    <link href="http://SammyLin.github.io/blog/git-color/"/>
+    <updated>2012-01-14T01:00:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/git-color</id>
+    <content type="html"><![CDATA[<p>開始學會用Git了，因為Git的功能還蠻強大的，最近在做Branch的時候，有時候會忘了自己在哪一個Branch上，直到有人介紹我一篇文章(<a href="http://ihower.tw/blog/archives/5436">我的Git偏號設定</a>)。</p>
+
+<p>只要在~/.bash_profile上新增下面幾行</p>
+
+<!--more -->
+
+
+<pre><code>function git_branch {
+ref=$(git symbolic-ref HEAD 2&gt; /dev/null) || return;
+echo "("${ref#refs/heads/}") ";
+}
+
+function git_since_last_commit {
+now=`date +%s`;
+last_commit=$(git log --pretty=format:%at -1 2&gt; /dev/null) || return;
+seconds_since_last_commit=$((now-last_commit));
+minutes_since_last_commit=$((seconds_since_last_commit/60));
+hours_since_last_commit=$((minutes_since_last_commit/60));
+minutes_since_last_commit=$((minutes_since_last_commit%60));
+
+echo "${hours_since_last_commit}h${minutes_since_last_commit}m ";
+}
+
+PS1="[\[\033[1;32m\]\w\[\033[0m\]] \[\033[0m\]\[\033[1;36m\]\$(git_branch)\[\033[0;33m\]\$(git_since_last_commit)\[\033[0m\]$ "
+</code></pre>
+
+<p>之後執行</p>
+
+<p><code>$ source ~/.bash_profile</code></p>
+
+<p><img src="https://lh3.googleusercontent.com/-Tz9C5lvudTY/TxBlwQLRXII/AAAAAAAABmE/1KnbDCKhqKI/s640/Screen%252520Shot%2525202012-01-14%252520at%252520%2525E4%2525B8%25258A%2525E5%25258D%2525881.11.02.png" alt="" /></p>
+
+<p>這樣就會變漂亮啦…而且又有上次commit到現在已經過了多久。</p>
+
+<p>如果要改顏色的話可以參考 <a href="http://chunchaichang.blogspot.com/2011/07/printf.html">printf 顏色設置</a></p>
+
+<h3>參考網站</h3>
+
+<blockquote><p><a href="http://ihower.tw/blog/archives/5436">我的Git偏號設定</a> by ihower</p>
+
+<p><a href="http://chunchaichang.blogspot.com/2011/07/printf.html">printf 顏色設置</a> by Tech黑手 &ndash; 工作雜記</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[我的Git筆記]]></title>
+    <link href="http://SammyLin.github.io/blog/my-git-note/"/>
+    <updated>2012-01-12T13:01:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/my-git-note</id>
+    <content type="html"><![CDATA[<p>自從看了XDite的<a href="http://rails-101.logdown.com/">Rails 101 &ndash; 火速學會 Ruby on Rails</a>之後，就買了第一台的MAC，發現有好多東西需要學習，就像Git也是我近期才學會的，可能會很少資料，不過慢慢用慢慢的補充資料</p>
+
+<h3>第一個GIT</h3>
+
+<p><code>$ mkdir project</code></p>
+
+<p><code>$ cd project</code></p>
+
+<p><code>$ git init</code></p>
+
+<p>會建立一個.git的目錄，裡面放的是git repository的檔案。</p>
+
+<p><code>$ git add .</code></p>
+
+<p>把新增跟修改得資料放到staging area裡面。不包含刪除的資料。</p>
+
+<p><code>$ git commit</code> or <code>$ git commit -m 'my first project'</code></p>
+
+<p>提交這次的改變的資料，可以直接git commit 或是在後面加上-m 寫上這次提交的訊息</p>
+
+<!-- more -->
+
+
+<h3>刪除檔案</h3>
+
+<p>在Git裡面如果需要刪除某個檔案的話，不然的話commit時，他會記錄實體檔案被刪除，但是不會在repo裡做動作，建議是使用</p>
+
+<p><code>$ git rm filename</code></p>
+
+<p>但是如果已經被刪除了，或是不想要讓這個檔案被commit的話，可以用</p>
+
+<p><code>$ git rm --cache filename</code></p>
+
+<p>當commit的時候，就會把資料清除掉</p>
+
+<h3>回到過去</h3>
+
+<p>ㄚ..這次的東西做爛了，有時候精神不濟，想東想西，所以這次東西做爛了，但我還沒有commit這時候就只好回到過去了。</p>
+
+<p><code>$ git add .</code></p>
+
+<p><code>$ git reset --hard HEAD</code></p>
+
+<p>或是</p>
+
+<p><code>$ git checkout -f</code></p>
+
+<p>如果你剛好是用ruby的話，已經做過<code>rake db:migrate</code>的話，表示你資料庫做過migrate，而你要回到之前的狀態，你可以使用</p>
+
+<p><code>rake db:rollback</code></p>
+
+<p>你要回到前兩次的話</p>
+
+<p><code>rake db:rollback STEP=2</code></p>
+
+<h3>clone</h3>
+
+<p>這台電腦第一次的做這個專案時要把檔案抓下來，或是你在<a href="https://github.com/">github</a>看到不錯的專案，或是要幫別人修issues，但是能幫別人修的話，應該不會看這篇啦= =</p>
+
+<p>可以直接打</p>
+
+<p><code>$ git clone http://git.example.com/project.git</code></p>
+
+<h3>忽略檔案、目錄</h3>
+
+<p>在專案目錄下</p>
+
+<p><code>$ vim .gitignore</code></p>
+
+<p>把你要忽略的檔案錄目錄加到最後一行去就行了</p>
+
+<p>參考網站</p>
+
+<blockquote><p><a href="http://blog.longwin.com.tw/2009/05/git-learn-test-command-2009/">Git 初學筆記 &ndash; 實作測試</a> at Tsung&rsquo;s Blog</p>
+
+<p><a href="http://blog.longwin.com.tw/2009/05/git-learn-initial-command-2009/">Git 初學筆記 &ndash; 指令操作教學</a> at Tsung&rsquo;s Blog</p>
+
+<p><a href="http://www.slideshare.net/littlebtc/git-5528339">寫給大家的git教學</a></p></blockquote>
+]]></content>
+  </entry>
+  
+</feed>

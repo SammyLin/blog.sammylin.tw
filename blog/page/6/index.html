@@ -1,0 +1,671 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Sammy Lin</title>
+  <meta name="author" content="Sammy">
+
+  
+  <meta name="description" content="今天用Jquery抓Textbox的值時，發現有個問題 抓出來變成亂碼這樣： 這才發生原來我的jquey出了問題 $(&quot;#AddTagJsonBtn&quot;).click(function () { alert($('#TagText').val); }); &#160; &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://SammyLin.github.io/blog/blog/page/6">
+  <link href="/blog/favicon.png" rel="icon">
+  <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
+  <script src="/blog/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/blog/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23558179-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/blog/">Sammy Lin</a></h1>
+  
+    <h2>旅居台北的高雄人</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/igotcloud" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:SammyLin.github.io/blog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/blog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/jquery-val-get-garbled-values/">[jQuery].val 取得值變成亂碼</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-23T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/jquery-val-get-garbled-values/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/jquery-val-get-garbled-values/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><p>今天用Jquery抓Textbox的值時，發現有個問題</p>  <p>抓出來變成亂碼這樣：</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image49.png"><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image_thumb49.png" width="544" height="393" /></a></p>  <p>這才發生原來我的jquey出了問題</p>  <pre lang="LANGUAGE">$(&quot;#AddTagJsonBtn&quot;).click(function () {
+        alert($('#TagText').val);
+    });</pre></p>
+
+<p><p>&#160;</p></p>
+
+<p><p>看來就是val沒有加括號而以，居然讀出來變這樣。</p></p>
+
+<p><p>正確應該是要像下面那樣：</p></p>
+
+<p><pre lang="LANGUAGE">$(&quot;#AddTagJsonBtn&quot;).click(function () {
+        alert($('#TagText').val</pre><font color="#ff0000">()</font>);<br />
+    });</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/wordpress-cdn-and-s3-support-plug-w3-total-cache/">[WordPress]支援CDN及S3的外掛-W3 Total Cache</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-21T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/wordpress-cdn-and-s3-support-plug-w3-total-cache/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/wordpress-cdn-and-s3-support-plug-w3-total-cache/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><p>最近發現一個好外掛，其實我的部落格是用EC2建置的，但是哪天如果EC2掛點的話，我怎麼跟各位相親父老交待，我本人也不是系統出身的，因此我的系統也是一邊學一邊做，看有沒有辦法把EC2的備援做到最好的狀況，希望未來像<a title="http://www.tts.bz/" href="http://www.tts.bz/">Ken Lee</a>一樣。</p>  <table border="0" cellspacing="0" cellpadding="2" width="540"><tbody>     <tr>       <td valign="top" width="540">         <p><strong>名稱：W3 Total Cache</strong></p>          <p>網址：<a title="http://wordpress.org/extend/plugins/w3-total-cache" href="http://wordpress.org/extend/plugins/w3-total-cache">http://wordpress.org/extend/plugins/w3-total-cache</a></p>       </td>     </tr>   </tbody></table>  <p>其實W3 Total Cache因為有支援Amazon S3 跟Amazon CloudFront的關係，令我想要去玩一下他，目前我的網站，所有靜態檔案(圖片、css)都是放在s3上面的，如果仔細看的話我的圖片是放在<a href="http://blog1.cornerlife.tw">Http://blog1.cornerlife.tw</a> 其實這個網址是CNAME到 <a href="http://blog1.cornerlife.tw.s3-ap-northeast-1.amazonaws.com">Http://blog1.cornerlife.tw.s3-ap-northeast-1.amazonaws.com</a>的。</p>  <p>如果你要使用S3又要用自己的Domain name的話，那你的Bucket記得要用你的domain name建立Bucket 否則他是無法讀取你的檔案。</p></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/ruby-in-lion-failed-installation-ree/">[Ruby]在Lion安裝ree失敗</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-17T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/ruby-in-lion-failed-installation-ree/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/ruby-in-lion-failed-installation-ree/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>因為升級lion的關係，<br />
+我也重灌了ruby的環境<br />
+不知道為什麼在灌ree(Ruby Enterprise Edition)的時候出現了以下錯誤</p>
+
+<p>$rvm install ree</p>
+
+<p>ERROR: Error running &#8216;./installer -a /Users/&lt;UserName&gt;/.rvm/rubies/ree-1.8.7-2011.03  &#8211;no-tcmalloc &#8211;dont-install-useful-gems &#8216;, please read /Users/&lt;UserName&gt;/.rvm/log/ree-1.8.7-2011.03/install.log<br />
+ERROR: There has been an error while trying to run the ree installer. Halting the installation.</p>
+
+<p>按照他所說的我們到log看一下Error結果是以下</p>
+
+<p>*** ERROR: Ruby is not installed ***<br />
+The Ruby Enterprise Edition installer is written in Ruby. This source tarball bundles precompiled versions of Ruby for many platforms for the purpose of running this installer, but unfortunately we did not include a precompiled Ruby binary for the current platform. So please install Ruby manually, then run this installer again.</p>
+
+<p>上網google一下，發現應該是profile的問題
+<a href="http://stackoverflow.com/questions/6804195/cant-install-ruby-enterprise-edition-with-rvm-on-osx-lion">http://stackoverflow.com/questions/6804195/cant-install-ruby-enterprise-edition-with-rvm-on-osx-lion</a></p>
+
+<p>我們先把原來的ree刪除之後修改profile再重新安裝一次ree<br />
+$ rvm remove ree<br />
+$ export CC=/usr/bin/gcc-4.2<br />
+$ rvm install &#8211;force ree</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/aws-aws-toolkit-for-visual-studio-released/">[AWS]AWS Toolkit for Visual Studio 釋放了</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-09T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/aws-aws-toolkit-for-visual-studio-released/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/aws-aws-toolkit-for-visual-studio-released/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><p>身為過去微軟的愛好者我不得不分享一下今天這個Toolkit了，過去只能使用<a href="http://aws.amazon.com/eclipse/" target="_blank">aws toolkit for eclipse</a>，現在多了一個<a href="http://aws.amazon.com/visualstudio/" target="_blank">AWS Toolkit for Visual Studio</a> Amazon真的照顧廣大的人群們，哈哈~~~</p>  <table border="1" cellspacing="1" cellpadding="1" width="540"><tbody>     <tr>       <td valign="top" width="540">名稱：AWS Toolkit for Visual Studio         <br />網址：<a href="http://aws.amazon.com/visualstudio/">http://aws.amazon.com/visualstudio/</a>          <br />下載網址：<a title="http://d1q6xku6craafi.cloudfront.net/latest/AWSToolsAndSDKForNet.msi" href="http://d1q6xku6craafi.cloudfront.net/latest/AWSToolsAndSDKForNet.msi">http://d1q6xku6craafi.cloudfront.net/latest/AWSToolsAndSDKForNet.msi</a></td>     </tr>   </tbody></table>  <p>因為AWS SDK for .NET當初就有了所以不多做介紹，我們就介紹新的功能</p>  <ul>   <li>AWS Explorer</li>    <li>Multiple AWS Account Support</li>    <li>AWS CloudFormation Deployment</li> </ul>  <p>參考網址：<a href="http://aws.amazon.com/about-aws/whats-new/2011/09/08/announcing-the-aws-toolkit-for-visual-studio/" target="_blank">Announcing the AWS Toolkit for Visual Studio</a> </p>  <p>在這邊使用的是VS2010</p></div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/aws-aws-toolkit-for-visual-studio-released/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/windows-printer-open/">[Windows]印表機打不開</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-08T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/windows-printer-open/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/windows-printer-open/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近一直有一台電腦就是要印東西時，發現按了列印就會擋掉，一直找不到原因，只能叫同事要印的時候重開機看看吧，沒想到就好了。不過事隔多日，同事反應開了快100次都沒辦法好，上網找了個方法，可以把服務「Print Spooler」重啟就馬上好，就不用重開機了，但這只是治標不治本的方法，但沒辦法，我能力就是有限，最好的方法就是寫一個vbs讓他去執行，一個動作就可以搞定了！
+<a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image32.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image_thumb32.png" alt="image" width="544" height="434" border="0" /></a></p>
+
+<p>寫成vbs
+<pre lang="LANGUAGE" line="1">
+Set ServiceSet = GetObject("winmgmts:").ExecQuery("select * from Win32_Service where Name='Spooler'")</pre></p>
+
+<p>for each Service in ServiceSet<br />
+Service.StopService()<br />
+Service.StartService()<br />
+next
+</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/aws-discount-android-app-development-plan/">[AWS]開發Android App優惠計畫</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-08T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/aws-discount-android-app-development-plan/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/aws-discount-android-app-development-plan/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>如果你有Android的開發經驗，又對AWS有興趣的話，一定要看過來，因為AWS提供了一個優惠計畫，就你是開發Android App 會使用到AWS Service那就會獲得50元促銷代碼(感覺興致缺缺XD，不過不無少補啦)只要在2011/11/15之後提交到<a href="https://developer.amazon.com/welcome.html?pid=promo-aws-090711" target="_blank">Amazon Appstore Developer Program</a>，且現在加入<a href="https://developer.amazon.com/welcome.html?pid=promo-aws-090711" target="_blank">Amazon Appstore Developer Program</a>可以第一年免費(原價美金99元)</p>
+
+<p></div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/aws-discount-android-app-development-plan/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/aws-aws-management-console-layout-update/">[AWS]AWS Management Console版面更新</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-08T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/aws-aws-management-console-layout-update/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/aws-aws-management-console-layout-update/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天一起來發現AWS Management Console 有明顯的不同也就是上原來選擇不同的Service的Tab變成了下拉選單，按照我拙劣的判斷是因為頁面上方已經容納不下新Service 的Tab(可能又有Service要做進來AWS Management Console了，或是有新的Service。我們就拭目以待吧。</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image27.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image_thumb27.png" alt="image" width="544" height="313" border="0" /></a></p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image28.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image_thumb28.png" alt="image" width="544" height="317" border="0" /></a>
+(點下去之後的畫面)</p>
+
+<p><img src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image32.png" alt="" width="540" height="300" />
+(先前使用Tab的畫面)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/careers-job-at-aws/">[徵才]Job at AWS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-07T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/careers-job-at-aws/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/careers-job-at-aws/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>想加入市值千億美金的公司嗎？AWS釋出許多工作，從業務經理到工程師都有，如果你有興趣的話可以來試試看吧，從澳大利亞、德國、南非，愛爾蘭、美國、印度、盧森堡、法國、新加坡、英國和東京都有，但是沒有台灣(哈哈~)如果有興趣的話就到網站來看看吧。</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image26.png"> <img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image_thumb26.png" alt="image" width="544" height="410" border="0" /></a></p>
+
+<p>&nbsp;
+<table width="540" border="1" cellspacing="1" cellpadding="1">
+<tbody>
+<tr>
+<td valign="top" width="540">Jobs at AWS網站：<a href="http://awsmedia.s3.amazonaws.com/jobs/all_aws_jobs_list.html" target="_blank">http://awsmedia.s3.amazonaws.com/jobs/all_aws_jobs_list.html</a></td>
+</tr>
+</tbody>
+</table></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/travel-chinas-jiangxi-province-day4/">[旅遊]中國江西省(Day4)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-05T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/travel-chinas-jiangxi-province-day4/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/travel-chinas-jiangxi-province-day4/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天又是來到一個古村，如果你是那種愛好逛街或是買東西的人，那很抱歉，這邊太不適合你了，因為這邊大部份都是風景或是共軍的東西，因為第一次出國的關係，原本想要買一些東西給同事跟朋友的，但是我看了風景區的紀念品，真的都下不了手，因為不是台灣有，就是毛澤東的頭像。所以最後都是兩手空空的回到台灣了。</p>
+
+<p>今天來到這個古村叫「釣源村」，建立於北宋末年，鼎盛於明清時期，當時聽說有1300戶，人口快破一萬人，店家有60幾家，有小南京之稱。不過我現在看看，應該只剩不到50戶，人口不到200人，店家我當時看到只有兩家，我猜想應該都是人口外移了裡面也看不到年輕人。</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image10.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image_thumb10.png" alt="image" width="544" height="350" border="0" /></a>(這裡的人看樣子都不用工作的)</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/travel-chinas-jiangxi-province-day4/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/travel-chinas-jiangxi-province-day3/">[旅遊]中國江西省(Day3)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-01T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/travel-chinas-jiangxi-province-day3/#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog/travel-chinas-jiangxi-province-day3/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>江西的人比較常喝的酒是「堆花酒、四特酒、啤酒」，堆花酒是也是江西的特產，是用桂花提煉而成的，酒精濃度35%左右；四特酒還是江西特產，不過他是用整粒大米製作而成的，酒精濃度50%左右；啤酒就懶的介紹了，但是這三種千千千萬不要混著喝阿，我本來想說堆花跟四特都是白酒沒有關係，我一開始喝了半瓶的堆花，接下來喝四特的時候，才不到四杯，我就去陪馬桶睡覺了(飲酒過量，有害健康)</p>
+
+<p>今天一早，行程是到井岡山水口，離我們住的飯店要130多公里坐車要兩個小時多，來到井景山風景區的大交叉口我們會遇到女警站崗，但是距離太遠了，沒辦法識別&gt;_&lt;<a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image_thumb.png" alt="image" width="544" height="390" border="0" /></a></p>
+
+<p></div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/travel-chinas-jiangxi-province-day3/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/blog/page/7/">&larr; Older</a>
+    
+    <a href="/blog/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/blog/page/5/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/vimrc/">My Vimrc</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/iterm2-change-font/">在iterm2修改字體</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/the-vim-enabled-mouse-can-not-be-copied/">[VIM]啟用滑鼠時無法複製</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/search-facebook-friend/">[FaceBook API]搜尋好友</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/http-basic-authenticate/">[Rails] 進入網站前驗證</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/113306354398877276439?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Sammy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'igotcloud';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

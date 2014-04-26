@@ -1,0 +1,535 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>[rails]建置MongoDB環境利用mongoid - Sammy Lin</title>
+  <meta name="author" content="Sammy">
+
+  
+  <meta name="description" content="之前用了mongo_mapper感覺很好用，不過發現要裝一些plugin的時候，像是desice時，就會有一些問題的存在，所以我改用mongoid來使用，比較順許多，而且不用在rails g model XXX --orm==mongo_mapper之類的。 用gem 安裝 Gemfile1
+2 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://SammyLin.github.io/blog/rails-mongoid">
+  <link href="/blog/favicon.png" rel="icon">
+  <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
+  <script src="/blog/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/blog/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23558179-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/blog/">Sammy Lin</a></h1>
+  
+    <h2>旅居台北的高雄人</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/igotcloud" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:SammyLin.github.io/blog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/blog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">[rails]建置MongoDB環境利用mongoid</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-08T14:18:00+08:00" pubdate data-updated="true">Dec 8<span>th</span>, 2011</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>之前用了<code>mongo_mapper</code>感覺很好用，不過發現要裝一些plugin的時候，像是desice時，就會有一些問題的存在，所以我改用<code>mongoid</code>來使用，比較順許多，而且不用在<code>rails g model XXX --orm==mongo_mapper</code>之類的。</p>
+
+<h3>用gem 安裝</h3>
+
+<figure class='code'><figcaption><span>Gemfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s2">&quot;mongoid&quot;</span><span class="p">,</span> <span class="s2">&quot;~&gt; 2.3&quot;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s2">&quot;bson_ext&quot;</span><span class="p">,</span> <span class="s2">&quot;~&gt; 1.4&quot;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;devise&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>$ bundle install</code></p>
+
+<h3>產生資料庫設定檔</h3>
+
+<p><code>$ rails g mongoid:config</code></p>
+
+<figure class='code'><figcaption><span>config/mongoid.yml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">development</span><span class="p">:</span>
+</span><span class='line'>  <span class="ss">host</span><span class="p">:</span> <span class="n">localhost</span>
+</span><span class='line'>  <span class="ss">database</span><span class="p">:</span> <span class="n">demo3_development</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">test</span><span class="p">:</span>
+</span><span class='line'>  <span class="ss">host</span><span class="p">:</span> <span class="n">localhost</span>
+</span><span class='line'>  <span class="ss">database</span><span class="p">:</span> <span class="n">demo3_test</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># set these environment variables on your prod server</span>
+</span><span class='line'><span class="ss">production</span><span class="p">:</span>
+</span><span class='line'>  <span class="ss">host</span><span class="p">:</span> <span class="o">&lt;</span><span class="sx">%= ENV[&#39;MONGOID_HOST&#39;] %&gt;</span>
+</span><span class='line'><span class="sx">  port: &lt;%=</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;MONGOID_PORT&#39;</span><span class="o">]</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  username: &lt;%= ENV[&#39;MONGOID_USERNAME&#39;] %&gt;</span>
+</span><span class='line'>  <span class="ss">password</span><span class="p">:</span> <span class="o">&lt;</span><span class="sx">%= ENV[&#39;MONGOID_PASSWORD&#39;] %&gt;</span>
+</span><span class='line'><span class="sx">  database: &lt;%=</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;MONGOID_DATABASE&#39;</span><span class="o">]</span> <span class="o">%&gt;</span>
+</span><span class='line'>  <span class="c1"># slaves:</span>
+</span><span class='line'>  <span class="c1">#   - host: slave1.local</span>
+</span><span class='line'>  <span class="c1">#     port: 27018</span>
+</span><span class='line'>  <span class="c1">#   - host: slave2.local</span>
+</span><span class='line'>  <span class="c1">#     port: 27019</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<!--more-->
+
+
+<h3>修改 config/application.rb</h3>
+
+<p><code>vim /config/application.rb</code></p>
+
+<figure class='code'><figcaption><span>config/application.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s2">&quot;action_controller/railtie&quot;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s2">&quot;action_mailer/railtie&quot;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s2">&quot;active_resource/railtie&quot;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s2">&quot;rails/test_unit/railtie&quot;</span>
+</span><span class='line'><span class="c1">#把rails/all前面加上#</span>
+</span><span class='line'><span class="c1">#require &#39;rails/all&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>產生devise設定檔</h3>
+
+<p><code>$ rails g devise:install</code></p>
+
+<figure class='code'><figcaption><span>config/application.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">create</span>  <span class="n">config</span><span class="o">/</span><span class="n">initializers</span><span class="o">/</span><span class="n">devise</span><span class="o">.</span><span class="n">rb</span>
+</span><span class='line'>  <span class="n">create</span>  <span class="n">config</span><span class="o">/</span><span class="n">locales</span><span class="o">/</span><span class="n">devise</span><span class="o">.</span><span class="n">en</span><span class="o">.</span><span class="n">yml</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">===============================================================================</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Some</span> <span class="n">setup</span> <span class="n">you</span> <span class="n">must</span> <span class="k">do</span> <span class="n">manually</span> <span class="k">if</span> <span class="n">you</span> <span class="n">haven</span><span class="s1">&#39;t yet:</span>
+</span><span class='line'>
+</span><span class='line'><span class="s1">  1. Setup default url options for your specific environment. Here is an</span>
+</span><span class='line'><span class="s1"> example of development environment:</span>
+</span><span class='line'>
+</span><span class='line'><span class="s1">   config.action_mailer.default_url_options = { :host =&gt; &#39;</span><span class="ss">localhost</span><span class="p">:</span><span class="mi">3000</span><span class="err">&#39;</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'> <span class="no">This</span> <span class="n">is</span> <span class="n">a</span> <span class="n">required</span> <span class="no">Rails</span> <span class="n">configuration</span><span class="o">.</span> <span class="no">In</span> <span class="n">production</span> <span class="n">it</span> <span class="n">must</span> <span class="n">be</span> <span class="n">the</span>
+</span><span class='line'> <span class="n">actual</span> <span class="n">host</span> <span class="n">of</span> <span class="n">your</span> <span class="n">application</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="mi">2</span><span class="o">.</span> <span class="no">Ensure</span> <span class="n">you</span> <span class="n">have</span> <span class="n">defined</span> <span class="n">root_url</span> <span class="n">to</span> <span class="o">*</span><span class="n">something</span><span class="o">*</span> <span class="k">in</span> <span class="n">your</span> <span class="n">config</span><span class="o">/</span><span class="n">routes</span><span class="o">.</span><span class="n">rb</span><span class="o">.</span>
+</span><span class='line'> <span class="no">For</span> <span class="ss">example</span><span class="p">:</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="n">root</span> <span class="ss">:to</span> <span class="o">=&gt;</span> <span class="s2">&quot;home#index&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="mi">3</span><span class="o">.</span> <span class="no">Ensure</span> <span class="n">you</span> <span class="n">have</span> <span class="n">flash</span> <span class="n">messages</span> <span class="k">in</span> <span class="n">app</span><span class="o">/</span><span class="n">views</span><span class="o">/</span><span class="n">layouts</span><span class="o">/</span><span class="n">application</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">erb</span><span class="o">.</span>
+</span><span class='line'> <span class="no">For</span> <span class="ss">example</span><span class="p">:</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="o">&lt;</span><span class="nb">p</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;notice&quot;</span><span class="o">&gt;&lt;</span><span class="sx">%= notice %&gt;&lt;/p&gt;</span>
+</span><span class='line'><span class="sx">   &lt;p class=</span><span class="s2">&quot;alert&quot;</span><span class="o">&gt;&lt;</span><span class="sx">%= alert %&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sx">  4. If you are deploying Rails 3.1 on Heroku, you may want to set:</span>
+</span><span class='line'>
+</span><span class='line'><span class="sx">   config.assets.initialize_on_precompile =</span> <span class="kp">false</span>
+</span><span class='line'>
+</span><span class='line'> <span class="no">On</span> <span class="n">config</span><span class="o">/</span><span class="n">application</span><span class="o">.</span><span class="n">rb</span> <span class="n">forcing</span> <span class="n">your</span> <span class="n">application</span> <span class="n">to</span> <span class="ow">not</span> <span class="n">access</span> <span class="n">the</span> <span class="no">DB</span>
+</span><span class='line'> <span class="ow">or</span> <span class="nb">load</span> <span class="n">models</span> <span class="k">when</span> <span class="n">precompiling</span> <span class="n">your</span> <span class="n">assets</span><span class="o">.</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">===============================================================================</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>$ rails g devise User</code></p>
+
+<h3>建立一個鷹架</h3>
+
+<p><code>$ rails g scaffold board name:string</code></p>
+
+<h3>修改加入root :to</h3>
+
+<p><code>vim config/routes.rb</code></p>
+
+<figure class='code'><figcaption><span>config/routes/rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">root</span> <span class="ss">:to</span> <span class="o">=&gt;</span> <span class="s2">&quot;boards#index&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>刪除預設首頁</h3>
+
+<p><code>rm public/index.html</code></p>
+
+<h3>增加使用者管理至主版頁面</h3>
+
+<p><code>vim app/views/layouts/application.html.erb</code></p>
+
+<p>將下面這個介面放在<code>&lt;%= yield %&gt;</code>上面</p>
+
+<figure class='code'><figcaption><span>app/views/layouts/application.html.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">% if </span><span class="n">user_signed_in?</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">&lt;ul&gt;</span>
+</span><span class='line'> <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="sx">%= link_to(&#39;Edit registration&#39;, edit_user_registration_path) %&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/li&gt;</span>
+</span><span class='line'><span class="sx">  &lt;li&gt;</span>
+</span><span class='line'><span class="sx">  &lt;%=</span> <span class="n">link_to</span><span class="p">(</span><span class="s1">&#39;Logout&#39;</span><span class="p">,</span> <span class="n">destroy_user_session_path</span><span class="p">,</span> <span class="ss">:method</span> <span class="o">=&gt;</span> <span class="ss">:delete</span><span class="p">)</span> <span class="sx">%&gt;        </span>
+</span><span class='line'><span class="sx">  &lt;/li&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sr">/ul&gt;</span>
+</span><span class='line'><span class="sr">&lt;% else %&gt;</span>
+</span><span class='line'><span class="sr">&lt;ul&gt;</span>
+</span><span class='line'><span class="sr">  &lt;li&gt;</span>
+</span><span class='line'><span class="sr">  &lt;%= link_to(&#39;Login&#39;, new_user_session_path)  %&gt;  </span>
+</span><span class='line'><span class="sr">  &lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;%=</span> <span class="n">link_to</span><span class="p">(</span><span class="s1">&#39;Register&#39;</span><span class="p">,</span> <span class="n">new_user_registration_path</span><span class="p">)</span>  <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/li&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sr">/ul&gt;</span>
+</span><span class='line'><span class="sr">&lt;% end %&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>預覽</h3>
+
+<p><code>$ rails s</code></p>
+
+<p>打開溜覽器進入<a href="http://127.0.0.1:3000">http://127.0.0.1:3000</a></p>
+
+<p>你就會看到以下畫面
+<img src="https://lh3.googleusercontent.com/-zP1qQNfkY5Q/TuCGA8dTZlI/AAAAAAAABfI/4nl52LlLPto/s400/Screen%252520Shot%2525202011-12-08%252520at%252520%2525E4%2525B8%25258B%2525E5%25258D%2525885.38.25.jpg" alt="" /></p>
+
+<h4>註冊</h4>
+
+<p><img src="https://lh3.googleusercontent.com/-vll9mK2RRoE/TuCHapM0tqI/AAAAAAAABfg/2lm6PW69znI/s640/Screen%252520Shot%2525202011-12-08%252520at%252520%2525E4%2525B8%25258B%2525E5%25258D%2525885.43.19.jpg" alt="" /></p>
+
+<h4>登入後畫面</h4>
+
+<p><img src="https://lh6.googleusercontent.com/-Oes4BaXlwv8/TuCHahKrp2I/AAAAAAAABfc/r4sEp5tThyc/s640/Screen%252520Shot%2525202011-12-08%252520at%252520%2525E4%2525B8%25258B%2525E5%25258D%2525885.43.38.jpg" alt="" /></p>
+
+<h4>登入畫面</h4>
+
+<p><img src="https://lh6.googleusercontent.com/-VX9XHmio9_4/TuCHbcjU8lI/AAAAAAAABfk/8VMGykwSiFU/s640/Screen%252520Shot%2525202011-12-08%252520at%252520%2525E4%2525B8%25258B%2525E5%25258D%2525885.43.53.jpg" alt="" /></p>
+
+<h4>修改個人資料</h4>
+
+<p><img src="https://lh5.googleusercontent.com/-ReZup33N5hA/TuCHavp2E6I/AAAAAAAABfo/2Zvbv361zrA/s640/Screen%252520Shot%2525202011-12-08%252520at%252520%2525E4%2525B8%25258B%2525E5%25258D%2525885.44.02.jpg" alt="" /></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sammy</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-08T14:18:00+08:00" pubdate data-updated="true">Dec 8<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/blog/categories/ruby-on-rails/'>Ruby on Rails</a>, <a class='category' href='/blog/blog/categories/mongodb/'>mongodb</a>, <a class='category' href='/blog/blog/categories/mongoid/'>mongoid</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://SammyLin.github.io/blog/rails-mongoid/" data-via="SammyLinTw" data-counturl="http://SammyLin.github.io/blog/rails-mongoid/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/mysql-optimization/" title="Previous Post: [mysql]優化">&laquo; [mysql]優化</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/kindle/" title="Next Post: Kindle Fire 開箱文">Kindle Fire 開箱文 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/vimrc/">My Vimrc</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/iterm2-change-font/">在iterm2修改字體</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/the-vim-enabled-mouse-can-not-be-copied/">[VIM]啟用滑鼠時無法複製</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/search-facebook-friend/">[FaceBook API]搜尋好友</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/http-basic-authenticate/">[Rails] 進入網站前驗證</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/113306354398877276439?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Sammy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'igotcloud';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://SammyLin.github.io/blog/rails-mongoid/';
+        var disqus_url = 'http://SammyLin.github.io/blog/rails-mongoid/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

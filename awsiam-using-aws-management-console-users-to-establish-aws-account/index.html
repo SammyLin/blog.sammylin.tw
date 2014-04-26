@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>[AWS][IAM]利用AWS Management Console建立AWS帳號使用者 - Sammy Lin</title>
+  <meta name="author" content="Sammy">
+
+  
+  <meta name="description" content="在上一篇[AWS][IAM]AWS Identity and Access Management (身份識別與存取管理)中談到，可以在自已的AWS帳號中建來多個使用者、管理者來管理AWS的物件或操作其限制的功能，或是存取S3中的資料，雖然其AWS Management &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://SammyLin.github.io/blog/awsiam-using-aws-management-console-users-to-establish-aws-account">
+  <link href="/blog/favicon.png" rel="icon">
+  <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
+  <script src="/blog/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/blog/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23558179-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/blog/">Sammy Lin</a></h1>
+  
+    <h2>旅居台北的高雄人</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/igotcloud" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:SammyLin.github.io/blog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/blog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">[AWS][IAM]利用AWS Management Console建立AWS帳號使用者</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-07T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://SammyLin.github.io/blog">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image22.png"><img style="background-image: none; margin: 0px 6px 0px 0px; padding-left: 0px; padding-right: 0px; display: inline; float: left; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb21.png" alt="image" width="343" height="259" align="left" border="0" /></a> 在上一篇<a href="http://blog.cornerlife.tw/awsaws-identity-and-access-management-%e8%ba%ab%e4%bb%bd%e8%ad%98%e5%88%a5%e8%88%87%e5%ad%98%e5%8f%96%e7%ae%a1%e7%90%86.html" target="_blank">[AWS][IAM]AWS Identity and Access Management (身份識別與存取管理)</a>中談到，可以在自已的AWS帳號中建來多個使用者、管理者來管理AWS的物件或操作其限制的功能，或是存取S3中的資料，雖然其AWS Management Console目前看來功能很強大，許多基本的操作都可以進行，沒有錯~就是「基本」，然而要進行一些比較進階的，像定時操作等等的功能，還是要特別透過AWS for SDK來做，所以筆者這邊一開始都是先一一從簡單的功能介紹，並且把AWS的東西都大致介紹完畢後，才會慢慢走向進階的操作，這一切都只是分享最主要還是為我自已做個筆記啦，畢竟我的記性很差(呵~)
+<table width="540" border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="540">
+<h5>AWS Identity and Access Management</h5>
+操作頁面：<a href="https://console.aws.amazon.com/iam/home">https://console.aws.amazon.com/iam/home</a>
+參考文件：<a href="http://aws.amazon.com/documentation/iam/">http://aws.amazon.com/documentation/iam/</a></td>
+</tr>
+</tbody>
+</table>
+<h4></h4>
+<!--more-->
+<h4>建立使用者</h4>
+1.我們直接利用小幫手來建立就好..點選「Creatr a New Group of Users」</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image23.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb22.png" alt="image" width="241" height="38" border="0" /></a></p>
+
+<p>2.輸入群組名稱(Group Name)</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image24.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb23.png" alt="image" width="544" height="239" border="0" /></a></p>
+
+<p>3.設定權限(Set Permissions)，下面有選擇原則範本(Select Policy Template)、自定原則(Custom Policy)、沒有權限(No Permissions)。這邊選Administrator Access。<a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image25.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb24.png" alt="image" width="544" height="457" border="0" /></a>
+<table width="540" border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="540"><strong>NOTE</strong>.自定原則產生器：<a href="http://awspolicygen.s3.amazonaws.com/policygen.html">http://awspolicygen.s3.amazonaws.com/policygen.html</a></td>
+</tr>
+</tbody>
+</table>
+4.系統馬上幫你建立一個原則名稱(Policy Name)及原則文件(Policy Document)，直接按Countinue。</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image26.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb25.png" alt="image" width="544" height="395" border="0" /></a></p>
+
+<p>5.輸入你剛剛建立群組中的使用者：</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image27.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb26.png" alt="image" width="544" height="469" border="0" /></a>
+<table width="540" border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="540"><strong>NOTE</strong>.產生Access Key給每一個使用者(Generate an access key for each User)方便未來使用者可以用Access Key 來使用API。</td>
+</tr>
+</tbody>
+</table>
+6.確認所建立的資料是否正確。</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image28.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb27.png" alt="image" width="544" height="305" border="0" /></a></p>
+
+<p>7.完成建立使用者，系統會要求你下載Sercurity Credentials</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image29.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb28.png" alt="image" width="544" height="177" border="0" /></a></p>
+
+<p>8.如果要用使用者登入的話，就必需設定密碼。</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image30.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb29.png" alt="image" width="544" height="202" border="0" /></a></p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image31.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb30.png" alt="image" width="544" height="171" border="0" /></a></p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image32.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb31.png" alt="image" width="544" height="217" border="0" /></a></p>
+
+<p>8.箭頭所指的地方就是使用者登入的網址</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image33.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb32.png" alt="image" width="544" height="283" border="0" /></a></p>
+
+<p>9.當然也可以用<a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image34.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb33.png" alt="image" width="134" height="32" border="0" /></a>來建立一個帳戶別名。</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image35.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb34.png" alt="image" width="489" height="160" border="0" /></a></p>
+
+<p>10.建立一個帳戶別名，以後登入就比較好較了。</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image36.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb35.png" alt="image" width="449" height="132" border="0" /></a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sammy</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-07T00:00:00+08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/blog/categories/amazon-web-services-aws/'>Amazon Web Services (AWS)</a>, <a class='category' href='/blog/blog/categories/identity-and-access-management/'>Identity and Access Management</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://SammyLin.github.io/blog/awsiam-using-aws-management-console-users-to-establish-aws-account/" data-via="SammyLinTw" data-counturl="http://SammyLin.github.io/blog/awsiam-using-aws-management-console-users-to-establish-aws-account/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/aws-iam/" title="Previous Post: [AWS][IAM]AWS Identity and Access Management (身份識別與存取管理)">&laquo; [AWS][IAM]AWS Identity and Access Management (身份識別與存取管理)</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/aws2011%E5%B9%B46%E6%9C%88%E7%B7%9A%E4%B8%8A%E7%A0%94%E8%A8%8E%E6%9C%83/" title="Next Post: [AWS]2011年6月線上研討會">[AWS]2011年6月線上研討會 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/vimrc/">My Vimrc</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/iterm2-change-font/">在iterm2修改字體</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/the-vim-enabled-mouse-can-not-be-copied/">[VIM]啟用滑鼠時無法複製</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/search-facebook-friend/">[FaceBook API]搜尋好友</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/http-basic-authenticate/">[Rails] 進入網站前驗證</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/113306354398877276439?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Sammy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'igotcloud';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://SammyLin.github.io/blog/awsiam-using-aws-management-console-users-to-establish-aws-account/';
+        var disqus_url = 'http://SammyLin.github.io/blog/awsiam-using-aws-management-console-users-to-establish-aws-account/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

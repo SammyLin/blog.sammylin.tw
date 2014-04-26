@@ -1,0 +1,1000 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Sammy Lin]]></title>
+  <link href="http://SammyLin.github.io/blog/atom.xml" rel="self"/>
+  <link href="http://SammyLin.github.io/blog/"/>
+  <updated>2014-04-26T13:25:55+08:00</updated>
+  <id>http://SammyLin.github.io/blog/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[My Vimrc]]></title>
+    <link href="http://SammyLin.github.io/blog/vimrc/"/>
+    <updated>2013-04-23T20:55:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/vimrc</id>
+    <content type="html"><![CDATA[<h3>說實在的，我比較笨</h3>
+
+<p>我以前是用ASP.NET的時候只有 Visual Studio 可以選擇，我根本沒機會摸到其他的編輯器，直到跳到<code>Ruby on Rails</code>之後，也找了許多IDE，例如：RubyMine, Netbeans，但發現，好像沒有這好用，之後問了許多使用Rails的大大才發現，大家都不用這些，用的都是Sublime Text, Textmate, vim 。</p>
+
+<p>剛開始的時候也是使用vim，然後找了一堆大大的vimrc來裝，但是裝一裝發現，好像還是不大會用 GG ，最後又跳到Sublime Text，因為我是寫Rails的，所以我在在許多partial中進進出出的，很麻煩，我聽到vim有一個plugin叫做<code>vim-rails</code>，可以按<code>gt</code>就可以跳到該行的檔案，所以我又跳回了vim。XDDD</p>
+
+<p><img src="http://farm9.staticflickr.com/8258/8675388026_4345f1da19_o.jpg" alt="" /></p>
+
+<!-- more -->
+
+
+<p>但我發現vim需多plugin的強大，是我真的不知道的，自從我一個一個慢慢把vimrc設定好之後，我才豁然開朗，靠~原來vim這麼屌~</p>
+
+<p>所以&hellip;.</p>
+
+<p><img src="http://farm9.staticflickr.com/8525/8677088700_761f36f87e_o.png" alt="" /></p>
+
+<p>但女人也可以用。不過不用就不是真男人了嗎？</p>
+
+<p>唉呦~自己用習慣就好了啦</p>
+
+<p>轉回正題：</p>
+
+<h2>我的vimrc：<a href="https://github.com/SammyLin/vimrc">https://github.com/SammyLin/vimrc</a></h2>
+
+<h3>加了什麼plugin</h3>
+
+<ul>
+<li><a href="https://github.com/tpope/vim-pathogen">pathogen.vim</a>: Manages the runtime path of the plugins</li>
+<li><a href="https://github.com/scrooloose/nerdtree">NERD Tree</a>: A tree explorer plugin for vim</li>
+<li><a href="https://github.com/Lokaltog/vim-powerline">vim-powerline</a>: The ultimate vim statusline utility</li>
+<li><a href="https://github.com/tpope/vim-fugitive">vim-fugitive</a>: a Git wrapper so awesome, it should be illegal</li>
+<li><a href="https://github.com/garbas/vim-snipmate">snipMate.vim</a>: snipMate.vim aims to be a concise vim script that implements some of TextMate&rsquo;s snippets features in Vim</li>
+<li><a href="https://github.com/tomtom/tlib_vim">tlib_vim</a>: Some utility functions for VIM</li>
+<li><a href="https://github.com/MarcWeber/vim-addon-mw-utils">vim-addon-mw-utils</a>: interpret a file by function and cacim](<a href="https://github.com/kien/ctrlp.vim">https://github.com/kien/ctrlp.vim</a>): Fuzzy file, buffer, mru and tag finder. In my config it&rsquo;s mapped to <code>&lt;Ctrl+F&gt;</code>, because <code>&lt;Ctrl+P&gt;</code> is used by YankRing</li>
+<li><a href="https://github.com/tpope/vim-rails">vim-rails</a>: Ruby on Rails power tools</li>
+<li><a href="https://github.com/vim-scripts/mru.vim">mru.vim</a>: Plugin to manage Most Recently Used (MRU) files</li>
+<li><a href="https://github.com/vim-scripts/tComment">tComment</a>: An extensible &amp; universal comment plugin that also handles embedded filetypes</li>
+<li><a href="https://github.com/m%20diff%20in%20the%20gutter%20(sign%20column">vim-indent-object</a>.</li>
+<li><a href="https://github.com/mattn/zencoding-vim">ZenCoding</a>: zen-coding for vim: <a href="http://code.google.com/p/zen-coding/">http://code.google.com/p/zen-coding/</a></li>
+<li><a href="https://github.com/kana/vim-smartinput">vim-smartinput</a>: Vim plugin: Provide smart input assistant</li>
+<li><a href="https://github.com/vim-ruby/vim-ruby">vim-ruby</a>: Vim/Ruby Configuration Files</li>
+<li><a href="https://github.com/vim-scripts/matchit.zip">matchit.zip</a>: extended % matching for HTML, LaTeX, and many other languages</li>
+<li><a href="https://github.com/vim-scripts/AutoComplPop">AutoComplPop</a>: Automatically opens popup menu for completions)</li>
+<li><a href="https://github.com/plasticboy/vim-markdown">vim-markdown</a>: Markdown Vim Mode</li>
+<li><a href="https://github.com/kchmck/vim-coffee-script">vim-coffee-script</a>: CoffeeScript support for vim</li>
+<li><a href="https://github.com/cakebaker/scss-syntax.vim">scss-syntax.vim</a>: Vim syntax file for scss (Sassy CSS)</li>
+<li><a href="https://github.com/tangledhelix/vim-octopress">vim-octopress</a>: Octopress support for Vim</li>
+</ul>
+
+
+<h2>我的color scheme (kolor)</h2>
+
+<p><img src="https://github.com/SammyLin/vimrc/raw/master/screenshots/kolor-1.png" alt="image" /></p>
+
+<p><img src="https://github.com/SammyLin/vimrc/raw/master/screenshots/kolor-2.png" alt="image" /></p>
+
+<h2>我比較常用的指令</h2>
+
+<h3>Open/Close NERDTree</h3>
+
+<pre><code>,n
+</code></pre>
+
+<h3>Open CtrlP</h3>
+
+<pre><code>Control + p
+</code></pre>
+
+<h3>Display the MRU file list</h3>
+
+<pre><code>,f
+</code></pre>
+
+<h3>Display CtrlP CtrlPBuffer</h3>
+
+<pre><code>,b
+</code></pre>
+
+<h3>To suspend your running vim</h3>
+
+<pre><code>Control + z
+
+# will suspend the process and get back to your shell
+
+$ fg
+</code></pre>
+
+<h3>Toggle comment</h3>
+
+<pre><code>Control + _
+</code></pre>
+
+<h3>Finding a word</h3>
+
+<pre><code>/&lt;word&gt;
+
+or
+
+?&lt;word&gt;
+
+# Pressing the n key, will allow you to go directly to the next occurrence of the word.
+</code></pre>
+
+<h2>參考的vimrc</h2>
+
+<ul>
+<li><a href="https://github.com/amix/vimrc">Amix</a></li>
+<li><a href="https://github.com/kaochenlong/eddie-vim">高見龍</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[在iterm2修改字體]]></title>
+    <link href="http://SammyLin.github.io/blog/iterm2-change-font/"/>
+    <updated>2013-04-21T14:47:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/iterm2-change-font</id>
+    <content type="html"><![CDATA[<p><img src="http://farm9.staticflickr.com/8115/8674261553_7e6abea1bf_o.png" alt="" /></p>
+
+<p>Profile > Open Profile</p>
+
+<p>找到你Dafault的Profile</p>
+
+<p>按下 Edit Profile</p>
+
+<p>右欄有一個Text的Tab</p>
+
+<p>找到 regular font下面的 Change font，就可以修改字體了</p>
+
+<p>至於 Non-ASCII Font 我就不知道跟Regular Font有什麼關係</p>
+
+<p>不過改了Reglar Font 其實就行了</p>
+
+<p>我個人是使用<code>Source Code Pro</code>，而這個字體是免費的。放心大家下載</p>
+
+<h3><a href="http://sourceforge.net/projects/sourcecodepro.adobe/">下載網址</a></h3>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[VIM]啟用滑鼠時無法複製]]></title>
+    <link href="http://SammyLin.github.io/blog/the-vim-enabled-mouse-can-not-be-copied/"/>
+    <updated>2013-04-18T21:38:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/the-vim-enabled-mouse-can-not-be-copied</id>
+    <content type="html"><![CDATA[<p>在<code>vimrc</code>加入下面這一行時</p>
+
+<pre><code>:set mouse=a
+</code></pre>
+
+<p>發現用滑鼠時候會轉成Visual模式，但是按control+c就是不能複製
+Google 查了一下，按發現其實有解法的</p>
+
+<h4>在OS X下，按住<code>option</code>，用滑鼠點選</h4>
+
+<h4>在其他系統下，按住<code>shift</code>，用滑鼠點選</h4>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[FaceBook API]搜尋好友]]></title>
+    <link href="http://SammyLin.github.io/blog/search-facebook-friend/"/>
+    <updated>2012-12-04T21:12:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/search-facebook-friend</id>
+    <content type="html"><![CDATA[<p>在<a href="https://developers.facebook.com/docs/reference/api">Graph API</a>找了老半天
+只能夠用API撈到FB的所有好友，但是沒辦法塞入q=???來找到你想要的朋友只有像<code>粉絲頁</code>、<code>所有使用者</code>..等才能用</p>
+
+<p>這時候只好派出<a href="https://developers.facebook.com/docs/reference/fql/">FQL</a>了</p>
+
+<pre><code>SELECT name, uid FROM user WHERE uid IN ( SELECT uid2 FROM friend WHERE uid1=me() ) AND strpos(lower(name),'&lt;you want search name&gt;') ==0
+</code></pre>
+
+<!-- more -->
+
+
+<p>馬上就可以輸入幾個關鍵字就可以抓到你要的好友名單了</p>
+
+<p>就像是這樣 <a href="http://goo.gl/VYpbM">DEMO</a>
+(請記得取得token)</p>
+
+<p>如果要做分頁的話</p>
+
+<pre><code>SELECT uid ,name FROM user WHERE uid IN ( SELECT uid2 FROM friend WHERE uid1=me() ) AND strpos(lower(name),'&lt;you want search name&gt;') ==0 LIMIT 10 OFFSET 200;
+</code></pre>
+
+<p>就可以帶入你要的page</p>
+
+<p>=======</p>
+
+<p>補充一下，<code>FQL</code>是不能有COUNT()的，所以如果要取得count的話，只能把資料撈出來然後算他的數量。 不過遇到你的需要跟FB取的Field多的話，可以先用下面這行</p>
+
+<pre><code>SELECT '' FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = USERID)
+</code></pre>
+
+<p>因為取得的Field少，所以response的會比較快。</p>
+
+<h2>參考資料</h2>
+
+<blockquote><p><a href="http://blogs.x2line.com/al/archive/2007/10/07/3287.aspx">http://blogs.x2line.com/al/archive/2007/10/07/3287.aspx</a></p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[Rails] 進入網站前驗證]]></title>
+    <link href="http://SammyLin.github.io/blog/http-basic-authenticate/"/>
+    <updated>2012-12-04T20:41:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/http-basic-authenticate</id>
+    <content type="html"><![CDATA[<p>有時候專案尚未公開時，還是需要放到網路上讓其他人來瀏覽，這時候為了怕非相關人員看到這個網站的話，就需要有個關卡，通常都會在nginx或apache來設定，但是這往往還要進到server去處理。
+如果在rails上你不想這麼麻煩的話，可以在<code>ApplicationController</code>上直接加上這一行</p>
+
+<pre><code>http_basic_authenticate_with name: "admin", password: "pw"
+</code></pre>
+
+<p>就像下面這樣</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="ss">ActionController</span><span class="p">:</span><span class="ss">:Base</span>  <span class="n">protect_from_forgery</span>
+</span><span class='line'>  <span class="n">http_basic_authenticate_with</span> <span class="nb">name</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span> <span class="ss">password</span><span class="p">:</span> <span class="s2">&quot;pw&quot;</span>
+</span><span class='line'>  <span class="n">protect_from_forgery</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>當你在進入網站的時候就會需要你輸入帳密才能進入了</p>
+
+<p><img src="https://lh6.googleusercontent.com/-RYBzUO6WDHE/UL3yLnBSaEI/AAAAAAAACBQ/hB0LWke0YaA/s800/b2c64cda0232f18a97b8a215bc138e7b.png" alt="" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[Ruby]編碼學問很大]]></title>
+    <link href="http://SammyLin.github.io/blog/nokogiri-encoding/"/>
+    <updated>2012-10-10T11:56:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/nokogiri-encoding</id>
+    <content type="html"><![CDATA[<h3>問題：</h3>
+
+<p><a href="http://nokogiri.org">Nokogiri</a>是一個網頁擷取的一個很好的工具，所以我會用他當做我要抓網站資料的首選，就像Nokogiri的網站使用說明一樣，我們只要用下面三行就可以使用Nokogiri，之後在用他內建幾個method來做處理，但今天不講怎麼做處理</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;nokogiri&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;open-uri&#39;</span>
+</span><span class='line'><span class="n">doc</span> <span class="o">=</span> <span class="ss">Nokogiri</span><span class="p">:</span><span class="ss">:HTML</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;http://www.google.com/search?q=sparklemotion&#39;</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<!-- more -->
+
+
+<p>我今天在抓一個舊網站的資料，因為以前網站在製作的時候都是用<code>Big5</code>所以要抓資料的時候會用<code>Iconv</code>來轉碼轉成<code>utf-8</code>就像下面一樣</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ic</span> <span class="o">=</span> <span class="no">Iconv</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span><span class="s2">&quot;big5&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">doc</span> <span class="o">=</span> <span class="ss">Nokogiri</span><span class="p">:</span><span class="ss">:HTML</span><span class="p">(</span><span class="n">ic</span><span class="o">.</span><span class="n">iconv</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;http://www.missingkids.org.tw/chinese/focus.php?offset=0&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>不過噴出了錯誤</p>
+
+<pre><code>encoding error : input conversion failed due to input error
+</code></pre>
+
+<p>找了一段時間常發現問題出在全型的<code>/</code>，我猜想是因為Big5轉到utf-8的時候，因為全形的<code>/</code>編碼有問題，可能是不能Big5或者是utf-8裡的全形<code>/</code>跟Big5的編碼不一樣，我也不是很清楚</p>
+
+<h3>解決方法</h3>
+
+<p>其實解決的方法其中一個方法就是&hellip;.跳過他(真不負責任XDD)
+就像這樣</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ic</span> <span class="o">=</span> <span class="no">Iconv</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;utf-8//IGNORE&quot;</span><span class="p">,</span><span class="s2">&quot;big5&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>//IGNORE</code>就是遇到轉碼有問題的話，直接跳過這個字，還有另外一個<code>//translit</code>，如果遇到有問題的話，就會去找替代的字，如果不行的話還是會中斷，但中文字經常會找不到對應的編碼。不過可以混合使用，就像這樣</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ic</span> <span class="o">=</span> <span class="no">Iconv</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;utf-8//translit//IGNORE&quot;</span><span class="p">,</span><span class="s2">&quot;big5&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[評測]Magican Mac清除垃圾工具]]></title>
+    <link href="http://SammyLin.github.io/blog/magican/"/>
+    <updated>2012-09-18T20:08:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/magican</id>
+    <content type="html"><![CDATA[<p>在Mac裡如果想到清除垃圾工具，第一個應該會想到的是<a href="http://macpaw.com/">CleanMyMac</a>，不過要花$29.95美金，因為我是個省吃儉用的人，所以想一想就算了，還是不要好了，最近發現一個軟體，還不錯。</p>
+
+<ul>
+<li><h2><a href="http://www.magicansoft.com/">Magican</a></h2></li>
+<li>容量：3.8MB</li>
+</ul>
+
+
+<p><img src="https://lh6.googleusercontent.com/-5uHa3hTvExM/UFhqMcvk-9I/AAAAAAAAB7k/yXCyAwUPLnY/s640/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25888.33.08.png" alt="" /></p>
+
+<p>畫面其實很乾淨，沒有很亂，左邊是Menu</p>
+
+<h2>功能</h2>
+
+<ul>
+<li>清除你Mac的圾垃</li>
+<li>檢查有無木馬</li>
+<li>監控Mac狀態</li>
+<li>查詢硬體資訊</li>
+<li>釋放記憶體</li>
+</ul>
+
+
+<!-- more -->
+
+
+<p><img src="https://lh4.googleusercontent.com/-3r6hxDzKgIc/UFhviQNCqwI/AAAAAAAAB8E/A7ywQp9xvck/s640/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25888.53.411.png" alt="" /></p>
+
+<p>會有一個一直在最上層的小視窗，內容是天氣、網路上下載的速率還有可用記憶體，按下長的很像reload的按鈕，可以釋放記憶體。</p>
+
+<p><img src="https://lh3.googleusercontent.com/-7NJpEZn-pho/UFhwqgMIovI/AAAAAAAAB8Q/jNQdH4iQRoc/s800/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25889.01.20.png" alt="" /></p>
+
+<p>滑鼠移到右上角還可以切換顯示模式，但只有網路上下載速率、CPU跟GPU的溫度。</p>
+
+<p><img src="https://lh4.googleusercontent.com/-QeUT-kkDodY/UFhxTJcjBbI/AAAAAAAAB8Y/9vYCDkmNtkE/s800/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25889.03.40.png" alt="" /></p>
+
+<p>點一下中間，還會顯示RAM跟CPU的使用狀態、還有目前天氣的溫度。</p>
+
+<p><img src="https://lh5.googleusercontent.com/-xKNqVgt_E_Q/UFhyCUXbvjI/AAAAAAAAB8k/uY8V0PQUsfU/s800/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25889.06.45.png" alt="" /></p>
+
+<p>如果要Cleanup的話，會先掃描你的要分析的東西。</p>
+
+<p><img src="https://lh4.googleusercontent.com/-U8CmerIUfOU/UFhy1eZOYJI/AAAAAAAAB88/bd3lMFjWZvM/s800/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25889.09.33.png" alt="" /></p>
+
+<p>之後會跟找到幾個檔案，容量是多少這時候會你就可以清囉~~ 4.7G 還蠻多的>&ldquo;&lt;</p>
+
+<p><img src="https://lh5.googleusercontent.com/-947PfYfCZrI/UFh0kEzQ7cI/AAAAAAAAB9E/hO7g7QZmWug/s800/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25889.17.37.png" alt="" /></p>
+
+<p>監控你的Mac狀態，這個介面我覺得還不錯很舒服，可以看CPU、硬碟、RAM、系統溫度、網路上下載速率、電池使用量。</p>
+
+<p><img src="https://lh5.googleusercontent.com/-Ldhuj1vCD_o/UFh1motq0HI/AAAAAAAAB9M/ePx1gL6zlwA/s800/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25889.22.01.png" alt="" /></p>
+
+<p>可以新增toolbox，目前只有三個</p>
+
+<ul>
+<li>MagicanDocument &ndash; 會幫你整理Mac的文件，把所有的iwork、pdf…等，整理出來</li>
+<li>MagicanFile &ndash; 作用跟Finder一樣，但是比較多功能</li>
+<li>MaficenRest &ndash; 提醒你該休息了，可以設定幾分鐘休息一下。</li>
+</ul>
+
+
+<p><code>Magican</code>感覺還不錯，而且還是免費的，看來我的Mac必用軟體清單可以多一個了XDDD</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[Ruby] Strftime 常用格式 筆記]]></title>
+    <link href="http://SammyLin.github.io/blog/ruby-strftime/"/>
+    <updated>2012-09-07T22:26:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/ruby-strftime</id>
+    <content type="html"><![CDATA[<p>範例時間：<code>2012-09-07 22:33:25 +0800</code></p>
+
+<h3>時間Time</h3>
+
+<ul>
+<li>%H &ndash; (24H時 00-23) &ldquo;22&rdquo;</li>
+<li>%k &ndash; (24H時 0-23) &ldquo;22&rdquo;</li>
+<li>%I &ndash; (12H時 01-12) &ldquo;10&rdquo;</li>
+<li>%l &ndash; (12H時 1-12) &ldquo;10&rdquo;</li>
+<li>%M &ndash; (分) &ldquo;33&rdquo;</li>
+<li>%S &ndash; (秒) &ldquo;25&rdquo;</li>
+<li>%p &ndash; (AM/PM) &ldquo;PM&rdquo;</li>
+<li>%s &ndash; (從1970-01-01 00:00:00 UTC. 開始計算過了幾秒) &ldquo;1347028405&rdquo;</li>
+</ul>
+
+
+<!-- more -->
+
+
+<h3>日期</h3>
+
+<ul>
+<li>%Y &ndash; (年) &ldquo;2012&rdquo;</li>
+<li>%y &ndash; (取年的後兩數字) &ldquo;12&rdquo;</li>
+<li>%C &ndash; (取年的前兩數字) &ldquo;20&rdquo;</li>
+<li>%B &ndash; (月的名稱) &ldquo;September&rdquo;</li>
+<li>%b &ndash; (月的簡稱) &ldquo;Sep&rdquo;</li>
+<li>%m &ndash; (月的數字) &ldquo;09&rdquo;</li>
+<li>%U &ndash; (第幾周, 從星期天為一周期) &ldquo;36&rdquo;</li>
+<li>%W &ndash; (第幾周, 從星期一為一周期) &ldquo;36&rdquo;</li>
+<li>%A &ndash; (星期的名稱) &ldquo;Friday&rdquo;</li>
+<li>%a &ndash; (星期的簡稱) &ldquo;Fri&rdquo;</li>
+<li>%d &ndash; (日01-31) &ldquo;07&rdquo;</li>
+<li>%e &ndash; (日 1-31) &ldquo; 7&rdquo;</li>
+<li>%j &ndash; (一年中計算第幾天) &ldquo;251&rdquo;</li>
+<li>%w &ndash; (一周裡第幾天 從星期天開始計算 0-6) &ldquo;5&rdquo;</li>
+<li>%w &ndash; (一周裡第幾天 從星期一開始計算 1-7) &ldquo;5&rdquo;</li>
+</ul>
+
+
+<h3>組合式</h3>
+
+<ul>
+<li>%D &ndash; (月/日/年) &ldquo;09/07/12&rdquo;</li>
+<li>%F &ndash; (年-月-日) &ldquo;2012-09-07&rdquo;</li>
+<li>%T &ndash; (時-分-秒) &ldquo;22:33:25&rdquo;</li>
+<li>%r &ndash; (12H時-分-秒 AM/PM) &ldquo;10:33:25 PM&rdquo;</li>
+<li>%R &ndash; (24H時-分) &ldquo;22:33&rdquo;</li>
+</ul>
+
+
+<h2>參考資料</h2>
+
+<blockquote><p><a href="" title="http://www.ruby-doc.org/core-1.9.3/Time.html#method-i-strftime">&ldquo;ruby-doc&rdquo;</a></p>
+
+<p><a href="" title="http://www.wetware.co.nz/2009/07/rails-date-formats-strftime/">&ldquo;Rails Date Formats – strftime&rdquo;</a> by Wetware</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hyper-v 狀態顯示「已暫停-關鍵」]]></title>
+    <link href="http://SammyLin.github.io/blog/hyper-v-yi-zan-ting-guan-jian/"/>
+    <updated>2012-09-01T12:02:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/hyper-v-yi-zan-ting-guan-jian</id>
+    <content type="html"><![CDATA[<p>因為我們公司比較窮苦，而且又小，所以我把測試站放在我們家某個server上建一個Hyper-v，不過我對Hyper-v其實沒有很熟，自從玩了Linux之後，我都沒有繼續專研Windows的東東了。</p>
+
+<p>有一天我在連我的測試站的時候發現他連不上去了，然後發現在狀態上顯示「<code>已暫停-關鍵</code>」，為什麼暫停其實我也不知道，結果我重開之後，發現過沒多久他又顯示「已暫停-關鍵」。</p>
+
+<p>找了一陣子才發現原來是</p>
+
+<h3>本機的硬碟容量不足</h3>
+
+<p>只要把空間清出來就行了&hellip;.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[OS X]purge-bug]]></title>
+    <link href="http://SammyLin.github.io/blog/purge-bug/"/>
+    <updated>2012-08-29T09:47:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/purge-bug</id>
+    <content type="html"><![CDATA[<p>前些日子把 OSx更新到10.8.1版，平常我用一陣子電腦，記憶體會佔的滿滿的，我就會執行<code>purge</code>來清除一下記憶體。但是噴出了錯誤：</p>
+
+<pre><code>[ERROR]&lt;CPPathUtils.c:526&gt;The device-file for this operating system, 'osx-12.1.0.xml', was not found. An attempt to revert to a previous revision of the OS device-file: 'osx-12.0.0.xml' has been made. Please file a Radar report with Apple, on the 'CoreProfile' component, version 'X'.
+</code></pre>
+
+<p>上網google了以後，發現原來是他10.8.1的Bug</p>
+
+<ul>
+<li><a href="http://osxdaily.com/2012/08/23/os-x-mountain-lion-10-8-1-update-released/">OS X Mountain Lion 10.8.1 Update Released</a></li>
+<li><a href="https://discussions.apple.com/thread/4239648?start=0&amp;tstart=0">Anyone know why I got this Terminal Error? [ERROR]     &lt;CPPathUtils.c:526>     The device-file for this operating system, &lsquo;osx-12.1.0.xml&rsquo;, was not found.</a></li>
+</ul>
+
+
+<p>看來只能等更新囉，不過還是可以正常的使用啦，不用擔心</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[Ruby]匯出csv檔時在excel開啟時亂碼]]></title>
+    <link href="http://SammyLin.github.io/blog/export-to-csv-has-mojibake/"/>
+    <updated>2012-07-26T09:40:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/export-to-csv-has-mojibake</id>
+    <content type="html"><![CDATA[<p>做個筆記吧..前幾次都是開箱文..哈哈，感覺有點偷懶</p>
+
+<p>以前在<code>ASP.NET</code>的時候要把資料倒進Excel或是CSV，是不怎麼痛的，畢竟都是同一家人嘛。但是我今天要在<code>Ruby</code>中倒資料進去CSV的時候，就會有編碼上的問題。</p>
+
+<p>我們在<code>Ruby</code>中如果要有中文的話，其實我們都會在.rb最上面加一行</p>
+
+<pre><code># encoding : utf-8
+</code></pre>
+
+<p>如果要匯出CSV的話<code>Ruby</code>在有一個<a href="http://ruby-doc.org/stdlib-1.9.2/libdoc/csv/rdoc/CSV.html">Class</a>可以用</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="c1"># encoding : utf-8</span>
+</span><span class='line'>    <span class="nb">require</span> <span class="s1">&#39;CSV&#39;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">shom_method</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="no">CSV</span><span class="o">.</span><span class="n">generate</span> <span class="k">do</span> <span class="o">|</span><span class="n">csv</span><span class="o">|</span>
+</span><span class='line'>        <span class="n">csv</span> <span class="o">&lt;&lt;</span> <span class="o">[</span><span class="s1">&#39;編號&#39;</span><span class="p">,</span> <span class="s1">&#39;姓名&#39;</span><span class="o">]</span>
+</span><span class='line'>        <span class="n">members</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">member</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">csv</span> <span class="o">&lt;&lt;</span> <span class="o">[</span><span class="n">num</span><span class="p">,</span> <span class="nb">name</span><span class="o">]</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>用PC的筆記本打開看&hellip;.沒錯是ok的！
+然後用Excel一開&hellip;哇勒~是亂碼..</p>
+
+<p>查了一下是因為我一開始設定的編碼是<code>utf-8</code>，所以我匯出檔案的編碼會是<code>utf-8</code>，因為Excel開的時候就會出現亂碼&hellip;</p>
+
+<p>不過有一個笨方法&hellip;叫User把csv檔用筆記本打開之後用<code>ANSI</code>存檔後用Excel開就ok啦&hellip;..</p>
+
+<p>但是我沒這個膽&hellip;</p>
+
+<h2>解決方式</h2>
+
+<p>我也沒有找到一個很好的處理方式&hellip;</p>
+
+<p>目前比較簡單的方式其實就是在檔頭加上<code>\uFEFF</code>字元</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="c1"># encoding : utf-8</span>
+</span><span class='line'>    <span class="nb">require</span> <span class="s1">&#39;CSV&#39;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">some_method</span>
+</span><span class='line'>      <span class="s2">&quot;\uFEFF</span><span class="si">#{</span><span class="n">get_csv</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">get_csv</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="no">CSV</span><span class="o">.</span><span class="n">generate</span> <span class="k">do</span> <span class="o">|</span><span class="n">csv</span><span class="o">|</span>
+</span><span class='line'>        <span class="n">csv</span> <span class="o">&lt;&lt;</span> <span class="o">[</span><span class="s1">&#39;編號&#39;</span><span class="p">,</span> <span class="s1">&#39;姓名&#39;</span><span class="o">]</span>
+</span><span class='line'>        <span class="n">members</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">member</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">csv</span> <span class="o">&lt;&lt;</span> <span class="o">[</span><span class="n">num</span><span class="p">,</span> <span class="nb">name</span><span class="o">]</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>但是這個方法在Excel 2007，還是會亂碼，不過在Excel 2003、2010都是可以。</p>
+
+<p>如果有人可以提供更好的方法就留個給給我吧&hellip;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[在vim裡強迫使用hjkl]]></title>
+    <link href="http://SammyLin.github.io/blog/vim-compulsive-use-hjkl/"/>
+    <updated>2012-07-13T09:09:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/vim-compulsive-use-hjkl</id>
+    <content type="html"><![CDATA[<p>其實我用vim的時間其實不長啦，應該也還不到一年的時間，以前都是用<code>Visual Studio</code>，真的是完全不習慣，雖然有<a href="http://www.sublimetext.com/2">Sublime Text</a>或是<a href="http://macromates.com/">TextMate</a>這些比較介面上漂亮的的東西，不過其實<code>vim</code>也可以在ssh到別的主機時，可以直接用<code>vim</code>來開code就好了，不用還要下載回來修改完又要上傳，而且vim其實有很多plugin可以用，也真的很方便，重點是帥氣啦。
+好吧..回到主題</p>
+
+<h3>修改vimrc</h3>
+
+<p>進到 .vimrc 裡加上這四行</p>
+
+<pre><code>map &lt;Left&gt; :echo "Use h you asshole!"&lt;cr&gt;
+map &lt;Right&gt; :echo "Use l you asshole!"&lt;cr&gt;
+map &lt;Up&gt; :echo "Use k you asshole!"&lt;cr&gt;
+map &lt;Down&gt; :echo "Use j you asshole!"&lt;cr&gt;
+</code></pre>
+
+<p>不過就是把上下左右鍵改成echo 就行了&hellip;
+感謝<a href="http://gogojimmy.net/">Jimmy</a>的教我..</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[HPX Junior 5]]></title>
+    <link href="http://SammyLin.github.io/blog/hpx-junior-5/"/>
+    <updated>2012-06-20T09:19:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/hpx-junior-5</id>
+    <content type="html"><![CDATA[<h3>我真的猜不透你</h3>
+
+<p><img src="https://lh4.googleusercontent.com/-66cUzaHeWIg/T-E1PRdBvOI/AAAAAAAAB4U/CODLyaY31eU/s800/250762_10150854705421784_1101531581_n-1.jpeg" alt="" /></p>
+
+<p>沒有想過，來HPX Junior 還可以那麼感動。那天是我第三次參加HPX的活動，不過是我第一次參加HPX Junior，其實我個性比較悶燒一點(有嗎？= =)，所以其實我不大會主動去說：「你好，我可以認識你嗎？」，但在這邊雖然我還沒辦法辦到，不過在HPX裡，交流認識新朋友是很重要的。所以「活動開始前不可以坐下來」&hellip;強迫去認識新朋友，開發陌生市場(搞的很像直銷XDDD)。每到一次HPX我都會認識到一些朋友，然後在去跟之前認識到的朋友再更加的朋友下去。希望下次我可以訂一個目標就是每到HPX至少認識到幾個人&hellip;</p>
+
+<!--more-->
+
+
+<h2>像貓一樣的人生(鎂鎂)</h2>
+
+<p><img src="https://lh3.googleusercontent.com/-YD9FF9kdVRk/T-EsdZQ8dpI/AAAAAAAAB4I/qhK-Q7bZS3A/s800/581050_10150854706491784_1333367972_n.jpeg" alt="" /></p>
+
+<p>我很少很少去思考，我過去幹了些什麼，我的人生像是怎樣的人生？如果你叫我把我的人生做個簡報&hellip;.那我需要花一點點時間來做一下整理或是回憶。我還真的沒辦法想像(手機測試、行銷企劃、業務..)幾樣工作串在一起，那樣其實壓力不小吧，每到一個地方可能又要多花一點時間做學習。我覺得鎂鎂應該是<code>像貓外表變色龍內在的人生</code>才對，為什麼是像變色龍呢？就是像變色龍那樣要去適應環境，有辦法去對每一個不同的環境去融合進去，這真的是需要很大的抗壓力。</p>
+
+<h3>自我介紹大亂鬥</h3>
+
+<p><img src="https://lh3.googleusercontent.com/-FWcPqC9s16M/T-ElR7I2UgI/AAAAAAAAB3g/bbuvqzLmltE/s800/223816_10150854709421784_395534484_n.jpeg" alt="" /></p>
+
+<p>真是太可怕的&hellip;沒有看過有主辦單位敢這樣搞的，不怕時間的delay，讓每一個人(幾乎啦~)，都拿到麥克風。最後還是簡報上的順序還是沒有排到我&hellip;(殘念..)，好家在還有後補的機會，真可惜沒辦法講太久，一直被畫圈圈(講快一點&hellip;)，所以我也一直加快速度導致沒辦法讓大家聽到我的自我介紹，那就..歡迎私下來認識我XDDD</p>
+
+<h2>改變產業結構的互動設計師(Kyle)</h2>
+
+<p><img src="https://lh6.googleusercontent.com/-Rx1w9giv96Y/T-EsZM005tI/AAAAAAAAB34/tmzfqTnfgIk/s800/521508_10150854776641784_172389033_n.jpeg" alt="" /></p>
+
+<p>這應該是我第一次聽到Kyle認真的講什麼是IxDA吧XDDD，我從高中到大學以為只有<code>工程師</code>跟<code>設計師</code>，壓根沒想過還有UR(User Research)、UID(User Interface Designer)、GUID(Graphic User Interface Designer)..等等的工程師，也稍微介紹一下這些工程師的工作內容，我只記得UID 口袋要很深&hellip;所以Kyle是UID，所以他的口袋很深(ok&hellip;筆記一下..)。Kyle還拿出目前公車上的一些使用者介面的Bug(不良的設計)&hellip;.說實在的，我根本不會管那麼多，我就直接問一下公車司機要怎麼搞..(看來我的洞察力很低，應該是懶的察吧&hellip;)</p>
+
+<h2>womany 不一樣 – 原來我們在創業(瑋軒)</h2>
+
+<p><img src="https://lh3.googleusercontent.com/-ysNtDz3kBFo/T-EsZBEZnZI/AAAAAAAAB3w/cEdHG2aZfVw/s800/319887_10150854778691784_2091873505_n.jpeg" alt="" /></p>
+
+<p>我都要哭了&hellip;我真的從沒想過有女孩(應該是女人吧..)還可以那麼天真可愛，可以那麼的愛自己，更愛別人，對於這個世界也可以那麼美好, 覺得自己很漂亮(真的很漂亮啦)，但我也覺得我很帥呀&hellip;(被踢飛..)。雖然我跟瑋軒是在JSDC認識而以..不過感覺像認識很久&hellip;今天見面還打我呢..(打屁呀~&ldquo;~)。不過我知道瑋軒在創業一定有受到很多委屈跟不認同，但是他還是可以那麼的開朗(敬佩..)，對於這個世界還存著那一股信心在，不會怨天尤人&hellip;&hellip;
+「危險請勿跨越」我也是那種愛危險的人&hellip;..就像之前去跳高空彈跳那樣，不跳到橋下，你怎麼知道那種感覺是怎麼樣的最後舒服的躺在天空中(下次想去玩飛行傘)。做任何事都是這樣子不跨過去你怎麼知道會不會怎麼樣&hellip;</p>
+
+<h2>大膽學、不怕髒(Mouson)</h2>
+
+<p><img src="https://lh4.googleusercontent.com/-C8hjR0Gutx4/T-EsZImS7RI/AAAAAAAAB30/BnJaveOS50w/s800/484307_10150854779046784_542432694_n.jpeg" alt="" /></p>
+
+<p>Mouson一開始就提到「跟他聊過的人或是聽他講話的人都會有離職的可能」(還好我的意志力還夠)，Mouson是個熱愛台灣的人，相信正向循環。其實我覺得有些人的個性在於家教，才能夠把Mouson樹造成一個可以跟別人不一樣的人，其實我們家裡的人其實也是差不多的。別人讀大學，就跟著讀大學，別人讀研究所，就跟著讀研究所，完全都沒有思考為什麼要做這件事情，盲目的跟著別人的腳步走著&hellip;其實跟喪屍沒什麼兩樣(多了會吃會喝吧~)，如果在這樣下去，台灣真的就沒什麼競爭力，就像最近大家都在創業&hellip;就會有人想創業，沒人在創新這個道理是一樣的&hellip;.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[開箱文]紙樣。YANG 極簡超薄款可水洗牛皮紙短夾]]></title>
+    <link href="http://SammyLin.github.io/blog/mens-wallet-made-from-washable-kraft-paper/"/>
+    <updated>2012-04-30T16:10:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/mens-wallet-made-from-washable-kraft-paper</id>
+    <content type="html"><![CDATA[<p><img src="https://lh5.googleusercontent.com/-kkIGkNbmBhc/T55KcbT5LrI/AAAAAAAAB1o/9e_sbCTOmok/s640/IMG_1033.JPG" alt="" /></p>
+
+<p>哈~我敗家了>_&lt;</p>
+
+<p>什麼東西讓我可以敗下去勒~</p>
+
+<p>就是這個紙樣出品的短夾</p>
+
+<p>是來自於台灣的設計師「<a href="http://www.pinkoi.com/store/sidonieyang">紙樣。YANG</a></p>
+
+<p>又輕又薄，又是以環保為前提的一個設計工作室，
+而且接受客製化，短夾上就有印上我的英文縮寫(哈哈~~)</p>
+
+<!--more-->
+
+
+<p><img src="https://lh4.googleusercontent.com/-evMT1HiA868/T55KMFCtxXI/AAAAAAAABzM/39Pw-AhhNwM/s640/IMG_1009.JPG" alt="" /></p>
+
+<p>迫不及待要來開箱了~外面用小小片的防水牛皮紙印上我英文名字(Sammy Lin)的縮寫，說明了，這是我的！！客製化的喔~~</p>
+
+<p><img src="https://lh4.googleusercontent.com/-oPveXbmg0tY/T55KK3DGWrI/AAAAAAAABzA/VyQLssELvRs/s640/IMG_1011.JPG" alt="" /></p>
+
+<p><img src="https://lh6.googleusercontent.com/-AIB_gzUrUnY/T55KLwToGqI/AAAAAAAABzQ/yaV-MqH9mFU/s640/IMG_1012.JPG" alt="" /></p>
+
+<p>之前看到<a href="http://blog.jie.idv.tw/?p=3132">紙樣。YANG 超輕薄手工短皮夾，環保可水洗的牛皮紙材質| 介入影像之介王拳</a>
+其實是用氣泡紙包裝，感覺好像少了一點環保概念~不過這次我收到的就是用再生紙，但是我個人是摸不出來啦，反正應該就是吧~</p>
+
+<p><img src="https://lh4.googleusercontent.com/-WiSBybaIG8s/T55KOHthbLI/AAAAAAAABzk/cZI71Dd4OIM/s640/IMG_1013.JPG" alt="" /></p>
+
+<p>打開一大片環保紙之後，就是看到「SIDONIEYANG | HANDMADE」是作者的英文名字 後面接著手作兩個字(怎麼不是紙樣勒？= = 我也不知道&hellip;)</p>
+
+<p><img src="https://lh5.googleusercontent.com/-7tuvLxLzRgk/T55KONVazWI/AAAAAAAABzc/lwQf3iNXT6c/s640/IMG_1015.JPG" alt="" /></p>
+
+<p>這時候就請出我們的蔣公大大出來了解一下這個厚度，根據蔣公跟我講它的直徑是2.59cm，所以大概短夾的厚度應該是1.3cm左右(還沒放東西)</p>
+
+<p><img src="https://lh3.googleusercontent.com/-JqHXexaRW0o/T55KPl1eqAI/AAAAAAAABzw/HfadO9101cA/s640/IMG_1016.JPG" alt="" /></p>
+
+<p>我們出來透透氣~~</p>
+
+<p><img src="https://lh5.googleusercontent.com/-hm27i1p2Xrs/T55Ka0n_YdI/AAAAAAAAB1c/_ngPezgV48g/s640/IMG_1031.JPG" alt="" /></p>
+
+<p>蟾蜍大大也說要出來見見大家&hellip;不過他嘴裡咬的是&hellip;蔣公嗎？XDDD</p>
+
+<p><img src="https://lh3.googleusercontent.com/-MBWeghJVntc/T55Kat1yaKI/AAAAAAAAB1U/QUAmu12Coy0/s640/IMG_1030.JPG" alt="" /></p>
+
+<p>主打是防水牛皮紙，我有試過，用牙齒咬，都不會有問題，但是如果用大剪刀的話&hellip;..</p>
+
+<p><img src="https://lh4.googleusercontent.com/-4RY0I20V2qk/T55KYykauAI/AAAAAAAAB1M/lSk-dNbhUAQ/s640/IMG_1029.JPG" alt="" /></p>
+
+<p>縫線做得不錯，聽作者說，打結是最難的，一個打錯就慘了&hellip;</p>
+
+<p><img src="https://lh4.googleusercontent.com/-y6v_eXdtWRc/T55KSTekQtI/AAAAAAAAB0M/ANZnk5GYfXQ/s640/IMG_1021.JPG" alt="" /></p>
+
+<p>上面的LOGO也是寫上「SIDONIEYANG | HANDMADE」，左下角就是我的英文縮寫「SL」。客製的喔~~哈哈</p>
+
+<p><img src="https://lh4.googleusercontent.com/-jS8Ew0quj0o/T55KRxHW2FI/AAAAAAAAB0I/CKiU6lK8Zkc/s640/IMG_1020.JPG" alt="" /></p>
+
+<p>質感真的不賴&hellip;</p>
+
+<p><img src="https://lh4.googleusercontent.com/-Rx_vEyxTu5Y/T55KXftEZjI/AAAAAAAAB00/NSwnWEM4kek/s640/IMG_1027.JPG" alt="" /></p>
+
+<p>接下來拿出我服役4年的錢包&hellip;要跟現在的錢包做交接儀式了..</p>
+
+<p><img src="https://lh5.googleusercontent.com/-Ofj0rfCmhqg/T55KTHfKilI/AAAAAAAAB0U/KWXc-TEFq7Q/s640/IMG_1019.JPG" alt="" /></p>
+
+<p>交接儀式開始&hellip;但途中還是要拍一下兩個沒東西的狀態&hellip;</p>
+
+<p><img src="https://lh4.googleusercontent.com/-QyMyUdFth-Q/T55KTbUYK5I/AAAAAAAAB0Y/MvlUsjiOJds/s640/IMG_1022.JPG" alt="" /></p>
+
+<p>交接完畢&hellip;</p>
+
+<p><img src="https://lh4.googleusercontent.com/--YikUFwFf18/T55KVFL96nI/AAAAAAAAB0k/E7nTolwi1_0/s640/IMG_1024.JPG" alt="" /></p>
+
+<p>感覺多了0.3~0.4cm (我有4張卡、身份證、健保卡、兩張鈔票、一張照片)
+不過還是蠻薄的，缺點就是只能放四張卡片而以~如果要放其他地方的話只能放在照片後面，放鈔票也只有一格而已，但對我來說應該夠了，我的錢沒那麼多>_&lt;</p>
+
+<p><img src="https://lh4.googleusercontent.com/-t0AQx2jLkZU/T55Kc-nWYoI/AAAAAAAAB18/QEugw1dl4gc/s640/IMG_1034.JPG" alt="" /></p>
+
+<p>整體來說是不錯，對於你愛放一堆有的沒有的卡片或是零錢的人，我覺得你就不要參考了，因為沒辦法放那麼多東西，還好六月行照駕照不帶可以不用罰，不然我的錢包可能又要更大了，現在可以少帶行照駕照了。</p>
+
+<p><a href="http://www.pinkoi.com/store/sidonieyang">紙樣。YANG 的pinkoi店面</a></p>
+
+<p><a href="http://www.etsy.com/shop/SIDONIEYANG?ref=top_trail">紙樣。YANG 的etsy店面</a></p>
+
+<p><a href="http://www.pinkoi.com/product/1JbKaVk5">No.186 紙製 錢包 極簡超薄款可水洗牛皮紙短夾</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[出現private Method `write_uploader' Called For]]></title>
+    <link href="http://SammyLin.github.io/blog/write-uploader-error/"/>
+    <updated>2012-04-24T22:29:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/write-uploader-error</id>
+    <content type="html"><![CDATA[<p>用<a href="https://github.com/jnicklas/carrierwave">carrierwave</a>做我的upload plugin
+用的時候很正常，有一天突然噴出了錯誤訊息</p>
+
+<pre><code>NoMethodError in Admin::ArticlesController#update
+
+private method `write_uploader' called for #&lt;Article:0x007f8f6cd1c3d0&gt;
+</code></pre>
+
+<p>解了老半天也上網google了一下，也到Github上找<a href="https://github.com/jnicklas/carrierwave/issues/511">issue</a>，都沒辦法！</p>
+
+<p>最後才發現</p>
+
+<div><script src='https://gist.github.com/2485397.js'></script>
+<noscript><pre><code>class Article &lt; ActiveRecord::Base                                                                                                                       
+  default_scope order('post_date DESC')
+  #scope :public, where( :post_status =&gt; 'public' )
+  scope :public_article, where( :post_status =&gt; 'public' )
+  mount_uploader :article_image, ArticleImageUploader
+end</code></pre></noscript></div>
+
+
+<p> 我有一個<code>scope</code>叫做<code>public</code>，經過<a href="http://stackoverflow.com/questions/7658359/what-is-objectprivate-and-objectpublic-in-ruby">小小的了解</a>發現雖然不是不是保留字，不過是拿來當修飾詞的，雖然不是每一個method都會用到，不過拿來用可能會有問題！</p>
+
+<p> 所以只要把<code>scope :public</code>改成其他的字就行了</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[Rails]製作下拉式選單集合]]></title>
+    <link href="http://SammyLin.github.io/blog/simple-form-collection/"/>
+    <updated>2012-04-20T10:34:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/simple-form-collection</id>
+    <content type="html"><![CDATA[<p>目前的狀況是這樣子的，目前是有做<code>CMS</code>所以需要有</p>
+
+<pre><code># Public(公開)
+# Private(私人)
+# Draft(草稿)
+</code></pre>
+
+<p>這三種，不過這個集合可以用類似<a href="https://github.com/jeffp/enumerated_attribute">jeffp/enumerated_attribute</a>的gem配合或者是說用<a href="https://github.com/twinslash/enumerize">twinslash/enumerize</a>，不過我更懶，我直接把data丟到collection裡面就好了，因為其他地方是用不大到的~</p>
+
+<pre><code>#view/articles/_form.html.erb 
+&lt;%= f.input :post_status, :collection =&gt; ["public", "private", "draft"]%&gt;
+</code></pre>
+
+<p>因為我使用的是<a href="https://github.com/plataformatec/simple_form">plataformatec/simple_form</a>的關係，所以他自動幫我產生一個select的下拉式選單，應該是長這樣子</p>
+
+<p><img src="https://lh3.googleusercontent.com/-gKzIpoD9cSE/T5DP9853W2I/AAAAAAAABwo/3fcIwnDxQq0/s800/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-20%2520%25E4%25B8%258A%25E5%258D%258810.50.34.png" alt="" /></p>
+
+<p>但是如果是需要多國語系的話</p>
+
+<pre><code>#view/articles/_form.html.erb 
+&lt;%= f.input :post_status, :collection =&gt; [[t(".public"),"public"], [t(".private"), "private"], [t(".draft"), "draft"]]%&gt;
+</code></pre>
+
+<p>再來就是新增你的i18n的語系檔，我個人的習慣是另外新增一個檔案，我目前的controller叫做articles所以我建立一個i18n的中文yml檔時就會是這樣子</p>
+
+<pre><code># config/locales/articles.zh-TW.yml
+zh-TW:
+    articles:
+      form:
+        public: 公開
+        private: 私人
+        draft: 草稿
+</code></pre>
+
+<p>然後要記得重啟server
+就會成功了</p>
+
+<p><img src="https://lh4.googleusercontent.com/-zrcnqhAxZ4Q/T5DRrfHqOQI/AAAAAAAABw4/U64XX2hvhwE/s800/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-20%2520%25E4%25B8%258A%25E5%258D%258811.01.43.png" alt="" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Golden Grid System]]></title>
+    <link href="http://SammyLin.github.io/blog/golden-grid-system/"/>
+    <updated>2012-04-14T15:35:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/golden-grid-system</id>
+    <content type="html"><![CDATA[<p>960 Grid System (網格設計系統)也是我最近看<a href="http://bootstrappingdesign.com/">Become the designer</a>這本書我才知道的。
+至於這是什麼呢。</p>
+
+<p>網路上有很多參考資料，不在贅述。以下有參考網站</p>
+
+<ul>
+<li><a href="http://www.cadiis.com.tw/web-page-size-960-grid-system.html">[網頁設計] 網頁尺寸的黃金比例：960 Grid System(網格設計)</a></li>
+<li><a href="http://www.jsolutions.biz/blog/web-design/960-grid-system-demo-part-1/">使用 960 Grid System 製作網頁示範（上）</a></li>
+<li><a href="http://www.jsolutions.biz/blog/web-design/960-grid-system-demo-part-2/">使用 960 Grid System 製作網頁示範（下）</a></li>
+<li><a href="http://960.gs/">960 Grid System</a></li>
+</ul>
+
+
+<p>網路上也有資源可以在你的網站上面直接用js的方法顯示網格，再利用FireBug之類的外掛修改你的CSS。
+像是</p>
+
+<ul>
+<li><a href="http://goldengridsystem.com/">Golden Grid System</a></li>
+</ul>
+
+
+<p>我除了修改我自己的網站之外，我還會看別人的網站，所以不可能會在他的網站上加上js吧。</p>
+
+<p>為了方便，我利用<a href="http://goldengridsystem.com/">Golden Grid System</a>裡的js，直接自己做一個</p>
+
+<p>大家把下面這個連結拉到<code>我的最愛</code>就可以在右上角看到</p>
+
+<p><a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://goldengridsystem.com/assets/GGS.js');document.body.appendChild(e)%7D)());">Display 960 Grid</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mac新一代OS 新功能介紹 - Messages]]></title>
+    <link href="http://SammyLin.github.io/blog/imessage-in-os-x/"/>
+    <updated>2012-02-17T17:35:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/imessage-in-os-x</id>
+    <content type="html"><![CDATA[<p><img src="http://farm8.staticflickr.com/7199/6890618943_b0f8d582d3.jpg" alt="iMessages" /></p>
+
+<p>終於等到這一刻了&hellip;..我本人是沒有iPhone的，但是有一台MacBook頂多只能用FaceTime跟我&#8221;古錐的&#8221;對話，但是有時候還是很不方便呀。因為有很多時候是不適合用FaceTime的，難不成要在辦公室跟&#8221;古錐的&#8221;甜甜蜜蜜，難不成要閃死一堆人嗎？看來Apple聽到我們的聲音了</p>
+
+<p>下一代的作業系統<code>Mountain Lion</code>中文叫做<code>山獅</code>(看來這次改版的很快)，官方的介紹網站：<a href="http://www.apple.com/macosx/mountain-lion/">http://www.apple.com/macosx/mountain-lion/</a></p>
+
+<p>至於有什麼新的功能呢，看來很多人有寫，而且我也沒有那麼熱血，就先玩玩可以直接下載的Messages Bata</p>
+
+<!-- more -->
+
+
+<p>下載網址：<a href="http://www.apple.com/macosx/mountain-lion/messages-beta/">http://www.apple.com/macosx/mountain-lion/messages-beta/</a></p>
+
+<p>安裝完成之後，需要重新開機才能使用</p>
+
+<p><img src="http://farm8.staticflickr.com/7191/6890650383_a0abf4fa84_z.jpg" alt="" /></p>
+
+<p><code>Messages</code>還結合了 Google Talk的功能，你也可以直接用，只是聯絡人他是在另一個視窗上面(設計有點怪)</p>
+
+<p><img src="http://farm8.staticflickr.com/7176/6890658935_85e37a503e.jpg" alt="" /></p>
+
+<p>不過無論如何，我這種沒有智慧型手機的人，也可以偷偷的跟我家&#8221;古錐的&#8221;私下偷偷的恩愛了…</p>
+
+<p>但是如果下次出<code>what's app</code>跟<code>LINE</code>的OS X版那會更好的&hellip;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[從林書豪身上學到十個人生哲學]]></title>
+    <link href="http://SammyLin.github.io/blog/jeremy-lin/"/>
+    <updated>2012-02-16T13:47:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/jeremy-lin</id>
+    <content type="html"><![CDATA[<p>平常不看籃球的我，最近看到好幾篇有關<code>林書豪</code>的新聞，一開始我還不以意，想說只是一個台灣人去NBA打球如此。但是經過了好幾篇的深入報導才發現，<code>林書豪</code>不只是個台灣人去NBA打球，在他身上發現了許多故事。forbes富比士網站上，有一篇報導叫做《在周一上班前林書豪教我們的10門課》。</p>
+
+<p><img src="http://farm8.staticflickr.com/7047/6885095799_babca66bc9.jpg" alt="" /></p>
+
+<h3>1. Believe in yourself when no one else does.(一定相信自己，就算別人不相信)</h3>
+
+<p>「至於你相不信，反正我都信了」最佳代言人是大陸的鐵道發言人。如果你自已不相信自已了，你還想叫別人相信嗎？我想也很難了，給自己一個機會，相信自己才能為自己創造出一片天，創業的人不都是這樣子的嗎？</p>
+
+<h3>2. Seize the opportunity when it comes up.(機會不等人)</h3>
+
+<p>我常跟我朋友說，機會是不等人的，如果你還在思考，這樣子好不好那樣子好不好，猶豫不決的當下，機會已經跟別人跑了。你這個時候有可能就在後悔了。</p>
+
+<h3>3. Your family will always be there for you, so be there for them.(你的家人永遠會支持你，所以你一定要為他們更加努力)</h3>
+
+<p>如果你不是做什麼壞事或是危險的事，相信最支持你的應該就是你的家人了。所以你要努力的做給家人看，讓自己成為家人的驕傲，而不是負擔。</p>
+
+<!-- more -->
+
+
+<h3>4. Find the system that works for your style.(找到對你最有利的組織)</h3>
+
+<p>有的人換了幾十個工作 ，還找不到適合自己的工作，用心找，別老事想說這工作很操很累，就打算換工作。請觀察這個組織適不適合你發揮所長的地方，跟是否可以學到新的技術，找到對你最有利的組織。</p>
+
+<h3>5. Don’t overlook talent that might exist around you today on your team.(千萬別忽視每一個人未來有可能對你有幫助的人)</h3>
+
+<p>你身旁可能每一個對你是有幫助的，學習找到他的優點，跟長處，放到你的人才口袋。</p>
+
+<h3>6. People will love you for being an original, not trying to be someone else.(做好你自己，別想學著做別人)</h3>
+
+<p>有的人就是喜歡你這樣子的人，如果你想試著學習怎麼當別人，你就錯了，別人的長處是可以學習的，但你還是你，做自己好自在&hellip;</p>
+
+<h3>7. Stay humble. (保持謙虛)</h3>
+
+<p>這應該是台灣人的傳統吧…驕兵必敗，如果你太自大別說陌生人了，可能連你身旁的人都會想怎麼桶你</p>
+
+<h3>8. When you make others around you look good, they will love you forever.(讓著你身旁的人一起變強)</h3>
+
+<p>英雄雖然是孤獨的但是如果把身旁的人一起成為英雄，你就不孤獨了，千萬不要一直想要自己衝，要記得把後面的朋友拉一把。</p>
+
+<h3>9. Never forget about the importance of luck or fate in life. (不是天天都在過年的&hellip;)</h3>
+
+<p>千萬不要覺得你現在的努力是應該的，這不過只是運氣而以，天時地力人合才會剛剛好被你碰到。</p>
+
+<h3>10. Work your butt off.(全力以赴)</h3>
+
+<p>最主要的還是要自己更加的努力，每一天當做是最後一天來過…這樣子你才會珍惜每一天</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[又來開箱了，這次開個odbo無螺絲鏡框]]></title>
+    <link href="http://SammyLin.github.io/blog/glasses-odbo/"/>
+    <updated>2012-01-19T23:49:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/glasses-odbo</id>
+    <content type="html"><![CDATA[<p>自從我原來那支眼鏡，因為當兵的時候被磨的很嚴重，之後我就換戴隱型眼鏡，不過我發現我長時間看電腦的時間非常的長，所以眼睛慢慢的變的很吃力，加上我又有閃光的關係，看電腦過久之後我的眼睛沒有很乾，但是會很澀，最慘的是就視線會糊掉。</p>
+
+<p>所以太座就因為這樣子的關係，而且老早就想配眼鏡了，所以星期一我們就相約去配眼鏡了，很高興，我的度數已經有兩三年沒有再增加了(看來是年紀已經到一個程度了吧~)。
+最後選了<a href="http://www.nikon-lenswear.com.tw/single_description.php">nikon非球面鏡片</a>配<a href="http://www.wenhsiung.com.tw/index.php?option=product&amp;proType=label&amp;task=showpage&amp;cateid=165&amp;cur=1&amp;id=1334">odbo的鏡框</a></p>
+
+<p><img src="https://lh3.googleusercontent.com/-6VmPidrqFPI/TxkBkAG98xI/AAAAAAAABnc/qa4B9QFa_Sw/s640/IMG_0602.JPG" alt="" /></p>
+
+<!-- more -->
+
+
+<p>這付是半框的，100%純鈦打造的(1059A)</p>
+
+<p><img src="https://lh6.googleusercontent.com/-Ic2CkOtnA-o/TxkBoDdUacI/AAAAAAAABns/tRvv_Rj_faA/s640/IMG_0604.JPG" alt="" /></p>
+
+<p>另外特別的是，他是無螺絲，鏡框跟鏡腳的連結處是用勾的，所以說如果不小心被撞掉的話，還是可以直接無工具裝上去，還記得我小時候，常常因為眼鏡的螺絲鬆掉，還掛了一個小螺絲起子在我的鑰匙圈上</p>
+
+<p><img src="https://lh6.googleusercontent.com/-Xl113tgPBoc/TxkBpmGCI-I/AAAAAAAABn4/IIuZzowl3Wg/s640/IMG_0606.JPG" alt="" /></p>
+
+<p>鼻墊也跟我過去所戴的眼鏡有所不同，是用軟塑膠墊，之前用的是硬的塑膠，如果戴久了以後，會發現鼻梁會有鼻墊的的壓痕很明顯，不過我目前也還是會有但沒那麼嚴重，因為我的鏡片還是太厚了XD(度數太深咩)</p>
+
+<p><img src="https://lh5.googleusercontent.com/-GP2d9ue_WME/TxkBuNzTNFI/AAAAAAAABoM/VRO74fjz5xk/s640/IMG_0608.JPG" alt="" /></p>
+
+<p>因為用的是Nikon非球面鏡片，號稱是戴了以後比較清楚，又不眩光之類的，我今天第一次戴一整天，我是覺得今天眼睛比較舒服許多啦，問我不準，因為我之前都是戴隱型眼鏡在長時間看電腦的。</p>
+
+<p><img src="https://lh5.googleusercontent.com/-ytX-oUmZ0n4/TxkByNAv5LI/AAAAAAAABok/mNWMomYLuRw/s640/IMG_0611.JPG" alt="" /></p>
+
+<p>另外一付也是odbo的不同款式，是太座自己的，也是100%純鈦的，不過是全框的。</p>
+
+<p><img src="https://lh6.googleusercontent.com/-Rf_-S659vYc/TxkBz5XNuyI/AAAAAAAABow/4hLex9k9F8w/s640/IMG_0613.JPG" alt="" /></p>
+
+<p><img src="https://lh6.googleusercontent.com/-BjPyFgQ7LrA/TxkB2huSkWI/AAAAAAAABo8/aTOtd8CVdpY/s640/IMG_0614.JPG" alt="" /></p>
+
+<p><img src="https://lh4.googleusercontent.com/-f-5oucgXCJw/TxkB4sm4V5I/AAAAAAAABpI/uTVwTFFhXYU/s640/IMG_0616.JPG" alt="" /></p>
+
+<p><img src="https://lh3.googleusercontent.com/-iE0d62My_Hg/TxkB8SAoeBI/AAAAAAAABpc/aHCnmbdFhRA/s640/IMG_0618.JPG" alt="" /></p>
+
+<p>兩付站在一起拍一張..</p>
+
+<p><img src="https://lh3.googleusercontent.com/-MtcquX0IiFw/TxkB9VcEHUI/AAAAAAAABpk/cZsyOE0s5HE/s640/IMG_0619.JPG" alt="" /></p>
+
+<p>希望這付眼鏡可以陪伴我長久，不過我覺得這付眼鏡戴起來是還蠻斯文的啦，(自己說XD)，有一個大缺點就是因為我個人是戴全罩的安全帽，眼鏡又太軟了，所以今天早上出門的時候為了戴安全帽跟眼鏡花了一點時間。</p>
+]]></content>
+  </entry>
+  
+</feed>

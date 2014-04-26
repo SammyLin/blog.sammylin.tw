@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Apple | Sammy Lin]]></title>
+  <link href="http://SammyLin.github.io/blog/blog/categories/apple/atom.xml" rel="self"/>
+  <link href="http://SammyLin.github.io/blog/"/>
+  <updated>2014-04-26T13:25:55+08:00</updated>
+  <id>http://SammyLin.github.io/blog/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Mac新一代OS 新功能介紹 - Messages]]></title>
+    <link href="http://SammyLin.github.io/blog/imessage-in-os-x/"/>
+    <updated>2012-02-17T17:35:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/imessage-in-os-x</id>
+    <content type="html"><![CDATA[<p><img src="http://farm8.staticflickr.com/7199/6890618943_b0f8d582d3.jpg" alt="iMessages" /></p>
+
+<p>終於等到這一刻了&hellip;..我本人是沒有iPhone的，但是有一台MacBook頂多只能用FaceTime跟我"古錐的"對話，但是有時候還是很不方便呀。因為有很多時候是不適合用FaceTime的，難不成要在辦公室跟"古錐的"甜甜蜜蜜，難不成要閃死一堆人嗎？看來Apple聽到我們的聲音了</p>
+
+<p>下一代的作業系統<code>Mountain Lion</code>中文叫做<code>山獅</code>(看來這次改版的很快)，官方的介紹網站：<a href="http://www.apple.com/macosx/mountain-lion/">http://www.apple.com/macosx/mountain-lion/</a></p>
+
+<p>至於有什麼新的功能呢，看來很多人有寫，而且我也沒有那麼熱血，就先玩玩可以直接下載的Messages Bata</p>
+
+<!-- more -->
+
+
+<p>下載網址：<a href="http://www.apple.com/macosx/mountain-lion/messages-beta/">http://www.apple.com/macosx/mountain-lion/messages-beta/</a></p>
+
+<p>安裝完成之後，需要重新開機才能使用</p>
+
+<p><img src="http://farm8.staticflickr.com/7191/6890650383_a0abf4fa84_z.jpg" alt="" /></p>
+
+<p><code>Messages</code>還結合了 Google Talk的功能，你也可以直接用，只是聯絡人他是在另一個視窗上面(設計有點怪)</p>
+
+<p><img src="http://farm8.staticflickr.com/7176/6890658935_85e37a503e.jpg" alt="" /></p>
+
+<p>不過無論如何，我這種沒有智慧型手機的人，也可以偷偷的跟我家"古錐的"私下偷偷的恩愛了…</p>
+
+<p>但是如果下次出<code>what's app</code>跟<code>LINE</code>的OS X版那會更好的&hellip;</p>
+]]></content>
+  </entry>
+  
+</feed>

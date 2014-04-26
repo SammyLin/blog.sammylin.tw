@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Annotate | Sammy Lin]]></title>
+  <link href="http://SammyLin.github.io/blog/blog/categories/annotate/atom.xml" rel="self"/>
+  <link href="http://SammyLin.github.io/blog/"/>
+  <updated>2014-04-26T13:25:55+08:00</updated>
+  <id>http://SammyLin.github.io/blog/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[Ruby]在model生成Schema Information-annotate]]></title>
+    <link href="http://SammyLin.github.io/blog/annotate-ruby/"/>
+    <updated>2012-01-18T11:17:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/annotate-ruby</id>
+    <content type="html"><![CDATA[<p><code>annotate</code>也是一個好用的工具，像我過去要看我table的schema時，還要開mysql GUI tools 來看，不然的話我都忘記我的schema是什麼(初老症越來越嚴重了)，只要安裝<code>annotate</code>的話他會幫你自動產生Schema information 在你的model裡面，就不用一直去看你的table裡的資料，這樣子的話coding的速度就會加快許多。</p>
+
+<!-- more -->
+
+
+<h3>安裝annotate</h3>
+
+<p>在你的Gemfile裡面加上</p>
+
+<pre><code>gem 'annotate', :git =&gt; 'git://github.com/ctran/annotate_models.git'
+</code></pre>
+
+<p>bundle install</p>
+
+<pre><code>$ bundle install
+</code></pre>
+
+<h3>產生schema information</h3>
+
+<pre><code>$ bundle exec annotate
+</code></pre>
+
+<p>這樣他就會乖乖的產生出來在你的model最下面</p>
+
+<pre><code># == Schema Information
+#
+# Table name: articles
+#
+#  id                         :integer(4)      not null, primary key
+#  Title                      :string(255)
+#  Content                    :text
+</code></pre>
+
+<h3>產生routes</h3>
+
+<p>上次有講怎麼在<a href="http://blog.igotcloud.com/rails-rake-routes/">產生Rails專案裡所有的routes</a>利用<code>annotate</code>的話也可以產生routes的對應資料放到你的routes.rb裡面</p>
+
+<pre><code>$ bundle exec annotate -r
+</code></pre>
+
+<h4>參考網站</h4>
+
+<blockquote><p><a href="https://github.com/ctran/annotate_models">ctran / annotate_models</a> by Github</p></blockquote>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: WordPress | Sammy Lin]]></title>
+  <link href="http://SammyLin.github.io/blog/blog/categories/wordpress/atom.xml" rel="self"/>
+  <link href="http://SammyLin.github.io/blog/"/>
+  <updated>2014-04-26T13:25:55+08:00</updated>
+  <id>http://SammyLin.github.io/blog/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[WordPress]支援CDN及S3的外掛-W3 Total Cache]]></title>
+    <link href="http://SammyLin.github.io/blog/wordpress-cdn-and-s3-support-plug-w3-total-cache/"/>
+    <updated>2011-09-21T00:00:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/wordpress-cdn-and-s3-support-plug-w3-total-cache</id>
+    <content type="html"><![CDATA[<p><p>最近發現一個好外掛，其實我的部落格是用EC2建置的，但是哪天如果EC2掛點的話，我怎麼跟各位相親父老交待，我本人也不是系統出身的，因此我的系統也是一邊學一邊做，看有沒有辦法把EC2的備援做到最好的狀況，希望未來像<a title="http://www.tts.bz/" href="http://www.tts.bz/">Ken Lee</a>一樣。</p>  <table border="0" cellspacing="0" cellpadding="2" width="540"><tbody>     <tr>       <td valign="top" width="540">         <p><strong>名稱：W3 Total Cache</strong></p>          <p>網址：<a title="http://wordpress.org/extend/plugins/w3-total-cache" href="http://wordpress.org/extend/plugins/w3-total-cache">http://wordpress.org/extend/plugins/w3-total-cache</a></p>       </td>     </tr>   </tbody></table>  <p>其實W3 Total Cache因為有支援Amazon S3 跟Amazon CloudFront的關係，令我想要去玩一下他，目前我的網站，所有靜態檔案(圖片、css)都是放在s3上面的，如果仔細看的話我的圖片是放在<a href="http://blog1.cornerlife.tw">Http://blog1.cornerlife.tw</a> 其實這個網址是CNAME到 <a href="http://blog1.cornerlife.tw.s3-ap-northeast-1.amazonaws.com">Http://blog1.cornerlife.tw.s3-ap-northeast-1.amazonaws.com</a>的。</p>  <p>如果你要使用S3又要用自己的Domain name的話，那你的Bucket記得要用你的domain name建立Bucket 否則他是無法讀取你的檔案。</p></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[WordPress]Google +1 for WordPress]]></title>
+    <link href="http://SammyLin.github.io/blog/wordpressgoogle-1-for-wordpress/"/>
+    <updated>2011-06-03T00:00:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/wordpressgoogle-1-for-wordpress</id>
+    <content type="html"><![CDATA[<p><p>才在剛在用Google+1直接用WordPress模版加上Google +1的程式碼的過後沒多久想說來搜尋看看有沒有這個東西，果然是有的才在昨天2011/6/2發布第一版，功能是有的，不過有點簡陋跟<a href="http://wordpress.org/extend/plugins/facebook-comments-for-wordpress/" target="_blank">Facebook Comments for WordPress</a>比起來真的是遜色很多，但我們先來介紹一下，畢竟有潛力的一支程式！</p>  <table border="1" cellspacing="0" cellpadding="0" width="540"><tbody>     <tr>       <td valign="top" width="540">         <h4>The Google +1 plugin</h4>          <ul>           <li>下載位址：<a href="http://wordpress.org/extend/plugins/google/changelog/">http://wordpress.org/extend/plugins/google/changelog/</a> </li>         </ul>       </td>     </tr>   </tbody></table>  <p>以下是他的設定：</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image12.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb11.png" width="527" height="544" /></a>     <br /></p>  <ul>   <li>Appearance(設定大小) </li>    <li>Show +1s count(顯示+1數量) </li>    <li>Google +1 box position(放置位置) </li>    <li>Do NOT Google +1 box for thses post types(不顯示+1的文章類式) </li>    <li>Language(語言) </li>    <li>Show +1 on Front Page(顯示在首頁) </li> </ul>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image13.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb12.png" width="544" height="149" /></a> </p>  <p>這放置的位置是在文章後面，不過蠻奇怪的位置，怎麼會是在標籤的前面，跟Facebook有點不同，希望他未來可以更完整啦！~~</p></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[WordPress]Google Analytics分析]]></title>
+    <link href="http://SammyLin.github.io/blog/wordpress-google-analytics-plusins/"/>
+    <updated>2011-05-25T00:00:00+08:00</updated>
+    <id>http://SammyLin.github.io/blog/wordpress-google-analytics-plusins</id>
+    <content type="html"><![CDATA[<p>通常一個專業的網站管理員，或者是專業的行銷人員，都需要一些數據來分析，過去的網站流量以及進出單一頁面或是整個網站的次數統計是一個費時又耗工的動作有了Google Analytics，好像所有的事情都變的很簡單了，利爭了javascript將資料回傳至google的server做統計，我們只要申請&gt;登入&gt;設定，接下來就等老闆伸手要報告的時候就可以馬上給他一份又美數據又完整的報告了！</p>
+
+
+
+
+<p>在一般的網址，需要把下面這個的程式碼貼到每一個網頁裡就可能讓Google乖乖的做出漂亮的報告！</p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image.png"><img style="padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb.png" border="0" alt="image" width="717" height="407" /></a></p>
+
+
+
+
+<p><!--more--></p>
+
+
+
+
+<p>那麼WordPress呢？不可能把每一個php檔都抓出來放上程式碼吧？有了<a href="http://wordpress.org/extend/plugins/google-analytics-for-wordpress/" target="_blank">Google Analytics for WordPress Plusins</a>就可以簡單幾個動作可能可完成。</p>
+
+
+
+
+<p>把外掛先安裝好之後，到設定的地方</p>
+
+
+
+
+<p>按下「<span style="color: #ff0000;">Click here to authenticate with Google</span>」驗証Google帳號</p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image1.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb1.png" border="0" alt="image" width="534" height="427" /></a></p>
+
+
+
+
+<p>驗証成功後，GOOGLE就馬上把資料回傳過來WordPress了，你只要點個兩下就能夠完成設定了</p>
+
+
+
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image2.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb2.png" border="0" alt="image" width="537" height="484" /></a></p>
+
+
+
+
+<p>接下來就等Google完成資料蒐集了。</p>
+
+
+
+
+<p>以前的版本還需要把UA的編號貼上現在還省了這個動作，真是方便多了！</p>
+
+]]></content>
+  </entry>
+  
+</feed>
