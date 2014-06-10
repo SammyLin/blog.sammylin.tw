@@ -9,7 +9,7 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="做個筆記吧..前幾次都是開箱文..哈哈，感覺有點偷懶 以前在ASP.NET的時候要把資料倒進Excel或是CSV，是不怎麼痛的，畢竟都是同一家人嘛。但是我今天要在Ruby中倒資料進去CSV的時候，就會有編碼上的問題。 我們在Ruby中如果要有中文的話，其實我們都會在.rb最上面加一行 # &hellip;">
+  <meta name="description" content="前些日子把 OSx更新到10.8.1版，平常我用一陣子電腦，記憶體會佔的滿滿的，我就會執行purge來清除一下記憶體。但是噴出了錯誤： [ERROR]&lt;CPPathUtils.c:526&gt;The device-file for this operating system, 'osx- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,58 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/purge-bug/">[OS X]purge-bug</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-29T09:47:00+08:00" pubdate data-updated="true">Aug 29<span>th</span>, 2012</time>
+        
+           | <a href="/purge-bug/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/purge-bug/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>前些日子把 OSx更新到10.8.1版，平常我用一陣子電腦，記憶體會佔的滿滿的，我就會執行<code>purge</code>來清除一下記憶體。但是噴出了錯誤：</p>
+
+<pre><code>[ERROR]&lt;CPPathUtils.c:526&gt;The device-file for this operating system, 'osx-12.1.0.xml', was not found. An attempt to revert to a previous revision of the OS device-file: 'osx-12.0.0.xml' has been made. Please file a Radar report with Apple, on the 'CoreProfile' component, version 'X'.
+</code></pre>
+
+<p>上網google了以後，發現原來是他10.8.1的Bug</p>
+
+<ul>
+<li><a href="http://osxdaily.com/2012/08/23/os-x-mountain-lion-10-8-1-update-released/">OS X Mountain Lion 10.8.1 Update Released</a></li>
+<li><a href="https://discussions.apple.com/thread/4239648?start=0&amp;tstart=0">Anyone know why I got this Terminal Error? [ERROR]     &lt;CPPathUtils.c:526>     The device-file for this operating system, &lsquo;osx-12.1.0.xml&rsquo;, was not found.</a></li>
+</ul>
+
+
+<p>看來只能等更新囉，不過還是可以正常的使用啦，不用擔心</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -679,55 +731,6 @@ zh-TW:
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/glasses-odbo/">又來開箱了，這次開個odbo無螺絲鏡框</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-19T23:49:00+08:00" pubdate data-updated="true">Jan 19<span>th</span>, 2012</time>
-        
-           | <a href="/glasses-odbo/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/glasses-odbo/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>自從我原來那支眼鏡，因為當兵的時候被磨的很嚴重，之後我就換戴隱型眼鏡，不過我發現我長時間看電腦的時間非常的長，所以眼睛慢慢的變的很吃力，加上我又有閃光的關係，看電腦過久之後我的眼睛沒有很乾，但是會很澀，最慘的是就視線會糊掉。</p>
-
-<p>所以太座就因為這樣子的關係，而且老早就想配眼鏡了，所以星期一我們就相約去配眼鏡了，很高興，我的度數已經有兩三年沒有再增加了(看來是年紀已經到一個程度了吧~)。
-最後選了<a href="http://www.nikon-lenswear.com.tw/single_description.php">nikon非球面鏡片</a>配<a href="http://www.wenhsiung.com.tw/index.php?option=product&amp;proType=label&amp;task=showpage&amp;cateid=165&amp;cur=1&amp;id=1334">odbo的鏡框</a></p>
-
-<p><img src="https://lh3.googleusercontent.com/-6VmPidrqFPI/TxkBkAG98xI/AAAAAAAABnc/qa4B9QFa_Sw/s640/IMG_0602.JPG" alt="" /></p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/glasses-odbo/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -756,6 +759,10 @@ zh-TW:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/nhi/">利用自然人憑證申請健保卡不用出門就到手</a>
+      </li>
+    
+      <li class="post">
         <a href="/vimrc/">My Vimrc</a>
       </li>
     
@@ -769,10 +776,6 @@ zh-TW:
     
       <li class="post">
         <a href="/search-facebook-friend/">[FaceBook API]搜尋好友</a>
-      </li>
-    
-      <li class="post">
-        <a href="/http-basic-authenticate/">[Rails] 進入網站前驗證</a>
       </li>
     
   </ul>

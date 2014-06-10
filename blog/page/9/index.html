@@ -9,7 +9,7 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="可能有人不知道什麼是EC2,S3…等等等的，什麼都不知道也不會用，但是你想要用，那你一定要看這一篇，讓你幾個動作就可以完成所有的作業程序，包含建立EC2,S3,Elastic Load Balancer…等等的。看到下圖：我們只要把Template指令丟到CloudFormation裡面， &hellip;">
+  <meta name="description" content="在美國時間2011/6/20，Amazon發佈了EC2對於redhat的支援，對一些愛用redhat可能是個好消息，不過說實在我是沒有用過(這不是自曝其短嗎~&gt;&lt;)，沒有關係，反正只是分享一些消息而以啦！在同一時間也看到一個好消息，而筆者昨天也在測試，還蠻好玩的就是「 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,45 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/awsec2-e6-96-b0-e5-8a-9f-e8-83-bdec2-e6-94-af-e6-8f-b4redhat/">[AWS][EC2]新功能EC2支援redhat</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-22T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/awsec2-e6-96-b0-e5-8a-9f-e8-83-bdec2-e6-94-af-e6-8f-b4redhat/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/awsec2-e6-96-b0-e5-8a-9f-e8-83-bdec2-e6-94-af-e6-8f-b4redhat/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><p> <a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/1.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: left; border-top: 0px; border-right: 0px; padding-top: 0px" title="未命名-1" border="0" alt="未命名-1" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/1_thumb.png" width="183" height="128" /></a></p>  <p> 在美國時間2011/6/20，Amazon發佈了EC2對於redhat的支援，對一些愛用redhat可能是個好消息，不過說實在我是沒有用過(這不是自曝其短嗎~&gt;&lt;)，沒有關係，反正只是分享一些消息而以啦！在同一時間也看到一個好消息，而筆者昨天也在測試，還蠻好玩的就是「CloudFormation」的功能，晚一點也來做個介紹，那我們先看一下圖片吧！~~~   <br /></p>  <p>在快速啟動裡多了兩個redhat，在這裡是提供Red Hat Enterprise Linux 6.1的。   <br /></p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image54.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb52.png" width="544" height="358" /></a></p>  <p>或者是說可以到三方提供的AMI，裡是就有5.5, 5.6,&#160; 6.0, 6.1版的。</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image55.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb53.png" width="544" height="357" /></a></p>  <table border="2" cellspacing="0" cellpadding="0" width="540"><tbody>     <tr>       <td valign="top" width="540"><font color="#ff0000" size="2">Note: 不過目前只提供按時計價(On-Demand Instances)及Spot Requests，尚未提供預付主機(Reserved Instances)。</font></td>     </tr>   </tbody></table>  <h3>RedHat的價錢：   <br /><font size="2"><font style="font-weight: normal">(參考網站：</font></font><a href="http://aws.amazon.com/rhel/"><font size="2"><font style="font-weight: normal">http://aws.amazon.com/rhel/</font></font></a><font size="2"><font style="font-weight: normal">)</font></font></h3>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image56.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb54.png" width="544" height="350" /></a></p></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -512,45 +551,6 @@ AWS SDK for .NET Documentation ：<a href="http://aws.amazon.com/documentation/s
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/aws-iam/">[AWS][IAM]AWS Identity and Access Management (身份識別與存取管理)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-06-04T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/aws-iam/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/aws-iam/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><p> AWS是個強大的雲端系統，單純一個管理者是不夠的，可能需要有人開發，有人監控，有人分析，也有人付錢XD，對於只有一個帳號是很危險且不安全，因此Amazon也有一個功能就是「AWS Identity and Access Management(身份識別與存取管理)」</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image21.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb20.png" width="521" height="362" /></a></p>  <p>(圖片來自：<a href="http://docs.amazonwebservices.com/IAM/latest/UserGuide/index.html?AccessPolicyLanguage.html">http://docs.amazonwebservices.com/IAM/latest/UserGuide/index.html?AccessPolicyLanguage.html</a>)</p>  <p>IAM的功能：</p>  <ol>   <li><font color="#ff0000">建立使用者：</font>新增一個使用者可以進入你所使用的帳戶之中，而且可以使用AWS的系統程式。</li>    <li><font color="#ff0000">分配和管理安裝認證：</font>每一個使用者都可以使用所擁有的Access Keys和 Security Credentials。</li>    <li><font color="#ff0000">群組化：</font>可以容易的建立群組及加入群組的權限。</li>    <li><font color="#ff0000">集中管理使用者權限：</font>限制使用者執行操作AWS的功能，例如(API及資源)。</li>    <li><font color="#ff0000">使用者登入限制：</font>可以限制使用者登入的時間、IP，或是可否使用SSL。</li>    <li><font color="#ff0000">單一帳單：</font>所有使用者開的機器或使用的量費用計在同一個帳單上。</li> </ol>  <p>IAM也不收任何的費用，你可以在AWS中開許多的帳號給別人時間，但要記得他們所建立機器算的費用還是你的喔。</p>  <p>不過IAM好處真的很多，不僅可以限制使用者的操作，也可以在S3中利用權限來分享檔案，也可以使用<a href="http://console.aws.amazon.com/">AWS Management Console</a>來管理帳號。</p>  <p>但美中不足的地方，好像沒有記錄使用者的操作。</p>  <table border="1" cellspacing="0" cellpadding="0" width="540"><tbody>     <tr>       <td valign="top" width="540">參考文件：         <p><a title="Identity and Access Management in the AWS Management Console" href="http://aws.typepad.com/aws/2011/05/identity-and-access-management-console-support.html" target="_blank" /><a href="http://aws.amazon.com/iam/">http://aws.amazon.com/iam/</a></p>       </td>     </tr>   </tbody></table></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/10/">&larr; Older</a>
@@ -579,6 +579,10 @@ AWS SDK for .NET Documentation ：<a href="http://aws.amazon.com/documentation/s
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/nhi/">利用自然人憑證申請健保卡不用出門就到手</a>
+      </li>
+    
+      <li class="post">
         <a href="/vimrc/">My Vimrc</a>
       </li>
     
@@ -592,10 +596,6 @@ AWS SDK for .NET Documentation ：<a href="http://aws.amazon.com/documentation/s
     
       <li class="post">
         <a href="/search-facebook-friend/">[FaceBook API]搜尋好友</a>
-      </li>
-    
-      <li class="post">
-        <a href="/http-basic-authenticate/">[Rails] 進入網站前驗證</a>
       </li>
     
   </ul>

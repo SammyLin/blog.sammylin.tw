@@ -9,7 +9,9 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="今天用Jquery抓Textbox的值時，發現有個問題 抓出來變成亂碼這樣： 這才發生原來我的jquey出了問題 $(&quot;#AddTagJsonBtn&quot;).click(function () { alert($('#TagText').val); }); &#160; &hellip;">
+  <meta name="description" content="最近在學Ruby on Rails安裝環境吃了一點苦頭，作一點記錄~~~
+First Launch a instance
+choose ths ami ami:Basic 32-bit Amazon Linux AMI 2011.09 (AMI Id: ami-dcfa4edd) sudo yum &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +79,163 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/rails-install-ruby-on-rails-on-aws-ec2/">[Rails]Install Ruby on Rails on AWS EC2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-28T23:34:00+08:00" pubdate data-updated="true">Sep 28<span>th</span>, 2011</time>
+        
+           | <a href="/rails-install-ruby-on-rails-on-aws-ec2/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/rails-install-ruby-on-rails-on-aws-ec2/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近在學Ruby on Rails安裝環境吃了一點苦頭，作一點記錄~~~
+First Launch a instance
+choose ths ami</p>
+
+<h3>ami:Basic 32-bit Amazon Linux AMI 2011.09 (AMI Id: ami-dcfa4edd)</h3>
+
+<p><code>sudo yum update</code></p>
+
+<p><code>sudo yum upgrade</code></p>
+
+<p><code>sudo yum install git</code></p>
+
+<p><code>sudo yum install mysql mysql-server</code></p>
+
+<p><code>$ sudo yum install build-essential zlib1g-dev libssl-dev libreadline5-dev</code></p>
+
+<p><code>$ sudo yum install gcc gcc-c++ make patch openssl-devel readline-devel</code></p>
+
+<p><code>$ sudo yum install ruby-devel ruby-irb ruby-rdoc ruby-ri</code></p>
+
+<h3>install RVM</h3>
+
+<p><code>$ bash &lt; &lt;(curl -s https://rvm.beginrescueend.com/install/rvm)</code></p>
+
+<p><code>$ echo "[[ -s $HOME/.rvm/scripts/rvm ]] &amp;&amp; source $HOME/.rvm/scripts/rvm" &gt;&gt; ~/.bash_profile</code></p>
+
+<p><code>$ source ~/.bash_profile</code></p>
+
+<h3>install REE</h3>
+
+<p><code>$ rvm install --force ree</code></p>
+
+<h3>install sqlite3 and mysql</h3>
+
+<p><code>$ sudo yum install sqlite-devel ruby-mysql mysql-devel</code></p>
+
+<h3>install RubyGem</h3>
+
+<p><code>$ wget http://rubyforge.org/frs/download.php/75309/rubygems-1.8.10.tgz</code></p>
+
+<p><code>$ tar -xvzf  rubygems-1.8.10.tgz</code></p>
+
+<p><code>$ cd rubygems-8-10</code></p>
+
+<p><code>$ ruby setup.rb</code></p>
+
+<h3>install Rails</h3>
+
+<p><code>$ gem install rails -v=3.0.7</code></p>
+
+<p><code>$ gem install mysql</code></p>
+
+<h3>install Passenger</h3>
+
+<p><code>$ gem install passenger</code></p>
+
+<h3>install CUR with SSL</h3>
+
+<p><code>$ sudo yum install curl-devel</code></p>
+
+<p><code>$ sudo yum install httpd-devel</code></p>
+
+<h3>install Passenger on Apache</h3>
+
+<p><code>$ sudo passenger-install-apache2-module</code></p>
+
+<h3>vim httpd.conf</h3>
+
+<p><code>$ sudo vim /etc/httpd/conf/httpd.conf</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>LoadModule passenger_module /home/ec2-user/.rvm/gems/ree-1.8.7-2011.03/gems/passenger-3.0.9/ext/apache2/mod_passenger.so
+</span><span class='line'>PassengerRoot /home/ec2-user/.rvm/gems/ree-1.8.7-2011.03/gems/passenger-3.0.9
+</span><span class='line'>PassengerRuby /home/ec2-user/.rvm/wrappers/ree-1.8.7-2011.03/ruby
+</span><span class='line'>
+</span><span class='line'>&lt;VirtualHost *:80>
+</span><span class='line'>      ServerName forum.local 
+</span><span class='line'>
+</span><span class='line'>    DocumentRoot /home/ec2-user/projects/forum/public 
+</span><span class='line'>
+</span><span class='line'>    &lt;Directory /home/ec2-user/projects/forum/public> 
+</span><span class='line'>
+</span><span class='line'>       AllowOverride all 
+</span><span class='line'>
+</span><span class='line'>       Options -MultiViews 
+</span><span class='line'>
+</span><span class='line'>    &lt;/Directory>
+</span><span class='line'>&lt;/VirtualHost></span></code></pre></td></tr></table></div></figure>
+
+
+<h3>建立Projects</h3>
+
+<p><code>$ mkdir -p ~/projects/</code></p>
+
+<p><code>$ cd ~/projects/</code></p>
+
+<p><code>$ rails new forum</code></p>
+
+<p><code>$ sudo chmod 705 /home/ec2-user/projects/</code></p>
+
+<p>Reference:</p>
+
+<p>火速學會Ruby on Rails :<a href="http://rails-101.logdown.com/">http://rails-101.logdown.com/</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -506,52 +665,6 @@ next
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/travel-chinas-jiangxi-province-day3/">[旅遊]中國江西省(Day3)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-09-01T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/travel-chinas-jiangxi-province-day3/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/travel-chinas-jiangxi-province-day3/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>江西的人比較常喝的酒是「堆花酒、四特酒、啤酒」，堆花酒是也是江西的特產，是用桂花提煉而成的，酒精濃度35%左右；四特酒還是江西特產，不過他是用整粒大米製作而成的，酒精濃度50%左右；啤酒就懶的介紹了，但是這三種千千千萬不要混著喝阿，我本來想說堆花跟四特都是白酒沒有關係，我一開始喝了半瓶的堆花，接下來喝四特的時候，才不到四杯，我就去陪馬桶睡覺了(飲酒過量，有害健康)</p>
-
-<p>今天一早，行程是到井岡山水口，離我們住的飯店要130多公里坐車要兩個小時多，來到井景山風景區的大交叉口我們會遇到女警站崗，但是距離太遠了，沒辦法識別&gt;_&lt;<a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image_thumb.png" alt="image" width="544" height="390" border="0" /></a></p>
-
-<p></div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/travel-chinas-jiangxi-province-day3/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -580,6 +693,10 @@ next
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/nhi/">利用自然人憑證申請健保卡不用出門就到手</a>
+      </li>
+    
+      <li class="post">
         <a href="/vimrc/">My Vimrc</a>
       </li>
     
@@ -593,10 +710,6 @@ next
     
       <li class="post">
         <a href="/search-facebook-friend/">[FaceBook API]搜尋好友</a>
-      </li>
-    
-      <li class="post">
-        <a href="/http-basic-authenticate/">[Rails] 進入網站前驗證</a>
       </li>
     
   </ul>

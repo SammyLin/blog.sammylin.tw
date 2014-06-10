@@ -9,7 +9,7 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="才在剛在用Google+1直接用WordPress模版加上Google +1的程式碼的過後沒多久想說來搜尋看看有沒有這個東西，果然是有的才在昨天2011/6/2發布第一版，功能是有的，不過有點簡陋跟Facebook Comments for WordPress比起來真的是遜色很多， &hellip;">
+  <meta name="description" content="AWS是個強大的雲端系統，單純一個管理者是不夠的，可能需要有人開發，有人監控，有人分析，也有人付錢XD，對於只有一個帳號是很危險且不安全，因此Amazon也有一個功能就是「AWS Identity and Access Management(身份識別與存取管理)」 (圖片來自：http:// &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,45 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/aws-iam/">[AWS][IAM]AWS Identity and Access Management (身份識別與存取管理)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-04T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/aws-iam/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/aws-iam/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><p> AWS是個強大的雲端系統，單純一個管理者是不夠的，可能需要有人開發，有人監控，有人分析，也有人付錢XD，對於只有一個帳號是很危險且不安全，因此Amazon也有一個功能就是「AWS Identity and Access Management(身份識別與存取管理)」</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image21.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb20.png" width="521" height="362" /></a></p>  <p>(圖片來自：<a href="http://docs.amazonwebservices.com/IAM/latest/UserGuide/index.html?AccessPolicyLanguage.html">http://docs.amazonwebservices.com/IAM/latest/UserGuide/index.html?AccessPolicyLanguage.html</a>)</p>  <p>IAM的功能：</p>  <ol>   <li><font color="#ff0000">建立使用者：</font>新增一個使用者可以進入你所使用的帳戶之中，而且可以使用AWS的系統程式。</li>    <li><font color="#ff0000">分配和管理安裝認證：</font>每一個使用者都可以使用所擁有的Access Keys和 Security Credentials。</li>    <li><font color="#ff0000">群組化：</font>可以容易的建立群組及加入群組的權限。</li>    <li><font color="#ff0000">集中管理使用者權限：</font>限制使用者執行操作AWS的功能，例如(API及資源)。</li>    <li><font color="#ff0000">使用者登入限制：</font>可以限制使用者登入的時間、IP，或是可否使用SSL。</li>    <li><font color="#ff0000">單一帳單：</font>所有使用者開的機器或使用的量費用計在同一個帳單上。</li> </ol>  <p>IAM也不收任何的費用，你可以在AWS中開許多的帳號給別人時間，但要記得他們所建立機器算的費用還是你的喔。</p>  <p>不過IAM好處真的很多，不僅可以限制使用者的操作，也可以在S3中利用權限來分享檔案，也可以使用<a href="http://console.aws.amazon.com/">AWS Management Console</a>來管理帳號。</p>  <p>但美中不足的地方，好像沒有記錄使用者的操作。</p>  <table border="1" cellspacing="0" cellpadding="0" width="540"><tbody>     <tr>       <td valign="top" width="540">參考文件：         <p><a title="Identity and Access Management in the AWS Management Console" href="http://aws.typepad.com/aws/2011/05/identity-and-access-management-console-support.html" target="_blank" /><a href="http://aws.amazon.com/iam/">http://aws.amazon.com/iam/</a></p>       </td>     </tr>   </tbody></table></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -527,56 +566,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/asp-net-dynamic-data/">[ASP.NET]一行程式碼建立ASP.NET資料表-Dynamic Data</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-09-24T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/asp-net-dynamic-data/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/asp-net-dynamic-data/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>剛剛參加完Tech Day 2009回來聽到了最新的技術，不過很可惜，沒有想像多那麼多新的技術。</p>
-
-<p>那麼話說回來有聽到<a href="http://studyhost.blogspot.com/">董大偉老師</a>有講到ASP.NET會有強大的改變，其中有一個技術就是「Dynamic Data的技術」</p>
-
-<p>首先..現有Web Control有缺少了什麼？所以導致GridView、FormView、DetailsView與資料庫之間嚴重的相依性。</p>
-
-<p>當資料表欄位異動時，須重新整理.aspx前端UI(每當多一個欄位就要去修改，當十個網頁有連結同一個Table就要修改十頁)過去雖然有Template機制，卻強烈的與資料庫相依。</p>
-
-<p></div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/asp-net-dynamic-data/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/11/">&larr; Older</a>
@@ -605,6 +594,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/nhi/">利用自然人憑證申請健保卡不用出門就到手</a>
+      </li>
+    
+      <li class="post">
         <a href="/vimrc/">My Vimrc</a>
       </li>
     
@@ -618,10 +611,6 @@
     
       <li class="post">
         <a href="/search-facebook-friend/">[FaceBook API]搜尋好友</a>
-      </li>
-    
-      <li class="post">
-        <a href="/http-basic-authenticate/">[Rails] 進入網站前驗證</a>
       </li>
     
   </ul>
