@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 生活 | Sammy Lin]]></title>
   <link href="http://blog.sammylin.tw/blog/categories/sheng-huo/atom.xml" rel="self"/>
   <link href="http://blog.sammylin.tw/"/>
-  <updated>2014-06-10T22:17:55+08:00</updated>
+  <updated>2014-06-11T12:02:04+08:00</updated>
   <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
@@ -33,14 +33,16 @@
 
 <p>我目前看到的只要有用自然人憑証的網站，<code>MAC</code>是不能用的，所以還是準備一台 <code>Windows</code> 吧</p>
 
-<p><strong> Step1. 進入<a href="https://eservice.nhi.gov.tw/Personal1/System/Login.aspx">健保局申請網站</a></strong></p>
+<h2>Step1. 進入<a href="https://eservice.nhi.gov.tw/Personal1/System/Login.aspx">健保局申請網站</a></h2>
+
+<p><img src="http://farm3.staticflickr.com/2904/14395662185_43115fd8e4_o.png" alt="" /></p>
 
 <p>如果你的是 IE10/11 請記得設定相容性</p>
 
 <pre><code>    工具 &gt; 相容性檢視設定 &gt; 將nhi.gov.tw新增至相容性檢視網站
 </code></pre>
 
-<p>然後把允許<code>*.nhi.gov.tw</code>快顯</p>
+<p>然後把允許 <code>*.nhi.gov.tw</code> 快顯開啟</p>
 
 <p>這邊也建議你把這個網站安全性設定為<code>信任網站</code>，</p>
 
@@ -48,9 +50,16 @@
 
 <p>然後把自然人憑證插入晶片讀卡機(當然你的讀卡機也要插入主機)</p>
 
-<p>輸入 姓名 、 身份證 、Pin 碼</p>
+<p>輸入</p>
 
-<p><strong> Step2. 填寫<code>申請健保卡資料</code></strong></p>
+<ul>
+<li>姓名</li>
+<li>身份證</li>
+<li>Pin 碼</li>
+</ul>
+
+
+<h2>Step2. 填寫<code>申請健保卡資料</code></h2>
 
 <p>在左側側欄中，選擇<code>申請健保卡作業</code></p>
 
@@ -66,7 +75,7 @@
 
 <p><img src="http://farm6.staticflickr.com/5568/14387361161_7211d93645_o.png" alt="" /></p>
 
-<p><strong> Step3. 送出資料 </strong></p>
+<h2>Step3. 送出資料</h2>
 
 <p>個人是覺得這個送出鍵有點小，是在畫面的左下角，反白給大家看一下，是叫<code>新增</code>。 真是不友善。 =_=</p>
 
@@ -76,7 +85,7 @@
 
 <p><img src="http://farm4.staticflickr.com/3908/14389320322_f122ff877b_o.png" alt="" /></p>
 
-<p><strong> Setp4. 線上繳費 </strong></p>
+<h2>Setp4. 線上繳費</h2>
 
 <p>剛剛跳出那個視窗之後，就會導入台灣銀行的網站了，所以這時候需要你把<code>自然人憑証</code>拔出，換上金融卡。</p>
 
@@ -102,7 +111,7 @@
 
 <p>繳完錢之後，就可以先休息做其他事了。</p>
 
-<p><strong> Setp5. 收到受理健保卡通知 </strong></p>
+<h2>Setp5. 收到受理健保卡通知</h2>
 
 <p>大約1分鐘，健保局就發信通知我說，<code>受理我的健保卡通知</code>，可能是因為上班時間的關係，所以比較快受理吧。</p>
 
@@ -114,20 +123,20 @@
 
 <p><img src="https://farm3.staticflickr.com/2909/14367602896_be90e7c513.jpg" alt="" /></p>
 
-<p><strong> Setp6. 收到寄出通知 </strong></p>
+<h2>Setp6. 收到寄出通知</h2>
 
 <p>在下午的時候，就看到 E-mail 已經用掛號寄出的通知了。
 上面也有掛號號碼，如果是不放心的人，也可以利用郵結的信件查詢來查你的健保卡寄送的狀態。</p>
 
 <p><img src="https://farm6.staticflickr.com/5558/14410876813_c61dc8bee1.jpg" alt="" /></p>
 
-<p><strong> Setp7. 收到健保卡 </strong></p>
+<h2>Setp7. 收到健保卡</h2>
 
-<p>目前還沒收到</p>
+<p>隔天，就直接收到了新的一張健保卡了。</p>
 
-<p><strong> 總結 </strong></p>
+<p><img src="https://farm4.staticflickr.com/3898/14415755653_25e8887758.jpg" alt="" /></p>
 
-<p>目前還沒收到，不過收到之後會在修改進度的。</p>
+<h2>總結</h2>
 
 <p>這是申請健保卡的進度</p>
 
@@ -135,6 +144,7 @@
 <li>2014/6/10 08:50 送出資料</li>
 <li>2014/6/10 08:51 受理資料</li>
 <li>2014/6/10 18:15 寄出通知</li>
+<li>2014/6/11 11:04 收到健保卡</li>
 </ul>
 
 
