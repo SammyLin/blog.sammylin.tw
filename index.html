@@ -9,7 +9,7 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="還沒申請自然人憑證的朋友們，找個時間去申請一張來放著吧，等到要用的時候才知道他的好處再哪裡。報稅也是可以用的，可惜不能拿來申辦身份證&hellip;.，不過申請健保卡倒是可以，不用在請假或是出門，上網點一點，就可以在家坐等健保卡到手了！(不過看醫生還是要出門啦XD)。如果你的健保卡被屁股坐壞， &hellip;">
+  <meta name="description" content="將所有資料的縮圖一並處理 Article.find_each do |article| article.image.send("remove_versions!") # 移除舊的縮圖版本 article.image.recreate_versions! # 重新建立縮圖 article.save &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,52 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/rails-recreate-versions/">[Carrierwave]重新處理縮圖</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-11-28T13:36:20+08:00" pubdate data-updated="true">Nov 28<span>th</span>, 2014</time>
+        
+           | <a href="/rails-recreate-versions/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/rails-recreate-versions/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>將所有資料的縮圖一並處理</p>
+
+<pre><code>Article.find_each do |article|
+  article.image.send("remove_versions!") # 移除舊的縮圖版本
+  article.image.recreate_versions! # 重新建立縮圖
+  article.save! # 存回資料庫
+end
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -580,53 +626,6 @@ Google 查了一下，按發現其實有解法的</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/hyper-v-yi-zan-ting-guan-jian/">Hyper-v 狀態顯示「已暫停-關鍵」</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-01T12:02:00+08:00" pubdate data-updated="true">Sep 1<span>st</span>, 2012</time>
-        
-           | <a href="/hyper-v-yi-zan-ting-guan-jian/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/hyper-v-yi-zan-ting-guan-jian/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>因為我們公司比較窮苦，而且又小，所以我把測試站放在我們家某個server上建一個Hyper-v，不過我對Hyper-v其實沒有很熟，自從玩了Linux之後，我都沒有繼續專研Windows的東東了。</p>
-
-<p>有一天我在連我的測試站的時候發現他連不上去了，然後發現在狀態上顯示「<code>已暫停-關鍵</code>」，為什麼暫停其實我也不知道，結果我重開之後，發現過沒多久他又顯示「已暫停-關鍵」。</p>
-
-<p>找了一陣子才發現原來是</p>
-
-<h3>本機的硬碟容量不足</h3>
-
-<p>只要把空間清出來就行了&hellip;.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -653,6 +652,10 @@ Google 查了一下，按發現其實有解法的</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/rails-recreate-versions/">[Carrierwave]重新處理縮圖</a>
+      </li>
+    
+      <li class="post">
         <a href="/nhi/">利用自然人憑證申請健保卡不用出門就到手</a>
       </li>
     
@@ -666,10 +669,6 @@ Google 查了一下，按發現其實有解法的</p>
     
       <li class="post">
         <a href="/the-vim-enabled-mouse-can-not-be-copied/">[VIM]啟用滑鼠時無法複製</a>
-      </li>
-    
-      <li class="post">
-        <a href="/search-facebook-friend/">[FaceBook API]搜尋好友</a>
       </li>
     
   </ul>

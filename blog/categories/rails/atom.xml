@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Rails | Sammy Lin]]></title>
+  <link href="http://blog.sammylin.tw/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2014-11-28T14:05:10+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[Carrierwave]重新處理縮圖]]></title>
+    <link href="http://blog.sammylin.tw/rails-recreate-versions/"/>
+    <updated>2014-11-28T13:36:20+08:00</updated>
+    <id>http://blog.sammylin.tw/rails-recreate-versions</id>
+    <content type="html"><![CDATA[<p>將所有資料的縮圖一並處理</p>
+
+<pre><code>Article.find_each do |article|
+  article.image.send("remove_versions!") # 移除舊的縮圖版本
+  article.image.recreate_versions! # 重新建立縮圖
+  article.save! # 存回資料庫
+end
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

@@ -9,7 +9,8 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="自從看了XDite的Rails 101 &ndash; 火速學會 Ruby on Rails之後，就買了第一台的MAC，發現有好多東西需要學習，就像Git也是我近期才學會的，可能會很少資料，不過慢慢用慢慢的補充資料 第一個GIT $ mkdir project $ cd project $ git &hellip;">
+  <meta name="description" content="最近有高人指點我發現頭腦越來越清晰，考試都可以考一百分了，因為剛開始摸Ruby on Rails的時候太多東西搞不懂了，例如： &lt;%= link_to `show` , board_path(@board) %&gt;
+&lt;%= link_to `edit` , &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +79,72 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/rails-rake-routes/">產生Rails專案裡所有的routes</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-13T14:30:00+08:00" pubdate data-updated="true">Jan 13<span>th</span>, 2012</time>
+        
+           | <a href="/rails-rake-routes/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/rails-rake-routes/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近有高人指點我發現頭腦越來越清晰，考試都可以考一百分了，因為剛開始摸<code>Ruby on Rails</code>的時候太多東西搞不懂了，例如：</p>
+
+<pre><code>&lt;%= link_to `show` , board_path(@board) %&gt;
+&lt;%= link_to `edit` , edit_board_path(@board) %&gt;
+&lt;%= link_to `back` , boards_path %&gt;
+</code></pre>
+
+<p><code>link_to</code>照字面上的意思，或是直接在瀏覽器看，很容易了解他是<code>超連結</code>的意思，第一個變數，看的出來是超連結的文字，最後呢？那是啥鬼？過去的我雖然寫過C#，跟HTML，我無法跟這一串東西連結起來，直到我一直照抄<a href="http://rails-101.logdown.com/">Rails 101</a>，然後自己修改自己做一些小功能，才慢慢理解。但是用很笨的方法啦，不過原來有超簡單的方式可以解決我過去的疑惑，也是<a href="http://wildjcrt.pixnet.net/blog"><em>小蟹大師</em></a>跟我說我才知道有這個功能，Ruby on Rails真是太厲害了！</p>
+
+<p>如果你對於 path不熟的話可以用這招~~只不過如果你的routes如果太多的話，就會需要比較久的時間產生出所有URL Helper、URL 網址和對應的Controller Action。</p>
+
+<pre><code>$ rake routes
+             board_posts GET    /boards/:board_id/posts(.:format)          {:controller=&gt;"posts", :action=&gt;"index"}
+                     POST   /boards/:board_id/posts(.:format)          {:controller=&gt;"posts", :action=&gt;"create"}
+      new_board_post GET    /boards/:board_id/posts/new(.:format)      {:controller=&gt;"posts", :action=&gt;"new"}
+     edit_board_post GET    /boards/:board_id/posts/:id/edit(.:format) {:controller=&gt;"posts", :action=&gt;"edit"}
+          board_post GET    /boards/:board_id/posts/:id(.:format)      {:controller=&gt;"posts", :action=&gt;"show"}
+                     PUT    /boards/:board_id/posts/:id(.:format)      {:controller=&gt;"posts", :action=&gt;"update"}
+                     DELETE /boards/:board_id/posts/:id(.:format)      {:controller=&gt;"posts", :action=&gt;"destroy"}
+              boards GET    /boards(.:format)                          {:controller=&gt;"boards", :action=&gt;"index"}
+                     POST   /boards(.:format)                          {:controller=&gt;"boards", :action=&gt;"create"}
+           new_board GET    /boards/new(.:format)                      {:controller=&gt;"boards", :action=&gt;"new"}
+          edit_board GET    /boards/:id/edit(.:format)                 {:controller=&gt;"boards", :action=&gt;"edit"}
+               board GET    /boards/:id(.:format)                      {:controller=&gt;"boards", :action=&gt;"show"}
+                     PUT    /boards/:id(.:format)                      {:controller=&gt;"boards", :action=&gt;"update"}
+                     DELETE /boards/:id(.:format)                      {:controller=&gt;"boards", :action=&gt;"destroy"}
+                root        /                                          {:controller=&gt;"boards", :action=&gt;"index"}
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -643,49 +710,6 @@ service mysqld start
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/gmail-accessories-tips/">[Gmail]附件提示</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-11-26T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/gmail-accessories-tips/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/gmail-accessories-tips/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>不知道是什麼時候開始的，不過我覺得這個是個很好的功能，就是Gmail你在撰寫郵件中，如果文字裡有「附件」兩個字的話，送出郵件時卻沒有附加檔案的話，gmail就會提示你。</p>
-
-<p><img src="http://blog-img.igotcloud.com/wp-content/uploads/2011/11/Screen-Shot-2011-11-26-at-%E4%B8%8B%E5%8D%884.04.48.png" alt="Screen Shot 2011-11-26 at 下午4.04.48.png" width="426" height="174" /></p>
-
-<p>英文版本的話，就是打「see attachment」或是「I’ve attached」(不過中文版好像沒有支援附件的英文單字)</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -714,6 +738,10 @@ service mysqld start
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/rails-recreate-versions/">[Carrierwave]重新處理縮圖</a>
+      </li>
+    
+      <li class="post">
         <a href="/nhi/">利用自然人憑證申請健保卡不用出門就到手</a>
       </li>
     
@@ -727,10 +755,6 @@ service mysqld start
     
       <li class="post">
         <a href="/the-vim-enabled-mouse-can-not-be-copied/">[VIM]啟用滑鼠時無法複製</a>
-      </li>
-    
-      <li class="post">
-        <a href="/search-facebook-friend/">[FaceBook API]搜尋好友</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="在美國時間2011/6/20，Amazon發佈了EC2對於redhat的支援，對一些愛用redhat可能是個好消息，不過說實在我是沒有用過(這不是自曝其短嗎~&gt;&lt;)，沒有關係，反正只是分享一些消息而以啦！在同一時間也看到一個好消息，而筆者昨天也在測試，還蠻好玩的就是「 &hellip;">
+  <meta name="description" content=" 之前本來想做個研究，就是利用Ping的方式了解哪個地區(reigion)延遲時間最短，沒想到已經有網站做出來了，還蠻方便的，筆記下來XD 網頁：http://www.cloudping.info/ ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,45 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/aws-e4-ba-86-e8-a7-a3-e5-93-aa-e5-80-8b-e5-9c-b0-e5-8d-80-e5-bb-b6-e9-81-b2-e6-9c-80-e7-9f-ad/">[AWS] 了解哪個地區延遲最短</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-23T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/aws-e4-ba-86-e8-a7-a3-e5-93-aa-e5-80-8b-e5-9c-b0-e5-8d-80-e5-bb-b6-e9-81-b2-e6-9c-80-e7-9f-ad/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/aws-e4-ba-86-e8-a7-a3-e5-93-aa-e5-80-8b-e5-9c-b0-e5-8d-80-e5-bb-b6-e9-81-b2-e6-9c-80-e7-9f-ad/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><p> 之前本來想做個研究，就是利用Ping的方式了解哪個地區(reigion)延遲時間最短，沒想到已經有網站做出來了，還蠻方便的，筆記下來XD</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image74.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb73.png" width="544" height="392" /></a></p>  <table border="1" cellspacing="0" cellpadding="0" width="540"><tbody>     <tr>       <td valign="top" width="540">網頁：<a href="http://www.cloudping.info/">http://www.cloudping.info/</a></td>     </tr>   </tbody></table></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -498,60 +537,6 @@ AWS SDK for .NET Documentation ：<a href="http://aws.amazon.com/documentation/s
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/awsiam-using-aws-management-console-users-to-establish-aws-account/">[AWS][IAM]利用AWS Management Console建立AWS帳號使用者</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-06-07T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/awsiam-using-aws-management-console-users-to-establish-aws-account/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/awsiam-using-aws-management-console-users-to-establish-aws-account/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image22.png"><img style="background-image: none; margin: 0px 6px 0px 0px; padding-left: 0px; padding-right: 0px; display: inline; float: left; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb21.png" alt="image" width="343" height="259" align="left" border="0" /></a> 在上一篇<a href="http://blog.cornerlife.tw/awsaws-identity-and-access-management-%e8%ba%ab%e4%bb%bd%e8%ad%98%e5%88%a5%e8%88%87%e5%ad%98%e5%8f%96%e7%ae%a1%e7%90%86.html" target="_blank">[AWS][IAM]AWS Identity and Access Management (身份識別與存取管理)</a>中談到，可以在自已的AWS帳號中建來多個使用者、管理者來管理AWS的物件或操作其限制的功能，或是存取S3中的資料，雖然其AWS Management Console目前看來功能很強大，許多基本的操作都可以進行，沒有錯~就是「基本」，然而要進行一些比較進階的，像定時操作等等的功能，還是要特別透過AWS for SDK來做，所以筆者這邊一開始都是先一一從簡單的功能介紹，並且把AWS的東西都大致介紹完畢後，才會慢慢走向進階的操作，這一切都只是分享最主要還是為我自已做個筆記啦，畢竟我的記性很差(呵~)
-<table width="540" border="1" cellspacing="0" cellpadding="0">
-<tbody>
-<tr>
-<td valign="top" width="540">
-<h5>AWS Identity and Access Management</h5>
-操作頁面：<a href="https://console.aws.amazon.com/iam/home">https://console.aws.amazon.com/iam/home</a>
-參考文件：<a href="http://aws.amazon.com/documentation/iam/">http://aws.amazon.com/documentation/iam/</a></td>
-</tr>
-</tbody>
-</table>
-<h4></h4>
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/awsiam-using-aws-management-console-users-to-establish-aws-account/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/10/">&larr; Older</a>
@@ -580,6 +565,10 @@ AWS SDK for .NET Documentation ：<a href="http://aws.amazon.com/documentation/s
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/rails-recreate-versions/">[Carrierwave]重新處理縮圖</a>
+      </li>
+    
+      <li class="post">
         <a href="/nhi/">利用自然人憑證申請健保卡不用出門就到手</a>
       </li>
     
@@ -593,10 +582,6 @@ AWS SDK for .NET Documentation ：<a href="http://aws.amazon.com/documentation/s
     
       <li class="post">
         <a href="/the-vim-enabled-mouse-can-not-be-copied/">[VIM]啟用滑鼠時無法複製</a>
-      </li>
-    
-      <li class="post">
-        <a href="/search-facebook-friend/">[FaceBook API]搜尋好友</a>
       </li>
     
   </ul>
