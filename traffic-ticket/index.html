@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>[AWS] Ruby可以使用 AWS SDK了 - Sammy Lin</title>
+  <title>[生活]申訴交通罰單 - Sammy Lin</title>
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="amazon又替AWS新增一個SDK了，也就是Ruby for SDK 這樣的消息，台灣的Ruby大老們應該很開心才對，就像xdite或是ihower這樣的高手們應該會想要馬上試試看效果如何，雖然我們Ruby的老爸松本行弘，跑去了Heroku當首席架構師，Heroku本身是以Ruby的雲端運算平台 &hellip;">
+  <meta name="description" content="前陣子幫朋友處理一個交通罰單，因為太跨張了&hellip; 根本沒有到過高雄，不過被開了一張高雄的罰單(未載安全帽、闖紅燈)，這張罰單是被民眾檢舉的，看起來就像是用行車記錄器拍的，完全都不清楚。 就是這四張照片寄來，完全不可能讓我們信服嘛&hellip;. 跟這張罰單一起寄給他， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.sammylin.tw/aws-ruby-can-use-the-aws-sdk">
+  <link rel="canonical" href="http://blog.sammylin.tw/traffic-ticket">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
@@ -81,7 +81,7 @@
   
   <header>
     
-      <h1 class="entry-title">[AWS] Ruby可以使用 AWS SDK了</h1>
+      <h1 class="entry-title">[生活]申訴交通罰單</h1>
     
     
       <p class="meta">
@@ -97,7 +97,7 @@
   
 
 
-<time datetime="2011-07-15T00:00:00+08:00" pubdate data-updated="true"></time>
+<time datetime="2014-12-20T18:36:26+08:00" pubdate data-updated="true">Dec 20<span>th</span>, 2014</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://blog.sammylin.tw">Comments</a>
@@ -107,7 +107,76 @@
   </header>
 
 
-<div class="entry-content"><p>amazon又替AWS新增一個SDK了，也就是Ruby for SDK 這樣的消息，台灣的Ruby大老們應該很開心才對，就像<a title="xdite" href="http://twitter.com/#!/xdite" target="_blank">xdite</a>或是<a title="ihower" href="http://twitter.com/#!/ihower" target="_blank">ihower</a>這樣的高手們應該會想要馬上試試看效果如何，雖然我們Ruby的老爸<u>松本行弘</u>，跑去了Heroku當首席架構師，Heroku本身是以Ruby的雲端運算平台，是屬於PaaS架構現在有了<u>松本行弘</u>的加持，一定可以更加的強大。因為個人也覺得Heroku在開發是Ruby是很方便的，只要幾個指令就可以compile放到Heroku上面了。不過我們今天主要來介紹一下AWS SDK for Ruby。</p>  <table border="1" cellspacing="1" cellpadding="1" width="540"><tbody>     <tr>       <td valign="top" width="540"><a href="http://aws.amazon.com/sdkforruby/"><img style="display: inline; float: left" align="left" src="http://d36cz9buwru1tt.cloudfront.net/icon_rubygem_feature.png" /></a>Ruby 開發中心：<a href="http://aws.amazon.com/ruby/">http://aws.amazon.com/ruby/</a>          <br />SDK for Ruby 介紹：<a href="http://aws.amazon.com/sdkforruby/">http://aws.amazon.com/sdkforruby/</a>          <br /></td>     </tr>   </tbody></table>  <h4><font color="#ff0000">目前SDK for Ruby 支援的服務有：</font></h4>  <ul>   <li>Elastic Compute Cloud(EC2)</li>    <li>SimpleDB</li>    <li>Simple&#160; Email Service(SES)</li>    <li>Simple Notifcation Service(SNS)</li>    <li>Simple Queus Service(SQS)</li>    <li>Simple Storage Service(S3)</li> </ul>  <h4><font color="#ff0000">目前SDK for Ruby 支援的版本是：</font></h4>  <p>Ruby 1.8.7 以上</p>  <h4><font color="#ff0000">SDK for Ruby 安裝方式</font></h4>  <p>gem install aws-sdk</p>  <h4><font color="#ff0000">GitHub</font></h4>  <p>Ruby Gems <a href="https://github.com/rightscale/right_aws">https://github.com/rightscale/right_aws</a></p>  <p>EC2 <a href="https://github.com/grempe/amazon-ec2">https://github.com/grempe/amazon-ec2</a></p>
+<div class="entry-content"><p>前陣子幫朋友處理一個交通罰單，因為太跨張了&hellip; 根本沒有到過高雄，不過被開了一張高雄的罰單(未載安全帽、闖紅燈)，這張罰單是被民眾檢舉的，看起來就像是用行車記錄器拍的，完全都不清楚。</p>
+
+<p><img src="https://farm9.staticflickr.com/8598/15874620510_cabbd81922_o.png" alt="" />
+<img src="https://farm9.staticflickr.com/8592/15874461138_9a11ebd98d_o.png" alt="" /></p>
+
+<p>就是這四張照片寄來，完全不可能讓我們信服嘛&hellip;.</p>
+
+<p><img src="https://farm8.staticflickr.com/7476/16059959111_4675da9ddc_o.png" alt="" /></p>
+
+<p>跟這張罰單一起寄給他，各位講講是不是很誇張~~~>&ldquo;&lt;</p>
+
+<p>因為當事人比較忙碌，我又很雞婆，我就想要來處理看看。</p>
+
+<p>因此我就成為了<code>陳訴人</code>，本來還以為要準備很多資料，然後我還準備了委託書(因為我想說我是被委託的所以要寫要結果最後不用)。</p>
+
+<p>什麼行照駕照也沒有附上，只附上了照片、陳訴書、罰單影本。</p>
+
+<p>以下是我附的資料</p>
+
+<p><img src="https://farm8.staticflickr.com/7555/15874620200_7e8dfb2e19_o.png" alt="" /></p>
+
+<p><img src="https://farm8.staticflickr.com/7524/16036122166_f7b2e94a9c_o.png" alt="" /></p>
+
+<p><img src="https://farm8.staticflickr.com/7533/16061904925_f8fa099005_o.png" alt="" /></p>
+
+<p>就這三份而已，陳訴書的內容就按照你當時的情況所陳訴就好了，像這陳訴內容我修正了三次，還拿給我舅舅修了一下，才形成現在這樣子。</p>
+
+<p>聯絡電話跟聯地址都是寫我(陳訴人)收的到的地址</p>
+
+<p>另外因為我想要讓承辦人員收到之後打給我所以我又附上了小memo，當承辦人員我跟他強調要把公文都寄到我這邊，然後問一下還缺什麼資料。</p>
+
+<p>至於要把這個陳訴書寄給誰，那就是看<code>罰單</code>上面的<code>應到案處所</code>，而他只有寫新北市，但是不知道要給交通事件裁決處、監理所還是警察局，不過我想說這個是交通事件，我最後就決定寄給了<code>新北市交通事件裁決處</code>。</p>
+
+<p><img src="https://farm9.staticflickr.com/8598/15876136057_bffe670f9a_o.png" alt="" /></p>
+
+<p>接下來就等消息了&hellip;.</p>
+
+<p>過了很快就收到了第一封掛號信</p>
+
+<p><img src="https://farm8.staticflickr.com/7477/15442249053_be1671201b_o.png" alt="" /></p>
+
+<p><img src="https://farm8.staticflickr.com/7488/15442248783_5ebae67eba_o.png" alt="" /></p>
+
+<p><img src="https://farm8.staticflickr.com/7569/15874619870_1ed62ecda9_o.png" alt="" /></p>
+
+<p>簡單來說就是<code>新北市交通事件裁決處</code>收到了&hellip;</p>
+
+<p>因為我這件事件是很明顯的問題，還好不用來來回回的補資料</p>
+
+<p>接下來就收到了從高雄市警察局鼓山分局的掛號信了</p>
+
+<p><img src="https://farm8.staticflickr.com/7484/15442248683_1a2e9fd4b9_o.png" alt="" /></p>
+
+<p>看來就是結案了，我們收到的是副本，正本是給新北市交通事件裁決處，他意思是說「我們錯了&hellip;幫他銷案吧」XDDD</p>
+
+<p>不知道還會不會收到新北市交通事件裁決處的信。</p>
+
+<p>最後跟大家講一下日程</p>
+
+<ul>
+<li>2014/11/09 遭檢舉</li>
+<li>2014/11/13 開單</li>
+<li>2014/11/27 收到罰單</li>
+<li>2014/12/01 用掛號寄出申訴書</li>
+<li>2014/12/04 15:27 新北市交通裁決處收到 打電話聯絡我了</li>
+<li>2014/12/08 收到新北市交通事件裁決處 公文回函</li>
+<li>2014/12/15 高雄市警察局鼓山分局 發文</li>
+<li>2014/12/17 收到 高雄市警察局鼓山分局 掛號信</li>
+</ul>
+
 </div>
 
 
@@ -130,12 +199,12 @@
   
 
 
-<time datetime="2011-07-15T00:00:00+08:00" pubdate data-updated="true"></time>
+<time datetime="2014-12-20T18:36:26+08:00" pubdate data-updated="true">Dec 20<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/amazon-web-services-aws/'>Amazon Web Services (AWS)</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+    <a class='category' href='/blog/categories/sheng-huo/'>生活</a>
   
 </span>
 
@@ -144,7 +213,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.sammylin.tw/aws-ruby-can-use-the-aws-sdk/" data-via="SammyLinTw" data-counturl="http://blog.sammylin.tw/aws-ruby-can-use-the-aws-sdk/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.sammylin.tw/traffic-ticket/" data-via="SammyLinTw" data-counturl="http://blog.sammylin.tw/traffic-ticket/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -157,14 +226,18 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/googleplus2/" title="Previous Post: [Google+]小技巧與功能介紹(二)">&laquo; [Google+]小技巧與功能介紹(二)</a>
+        <a class="basic-alignment left" href="/rails-recreate-versions/" title="Previous Post: [Carrierwave]重新處理縮圖">&laquo; [Carrierwave]重新處理縮圖</a>
       
-      
-        <a class="basic-alignment right" href="/jquery-jquery-easyui-to-do-data-validation/" title="Next Post: [jQuery]jQuery EasyUI做資料驗證">[jQuery]jQuery EasyUI做資料驗證 &raquo;</a>
       
     </p>
   </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -239,7 +312,10 @@
       var disqus_shortname = 'igotcloud';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.sammylin.tw/traffic-ticket/';
+        var disqus_url = 'http://blog.sammylin.tw/traffic-ticket/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

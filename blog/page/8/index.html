@@ -9,7 +9,7 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="我不管啦，上次「[Google+]小技巧與功能介紹」介紹的功能也太少了啦，我的朋友越來越多人了，越來越常玩Google+了。就連FaceBook的創辦人Mark Zuckerberg都帶了一群人來玩Google+了，可見得魅力有多驚人阿。我想要知道多一點好玩的功能啦。拜託~，賀啦賀啦~~ &hellip;">
+  <meta name="description" content="amazon又替AWS新增一個SDK了，也就是Ruby for SDK 這樣的消息，台灣的Ruby大老們應該很開心才對，就像xdite或是ihower這樣的高手們應該會想要馬上試試看效果如何，雖然我們Ruby的老爸松本行弘，跑去了Heroku當首席架構師，Heroku本身是以Ruby的雲端運算平台 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,45 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/aws-ruby-can-use-the-aws-sdk/">[AWS] Ruby可以使用 AWS SDK了</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-15T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/aws-ruby-can-use-the-aws-sdk/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/aws-ruby-can-use-the-aws-sdk/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>amazon又替AWS新增一個SDK了，也就是Ruby for SDK 這樣的消息，台灣的Ruby大老們應該很開心才對，就像<a title="xdite" href="http://twitter.com/#!/xdite" target="_blank">xdite</a>或是<a title="ihower" href="http://twitter.com/#!/ihower" target="_blank">ihower</a>這樣的高手們應該會想要馬上試試看效果如何，雖然我們Ruby的老爸<u>松本行弘</u>，跑去了Heroku當首席架構師，Heroku本身是以Ruby的雲端運算平台，是屬於PaaS架構現在有了<u>松本行弘</u>的加持，一定可以更加的強大。因為個人也覺得Heroku在開發是Ruby是很方便的，只要幾個指令就可以compile放到Heroku上面了。不過我們今天主要來介紹一下AWS SDK for Ruby。</p>  <table border="1" cellspacing="1" cellpadding="1" width="540"><tbody>     <tr>       <td valign="top" width="540"><a href="http://aws.amazon.com/sdkforruby/"><img style="display: inline; float: left" align="left" src="http://d36cz9buwru1tt.cloudfront.net/icon_rubygem_feature.png" /></a>Ruby 開發中心：<a href="http://aws.amazon.com/ruby/">http://aws.amazon.com/ruby/</a>          <br />SDK for Ruby 介紹：<a href="http://aws.amazon.com/sdkforruby/">http://aws.amazon.com/sdkforruby/</a>          <br /></td>     </tr>   </tbody></table>  <h4><font color="#ff0000">目前SDK for Ruby 支援的服務有：</font></h4>  <ul>   <li>Elastic Compute Cloud(EC2)</li>    <li>SimpleDB</li>    <li>Simple&#160; Email Service(SES)</li>    <li>Simple Notifcation Service(SNS)</li>    <li>Simple Queus Service(SQS)</li>    <li>Simple Storage Service(S3)</li> </ul>  <h4><font color="#ff0000">目前SDK for Ruby 支援的版本是：</font></h4>  <p>Ruby 1.8.7 以上</p>  <h4><font color="#ff0000">SDK for Ruby 安裝方式</font></h4>  <p>gem install aws-sdk</p>  <h4><font color="#ff0000">GitHub</font></h4>  <p>Ruby Gems <a href="https://github.com/rightscale/right_aws">https://github.com/rightscale/right_aws</a></p>  <p>EC2 <a href="https://github.com/grempe/amazon-ec2">https://github.com/grempe/amazon-ec2</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -581,49 +620,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/ruby-e5-9c-a8ubuntu-e5-bb-ba-e7-ab-8bruby-on-rails-e7-92-b0-e5-a2-83-e6-99-82-e7-99-bc-e7-94-9f-e5-95-8f-e9-a1-8c/">[Ruby]在Ubuntu建立Ruby on Rails環境時發生問題</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-06-23T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/ruby-e5-9c-a8ubuntu-e5-bb-ba-e7-ab-8bruby-on-rails-e7-92-b0-e5-a2-83-e6-99-82-e7-99-bc-e7-94-9f-e5-95-8f-e9-a1-8c/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/ruby-e5-9c-a8ubuntu-e5-bb-ba-e7-ab-8bruby-on-rails-e7-92-b0-e5-a2-83-e6-99-82-e7-99-bc-e7-94-9f-e5-95-8f-e9-a1-8c/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><p> 剛剛在試著建立Ruby on Rails 環境時，都安裝到一半，卻發生了</p>  <table border="2" cellspacing="0" cellpadding="0" width="540"><tbody>     <tr>       <td valign="top" width="540">         <p>Checking for required software&#8230;</p>          <p> * GNU C++ compiler&#8230; found at /usr/bin/g++           <br /> * Curl development headers with SSL support&#8230; found            <br /> * OpenSSL development headers&#8230; found            <br /> * Zlib development headers&#8230; found            <br /> * Ruby development headers&#8230; found            <br /> * OpenSSL support for Ruby&#8230; <font color="#ff0000">not found             <br /></font> * RubyGems&#8230; found            <br /> * Rake&#8230; found at /home/sammy/.rvm/wrappers/ruby-1.9.2-p180/rake            <br /> * rack&#8230; found            <br /> * Apache 2&#8230; found at /usr/sbin/apache2            <br /> * Apache 2 development headers&#8230; found at /usr/bin/apxs2            <br /> * Apache Portable Runtime (APR) development headers&#8230; found at /usr/bin/apr-1-config            <br /> * Apache Portable Runtime Utility (APU) development headers&#8230; found at /usr/bin/apu-1-config</p>          <p>Some required software is not installed.           <br />But don&#8217;t worry, this installer will tell you how to install them.</p>          <p>Press Enter to continue, or Ctrl-C to abort.</p>       </td>     </tr>   </tbody></table>  <p>找不到 OpenSSL support for Ruby</p>  <p>還好有google大神讓我找到方法了&gt;&lt;</p>  <p>解決方式：</p>  <pre /><font color="#0000ff" size="2" face="Tahoma">cd $HOME<br />
-cd .rvm/src/ruby-1.9.2-p0/ext/openssl<br />
-ruby extconf.rb<br />
-make<br />
-make install</font></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/9/">&larr; Older</a>
@@ -652,6 +648,10 @@ make install</font></p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/traffic-ticket/">[生活]申訴交通罰單</a>
+      </li>
+    
+      <li class="post">
         <a href="/rails-recreate-versions/">[Carrierwave]重新處理縮圖</a>
       </li>
     
@@ -665,10 +665,6 @@ make install</font></p>
     
       <li class="post">
         <a href="/iterm2-change-font/">在iterm2修改字體</a>
-      </li>
-    
-      <li class="post">
-        <a href="/the-vim-enabled-mouse-can-not-be-copied/">[VIM]啟用滑鼠時無法複製</a>
       </li>
     
   </ul>
