@@ -9,7 +9,9 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="&#160; AWS簡介(Introduction to Amazon Web Services) 2011年6月17日(五) 00:00~01:00(台灣時間) 什麼是雲端計算和AWS？如何能讓使用雲端計算對我的企業有幫助？如果你還在找這些問題的答案，可以來聽Jeff Barr, Senior &hellip;">
+  <meta name="description" content="AWS的中文介紹雖然沒有很少，但是AWS SDK for .NET的介紹少之又少，所以只能用破破的英文來看一些原文資料，希望可以藉由分享讓大家可以比較快進入AWS的世界。 NOTE.
+AWS SDK for .NET：http://aws.amazon.com/sdkfornet/
+AWS SDK &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +80,104 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/aws-with-aws-sdk-for-net-upload-files-to-s3/">[AWS]用AWS SDK for .NET 上傳檔案至S3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-10T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/aws-with-aws-sdk-for-net-upload-files-to-s3/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/aws-with-aws-sdk-for-net-upload-files-to-s3/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>AWS的中文介紹雖然沒有很少，但是AWS SDK for .NET的介紹少之又少，所以只能用破破的英文來看一些原文資料，希望可以藉由分享讓大家可以比較快進入AWS的世界。
+<table width="540" border="2" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="540">NOTE.<br />
+AWS SDK for .NET：<a title="http://aws.amazon.com/sdkfornet/" href="http://aws.amazon.com/sdkfornet/">http://aws.amazon.com/sdkfornet/</a>
+AWS SDK for .NET Documentation ：<a href="http://aws.amazon.com/documentation/sdkfornet/">http://aws.amazon.com/documentation/sdkfornet/</a>
+基本介紹：<a href="http://blog.cornerlife.tw/awschello-world-for-net.html" target="_blank">[AWS][C#]Hello World for .NET</a></td>
+</tr>
+</tbody>
+</table>
+<div id="codeSnippetWrapper" style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 20px 0px 10px; width: 96.16%; font-family: 'Courier New', courier, monospace; direction: ltr; height: 320px; max-height: 200px; font-size: 8pt; overflow: auto; cursor: text; border: silver 1px solid; padding: 4px;">
+<div id="codeSnippet" style="text-align: left; line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum1" style="color: #606060;"> 1:</span> NameValueCollection appConfig = ConfigurationManager.AppSettings;</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum2" style="color: #606060;"> 2:</span> AmazonS3 s3Client = AWSClientFactory.CreateAmazonS3Client(</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum3" style="color: #606060;"> 3:</span>            appConfig[<span style="color: #006080;">"AWSAccessKey"</span>],</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum4" style="color: #606060;"> 4:</span>            appConfig[<span style="color: #006080;">"AWSSecretKey"</span>]</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum5" style="color: #606060;"> 5:</span>            );</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum6" style="color: #606060;"> 6:</span> ListBucketsResponse response = s3Client.ListBuckets();</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum7" style="color: #606060;"> 7:</span> Console.WriteLine(<span style="color: #006080;">"---------S3 Bucket 列表---------"</span>);</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum8" style="color: #606060;"> 8:</span> <span style="color: #0000ff;">foreach</span> (var item <span style="color: #0000ff;">in</span> response.Buckets)</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum9" style="color: #606060;"> 9:</span> {</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum10" style="color: #606060;"> 10:</span>     Console.WriteLine(<span style="color: #006080;">"Bucket名稱："</span> + item.BucketName);</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum11" style="color: #606060;"> 11:</span> }</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum12" style="color: #606060;"> 12:</span> <span style="color: #008000;">//上傳資料 </span></pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum13" style="color: #606060;"> 13:</span> PutObjectRequest ObjectRequest = <span style="color: #0000ff;">new</span> PutObjectRequest();</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum14" style="color: #606060;"> 14:</span> ObjectRequest.WithBucketName(<span style="color: #006080;">"***"</span>)<span style="color: #008000;">//放置Bucket位置</span></pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum15" style="color: #606060;"> 15:</span>     .WithCannedACL(S3CannedACL.PublicRead)//存取原則</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum16" style="color: #606060;"> 16:</span>     .WithFilePath(<span style="color: #006080;">@"d:\456.txt"</span>)<span style="color: #008000;">//上傳檔案位置</span></pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum17" style="color: #606060;"> 17:</span>     .WithKey(<span style="color: #006080;">"456.txt"</span>);<span style="color: #008000;">//在AWS上的檔案名稱</span></pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum18" style="color: #606060;"> 18:</span></pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum19" style="color: #606060;"> 19:</span> S3Response myResponse = s3Client.PutObject(ObjectRequest);</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum20" style="color: #606060;"> 20:</span> <span style="color: #008000;">//上傳資料end</span></pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: white; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum21" style="color: #606060;"> 21:</span> Console.WriteLine(<span style="color: #006080;">"上傳完成"</span>);</pre>
+&nbsp;
+<pre style="text-align: left; line-height: 12pt; background-color: #f4f4f4; margin: 0em; width: 100%; font-family: 'Courier New', courier, monospace; direction: ltr; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span id="lnum22" style="color: #606060;"> 22:</span> Console.Read();</pre>
+&nbsp;</div></div></p>
+
+<p>
+</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -509,57 +609,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/awsec2%E5%88%A9%E7%94%A8ssh%E9%80%A3%E5%85%A5%E5%AF%A6%E9%AB%94linux%E4%B8%BB%E6%A9%9F/">[AWS][EC2]利用SSH連入實體Linux主機</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-05-28T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/awsec2%E5%88%A9%E7%94%A8ssh%E9%80%A3%E5%85%A5%E5%AF%A6%E9%AB%94linux%E4%B8%BB%E6%A9%9F/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/awsec2%E5%88%A9%E7%94%A8ssh%E9%80%A3%E5%85%A5%E5%AF%A6%E9%AB%94linux%E4%B8%BB%E6%A9%9F/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>在剛剛那篇文章「<a title="http://blog.cornerlife.tw/awsec2%E5%BB%BA%E7%AB%8B%E5%AF%A6%E9%AB%94launch-instance.html" href="http://blog.cornerlife.tw/awsec2%E5%BB%BA%E7%AB%8B%E5%AF%A6%E9%AB%94launch-instance.html" target="_blank">[AWS][EC2]建立實體(Launch Instance)</a>」我們利用了<a href="http://console.aws.amazon.com/ec2/home">AWS Management Console</a>建立了實體，很可惜Amazon 的 Console沒辦法直接連到主機(以後有可能嗎？~~看情況吧~)所以我們用SSH方式連入，請先下載以下兩個軟體：
-<ol>
-	<li><a title="http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe" href="http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe" target="_blank">PuTTY</a></li>
-	<li><a title="http://the.earth.li/~sgtatham/putty/latest/x86/puttygen.exe" href="http://the.earth.li/~sgtatham/putty/latest/x86/puttygen.exe">PuTTYgen</a></li>
-</ol>
-我們從AWS Mangement Console裡看到我們剛剛建立了一個Instance了，注意到下頁面，我們可知道EC2建立Instance後給他了一個私人ip、私人dns 、公用dns，我們等等可以利用「公用DNS」來連入主機，我們剛剛連立的Instance的公用dns「ec2-175-41-204-110.ap-northeast-1.compute.amazonaws.com」所以將他記住後等等我們就會用到了！</p>
-
-<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image32.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb32.png" border="0" alt="image" width="544" height="304" /></a></p>
-
-<p></div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/awsec2%E5%88%A9%E7%94%A8ssh%E9%80%A3%E5%85%A5%E5%AF%A6%E9%AB%94linux%E4%B8%BB%E6%A9%9F/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/11/">&larr; Older</a>
@@ -588,6 +637,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/cgi-escape/">Ruby 下載檔案時遇到中文字</a>
+      </li>
+    
+      <li class="post">
         <a href="/traffic-ticket/">[生活]申訴交通罰單</a>
       </li>
     
@@ -601,10 +654,6 @@
     
       <li class="post">
         <a href="/vimrc/">My Vimrc</a>
-      </li>
-    
-      <li class="post">
-        <a href="/iterm2-change-font/">在iterm2修改字體</a>
       </li>
     
   </ul>

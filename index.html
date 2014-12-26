@@ -9,7 +9,7 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="前陣子幫朋友處理一個交通罰單，因為太誇張了&hellip; 根本沒有到過高雄，不過被開了一張高雄的罰單(未載安全帽、闖紅燈)，這張罰單是被民眾檢舉的，看起來就像是用行車記錄器拍的，完全都不清楚。 就是這四張照片寄來，完全不可能讓我們信服嘛&hellip;. ">
+  <meta name="description" content="在做下載檔案的功能時，如果遇到中文字的檔名Ruby就不認得了，是可以下載，不過檔名就不是你原先設計的那個檔名。 所以只要加上 CGI.escape 將他轉成URL可以看的懂的編碼就行了 CGI.escape("我是中文字.csv") ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,50 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/cgi-escape/">Ruby 下載檔案時遇到中文字</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-12-26T08:48:00+08:00" pubdate data-updated="true">Dec 26<span>th</span>, 2014</time>
+        
+           | <a href="/cgi-escape/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/cgi-escape/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在做下載檔案的功能時，如果遇到中文字的檔名<code>Ruby</code>就不認得了，是可以下載，不過檔名就不是你原先設計的那個檔名。</p>
+
+<p>所以只要加上 CGI.escape 將他轉成URL可以看的懂的編碼就行了</p>
+
+<pre><code>CGI.escape("我是中文字.csv")
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -552,71 +596,6 @@ Google 查了一下，按發現其實有解法的</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/magican/">[評測]Magican Mac清除垃圾工具</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-18T20:08:00+08:00" pubdate data-updated="true">Sep 18<span>th</span>, 2012</time>
-        
-           | <a href="/magican/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/magican/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>在Mac裡如果想到清除垃圾工具，第一個應該會想到的是<a href="http://macpaw.com/">CleanMyMac</a>，不過要花$29.95美金，因為我是個省吃儉用的人，所以想一想就算了，還是不要好了，最近發現一個軟體，還不錯。</p>
-
-<ul>
-<li><h2><a href="http://www.magicansoft.com/">Magican</a></h2></li>
-<li>容量：3.8MB</li>
-</ul>
-
-
-<p><img src="https://lh6.googleusercontent.com/-5uHa3hTvExM/UFhqMcvk-9I/AAAAAAAAB7k/yXCyAwUPLnY/s640/Screen%2520Shot%25202012-09-18%2520at%2520%25E4%25B8%258B%25E5%258D%25888.33.08.png" alt="" /></p>
-
-<p>畫面其實很乾淨，沒有很亂，左邊是Menu</p>
-
-<h2>功能</h2>
-
-<ul>
-<li>清除你Mac的圾垃</li>
-<li>檢查有無木馬</li>
-<li>監控Mac狀態</li>
-<li>查詢硬體資訊</li>
-<li>釋放記憶體</li>
-</ul>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/magican/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -643,6 +622,10 @@ Google 查了一下，按發現其實有解法的</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/cgi-escape/">Ruby 下載檔案時遇到中文字</a>
+      </li>
+    
+      <li class="post">
         <a href="/traffic-ticket/">[生活]申訴交通罰單</a>
       </li>
     
@@ -656,10 +639,6 @@ Google 查了一下，按發現其實有解法的</p>
     
       <li class="post">
         <a href="/vimrc/">My Vimrc</a>
-      </li>
-    
-      <li class="post">
-        <a href="/iterm2-change-font/">在iterm2修改字體</a>
       </li>
     
   </ul>

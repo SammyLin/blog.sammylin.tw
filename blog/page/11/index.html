@@ -9,7 +9,7 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="通常一個專業的網站管理員，或者是專業的行銷人員，都需要一些數據來分析，過去的網站流量以及進出單一頁面或是整個網站的次數統計是一個費時又耗工的動作有了Google Analytics，好像所有的事情都變的很簡單了，利爭了javascript將資料回傳至google的server做統計，我們只要申請& &hellip;">
+  <meta name="description" content="在剛剛那篇文章「[AWS][EC2]建立實體(Launch Instance)」我們利用了AWS Management Console建立了實體，很可惜Amazon 的 Console沒辦法直接連到主機(以後有可能嗎？~~看情況吧~)所以我們用SSH方式連入，請先下載以下兩個軟體： PuTTY &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,57 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/awsec2%E5%88%A9%E7%94%A8ssh%E9%80%A3%E5%85%A5%E5%AF%A6%E9%AB%94linux%E4%B8%BB%E6%A9%9F/">[AWS][EC2]利用SSH連入實體Linux主機</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-28T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/awsec2%E5%88%A9%E7%94%A8ssh%E9%80%A3%E5%85%A5%E5%AF%A6%E9%AB%94linux%E4%B8%BB%E6%A9%9F/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/awsec2%E5%88%A9%E7%94%A8ssh%E9%80%A3%E5%85%A5%E5%AF%A6%E9%AB%94linux%E4%B8%BB%E6%A9%9F/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在剛剛那篇文章「<a title="http://blog.cornerlife.tw/awsec2%E5%BB%BA%E7%AB%8B%E5%AF%A6%E9%AB%94launch-instance.html" href="http://blog.cornerlife.tw/awsec2%E5%BB%BA%E7%AB%8B%E5%AF%A6%E9%AB%94launch-instance.html" target="_blank">[AWS][EC2]建立實體(Launch Instance)</a>」我們利用了<a href="http://console.aws.amazon.com/ec2/home">AWS Management Console</a>建立了實體，很可惜Amazon 的 Console沒辦法直接連到主機(以後有可能嗎？~~看情況吧~)所以我們用SSH方式連入，請先下載以下兩個軟體：
+<ol>
+	<li><a title="http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe" href="http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe" target="_blank">PuTTY</a></li>
+	<li><a title="http://the.earth.li/~sgtatham/putty/latest/x86/puttygen.exe" href="http://the.earth.li/~sgtatham/putty/latest/x86/puttygen.exe">PuTTYgen</a></li>
+</ol>
+我們從AWS Mangement Console裡看到我們剛剛建立了一個Instance了，注意到下頁面，我們可知道EC2建立Instance後給他了一個私人ip、私人dns 、公用dns，我們等等可以利用「公用DNS」來連入主機，我們剛剛連立的Instance的公用dns「ec2-175-41-204-110.ap-northeast-1.compute.amazonaws.com」所以將他記住後等等我們就會用到了！</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image32.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb32.png" border="0" alt="image" width="544" height="304" /></a></p>
+
+<p></div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/awsec2%E5%88%A9%E7%94%A8ssh%E9%80%A3%E5%85%A5%E5%AF%A6%E9%AB%94linux%E4%B8%BB%E6%A9%9F/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -495,6 +546,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/cgi-escape/">Ruby 下載檔案時遇到中文字</a>
+      </li>
+    
+      <li class="post">
         <a href="/traffic-ticket/">[生活]申訴交通罰單</a>
       </li>
     
@@ -508,10 +563,6 @@
     
       <li class="post">
         <a href="/vimrc/">My Vimrc</a>
-      </li>
-    
-      <li class="post">
-        <a href="/iterm2-change-font/">在iterm2修改字體</a>
       </li>
     
   </ul>

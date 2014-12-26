@@ -9,7 +9,7 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="最近因為在玩Ruby on Rails的關係，就順便玩了一下NoSQL，因為NoSQL實在太多了，不知道要選什麼！剛好聽說ROR支援MongoDB比較多，所以就先選擇了MongoDB。安裝其實很簡單只要幾個步驟而已. 如果你是32位元的話 $ curl http://fastdl.mongodb. &hellip;">
+  <meta name="description" content="因為原本公司的架構是把Web Server跟檔案放另一台File Server上面的，但是他逐年老舊，小公司沒什麼經費可以買好一點的主機，所以我就買了一台Qnap TS-412當做我的File Server，買幾個便宜的HD做RAID 6不到兩萬就處理好了( &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,45 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/iis-an-error-occurred-loading-a-configuration-file-failed-to-start-monitoring-changes-to-xxx-because-the-network-bios-command-limit-has-been-reached/">[IIS]載入組態檔時發生錯誤: 無法開始監視 XXX 的變更，因為已經到達網路 BIOS 命令限制。</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-20T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/iis-an-error-occurred-loading-a-configuration-file-failed-to-start-monitoring-changes-to-xxx-because-the-network-bios-command-limit-has-been-reached/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/iis-an-error-occurred-loading-a-configuration-file-failed-to-start-monitoring-changes-to-xxx-because-the-network-bios-command-limit-has-been-reached/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><p align="justify">因為原本公司的架構是把Web Server跟檔案放另一台File Server上面的，但是他逐年老舊，小公司沒什麼經費可以買好一點的主機，所以我就買了一台<a href="http://www.qnap.com/cht/pro_detail_feature.asp?p_id=193">Qnap TS-412</a>當做我的File Server，買幾個便宜的HD做RAID 6不到兩萬就處理好了(因為好久以前的MIS只是拿一般同仁淘汰的主機拿去當做FileServer，效能很差，三不五十當給我看&gt;&quot;&lt;，只好趕快換掉了)，把WebSite的檔案丟到FileServer上面做完設定之後，一打開就給我出現…</p>  <p align="justify"><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/image.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/image_thumb.png" width="488" height="244" /></a></p>  <p align="justify">找了很多原因</p>  <p align="justify">網路路徑..check</p>  <p align="justify">新增跟開放webserver帳號的存取..check</p>  <p align="justify">連線數量..check(只有我一人= =|||)</p>  <p>C:\Windows\Microsoft.NET\Framework\v2.0.50727\Temporary ASP.NET Files 的權限開放給webserver存取..check</p>  <h4>解決方式：</h4>  <p>最後發現還要把NAS上需要存取網址的資料夾開放給Network Service這個帳號就能夠處理問題了！</p>  <p>&#160;</p>  <p>過去QNAP的韌體不支援windows 設定權限，只能夠在QNAP的網頁介面設定，更新到3.2以後應該就可以處理沒辦法設定權限的問題了！</p>  <p>&#160;</p>  <table border="1" cellspacing="0" cellpadding="2" width="540"><tbody>     <tr>       <td valign="top" width="540">參考：         <br /><a href="http://blog.miniasp.com/post/2010/03/15/IIS-runs-out-of-work-items-and-causes-RPC-failures-when-connecting-to-a-remote-UNC-path.aspx">http://blog.miniasp.com/post/2010/03/15/IIS-runs-out-of-work-items-and-causes-RPC-failures-when-connecting-to-a-remote-UNC-path.aspx</a></td>     </tr>   </tbody></table></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -615,53 +654,6 @@ next
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/aws-aws-management-console-layout-update/">[AWS]AWS Management Console版面更新</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-09-08T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/aws-aws-management-console-layout-update/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/aws-aws-management-console-layout-update/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天一起來發現AWS Management Console 有明顯的不同也就是上原來選擇不同的Service的Tab變成了下拉選單，按照我拙劣的判斷是因為頁面上方已經容納不下新Service 的Tab(可能又有Service要做進來AWS Management Console了，或是有新的Service。我們就拭目以待吧。</p>
-
-<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image27.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image_thumb27.png" alt="image" width="544" height="313" border="0" /></a></p>
-
-<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image28.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image_thumb28.png" alt="image" width="544" height="317" border="0" /></a>
-(點下去之後的畫面)</p>
-
-<p><img src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image32.png" alt="" width="540" height="300" />
-(先前使用Tab的畫面)</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -690,6 +682,10 @@ next
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/cgi-escape/">Ruby 下載檔案時遇到中文字</a>
+      </li>
+    
+      <li class="post">
         <a href="/traffic-ticket/">[生活]申訴交通罰單</a>
       </li>
     
@@ -703,10 +699,6 @@ next
     
       <li class="post">
         <a href="/vimrc/">My Vimrc</a>
-      </li>
-    
-      <li class="post">
-        <a href="/iterm2-change-font/">在iterm2修改字體</a>
       </li>
     
   </ul>

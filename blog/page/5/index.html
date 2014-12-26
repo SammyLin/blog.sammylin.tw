@@ -9,7 +9,7 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="我記得我第一次寫Blog是用點部落，也是因為當初在寫C#，而且這裡主要是Windows相關技術高手的所在地，常常我也來在這拜碼頭，等到退伍之後，自己架了WordPress，但是光是排版文字就花了我很多時間，其實過去我在寫C#的時候，因為VS2005到現在的VS2010太好用了， &hellip;">
+  <meta name="description" content="安裝了Octopress，感覺還蠻開心的，因為我這個人有點懶，又找不到好的設計朋友，所以只要遇到好技術又加上預設的Theme的又蠻好看的，我就會把他列入我的list裡面(感覺我好不務正業喔= =) 所以我要趕快來做個筆記好去睡覺了。 上一篇有提到一些高手的文章， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,54 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/install-octopress-in-aws/">在AWS上安裝Octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-29T22:46:00+08:00" pubdate data-updated="true">Nov 29<span>th</span>, 2011</time>
+        
+           | <a href="/install-octopress-in-aws/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/install-octopress-in-aws/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>安裝了Octopress，感覺還蠻開心的，因為我這個人有點懶，又找不到好的設計朋友，所以只要遇到好技術又加上預設的Theme的又蠻好看的，我就會把他列入我的list裡面(感覺我好不務正業喔= =)</p>
+
+<p>所以我要趕快來做個筆記好去睡覺了。</p>
+
+<p><a href="http://blog.igotcloud.com/hello-octopress/">上一篇</a>有提到一些高手的文章，寫一下怎麼在<code>AWS</code>架設自己的<code>OctoPress</code></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/install-octopress-in-aws/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -524,45 +572,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/iis-an-error-occurred-loading-a-configuration-file-failed-to-start-monitoring-changes-to-xxx-because-the-network-bios-command-limit-has-been-reached/">[IIS]載入組態檔時發生錯誤: 無法開始監視 XXX 的變更，因為已經到達網路 BIOS 命令限制。</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-10-20T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/iis-an-error-occurred-loading-a-configuration-file-failed-to-start-monitoring-changes-to-xxx-because-the-network-bios-command-limit-has-been-reached/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/iis-an-error-occurred-loading-a-configuration-file-failed-to-start-monitoring-changes-to-xxx-because-the-network-bios-command-limit-has-been-reached/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><p align="justify">因為原本公司的架構是把Web Server跟檔案放另一台File Server上面的，但是他逐年老舊，小公司沒什麼經費可以買好一點的主機，所以我就買了一台<a href="http://www.qnap.com/cht/pro_detail_feature.asp?p_id=193">Qnap TS-412</a>當做我的File Server，買幾個便宜的HD做RAID 6不到兩萬就處理好了(因為好久以前的MIS只是拿一般同仁淘汰的主機拿去當做FileServer，效能很差，三不五十當給我看&gt;&quot;&lt;，只好趕快換掉了)，把WebSite的檔案丟到FileServer上面做完設定之後，一打開就給我出現…</p>  <p align="justify"><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/image.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/image_thumb.png" width="488" height="244" /></a></p>  <p align="justify">找了很多原因</p>  <p align="justify">網路路徑..check</p>  <p align="justify">新增跟開放webserver帳號的存取..check</p>  <p align="justify">連線數量..check(只有我一人= =|||)</p>  <p>C:\Windows\Microsoft.NET\Framework\v2.0.50727\Temporary ASP.NET Files 的權限開放給webserver存取..check</p>  <h4>解決方式：</h4>  <p>最後發現還要把NAS上需要存取網址的資料夾開放給Network Service這個帳號就能夠處理問題了！</p>  <p>&#160;</p>  <p>過去QNAP的韌體不支援windows 設定權限，只能夠在QNAP的網頁介面設定，更新到3.2以後應該就可以處理沒辦法設定權限的問題了！</p>  <p>&#160;</p>  <table border="1" cellspacing="0" cellpadding="2" width="540"><tbody>     <tr>       <td valign="top" width="540">參考：         <br /><a href="http://blog.miniasp.com/post/2010/03/15/IIS-runs-out-of-work-items-and-causes-RPC-failures-when-connecting-to-a-remote-UNC-path.aspx">http://blog.miniasp.com/post/2010/03/15/IIS-runs-out-of-work-items-and-causes-RPC-failures-when-connecting-to-a-remote-UNC-path.aspx</a></td>     </tr>   </tbody></table></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/6/">&larr; Older</a>
@@ -591,6 +600,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/cgi-escape/">Ruby 下載檔案時遇到中文字</a>
+      </li>
+    
+      <li class="post">
         <a href="/traffic-ticket/">[生活]申訴交通罰單</a>
       </li>
     
@@ -604,10 +617,6 @@
     
       <li class="post">
         <a href="/vimrc/">My Vimrc</a>
-      </li>
-    
-      <li class="post">
-        <a href="/iterm2-change-font/">在iterm2修改字體</a>
       </li>
     
   </ul>

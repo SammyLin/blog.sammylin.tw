@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>[OS X]purge-bug - Sammy Lin</title>
+  <title>Ruby 下載檔案時遇到中文字 - Sammy Lin</title>
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="前些日子把 OSx更新到10.8.1版，平常我用一陣子電腦，記憶體會佔的滿滿的，我就會執行purge來清除一下記憶體。但是噴出了錯誤： [ERROR]&lt;CPPathUtils.c:526&gt;The device-file for this operating system, 'osx- &hellip;">
+  <meta name="description" content="在做下載檔案的功能時，如果遇到中文字的檔名Ruby就不認得了，是可以下載，不過檔名就不是你原先設計的那個檔名。 所以只要加上 CGI.escape 將他轉成URL可以看的懂的編碼就行了 CGI.escape("我是中文字.csv") ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.sammylin.tw/purge-bug">
+  <link rel="canonical" href="http://blog.sammylin.tw/cgi-escape">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
@@ -81,7 +81,7 @@
   
   <header>
     
-      <h1 class="entry-title">[OS X]purge-bug</h1>
+      <h1 class="entry-title">Ruby 下載檔案時遇到中文字</h1>
     
     
       <p class="meta">
@@ -97,7 +97,7 @@
   
 
 
-<time datetime="2012-08-29T09:47:00+08:00" pubdate data-updated="true">Aug 29<span>th</span>, 2012</time>
+<time datetime="2014-12-26T08:48:00+08:00" pubdate data-updated="true">Dec 26<span>th</span>, 2014</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://blog.sammylin.tw">Comments</a>
@@ -107,20 +107,12 @@
   </header>
 
 
-<div class="entry-content"><p>前些日子把 OSx更新到10.8.1版，平常我用一陣子電腦，記憶體會佔的滿滿的，我就會執行<code>purge</code>來清除一下記憶體。但是噴出了錯誤：</p>
+<div class="entry-content"><p>在做下載檔案的功能時，如果遇到中文字的檔名<code>Ruby</code>就不認得了，是可以下載，不過檔名就不是你原先設計的那個檔名。</p>
 
-<pre><code>[ERROR]&lt;CPPathUtils.c:526&gt;The device-file for this operating system, 'osx-12.1.0.xml', was not found. An attempt to revert to a previous revision of the OS device-file: 'osx-12.0.0.xml' has been made. Please file a Radar report with Apple, on the 'CoreProfile' component, version 'X'.
+<p>所以只要加上 CGI.escape 將他轉成URL可以看的懂的編碼就行了</p>
+
+<pre><code>CGI.escape("我是中文字.csv")
 </code></pre>
-
-<p>上網google了以後，發現原來是他10.8.1的Bug</p>
-
-<ul>
-<li><a href="http://osxdaily.com/2012/08/23/os-x-mountain-lion-10-8-1-update-released/">OS X Mountain Lion 10.8.1 Update Released</a></li>
-<li><a href="https://discussions.apple.com/thread/4239648?start=0&amp;tstart=0">Anyone know why I got this Terminal Error? [ERROR]     &lt;CPPathUtils.c:526>     The device-file for this operating system, &lsquo;osx-12.1.0.xml&rsquo;, was not found.</a></li>
-</ul>
-
-
-<p>看來只能等更新囉，不過還是可以正常的使用啦，不用擔心</p>
 </div>
 
 
@@ -143,12 +135,12 @@
   
 
 
-<time datetime="2012-08-29T09:47:00+08:00" pubdate data-updated="true">Aug 29<span>th</span>, 2012</time>
+<time datetime="2014-12-26T08:48:00+08:00" pubdate data-updated="true">Dec 26<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/os-x/'>OS X</a>
+    <a class='category' href='/blog/categories/ruby/'>ruby</a>
   
 </span>
 
@@ -157,7 +149,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.sammylin.tw/purge-bug/" data-via="SammyLinTw" data-counturl="http://blog.sammylin.tw/purge-bug/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.sammylin.tw/cgi-escape/" data-via="SammyLinTw" data-counturl="http://blog.sammylin.tw/cgi-escape/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -170,10 +162,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/export-to-csv-has-mojibake/" title="Previous Post: [Ruby]匯出csv檔時在excel開啟時亂碼">&laquo; [Ruby]匯出csv檔時在excel開啟時亂碼</a>
+        <a class="basic-alignment left" href="/traffic-ticket/" title="Previous Post: [生活]申訴交通罰單">&laquo; [生活]申訴交通罰單</a>
       
-      
-        <a class="basic-alignment right" href="/hyper-v-yi-zan-ting-guan-jian/" title="Next Post: Hyper-v 狀態顯示「已暫停-關鍵」">Hyper-v 狀態顯示「已暫停-關鍵」 &raquo;</a>
       
     </p>
   </footer>
@@ -259,8 +249,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.sammylin.tw/purge-bug/';
-        var disqus_url = 'http://blog.sammylin.tw/purge-bug/';
+        var disqus_identifier = 'http://blog.sammylin.tw/cgi-escape/';
+        var disqus_url = 'http://blog.sammylin.tw/cgi-escape/';
         var disqus_script = 'embed.js';
       
     (function () {

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Sammy Lin]]></title>
   <link href="http://blog.sammylin.tw/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://blog.sammylin.tw/"/>
-  <updated>2014-12-20T19:34:08+08:00</updated>
+  <updated>2014-12-26T08:55:52+08:00</updated>
   <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
@@ -14,126 +14,16 @@
 
   
   <entry>
-    <title type="html"><![CDATA[[Ruby]編碼學問很大]]></title>
-    <link href="http://blog.sammylin.tw/nokogiri-encoding/"/>
-    <updated>2012-10-10T11:56:00+08:00</updated>
-    <id>http://blog.sammylin.tw/nokogiri-encoding</id>
-    <content type="html"><![CDATA[<h3>問題：</h3>
+    <title type="html"><![CDATA[Ruby 下載檔案時遇到中文字]]></title>
+    <link href="http://blog.sammylin.tw/cgi-escape/"/>
+    <updated>2014-12-26T08:48:00+08:00</updated>
+    <id>http://blog.sammylin.tw/cgi-escape</id>
+    <content type="html"><![CDATA[<p>在做下載檔案的功能時，如果遇到中文字的檔名<code>Ruby</code>就不認得了，是可以下載，不過檔名就不是你原先設計的那個檔名。</p>
 
-<p><a href="http://nokogiri.org">Nokogiri</a>是一個網頁擷取的一個很好的工具，所以我會用他當做我要抓網站資料的首選，就像Nokogiri的網站使用說明一樣，我們只要用下面三行就可以使用Nokogiri，之後在用他內建幾個method來做處理，但今天不講怎麼做處理</p>
+<p>所以只要加上 CGI.escape 將他轉成URL可以看的懂的編碼就行了</p>
 
-<p><code>ruby
-require 'nokogiri'
-require 'open-uri'
-doc = Nokogiri::HTML(open('http://www.google.com/search?q=sparklemotion'))
-</code></p>
-
-<!-- more -->
-
-
-<p>我今天在抓一個舊網站的資料，因為以前網站在製作的時候都是用<code>Big5</code>所以要抓資料的時候會用<code>Iconv</code>來轉碼轉成<code>utf-8</code>就像下面一樣</p>
-
-<p><code>ruby
-ic = Iconv.new("utf-8","big5")
-doc = Nokogiri::HTML(ic.iconv(open('http://www.missingkids.org.tw/chinese/focus.php?offset=0').read))
-</code>
-不過噴出了錯誤</p>
-
-<pre><code>encoding error : input conversion failed due to input error
+<pre><code>CGI.escape("我是中文字.csv")
 </code></pre>
-
-<p>找了一段時間常發現問題出在全型的<code>/</code>，我猜想是因為Big5轉到utf-8的時候，因為全形的<code>/</code>編碼有問題，可能是不能Big5或者是utf-8裡的全形<code>/</code>跟Big5的編碼不一樣，我也不是很清楚</p>
-
-<h3>解決方法</h3>
-
-<p>其實解決的方法其中一個方法就是&hellip;.跳過他(真不負責任XDD)
-就像這樣</p>
-
-<p><code>ruby
-ic = Iconv.new("utf-8//IGNORE","big5")
-</code></p>
-
-<p><code>//IGNORE</code>就是遇到轉碼有問題的話，直接跳過這個字，還有另外一個<code>//translit</code>，如果遇到有問題的話，就會去找替代的字，如果不行的話還是會中斷，但中文字經常會找不到對應的編碼。不過可以混合使用，就像這樣</p>
-
-<p><code>ruby
-ic = Iconv.new("utf-8//translit//IGNORE","big5")
-</code></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[Ruby] Strftime 常用格式 筆記]]></title>
-    <link href="http://blog.sammylin.tw/ruby-strftime/"/>
-    <updated>2012-09-07T22:26:00+08:00</updated>
-    <id>http://blog.sammylin.tw/ruby-strftime</id>
-    <content type="html"><![CDATA[<p>範例時間：<code>2012-09-07 22:33:25 +0800</code></p>
-
-<h3>時間Time</h3>
-
-<ul>
-<li>%H &ndash; (24H時 00-23) &ldquo;22&rdquo;</li>
-<li>%k &ndash; (24H時 0-23) &ldquo;22&rdquo;</li>
-<li>%I &ndash; (12H時 01-12) &ldquo;10&rdquo;</li>
-<li>%l &ndash; (12H時 1-12) &ldquo;10&rdquo;</li>
-<li>%M &ndash; (分) &ldquo;33&rdquo;</li>
-<li>%S &ndash; (秒) &ldquo;25&rdquo;</li>
-<li>%p &ndash; (AM/PM) &ldquo;PM&rdquo;</li>
-<li>%s &ndash; (從1970-01-01 00:00:00 UTC. 開始計算過了幾秒) &ldquo;1347028405&rdquo;</li>
-</ul>
-
-
-<!-- more -->
-
-
-<h3>日期</h3>
-
-<ul>
-<li>%Y &ndash; (年) &ldquo;2012&rdquo;</li>
-<li>%y &ndash; (取年的後兩數字) &ldquo;12&rdquo;</li>
-<li>%C &ndash; (取年的前兩數字) &ldquo;20&rdquo;</li>
-<li>%B &ndash; (月的名稱) &ldquo;September&rdquo;</li>
-<li>%b &ndash; (月的簡稱) &ldquo;Sep&rdquo;</li>
-<li>%m &ndash; (月的數字) &ldquo;09&rdquo;</li>
-<li>%U &ndash; (第幾周, 從星期天為一周期) &ldquo;36&rdquo;</li>
-<li>%W &ndash; (第幾周, 從星期一為一周期) &ldquo;36&rdquo;</li>
-<li>%A &ndash; (星期的名稱) &ldquo;Friday&rdquo;</li>
-<li>%a &ndash; (星期的簡稱) &ldquo;Fri&rdquo;</li>
-<li>%d &ndash; (日01-31) &ldquo;07&rdquo;</li>
-<li>%e &ndash; (日 1-31) &ldquo; 7&rdquo;</li>
-<li>%j &ndash; (一年中計算第幾天) &ldquo;251&rdquo;</li>
-<li>%w &ndash; (一周裡第幾天 從星期天開始計算 0-6) &ldquo;5&rdquo;</li>
-<li>%w &ndash; (一周裡第幾天 從星期一開始計算 1-7) &ldquo;5&rdquo;</li>
-</ul>
-
-
-<h3>組合式</h3>
-
-<ul>
-<li>%D &ndash; (月/日/年) &ldquo;09/07/12&rdquo;</li>
-<li>%F &ndash; (年-月-日) &ldquo;2012-09-07&rdquo;</li>
-<li>%T &ndash; (時-分-秒) &ldquo;22:33:25&rdquo;</li>
-<li>%r &ndash; (12H時-分-秒 AM/PM) &ldquo;10:33:25 PM&rdquo;</li>
-<li>%R &ndash; (24H時-分) &ldquo;22:33&rdquo;</li>
-</ul>
-
-
-<h2>參考資料</h2>
-
-<blockquote><p><a href="" title="http://www.ruby-doc.org/core-1.9.3/Time.html#method-i-strftime">&ldquo;ruby-doc&rdquo;</a></p>
-
-<p><a href="" title="http://www.wetware.co.nz/2009/07/rails-date-formats-strftime/">&ldquo;Rails Date Formats – strftime&rdquo;</a> by Wetware</p></blockquote>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[AWS] Ruby可以使用 AWS SDK了]]></title>
-    <link href="http://blog.sammylin.tw/aws-ruby-can-use-the-aws-sdk/"/>
-    <updated>2011-07-15T00:00:00+08:00</updated>
-    <id>http://blog.sammylin.tw/aws-ruby-can-use-the-aws-sdk</id>
-    <content type="html"><![CDATA[<p>amazon又替AWS新增一個SDK了，也就是Ruby for SDK 這樣的消息，台灣的Ruby大老們應該很開心才對，就像<a title="xdite" href="http://twitter.com/#!/xdite" target="_blank">xdite</a>或是<a title="ihower" href="http://twitter.com/#!/ihower" target="_blank">ihower</a>這樣的高手們應該會想要馬上試試看效果如何，雖然我們Ruby的老爸<u>松本行弘</u>，跑去了Heroku當首席架構師，Heroku本身是以Ruby的雲端運算平台，是屬於PaaS架構現在有了<u>松本行弘</u>的加持，一定可以更加的強大。因為個人也覺得Heroku在開發是Ruby是很方便的，只要幾個指令就可以compile放到Heroku上面了。不過我們今天主要來介紹一下AWS SDK for Ruby。</p>
-
-
-<p>  <table border="1" cellspacing="1" cellpadding="1" width="540"><tbody>     <tr>       <td valign="top" width="540"><a href="http://aws.amazon.com/sdkforruby/"><img style="display: inline; float: left" align="left" src="http://d36cz9buwru1tt.cloudfront.net/icon_rubygem_feature.png" /></a>Ruby 開發中心：<a href="http://aws.amazon.com/ruby/"><a href="http://aws.amazon.com/ruby/">http://aws.amazon.com/ruby/</a></a>          <br />SDK for Ruby 介紹：<a href="http://aws.amazon.com/sdkforruby/"><a href="http://aws.amazon.com/sdkforruby/">http://aws.amazon.com/sdkforruby/</a></a>          <br /></td>     </tr>   </tbody></table>  <h4><font color="#ff0000">目前SDK for Ruby 支援的服務有：</font></h4>  <ul>   <li>Elastic Compute Cloud(EC2)</li>    <li>SimpleDB</li>    <li>Simple&#160; Email Service(SES)</li>    <li>Simple Notifcation Service(SNS)</li>    <li>Simple Queus Service(SQS)</li>    <li>Simple Storage Service(S3)</li> </ul>  <h4><font color="#ff0000">目前SDK for Ruby 支援的版本是：</font></h4>  <p>Ruby 1.8.7 以上</p>  <h4><font color="#ff0000">SDK for Ruby 安裝方式</font></h4>  <p>gem install aws-sdk</p>  <h4><font color="#ff0000">GitHub</font></h4>  <p>Ruby Gems <a href="https://github.com/rightscale/right_aws"><a href="https://github.com/rightscale/right_aws">https://github.com/rightscale/right_aws</a></a></p>  <p>EC2 <a href="https://github.com/grempe/amazon-ec2"><a href="https://github.com/grempe/amazon-ec2">https://github.com/grempe/amazon-ec2</a></a></p></p>
 ]]></content>
   </entry>
   
