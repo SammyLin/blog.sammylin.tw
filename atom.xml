@@ -4,7 +4,7 @@
   <title><![CDATA[Sammy Lin]]></title>
   <link href="http://blog.sammylin.tw/atom.xml" rel="self"/>
   <link href="http://blog.sammylin.tw/"/>
-  <updated>2015-04-11T18:30:41+08:00</updated>
+  <updated>2015-04-11T18:33:25+08:00</updated>
   <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
@@ -72,14 +72,14 @@
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">package</span> <span class="s1">&#39;nginx&#39;</span> <span class="k">do</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">package</span> <span class="s2">&quot;nginx&quot;</span> <span class="k">do</span>
 </span><span class='line'>  <span class="n">action</span> <span class="ss">:install</span>     <span class="c1"># 動作 (如果是 :install 可省略</span>
 </span><span class='line'>  <span class="n">version</span> <span class="s2">&quot;&lt;version&gt;&quot;</span> <span class="c1"># 版本 (如不指定就安裝最新的</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h3><code>:action</code> 的方法屬性</h3>
+<p><code>:action</code> 的方法屬性</p>
 
 <table>
 <thead>
@@ -136,7 +136,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h3><code>:action</code> 的方法屬性</h3>
+<p><code>:action</code> 的方法屬性</p>
 
 <table>
 <thead>
@@ -172,7 +172,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h3><code>:action</code> 的方法屬性</h3>
+<p><code>:action</code> 的方法屬性</p>
 
 <table>
 <thead>
@@ -222,7 +222,7 @@
 </table>
 
 
-<h3><code>:supports</code> 的方法屬性說明</h3>
+<p><code>:supports</code> 的方法屬性說明</p>
 
 <p>預設是 <code>{ :restart =&gt; false, :reload =&gt; false, :status =&gt; false }</code> ，這個其實就是說 chef-client 把這三個動作都自已處理了，<code>:restart</code>，這個動作就是先執行 <code>:stop</code>，再執行<code>:start</code>；<code>:status</code>就是去檢查 process 有沒有這個 service name，<code>:reload</code>，這個不知道怎麼做的=_=。</p>
 
@@ -261,15 +261,15 @@
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">file</span> <span class="s2">&quot;/tmp/something&quot;</span> <span class="k">do</span> <span class="c1"># 檔案位置</span>
-</span><span class='line'>  <span class="n">owner</span> <span class="s1">&#39;root&#39;</span>           <span class="c1"># 擁有者</span>
-</span><span class='line'>  <span class="n">group</span> <span class="s1">&#39;root&#39;</span>           <span class="c1"># 群組</span>
-</span><span class='line'>  <span class="n">mode</span> <span class="s1">&#39;0755&#39;</span>            <span class="c1"># 權限</span>
+</span><span class='line'>  <span class="n">owner</span> <span class="s2">&quot;root&quot;</span>           <span class="c1"># 擁有者</span>
+</span><span class='line'>  <span class="n">group</span> <span class="s2">&quot;root&quot;</span>           <span class="c1"># 群組</span>
+</span><span class='line'>  <span class="n">mode</span> <span class="s2">&quot;0755&quot;</span>            <span class="c1"># 權限</span>
 </span><span class='line'>  <span class="n">action</span> <span class="ss">:create</span>         <span class="c1"># 動作 (如果是 :create 可省略</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h3><code>:action</code> 的方法屬性</h3>
+<p><code>:action</code> 的方法屬性</p>
 
 <table>
 <thead>
@@ -319,11 +319,11 @@
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">template</span> <span class="err">“</span><span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span><span class="s2">&quot; do                        # 目標檔案位置</span>
-</span><span class='line'><span class="s2">    source “&lt;file name&gt;.erb”                      # ERB 檔案來源</span>
-</span><span class='line'><span class="s2">    mode 0755                                     # 檔案權限</span>
-</span><span class='line'><span class="s2">    owner &quot;</span><span class="n">root</span><span class="s2">&quot;                                  # 擁有者</span>
-</span><span class='line'><span class="s2">    group “root&quot;</span>                                  <span class="c1"># 群組</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">template</span> <span class="s2">&quot;&lt;filename&gt;&quot;</span> <span class="k">do</span>                        <span class="c1"># 目標檔案位置</span>
+</span><span class='line'>    <span class="n">source</span> <span class="s2">&quot;&lt;file name&gt;.erb&quot;</span>                      <span class="c1"># ERB 檔案來源</span>
+</span><span class='line'>    <span class="n">mode</span> <span class="mo">0755</span>                                     <span class="c1"># 檔案權限</span>
+</span><span class='line'>    <span class="n">owner</span> <span class="s2">&quot;root&quot;</span>                                  <span class="c1"># 擁有者</span>
+</span><span class='line'>    <span class="n">group</span> <span class="s2">&quot;root&quot;</span>                                  <span class="c1"># 群組</span>
 </span><span class='line'>    <span class="n">variables</span><span class="p">({</span>                                   <span class="c1"># 載入 variables ，所以按照範例可以在 template，可以使用 @xxx 及 @ooo</span>
 </span><span class='line'>       <span class="ss">:xxx</span> <span class="o">=&gt;</span> <span class="n">node</span><span class="o">[</span><span class="ss">:hello_world</span><span class="o">][</span><span class="ss">:xxx</span><span class="o">][</span><span class="ss">:groups</span><span class="o">]</span><span class="p">,</span>
 </span><span class='line'>       <span class="ss">:ooo</span> <span class="o">=&gt;</span> <span class="n">node</span><span class="o">[</span><span class="ss">:hello_world</span><span class="o">][</span><span class="ss">:ooo</span><span class="o">][</span><span class="ss">:users</span><span class="o">]</span>
