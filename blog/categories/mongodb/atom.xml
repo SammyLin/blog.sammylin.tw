@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Mongodb | Sammy Lin]]></title>
+  <title><![CDATA[Category: mongodb | Sammy Lin]]></title>
   <link href="http://blog.sammylin.tw/blog/categories/mongodb/atom.xml" rel="self"/>
   <link href="http://blog.sammylin.tw/"/>
-  <updated>2015-04-11T17:28:39+08:00</updated>
+  <updated>2015-04-11T17:40:14+08:00</updated>
   <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>

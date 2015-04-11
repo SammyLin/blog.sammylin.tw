@@ -9,7 +9,7 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="最近一直有一台電腦就是要印東西時，發現按了列印就會擋掉，一直找不到原因，只能叫同事要印的時候重開機看看吧，沒想到就好了。不過事隔多日，同事反應開了快100次都沒辦法好，上網找了個方法，可以把服務「Print Spooler」重啟就馬上好，就不用重開機了，但這只是治標不治本的方法，但沒辦法， &hellip;">
+  <meta name="description" content="最近發現一個好外掛，其實我的部落格是用EC2建置的，但是哪天如果EC2掛點的話，我怎麼跟各位相親父老交待，我本人也不是系統出身的，因此我的系統也是一邊學一邊做，看有沒有辦法把EC2的備援做到最好的狀況，希望未來像Ken Lee一樣。 名稱：W3 Total Cache 網址：http:// &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,17 +18,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.sammylin.tw/blog/page/7">
+  <link rel="canonical" href="http://blog.sammylin.tw/blog/page/7/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>
 
   
   <script type="text/javascript">
@@ -48,32 +47,11 @@
 
 <body   >
   <header role="banner"><hgroup>
+  <img src="/images/ah_frame_transparent.svg" />
   <h1><a href="/">Sammy Lin</a></h1>
-  
-    <h2>旅居台北的高雄人</h2>
-  
 </hgroup>
 
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="http://feeds.feedburner.com/igotcloud" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="https://www.google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:blog.sammylin.tw" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-  <li><a href="http://sammylin.tw/about-i">About Me</a></li>
-</ul>
-
-</nav>
   <div id="main">
     <div id="content">
       <div class="blog-index">
@@ -84,11 +62,178 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/wordpress-cdn-and-s3-support-plug-w3-total-cache/">[WordPress]支援CDN及S3的外掛-W3 Total Cache</a></h1>
+    
+  </header>
+
+
+  
+    <p class="meta">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-21T00:00:00+08:00" pubdate data-updated="true"></time>
+      
+       | <a href="/wordpress-cdn-and-s3-support-plug-w3-total-cache/#disqus_thread">Comments</a>
+      
+    </p>
+  
+  
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/amazon-web-services-aws/'>Amazon Web Services (AWS)</a>, <a class='category' href='/blog/categories/elastic-compute-cloud-ec2/'>Elastic Compute Cloud(EC2)</a>, <a class='category' href='/blog/categories/simple-storage-service-s3/'>Simple Storage Service(S3)</a>, <a class='category' href='/blog/categories/wordpress/'>WordPress</a>
+  
+</span>
+
+
+  <div class="entry-content"><p><p>最近發現一個好外掛，其實我的部落格是用EC2建置的，但是哪天如果EC2掛點的話，我怎麼跟各位相親父老交待，我本人也不是系統出身的，因此我的系統也是一邊學一邊做，看有沒有辦法把EC2的備援做到最好的狀況，希望未來像<a title="http://www.tts.bz/" href="http://www.tts.bz/">Ken Lee</a>一樣。</p>  <table border="0" cellspacing="0" cellpadding="2" width="540"><tbody>     <tr>       <td valign="top" width="540">         <p><strong>名稱：W3 Total Cache</strong></p>          <p>網址：<a title="http://wordpress.org/extend/plugins/w3-total-cache" href="http://wordpress.org/extend/plugins/w3-total-cache">http://wordpress.org/extend/plugins/w3-total-cache</a></p>       </td>     </tr>   </tbody></table>  <p>其實W3 Total Cache因為有支援Amazon S3 跟Amazon CloudFront的關係，令我想要去玩一下他，目前我的網站，所有靜態檔案(圖片、css)都是放在s3上面的，如果仔細看的話我的圖片是放在<a href="http://blog1.cornerlife.tw">Http://blog1.cornerlife.tw</a> 其實這個網址是CNAME到 <a href="http://blog1.cornerlife.tw.s3-ap-northeast-1.amazonaws.com">Http://blog1.cornerlife.tw.s3-ap-northeast-1.amazonaws.com</a>的。</p>  <p>如果你要使用S3又要用自己的Domain name的話，那你的Bucket記得要用你的domain name建立Bucket 否則他是無法讀取你的檔案。</p></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/ruby-in-lion-failed-installation-ree/">[Ruby]在Lion安裝ree失敗</a></h1>
+    
+  </header>
+
+
+  
+    <p class="meta">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-17T00:00:00+08:00" pubdate data-updated="true"></time>
+      
+       | <a href="/ruby-in-lion-failed-installation-ree/#disqus_thread">Comments</a>
+      
+    </p>
+  
+  
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ruby-on-rails/'>Ruby on Rails</a>
+  
+</span>
+
+
+  <div class="entry-content"><p>因為升級lion的關係，<br />
+我也重灌了ruby的環境<br />
+不知道為什麼在灌ree(Ruby Enterprise Edition)的時候出現了以下錯誤</p>
+
+<p>$rvm install ree</p>
+
+<p>ERROR: Error running &#8216;./installer -a /Users/&lt;UserName&gt;/.rvm/rubies/ree-1.8.7-2011.03  &#8211;no-tcmalloc &#8211;dont-install-useful-gems &#8216;, please read /Users/&lt;UserName&gt;/.rvm/log/ree-1.8.7-2011.03/install.log<br />
+ERROR: There has been an error while trying to run the ree installer. Halting the installation.</p>
+
+<p>按照他所說的我們到log看一下Error結果是以下</p>
+
+<p>*** ERROR: Ruby is not installed ***<br />
+The Ruby Enterprise Edition installer is written in Ruby. This source tarball bundles precompiled versions of Ruby for many platforms for the purpose of running this installer, but unfortunately we did not include a precompiled Ruby binary for the current platform. So please install Ruby manually, then run this installer again.</p>
+
+<p>上網google一下，發現應該是profile的問題
+<a href="http://stackoverflow.com/questions/6804195/cant-install-ruby-enterprise-edition-with-rvm-on-osx-lion">http://stackoverflow.com/questions/6804195/cant-install-ruby-enterprise-edition-with-rvm-on-osx-lion</a></p>
+
+<p>我們先把原來的ree刪除之後修改profile再重新安裝一次ree<br />
+$ rvm remove ree<br />
+$ export CC=/usr/bin/gcc-4.2<br />
+$ rvm install &#8211;force ree</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/aws-aws-toolkit-for-visual-studio-released/">[AWS]AWS Toolkit for Visual Studio 釋放了</a></h1>
+    
+  </header>
+
+
+  
+    <p class="meta">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-09T00:00:00+08:00" pubdate data-updated="true"></time>
+      
+       | <a href="/aws-aws-toolkit-for-visual-studio-released/#disqus_thread">Comments</a>
+      
+    </p>
+  
+  
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/aws-sdk-for-net/'>AWS SDK for .NET</a>, <a class='category' href='/blog/categories/amazon-web-services-aws/'>Amazon Web Services (AWS)</a>
+  
+</span>
+
+
+  <div class="entry-content"><p><p>身為過去微軟的愛好者我不得不分享一下今天這個Toolkit了，過去只能使用<a href="http://aws.amazon.com/eclipse/" target="_blank">aws toolkit for eclipse</a>，現在多了一個<a href="http://aws.amazon.com/visualstudio/" target="_blank">AWS Toolkit for Visual Studio</a> Amazon真的照顧廣大的人群們，哈哈~~~</p>  <table border="1" cellspacing="1" cellpadding="1" width="540"><tbody>     <tr>       <td valign="top" width="540">名稱：AWS Toolkit for Visual Studio         <br />網址：<a href="http://aws.amazon.com/visualstudio/">http://aws.amazon.com/visualstudio/</a>          <br />下載網址：<a title="http://d1q6xku6craafi.cloudfront.net/latest/AWSToolsAndSDKForNet.msi" href="http://d1q6xku6craafi.cloudfront.net/latest/AWSToolsAndSDKForNet.msi">http://d1q6xku6craafi.cloudfront.net/latest/AWSToolsAndSDKForNet.msi</a></td>     </tr>   </tbody></table>  <p>因為AWS SDK for .NET當初就有了所以不多做介紹，我們就介紹新的功能</p>  <ul>   <li>AWS Explorer</li>    <li>Multiple AWS Account Support</li>    <li>AWS CloudFormation Deployment</li> </ul>  <p>參考網址：<a href="http://aws.amazon.com/about-aws/whats-new/2011/09/08/announcing-the-aws-toolkit-for-visual-studio/" target="_blank">Announcing the AWS Toolkit for Visual Studio</a> </p>  <p>在這邊使用的是VS2010</p></div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/aws-aws-toolkit-for-visual-studio-released/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/windows-printer-open/">[Windows]印表機打不開</a></h1>
     
-    
-      <p class="meta">
-        
+  </header>
+
+
+  
+    <p class="meta">
+      
 
 
 
@@ -101,13 +246,18 @@
 
 
 <time datetime="2011-09-08T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/windows-printer-open/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/windows-printer-open/">Comments</a>
-        
-      </p>
-    
-  </header>
+      
+       | <a href="/windows-printer-open/#disqus_thread">Comments</a>
+      
+    </p>
+  
+  
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/windows/'>Windows</a>
+  
+</span>
 
 
   <div class="entry-content"><p>最近一直有一台電腦就是要印東西時，發現按了列印就會擋掉，一直找不到原因，只能叫同事要印的時候重開機看看吧，沒想到就好了。不過事隔多日，同事反應開了快100次都沒辦法好，上網找了個方法，可以把服務「Print Spooler」重啟就馬上好，就不用重開機了，但這只是治標不治本的方法，但沒辦法，我能力就是有限，最好的方法就是寫一個vbs讓他去執行，一個動作就可以搞定了！
@@ -136,9 +286,12 @@ next
     
       <h1 class="entry-title"><a href="/aws-discount-android-app-development-plan/">[AWS]開發Android App優惠計畫</a></h1>
     
-    
-      <p class="meta">
-        
+  </header>
+
+
+  
+    <p class="meta">
+      
 
 
 
@@ -151,13 +304,18 @@ next
 
 
 <time datetime="2011-09-08T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/aws-discount-android-app-development-plan/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/aws-discount-android-app-development-plan/">Comments</a>
-        
-      </p>
-    
-  </header>
+      
+       | <a href="/aws-discount-android-app-development-plan/#disqus_thread">Comments</a>
+      
+    </p>
+  
+  
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/amazon-web-services-aws/'>Amazon Web Services (AWS)</a>
+  
+</span>
 
 
   <div class="entry-content"><p>如果你有Android的開發經驗，又對AWS有興趣的話，一定要看過來，因為AWS提供了一個優惠計畫，就你是開發Android App 會使用到AWS Service那就會獲得50元促銷代碼(感覺興致缺缺XD，不過不無少補啦)只要在2011/11/15之後提交到<a href="https://developer.amazon.com/welcome.html?pid=promo-aws-090711" target="_blank">Amazon Appstore Developer Program</a>，且現在加入<a href="https://developer.amazon.com/welcome.html?pid=promo-aws-090711" target="_blank">Amazon Appstore Developer Program</a>可以第一年免費(原價美金99元)</p>
@@ -180,9 +338,12 @@ next
     
       <h1 class="entry-title"><a href="/aws-aws-management-console-layout-update/">[AWS]AWS Management Console版面更新</a></h1>
     
-    
-      <p class="meta">
-        
+  </header>
+
+
+  
+    <p class="meta">
+      
 
 
 
@@ -195,13 +356,18 @@ next
 
 
 <time datetime="2011-09-08T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/aws-aws-management-console-layout-update/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/aws-aws-management-console-layout-update/">Comments</a>
-        
-      </p>
-    
-  </header>
+      
+       | <a href="/aws-aws-management-console-layout-update/#disqus_thread">Comments</a>
+      
+    </p>
+  
+  
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/amazon-web-services-aws/'>Amazon Web Services (AWS)</a>
+  
+</span>
 
 
   <div class="entry-content"><p>今天一起來發現AWS Management Console 有明顯的不同也就是上原來選擇不同的Service的Tab變成了下拉選單，按照我拙劣的判斷是因為頁面上方已經容納不下新Service 的Tab(可能又有Service要做進來AWS Management Console了，或是有新的Service。我們就拭目以待吧。</p>
@@ -227,9 +393,12 @@ next
     
       <h1 class="entry-title"><a href="/careers-job-at-aws/">[徵才]Job at AWS</a></h1>
     
-    
-      <p class="meta">
-        
+  </header>
+
+
+  
+    <p class="meta">
+      
 
 
 
@@ -242,13 +411,18 @@ next
 
 
 <time datetime="2011-09-07T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/careers-job-at-aws/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/careers-job-at-aws/">Comments</a>
-        
-      </p>
-    
-  </header>
+      
+       | <a href="/careers-job-at-aws/#disqus_thread">Comments</a>
+      
+    </p>
+  
+  
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/amazon-web-services-aws/'>Amazon Web Services (AWS)</a>
+  
+</span>
 
 
   <div class="entry-content"><p>想加入市值千億美金的公司嗎？AWS釋出許多工作，從業務經理到工程師都有，如果你有興趣的話可以來試試看吧，從澳大利亞、德國、南非，愛爾蘭、美國、印度、盧森堡、法國、新加坡、英國和東京都有，但是沒有台灣(哈哈~)如果有興趣的話就到網站來看看吧。</p>
@@ -277,9 +451,12 @@ next
     
       <h1 class="entry-title"><a href="/travel-chinas-jiangxi-province-day4/">[旅遊]中國江西省(Day4)</a></h1>
     
-    
-      <p class="meta">
-        
+  </header>
+
+
+  
+    <p class="meta">
+      
 
 
 
@@ -292,13 +469,18 @@ next
 
 
 <time datetime="2011-09-05T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/travel-chinas-jiangxi-province-day4/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/travel-chinas-jiangxi-province-day4/">Comments</a>
-        
-      </p>
-    
-  </header>
+      
+       | <a href="/travel-chinas-jiangxi-province-day4/#disqus_thread">Comments</a>
+      
+    </p>
+  
+  
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/shi-jie-lu-you/'>世界旅遊</a>, <a class='category' href='/blog/categories/zhong-guo-jiang-xi/'>中國江西</a>
+  
+</span>
 
 
   <div class="entry-content"><p>今天又是來到一個古村，如果你是那種愛好逛街或是買東西的人，那很抱歉，這邊太不適合你了，因為這邊大部份都是風景或是共軍的東西，因為第一次出國的關係，原本想要買一些東西給同事跟朋友的，但是我看了風景區的紀念品，真的都下不了手，因為不是台灣有，就是毛澤東的頭像。所以最後都是兩手空空的回到台灣了。</p>
@@ -323,9 +505,12 @@ next
     
       <h1 class="entry-title"><a href="/travel-chinas-jiangxi-province-day3/">[旅遊]中國江西省(Day3)</a></h1>
     
-    
-      <p class="meta">
-        
+  </header>
+
+
+  
+    <p class="meta">
+      
 
 
 
@@ -338,13 +523,18 @@ next
 
 
 <time datetime="2011-09-01T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/travel-chinas-jiangxi-province-day3/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/travel-chinas-jiangxi-province-day3/">Comments</a>
-        
-      </p>
-    
-  </header>
+      
+       | <a href="/travel-chinas-jiangxi-province-day3/#disqus_thread">Comments</a>
+      
+    </p>
+  
+  
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/shi-jie-lu-you/'>世界旅遊</a>, <a class='category' href='/blog/categories/zhong-guo-jiang-xi/'>中國江西</a>
+  
+</span>
 
 
   <div class="entry-content"><p>江西的人比較常喝的酒是「堆花酒、四特酒、啤酒」，堆花酒是也是江西的特產，是用桂花提煉而成的，酒精濃度35%左右；四特酒還是江西特產，不過他是用整粒大米製作而成的，酒精濃度50%左右；啤酒就懶的介紹了，但是這三種千千千萬不要混著喝阿，我本來想說堆花跟四特都是白酒沒有關係，我一開始喝了半瓶的堆花，接下來喝四特的時候，才不到四杯，我就去陪馬桶睡覺了(飲酒過量，有害健康)</p>
@@ -369,9 +559,12 @@ next
     
       <h1 class="entry-title"><a href="/travel-chinas-jiangxi-province-day2/">[旅遊]中國江西省(Day2)</a></h1>
     
-    
-      <p class="meta">
-        
+  </header>
+
+
+  
+    <p class="meta">
+      
 
 
 
@@ -384,13 +577,18 @@ next
 
 
 <time datetime="2011-08-31T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/travel-chinas-jiangxi-province-day2/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/travel-chinas-jiangxi-province-day2/">Comments</a>
-        
-      </p>
-    
-  </header>
+      
+       | <a href="/travel-chinas-jiangxi-province-day2/#disqus_thread">Comments</a>
+      
+    </p>
+  
+  
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/shi-jie-lu-you/'>世界旅遊</a>, <a class='category' href='/blog/categories/zhong-guo-jiang-xi/'>中國江西</a>
+  
+</span>
 
 
   <div class="entry-content"><p><p>一早睡醒之後，上午的行程都是在開會，所以沒什麼好介紹的，每次吃飯我都不會帶相機去，所以沒辦法跟各位介紹，我只能說，江西大部份都是吃辣的，會怕辣的人就要考慮一下了，如果沒辦法的話，就帶瓶胃藥吧，因為同行的大哥們很多都拉到屁屁都會辣~</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/08/image12.png"><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/08/image_thumb12.png" width="544" height="234" /></a></p>  <p>今天下午的第一站我們來到了「江西省吉安市橫江鎮公塘村」這邊是被江西省委農工部、省旅遊局等部門被評為「江西省生態新農村」、「江西省鄉村旅遊示範點」，在中國大陸有很多像這樣子的地方，尤其是被共產黨住過的地方更容易被評為什麼示範點的，就是一個「紅色旅遊」要大家必走的地方，像這裡就是曾經被「中國紅軍第五軍第十四師師部舊址」，所以很多建築被保存著大部份都沒人住啦。</p></div>
@@ -398,153 +596,6 @@ next
   
     <footer>
       <a rel="full-article" href="/travel-chinas-jiangxi-province-day2/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/travel-china-jiangxi-province-day1/">[旅遊]中國江西省(Day1)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-08-30T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/travel-china-jiangxi-province-day1/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/travel-china-jiangxi-province-day1/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>實在太久沒有發文章了，上次出差到大陸，順便貼個旅遊文來補一下囉！</p>
-
-<p>江西省，簡稱贛，是中國的一個省份，位於長江中下游南岸，東界浙江與福建、北鄰安徽和湖北，西連湖南，南毗廣東。境內最大河流為贛江，自南向北縱貫全境，注入中國第一大淡水湖——鄱陽湖。全省總面積16.69萬平方公里，2008年底人口4400.10萬人。省會為南昌。(參考<a href="http://zh.wikipedia.org/wiki/%E6%B1%9F%E8%A5%BF%E7%9C%81">http://zh.wikipedia.org/wiki/%E6%B1%9F%E8%A5%BF%E7%9C%81</a>)</p>
-
-<p>原來大陸的發展也是很可怕的，已經有了高速公路，但是他們省跟省之間還是很遠的啦，我這次到大陸坐車的路程應該可以繞台灣四五圈了吧！</p>
-
-<p>其實小弟孤陋寡聞沒見過事面的人，這次也是我第一次出國，沒想到已經很緊張了沒想到還要面對她..</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/travel-china-jiangxi-province-day1/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/mssql-clear-all-the-data-tables/">[MSSQL]清除資料表內所有資料</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-08-18T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/mssql-clear-all-the-data-tables/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/mssql-clear-all-the-data-tables/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><span style="color: #0000ff; font-size: x-small;">TRUNCATE TABLE name</span></p>
-
-<p>TRUNCATE TABLE 在功能上與沒有 WHERE 子句的 DELETE 陳述式相同：兩者都會移除資料表中所有的資料列，但 TRUNCATE TABLE 速度較快，且比 DELETE 使用較少的系統與交易記錄檔資源。</p>
-
-<p>TRUNCATE TABLE 從資料表中移除所有的資料列，但資料表結構、條件約束、索引等等都會保留。新資料列之識別使用的計數器會重設為資料行的初始值。如果您要保留識別計數器，請改使用 DELETE。如果您要移除資料表定義及其資料，請使用 DROP TABLE 陳述式。</p>
-
-<p>使用沒有 WHERE 子句的 DELETE 陳述式代替。因為 TRUNCATE TABLE 不會有記錄，它無法啟動觸發程序。</p>
-
-<p><span style="color: #ff0000;">*使用後table的識別計數器會重回1,但若使用delete識別計數器不會重回1</span></p>
-
-<p><span style="color: #ff0000;">資料來源：</span><a href="http://itgroup.blueshop.com.tw/blackncc/blog9?n=convew&amp;i=4329"><span style="color: #ff0000;">http://itgroup.blueshop.com.tw/blackncc/blog9?n=convew&amp;i=4329</span></a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/rds-long-term-lease-reserved-db-instances/">[RDS]長期租用Reserved DB Instances</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-07-30T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/rds-long-term-lease-reserved-db-instances/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/rds-long-term-lease-reserved-db-instances/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>其實On Demand DB Instances 貴到嚇死人，因為要長期經營網站，而且又要考慮備援，所以我決定租用Reserved DB Instances，雖然要一次先付一筆年費，但花費下來其實比On-Demand 還要便宜許多。</p>
-
-<p>我們以Stand Deployment，Small Db Instance 來計算一年365天一天24小時，如果使用一年的話會是美金1138.8元</p>
-
-<p><span style="color: #ff0000; font-size: medium;">365*24*0.13元= 1138.8元</span></p>
-
-<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image53.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb54.png" alt="image" width="544" height="261" border="0" /></a></p>
-
-<p>然而使用Reserved DB Instances的話，以相同規格的Standard Deplyment Small DB Instance來算的話，你只要先繳交一年的年費，而之後就可以用優惠的價格來使用Instance，但如果你買了10台Reserved DB Instance， 但只開了1台DB Instance，雖然只會計算1台的時間，而你10台Reserved DB Instance算是白繳年費了，而這個白繳年費是不能退費的(我有切身之痛呀~)，要小心的使用。我們來計算一下到底便宜多少。</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/rds-long-term-lease-reserved-db-instances/">Read on &rarr;</a>
     </footer>
   
 
@@ -563,16 +614,17 @@ next
 </div>
 <aside class="sidebar">
   
+    <form action="https://www.google.com/search" method="get">
+      <fieldset role="search">
+        <input type="hidden" name="q" value="site:blog.sammylin.tw" />
+        <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      </fieldset>
+    </form>
+  
+  
     <section>
-<h1>About</h1>
-<p>
-  <img src="http://services.nexodyne.com/email/icon/ZbGAyriFaHk9vw%3D%3D/139A9mU%3D/R01haWw%3D/0/image.png"/>
-</p>
-<p><a href="http://feeds.feedburner.com/igotcloud"><img src="http://feeds.feedburner.com/~fc/igotcloud?bg=99CCFF&amp;fg=444444&amp;anim=1" height="26" width="88" style="border:0" alt="" /></a></p>
-</p>
-<p>
-<a href="http://twitter.com/sammylintw" class="twitter-follow-button">Follow @SammyLinTw</a>
-</p>
+  <h1>About Me</h1>
+  <p>A little something about me.</p>
 </section>
 <section>
   <h1>Recent Posts</h1>
@@ -617,6 +669,7 @@ next
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -635,7 +688,7 @@ next
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
@@ -646,7 +699,7 @@ next
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id; js.async = true;
+  js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
@@ -668,23 +721,17 @@ next
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>
 
 
 
-<script>
-   !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
-        arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
-     d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
-    insertBefore(d,q)}(window,document,'script','_gs');
-   
-   _gs('GSN-163630-O');
- </script>
 
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/javascripts/aharris.js"></script>
 
 </body>
 </html>

@@ -18,17 +18,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.sammylin.tw/wordpress-cdn-and-s3-support-plug-w3-total-cache">
+  <link rel="canonical" href="http://blog.sammylin.tw/wordpress-cdn-and-s3-support-plug-w3-total-cache/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>
 
   
   <script type="text/javascript">
@@ -48,32 +47,11 @@
 
 <body   >
   <header role="banner"><hgroup>
+  <img src="/images/ah_frame_transparent.svg" />
   <h1><a href="/">Sammy Lin</a></h1>
-  
-    <h2>旅居台北的高雄人</h2>
-  
 </hgroup>
 
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="http://feeds.feedburner.com/igotcloud" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="https://www.google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:blog.sammylin.tw" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-  <li><a href="http://sammylin.tw/about-i">About Me</a></li>
-</ul>
-
-</nav>
   <div id="main">
     <div id="content">
       <div>
@@ -83,28 +61,16 @@
     
       <h1 class="entry-title">[WordPress]支援CDN及S3的外掛-W3 Total Cache</h1>
     
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-09-21T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw">Comments</a>
-        
-      </p>
-    
   </header>
+
+
+
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/amazon-web-services-aws/'>Amazon Web Services (AWS)</a>, <a class='category' href='/blog/categories/elastic-compute-cloud-ec2/'>Elastic Compute Cloud(EC2)</a>, <a class='category' href='/blog/categories/simple-storage-service-s3/'>Simple Storage Service(S3)</a>, <a class='category' href='/blog/categories/wordpress/'>WordPress</a>
+  
+</span>
 
 
 <div class="entry-content"><p><p>最近發現一個好外掛，其實我的部落格是用EC2建置的，但是哪天如果EC2掛點的話，我怎麼跟各位相親父老交待，我本人也不是系統出身的，因此我的系統也是一邊學一邊做，看有沒有辦法把EC2的備援做到最好的狀況，希望未來像<a title="http://www.tts.bz/" href="http://www.tts.bz/">Ken Lee</a>一樣。</p>  <table border="0" cellspacing="0" cellpadding="2" width="540"><tbody>     <tr>       <td valign="top" width="540">         <p><strong>名稱：W3 Total Cache</strong></p>          <p>網址：<a title="http://wordpress.org/extend/plugins/w3-total-cache" href="http://wordpress.org/extend/plugins/w3-total-cache">http://wordpress.org/extend/plugins/w3-total-cache</a></p>       </td>     </tr>   </tbody></table>  <p>其實W3 Total Cache因為有支援Amazon S3 跟Amazon CloudFront的關係，令我想要去玩一下他，目前我的網站，所有靜態檔案(圖片、css)都是放在s3上面的，如果仔細看的話我的圖片是放在<a href="http://blog1.cornerlife.tw">Http://blog1.cornerlife.tw</a> 其實這個網址是CNAME到 <a href="http://blog1.cornerlife.tw.s3-ap-northeast-1.amazonaws.com">Http://blog1.cornerlife.tw.s3-ap-northeast-1.amazonaws.com</a>的。</p>  <p>如果你要使用S3又要用自己的Domain name的話，那你的Bucket記得要用你的domain name建立Bucket 否則他是無法讀取你的檔案。</p></p>
@@ -131,20 +97,11 @@
 
 
 <time datetime="2011-09-21T00:00:00+08:00" pubdate data-updated="true"></time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/amazon-web-services-aws/'>Amazon Web Services (AWS)</a>, <a class='category' href='/blog/categories/elastic-compute-cloud-ec2/'>Elastic Compute Cloud(EC2)</a>, <a class='category' href='/blog/categories/simple-storage-service-s3/'>Simple Storage Service(S3)</a>, <a class='category' href='/blog/categories/wordpress/'>WordPress</a>
-  
-</span>
-
-
     </p>
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.sammylin.tw/wordpress-cdn-and-s3-support-plug-w3-total-cache/" data-via="SammyLinTw" data-counturl="http://blog.sammylin.tw/wordpress-cdn-and-s3-support-plug-w3-total-cache/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.sammylin.tw/wordpress-cdn-and-s3-support-plug-w3-total-cache/" data-via="SammyLinTw" data-counturl="http://blog.sammylin.tw/wordpress-cdn-and-s3-support-plug-w3-total-cache/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -170,16 +127,17 @@
 
 <aside class="sidebar">
   
+    <form action="https://www.google.com/search" method="get">
+      <fieldset role="search">
+        <input type="hidden" name="q" value="site:blog.sammylin.tw" />
+        <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      </fieldset>
+    </form>
+  
+  
     <section>
-<h1>About</h1>
-<p>
-  <img src="http://services.nexodyne.com/email/icon/ZbGAyriFaHk9vw%3D%3D/139A9mU%3D/R01haWw%3D/0/image.png"/>
-</p>
-<p><a href="http://feeds.feedburner.com/igotcloud"><img src="http://feeds.feedburner.com/~fc/igotcloud?bg=99CCFF&amp;fg=444444&amp;anim=1" height="26" width="88" style="border:0" alt="" /></a></p>
-</p>
-<p>
-<a href="http://twitter.com/sammylintw" class="twitter-follow-button">Follow @SammyLinTw</a>
-</p>
+  <h1>About Me</h1>
+  <p>A little something about me.</p>
 </section>
 <section>
   <h1>Recent Posts</h1>
@@ -225,6 +183,7 @@
 </aside>
 
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -243,7 +202,7 @@
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
@@ -254,7 +213,7 @@
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id; js.async = true;
+  js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
@@ -276,23 +235,17 @@
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>
 
 
 
-<script>
-   !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
-        arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
-     d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
-    insertBefore(d,q)}(window,document,'script','_gs');
-   
-   _gs('GSN-163630-O');
- </script>
 
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/javascripts/aharris.js"></script>
 
 </body>
 </html>

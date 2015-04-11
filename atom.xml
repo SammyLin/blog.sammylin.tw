@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-
   <title><![CDATA[Sammy Lin]]></title>
   <link href="http://blog.sammylin.tw/atom.xml" rel="self"/>
   <link href="http://blog.sammylin.tw/"/>
-  <updated>2015-04-11T17:28:39+08:00</updated>
+  <updated>2015-04-11T17:40:14+08:00</updated>
   <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
@@ -632,7 +631,7 @@ end
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[My Vimrc]]></title>
+    <title type="html"><![CDATA[My vimrc]]></title>
     <link href="http://blog.sammylin.tw/vimrc/"/>
     <updated>2013-04-23T20:55:00+08:00</updated>
     <id>http://blog.sammylin.tw/vimrc</id>
@@ -998,7 +997,7 @@ Google 查了一下，按發現其實有解法的</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[[Ruby] Strftime 常用格式 筆記]]></title>
+    <title type="html"><![CDATA[[Ruby] strftime 常用格式 筆記]]></title>
     <link href="http://blog.sammylin.tw/ruby-strftime/"/>
     <updated>2012-09-07T22:26:00+08:00</updated>
     <id>http://blog.sammylin.tw/ruby-strftime</id>

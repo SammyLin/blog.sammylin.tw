@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Mysql | Sammy Lin]]></title>
+  <title><![CDATA[Category: mysql | Sammy Lin]]></title>
   <link href="http://blog.sammylin.tw/blog/categories/mysql/atom.xml" rel="self"/>
   <link href="http://blog.sammylin.tw/"/>
-  <updated>2015-04-11T17:28:39+08:00</updated>
+  <updated>2015-04-11T17:40:14+08:00</updated>
   <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[[Mysql]優化]]></title>
+    <title type="html"><![CDATA[[mysql]優化]]></title>
     <link href="http://blog.sammylin.tw/mysql-optimization/"/>
     <updated>2011-12-03T09:34:00+08:00</updated>
     <id>http://blog.sammylin.tw/mysql-optimization</id>

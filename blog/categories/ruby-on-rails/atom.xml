@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby on Rails | Sammy Lin]]></title>
   <link href="http://blog.sammylin.tw/blog/categories/ruby-on-rails/atom.xml" rel="self"/>
   <link href="http://blog.sammylin.tw/"/>
-  <updated>2015-04-11T17:28:39+08:00</updated>
+  <updated>2015-04-11T17:40:14+08:00</updated>
   <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
@@ -162,7 +162,7 @@ end</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[出現private Method `write_uploader' Called For]]></title>
+    <title type="html"><![CDATA[出現private method `write_uploader' called for]]></title>
     <link href="http://blog.sammylin.tw/write-uploader-error/"/>
     <updated>2012-04-24T22:29:00+08:00</updated>
     <id>http://blog.sammylin.tw/write-uploader-error</id>
@@ -240,7 +240,7 @@ zh-TW:
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[[Ruby]在model生成Schema Information-annotate]]></title>
+    <title type="html"><![CDATA[[Ruby]在model生成Schema information-annotate]]></title>
     <link href="http://blog.sammylin.tw/annotate-ruby/"/>
     <updated>2012-01-18T11:17:00+08:00</updated>
     <id>http://blog.sammylin.tw/annotate-ruby</id>

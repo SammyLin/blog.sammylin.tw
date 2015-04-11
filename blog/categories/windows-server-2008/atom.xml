@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Windows Server 2008 | Sammy Lin]]></title>
+  <title><![CDATA[Category: Windows server 2008 | Sammy Lin]]></title>
   <link href="http://blog.sammylin.tw/blog/categories/windows-server-2008/atom.xml" rel="self"/>
   <link href="http://blog.sammylin.tw/"/>
-  <updated>2015-04-11T17:28:39+08:00</updated>
+  <updated>2015-04-11T17:40:14+08:00</updated>
   <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[在AWS可以免費用Windows Server 2008]]></title>
+    <title type="html"><![CDATA[在AWS可以免費用Windows server 2008]]></title>
     <link href="http://blog.sammylin.tw/aws-windows2008/"/>
     <updated>2012-01-17T09:28:00+08:00</updated>
     <id>http://blog.sammylin.tw/aws-windows2008</id>

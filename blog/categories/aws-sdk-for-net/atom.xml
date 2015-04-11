@@ -4,7 +4,7 @@
   <title><![CDATA[Category: AWS SDK for .NET | Sammy Lin]]></title>
   <link href="http://blog.sammylin.tw/blog/categories/aws-sdk-for-net/atom.xml" rel="self"/>
   <link href="http://blog.sammylin.tw/"/>
-  <updated>2015-04-11T17:28:39+08:00</updated>
+  <updated>2015-04-11T17:40:14+08:00</updated>
   <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
@@ -24,7 +24,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[[AWS]用AWS SDK for .NET 上傳檔案至S3]]></title>
+    <title type="html"><![CDATA[[AWS]用AWS SDK for .NET  上傳檔案至S3]]></title>
     <link href="http://blog.sammylin.tw/aws-with-aws-sdk-for-net-upload-files-to-s3/"/>
     <updated>2011-06-10T00:00:00+08:00</updated>
     <id>http://blog.sammylin.tw/aws-with-aws-sdk-for-net-upload-files-to-s3</id>
