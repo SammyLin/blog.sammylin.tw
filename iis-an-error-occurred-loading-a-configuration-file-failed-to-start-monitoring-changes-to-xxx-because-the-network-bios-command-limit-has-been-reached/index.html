@@ -18,17 +18,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.sammylin.tw/iis-an-error-occurred-loading-a-configuration-file-failed-to-start-monitoring-changes-to-xxx-because-the-network-bios-command-limit-has-been-reached/">
+  <link rel="canonical" href="http://blog.sammylin.tw/iis-an-error-occurred-loading-a-configuration-file-failed-to-start-monitoring-changes-to-xxx-because-the-network-bios-command-limit-has-been-reached">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>
-
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
   
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -43,34 +45,63 @@
   </script>
 
 
+  <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
 </head>
 
-<body   >
-  <header role="banner"><hgroup>
-  <img src="/images/ah_frame_transparent.svg" />
-  <h1><a href="/">Sammy Lin</a></h1>
-</hgroup>
-
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner">
 </header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/igotcloud" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.sammylin.tw" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
   <div id="main">
     <div id="content">
       <div>
 <article class="hentry" role="article">
   
   <header>
+  
     
       <h1 class="entry-title">[IIS]載入組態檔時發生錯誤: 無法開始監視 XXX 的變更，因為已經到達網路 BIOS 命令限制。</h1>
     
+  
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-20T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
   </header>
-
-
-
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/iis/'>IIS</a>
-  
-</span>
 
 
 <div class="entry-content"><p><p align="justify">因為原本公司的架構是把Web Server跟檔案放另一台File Server上面的，但是他逐年老舊，小公司沒什麼經費可以買好一點的主機，所以我就買了一台<a href="http://www.qnap.com/cht/pro_detail_feature.asp?p_id=193">Qnap TS-412</a>當做我的File Server，買幾個便宜的HD做RAID 6不到兩萬就處理好了(因為好久以前的MIS只是拿一般同仁淘汰的主機拿去當做FileServer，效能很差，三不五十當給我看&gt;&quot;&lt;，只好趕快換掉了)，把WebSite的檔案丟到FileServer上面做完設定之後，一打開就給我出現…</p>  <p align="justify"><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/image.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/10/image_thumb.png" width="488" height="244" /></a></p>  <p align="justify">找了很多原因</p>  <p align="justify">網路路徑..check</p>  <p align="justify">新增跟開放webserver帳號的存取..check</p>  <p align="justify">連線數量..check(只有我一人= =|||)</p>  <p>C:\Windows\Microsoft.NET\Framework\v2.0.50727\Temporary ASP.NET Files 的權限開放給webserver存取..check</p>  <h4>解決方式：</h4>  <p>最後發現還要把NAS上需要存取網址的資料夾開放給Network Service這個帳號就能夠處理問題了！</p>  <p>&#160;</p>  <p>過去QNAP的韌體不支援windows 設定權限，只能夠在QNAP的網頁介面設定，更新到3.2以後應該就可以處理沒辦法設定權限的問題了！</p>  <p>&#160;</p>  <table border="1" cellspacing="0" cellpadding="2" width="540"><tbody>     <tr>       <td valign="top" width="540">參考：         <br /><a href="http://blog.miniasp.com/post/2010/03/15/IIS-runs-out-of-work-items-and-causes-RPC-failures-when-connecting-to-a-remote-UNC-path.aspx">http://blog.miniasp.com/post/2010/03/15/IIS-runs-out-of-work-items-and-causes-RPC-failures-when-connecting-to-a-remote-UNC-path.aspx</a></td>     </tr>   </tbody></table></p>
@@ -97,6 +128,15 @@
 
 
 <time datetime="2011-10-20T00:00:00+08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/iis/'>IIS</a>
+  
+</span>
+
+
     </p>
     
       <div class="sharing">
@@ -126,14 +166,6 @@
 </div>
 
 <aside class="sidebar">
-  
-    <form action="https://www.google.com/search" method="get">
-      <fieldset role="search">
-        <input type="hidden" name="q" value="site:blog.sammylin.tw" />
-        <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-      </fieldset>
-    </form>
-  
   
     <section>
   <h1>About Me</h1>
@@ -183,12 +215,11 @@
 </aside>
 
 
-
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Sammy -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  Copyright &copy; 2015 - Sammy <br/>
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>, customized with <a href="https://github.com/mjhea0/whiterspace">whiterspace</a>.</span>
 </p>
 
 </footer>
@@ -213,7 +244,7 @@
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
+  js = d.createElement(s); js.id = id; js.async = true;
   js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
@@ -243,9 +274,6 @@
 
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="/javascripts/aharris.js"></script>
 
 </body>
 </html>

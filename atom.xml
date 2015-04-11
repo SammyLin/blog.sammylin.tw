@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
+
   <title><![CDATA[Sammy Lin]]></title>
   <link href="http://blog.sammylin.tw/atom.xml" rel="self"/>
   <link href="http://blog.sammylin.tw/"/>
-  <updated>2015-04-11T17:40:14+08:00</updated>
+  <updated>2015-04-11T17:45:14+08:00</updated>
   <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
@@ -13,23 +14,30 @@
 
   
   <entry>
+    
     <title type="html"><![CDATA[[Chef] Cookbook 超市，滿滿的 Coobook 等你來用]]></title>
     <link href="http://blog.sammylin.tw/chef-supermarket/"/>
+    
     <updated>2015-04-11T17:23:08+08:00</updated>
     <id>http://blog.sammylin.tw/chef-supermarket</id>
+    
     <content type="html"><![CDATA[<p><img src="http://i.imgur.com/ZgstOx2.png" alt="https://supermarket.chef.io/" /></p>
 
 <p>之前要找 Cookbook，一定是開 google 然後打「xxx cookbook」，剛剛才知道有這個網站，可以直接找 cookbook</p>
 
 <p>URL: <a href="https://supermarket.chef.io/">https://supermarket.chef.io/</a></p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[[Chef] Cookbook 寫 Recipe 常用的 Resource 介紹]]></title>
     <link href="http://blog.sammylin.tw/cookbook-resources/"/>
+    
     <updated>2015-04-11T14:51:43+08:00</updated>
     <id>http://blog.sammylin.tw/cookbook-resources</id>
+    
     <content type="html"><![CDATA[<p>Chef 有多重要，有多好那我們就不說了，如果你只是路過想了解什麼是 Chef 那你可以參考下面這個連結：</p>
 
 <p><a href="http://gogojimmy.net/2013/06/01/Chef-Solo-Basic-with-Vagrant/">[Rails佈署實戰教學]使用Chef-Solo一鍵安裝機器 &ndash; 好麻煩部落格</a></p>
@@ -371,13 +379,17 @@
 
 <p>2015.4.11 目前就先筆記這幾個，之後在寫 recipe 的時候覺得哪些重要跟常用的 resources 再慢慢補上了。</p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[Ruby 下載檔案時遇到中文字]]></title>
     <link href="http://blog.sammylin.tw/cgi-escape/"/>
+    
     <updated>2014-12-26T08:48:00+08:00</updated>
     <id>http://blog.sammylin.tw/cgi-escape</id>
+    
     <content type="html"><![CDATA[<p>在做下載檔案的功能時，如果遇到中文字的檔名<code>Ruby</code>就不認得了，是可以下載，不過檔名就不是你原先設計的那個檔名。</p>
 
 <p>所以只要加上 CGI.escape 將他轉成URL可以看的懂的編碼就行了</p>
@@ -385,13 +397,17 @@
 <pre><code>CGI.escape("我是中文字.csv")
 </code></pre>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[[生活]申訴交通罰單]]></title>
     <link href="http://blog.sammylin.tw/traffic-ticket/"/>
+    
     <updated>2014-12-20T18:36:26+08:00</updated>
     <id>http://blog.sammylin.tw/traffic-ticket</id>
+    
     <content type="html"><![CDATA[<p>前陣子幫朋友處理一個交通罰單，因為太誇張了&hellip; 根本沒有到過高雄，不過被開了一張高雄的罰單(未載安全帽、闖紅燈)，這張罰單是被民眾檢舉的，看起來就像是用行車記錄器拍的，完全都不清楚。</p>
 
 <p><img src="https://farm9.staticflickr.com/8598/15874620510_cabbd81922_o.png" alt="" />
@@ -470,13 +486,17 @@
 
 <p>但是最後還是處理完了 (呼)</p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[[Carrierwave]重新處理縮圖]]></title>
     <link href="http://blog.sammylin.tw/rails-recreate-versions/"/>
+    
     <updated>2014-11-28T13:36:20+08:00</updated>
     <id>http://blog.sammylin.tw/rails-recreate-versions</id>
+    
     <content type="html"><![CDATA[<p>將所有資料的縮圖一並處理</p>
 
 <pre><code>Article.find_each do |article|
@@ -486,13 +506,17 @@
 end
 </code></pre>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[利用自然人憑證申請健保卡不用出門就到手]]></title>
     <link href="http://blog.sammylin.tw/nhi/"/>
+    
     <updated>2014-06-10T20:55:46+08:00</updated>
     <id>http://blog.sammylin.tw/nhi</id>
+    
     <content type="html"><![CDATA[<p>還沒申請自然人憑證的朋友們，找個時間去申請一張來放著吧，等到要用的時候才知道他的好處再哪裡。<code>報稅</code>也是可以用的，可惜不能拿來申辦身份證&hellip;.，不過申請健保卡倒是可以，不用在請假或是出門，上網點一點，就可以在家坐等健保卡到手了！(不過看醫生還是要出門啦XD)。如果你的健保卡被屁股坐壞，或是被哪個犯賤的人幹走了，如果要看醫生真的很不方便。但是我找了一下沒發現有掛失的方法，只能重新申辦，今天就花了5分鐘的時間就申請好了。順便記錄一下</p>
 
 <p>首先要準備幾樣東西：</p>
@@ -628,13 +652,17 @@ end
 
 <p>雖然現在網路很方便，都可以這樣申請，不過最好還是不要把<code>健保卡</code>用丟或是用爛呀&hellip;.</p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[My vimrc]]></title>
     <link href="http://blog.sammylin.tw/vimrc/"/>
+    
     <updated>2013-04-23T20:55:00+08:00</updated>
     <id>http://blog.sammylin.tw/vimrc</id>
+    
     <content type="html"><![CDATA[<h3>說實在的，我比較笨</h3>
 
 <p>我以前是用ASP.NET的時候只有 Visual Studio 可以選擇，我根本沒機會摸到其他的編輯器，直到跳到<code>Ruby on Rails</code>之後，也找了許多IDE，例如：RubyMine, Netbeans，但發現，好像沒有這好用，之後問了許多使用Rails的大大才發現，大家都不用這些，用的都是Sublime Text, Textmate, vim 。</p>
@@ -747,13 +775,17 @@ or
 </ul>
 
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[在iterm2修改字體]]></title>
     <link href="http://blog.sammylin.tw/iterm2-change-font/"/>
+    
     <updated>2013-04-21T14:47:00+08:00</updated>
     <id>http://blog.sammylin.tw/iterm2-change-font</id>
+    
     <content type="html"><![CDATA[<p><img src="http://farm9.staticflickr.com/8115/8674261553_7e6abea1bf_o.png" alt="" /></p>
 
 <p>Profile > Open Profile</p>
@@ -774,13 +806,17 @@ or
 
 <h3><a href="http://sourceforge.net/projects/sourcecodepro.adobe/">下載網址</a></h3>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[[VIM]啟用滑鼠時無法複製]]></title>
     <link href="http://blog.sammylin.tw/the-vim-enabled-mouse-can-not-be-copied/"/>
+    
     <updated>2013-04-18T21:38:00+08:00</updated>
     <id>http://blog.sammylin.tw/the-vim-enabled-mouse-can-not-be-copied</id>
+    
     <content type="html"><![CDATA[<p>在<code>vimrc</code>加入下面這一行時</p>
 
 <pre><code>:set mouse=a
@@ -793,13 +829,17 @@ Google 查了一下，按發現其實有解法的</p>
 
 <h4>在其他系統下，按住<code>shift</code>，用滑鼠點選</h4>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[[FaceBook API]搜尋好友]]></title>
     <link href="http://blog.sammylin.tw/search-facebook-friend/"/>
+    
     <updated>2012-12-04T21:12:00+08:00</updated>
     <id>http://blog.sammylin.tw/search-facebook-friend</id>
+    
     <content type="html"><![CDATA[<p>在<a href="https://developers.facebook.com/docs/reference/api">Graph API</a>找了老半天
 只能夠用API撈到FB的所有好友，但是沒辦法塞入q=???來找到你想要的朋友只有像<code>粉絲頁</code>、<code>所有使用者</code>..等才能用</p>
 
@@ -836,13 +876,17 @@ Google 查了一下，按發現其實有解法的</p>
 
 <blockquote><p><a href="http://blogs.x2line.com/al/archive/2007/10/07/3287.aspx">http://blogs.x2line.com/al/archive/2007/10/07/3287.aspx</a></p></blockquote>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[[Rails] 進入網站前驗證]]></title>
     <link href="http://blog.sammylin.tw/http-basic-authenticate/"/>
+    
     <updated>2012-12-04T20:41:00+08:00</updated>
     <id>http://blog.sammylin.tw/http-basic-authenticate</id>
+    
     <content type="html"><![CDATA[<p>有時候專案尚未公開時，還是需要放到網路上讓其他人來瀏覽，這時候為了怕非相關人員看到這個網站的話，就需要有個關卡，通常都會在nginx或apache來設定，但是這往往還要進到server去處理。
 如果在rails上你不想這麼麻煩的話，可以在<code>ApplicationController</code>上直接加上這一行</p>
 
@@ -866,13 +910,17 @@ Google 查了一下，按發現其實有解法的</p>
 
 <p><img src="https://lh6.googleusercontent.com/-RYBzUO6WDHE/UL3yLnBSaEI/AAAAAAAACBQ/hB0LWke0YaA/s800/b2c64cda0232f18a97b8a215bc138e7b.png" alt="" /></p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[[Ruby]編碼學問很大]]></title>
     <link href="http://blog.sammylin.tw/nokogiri-encoding/"/>
+    
     <updated>2012-10-10T11:56:00+08:00</updated>
     <id>http://blog.sammylin.tw/nokogiri-encoding</id>
+    
     <content type="html"><![CDATA[<h3>問題：</h3>
 
 <p><a href="http://nokogiri.org">Nokogiri</a>是一個網頁擷取的一個很好的工具，所以我會用他當做我要抓網站資料的首選，就像Nokogiri的網站使用說明一樣，我們只要用下面三行就可以使用Nokogiri，之後在用他內建幾個method來做處理，但今天不講怎麼做處理</p>
@@ -924,13 +972,17 @@ Google 查了一下，按發現其實有解法的</p>
 
 
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[[評測]Magican Mac清除垃圾工具]]></title>
     <link href="http://blog.sammylin.tw/magican/"/>
+    
     <updated>2012-09-18T20:08:00+08:00</updated>
     <id>http://blog.sammylin.tw/magican</id>
+    
     <content type="html"><![CDATA[<p>在Mac裡如果想到清除垃圾工具，第一個應該會想到的是<a href="http://macpaw.com/">CleanMyMac</a>，不過要花$29.95美金，因為我是個省吃儉用的人，所以想一想就算了，還是不要好了，最近發現一個軟體，還不錯。</p>
 
 <ul>
@@ -994,13 +1046,17 @@ Google 查了一下，按發現其實有解法的</p>
 
 <p><code>Magican</code>感覺還不錯，而且還是免費的，看來我的Mac必用軟體清單可以多一個了XDDD</p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[[Ruby] strftime 常用格式 筆記]]></title>
     <link href="http://blog.sammylin.tw/ruby-strftime/"/>
+    
     <updated>2012-09-07T22:26:00+08:00</updated>
     <id>http://blog.sammylin.tw/ruby-strftime</id>
+    
     <content type="html"><![CDATA[<p>範例時間：<code>2012-09-07 22:33:25 +0800</code></p>
 
 <h3>時間Time</h3>
@@ -1058,13 +1114,17 @@ Google 查了一下，按發現其實有解法的</p>
 
 <p><a href="" title="http://www.wetware.co.nz/2009/07/rails-date-formats-strftime/">&ldquo;Rails Date Formats – strftime&rdquo;</a> by Wetware</p></blockquote>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[Hyper-v 狀態顯示「已暫停-關鍵」]]></title>
     <link href="http://blog.sammylin.tw/hyper-v-yi-zan-ting-guan-jian/"/>
+    
     <updated>2012-09-01T12:02:00+08:00</updated>
     <id>http://blog.sammylin.tw/hyper-v-yi-zan-ting-guan-jian</id>
+    
     <content type="html"><![CDATA[<p>因為我們公司比較窮苦，而且又小，所以我把測試站放在我們家某個server上建一個Hyper-v，不過我對Hyper-v其實沒有很熟，自從玩了Linux之後，我都沒有繼續專研Windows的東東了。</p>
 
 <p>有一天我在連我的測試站的時候發現他連不上去了，然後發現在狀態上顯示「<code>已暫停-關鍵</code>」，為什麼暫停其實我也不知道，結果我重開之後，發現過沒多久他又顯示「已暫停-關鍵」。</p>
@@ -1075,13 +1135,17 @@ Google 查了一下，按發現其實有解法的</p>
 
 <p>只要把空間清出來就行了&hellip;.</p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[[OS X]purge-bug]]></title>
     <link href="http://blog.sammylin.tw/purge-bug/"/>
+    
     <updated>2012-08-29T09:47:00+08:00</updated>
     <id>http://blog.sammylin.tw/purge-bug</id>
+    
     <content type="html"><![CDATA[<p>前些日子把 OSx更新到10.8.1版，平常我用一陣子電腦，記憶體會佔的滿滿的，我就會執行<code>purge</code>來清除一下記憶體。但是噴出了錯誤：</p>
 
 <pre><code>[ERROR]&lt;CPPathUtils.c:526&gt;The device-file for this operating system, 'osx-12.1.0.xml', was not found. An attempt to revert to a previous revision of the OS device-file: 'osx-12.0.0.xml' has been made. Please file a Radar report with Apple, on the 'CoreProfile' component, version 'X'.
@@ -1097,13 +1161,17 @@ Google 查了一下，按發現其實有解法的</p>
 
 <p>看來只能等更新囉，不過還是可以正常的使用啦，不用擔心</p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[[Ruby]匯出csv檔時在excel開啟時亂碼]]></title>
     <link href="http://blog.sammylin.tw/export-to-csv-has-mojibake/"/>
+    
     <updated>2012-07-26T09:40:00+08:00</updated>
     <id>http://blog.sammylin.tw/export-to-csv-has-mojibake</id>
+    
     <content type="html"><![CDATA[<p>做個筆記吧..前幾次都是開箱文..哈哈，感覺有點偷懶</p>
 
 <p>以前在<code>ASP.NET</code>的時候要把資料倒進Excel或是CSV，是不怎麼痛的，畢竟都是同一家人嘛。但是我今天要在<code>Ruby</code>中倒資料進去CSV的時候，就會有編碼上的問題。</p>
@@ -1200,13 +1268,17 @@ Google 查了一下，按發現其實有解法的</p>
 
 <p>如果有人可以提供更好的方法就留個給給我吧&hellip;</p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[在vim裡強迫使用hjkl]]></title>
     <link href="http://blog.sammylin.tw/vim-compulsive-use-hjkl/"/>
+    
     <updated>2012-07-13T09:09:00+08:00</updated>
     <id>http://blog.sammylin.tw/vim-compulsive-use-hjkl</id>
+    
     <content type="html"><![CDATA[<p>其實我用vim的時間其實不長啦，應該也還不到一年的時間，以前都是用<code>Visual Studio</code>，真的是完全不習慣，雖然有<a href="http://www.sublimetext.com/2">Sublime Text</a>或是<a href="http://macromates.com/">TextMate</a>這些比較介面上漂亮的的東西，不過其實<code>vim</code>也可以在ssh到別的主機時，可以直接用<code>vim</code>來開code就好了，不用還要下載回來修改完又要上傳，而且vim其實有很多plugin可以用，也真的很方便，重點是帥氣啦。
 好吧..回到主題</p>
 
@@ -1223,13 +1295,17 @@ map &lt;Down&gt; :echo "Use j you asshole!"&lt;cr&gt;
 <p>不過就是把上下左右鍵改成echo 就行了&hellip;
 感謝<a href="http://gogojimmy.net/">Jimmy</a>的教我..</p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[HPX Junior 5]]></title>
     <link href="http://blog.sammylin.tw/hpx-junior-5/"/>
+    
     <updated>2012-06-20T09:19:00+08:00</updated>
     <id>http://blog.sammylin.tw/hpx-junior-5</id>
+    
     <content type="html"><![CDATA[<h3>我真的猜不透你</h3>
 
 <p><img src="https://lh4.googleusercontent.com/-66cUzaHeWIg/T-E1PRdBvOI/AAAAAAAAB4U/CODLyaY31eU/s800/250762_10150854705421784_1101531581_n-1.jpeg" alt="" /></p>
@@ -1270,13 +1346,17 @@ map &lt;Down&gt; :echo "Use j you asshole!"&lt;cr&gt;
 
 <p>Mouson一開始就提到「跟他聊過的人或是聽他講話的人都會有離職的可能」(還好我的意志力還夠)，Mouson是個熱愛台灣的人，相信正向循環。其實我覺得有些人的個性在於家教，才能夠把Mouson樹造成一個可以跟別人不一樣的人，其實我們家裡的人其實也是差不多的。別人讀大學，就跟著讀大學，別人讀研究所，就跟著讀研究所，完全都沒有思考為什麼要做這件事情，盲目的跟著別人的腳步走著&hellip;其實跟喪屍沒什麼兩樣(多了會吃會喝吧~)，如果在這樣下去，台灣真的就沒什麼競爭力，就像最近大家都在創業&hellip;就會有人想創業，沒人在創新這個道理是一樣的&hellip;.</p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[[開箱文]紙樣。YANG 極簡超薄款可水洗牛皮紙短夾]]></title>
     <link href="http://blog.sammylin.tw/mens-wallet-made-from-washable-kraft-paper/"/>
+    
     <updated>2012-04-30T16:10:00+08:00</updated>
     <id>http://blog.sammylin.tw/mens-wallet-made-from-washable-kraft-paper</id>
+    
     <content type="html"><![CDATA[<p><img src="https://lh5.googleusercontent.com/-kkIGkNbmBhc/T55KcbT5LrI/AAAAAAAAB1o/9e_sbCTOmok/s640/IMG_1033.JPG" alt="" /></p>
 
 <p>哈~我敗家了>_&lt;</p>
@@ -1363,6 +1443,7 @@ map &lt;Down&gt; :echo "Use j you asshole!"&lt;cr&gt;
 
 <p><a href="http://www.pinkoi.com/product/1JbKaVk5">No.186 紙製 錢包 極簡超薄款可水洗牛皮紙短夾</a></p>
 ]]></content>
+    
   </entry>
   
 </feed>

@@ -9,7 +9,7 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="繼Facebook之後，Google在2011/6/1也推出了跟Facebook類似的功能具官方說法，他可以透過+1的方式，連跟你的好友、聯絡人和其他的使用者用Google搜尋的方式找到大家推薦的網站。 Google也偷偷的把查看個人資料網頁更新了，感覺有耳目一新的fu，最主要還是加上了查看+ &hellip;">
+  <meta name="description" content="Instance的私人、公用DNS及私人IP都會會變動的，在你重開機之後，他就會改變，筆者上次就被這個給嚇到了想說原來的架好的網站怎麼突然上不去，而且回到aws web Console明明Instance是running，經過一連串的檢查，原來是dns跟ip都跑掉了，害我一陣慌亂~~， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,17 +18,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.sammylin.tw/blog/page/11/">
+  <link rel="canonical" href="http://blog.sammylin.tw/blog/page/11">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>
-
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
   
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -43,15 +45,31 @@
   </script>
 
 
+  <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
 </head>
 
-<body   >
-  <header role="banner"><hgroup>
-  <img src="/images/ah_frame_transparent.svg" />
-  <h1><a href="/">Sammy Lin</a></h1>
-</hgroup>
-
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner">
 </header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/igotcloud" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.sammylin.tw" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
   <div id="main">
     <div id="content">
       <div class="blog-index">
@@ -61,207 +79,14 @@
     <article>
       
   <header>
-    
-      <h1 class="entry-title"><a href="/seogoogle-1-%E6%8E%A8%E8%96%A6%E7%B6%B2%E7%AB%99/">[SEO]Google +1 推薦網站</a></h1>
-    
-  </header>
-
-
   
-    <p class="meta">
-      
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-06-03T00:00:00+08:00" pubdate data-updated="true"></time>
-      
-       | <a href="/seogoogle-1-%E6%8E%A8%E8%96%A6%E7%B6%B2%E7%AB%99/#disqus_thread">Comments</a>
-      
-    </p>
-  
-  
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/seo/'>SEO</a>
-  
-</span>
-
-
-  <div class="entry-content"><p>繼Facebook之後，Google在2011/6/1也推出了跟Facebook類似的功能<g:plusone size="tall" href="http://blog.cornerlife.tw/"></g:plusone>具官方說法，他可以透過+1的方式，連跟你的好友、聯絡人和其他的使用者用Google搜尋的方式找到大家推薦的網站。</p>
-
-<p>Google也偷偷的把<a href="profiles.google.com" target="_blank">查看個人資料</a>網頁更新了，感覺有耳目一新的fu，最主要還是加上了查看+1功能。</p>
-
-<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image41.png"><img style="display: inline; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image4_thumb.png" border="0" alt="image" width="544" height="301" /></a>
-<table border="1" cellspacing="0" cellpadding="0" width="540">
-<tbody>
-<tr>
-<td width="540" valign="top">
-<h4>如何加入：</h4>
-<ul>
-	<li>
-<ul>
-	<li><a href="http://www.google.com/">Google</a> +1首頁：<a href="http://www.google.com/intl/zh-TW/+1/button/">http://www.google.com/intl/zh-TW/+1/button/</a></li>
-	<li>申請網址：<a href="http://www.google.com/intl/zh-TW/webmasters/+1/button/">http://www.google.com/intl/zh-TW/webmasters/+1/button/</a></li>
-	<li>完整說明：<a href="http://code.google.com/apis/+1button/">http://code.google.com/apis/+1button/</a></li>
-</ul>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/seogoogle-1-%E6%8E%A8%E8%96%A6%E7%B6%B2%E7%AB%99/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/awschello-world-for-net/">[AWS][C#]Hello World for .NET</a></h1>
-    
-  </header>
-
-
-  
-    <p class="meta">
-      
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-06-02T00:00:00+08:00" pubdate data-updated="true"></time>
-      
-       | <a href="/awschello-world-for-net/#disqus_thread">Comments</a>
-      
-    </p>
-  
-  
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/aws-sdk-for-net/'>AWS SDK for .NET</a>, <a class='category' href='/blog/categories/amazon-web-services-aws/'>Amazon Web Services (AWS)</a>
-  
-</span>
-
-
-  <div class="entry-content"><p><p> 我們在AWS裡面，一般來我我們會利用<a href="http://console.aws.amazon.com/ec2/home">AWS Management Console</a>來處理所有AWS的要處理的任務，不過當然也是可以自已寫程式來預處理任務，AWS也提供了不同的開發者，做了不同的SDK，而我是使用.NET的，當初還想說只能摸摸鼻子用其他的程式語言來做，但是沒想到AWS也為我設想(自以為~~)</p>  <p>以下是AWS提供的SDKs</p>  <ul>   <li><a href="http://aws.amazon.com/sdkforandroid">SDK for Android</a></li>    <li><a href="http://aws.amazon.com/sdkforjava">SDK for Java</a></li>    <li><a href="http://aws.amazon.com/sdkforphp">SDK for PHP</a></li>    <li><a href="http://aws.amazon.com/sdkforios">SDK for iOS</a></li>    <li><a href="http://aws.amazon.com/sdkfornet">SDK for .NET</a></li> </ul>  <p>而在前面說到，我會的是「.NET」，所以這一篇就用.NET來Hello World來一下囉，改天也來Hello World Android 跟PHP一下XD，不過Android還是Bata版，但還蠻新潮的(用手機來開電腦實體，應該很酷)</p></div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/awschello-world-for-net/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/awscec2%E6%8C%87%E5%AE%9A%E5%9C%B0%E5%8D%80/">[AWS][C#][EC2]指定地區</a></h1>
-    
-  </header>
-
-
-  
-    <p class="meta">
-      
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-06-02T00:00:00+08:00" pubdate data-updated="true"></time>
-      
-       | <a href="/awscec2%E6%8C%87%E5%AE%9A%E5%9C%B0%E5%8D%80/#disqus_thread">Comments</a>
-      
-    </p>
-  
-  
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/aws-sdk-for-net/'>AWS SDK for .NET</a>, <a class='category' href='/blog/categories/amazon-web-services-aws/'>Amazon Web Services (AWS)</a>
-  
-</span>
-
-
-  <div class="entry-content"><p><p>「You have 1 Amazon EC2 instance(s) running in the US-East (Northern Virginia) region.」</p>  <p>大家看了這段有沒有覺得很怪…明明就是有好幾個地區但在<a href="http://docs.amazonwebservices.com/sdkfornet/latest/apidocs/Index.html" target="_blank">AWS SDK for .NET Documentation</a>找的時候也找不到方法，只能找US-East地區的EC2，最後原來發現是要改這裡。</p>  <div style="border-bottom: silver 1px solid; text-align: left; border-left: silver 1px solid; padding-bottom: 4px; line-height: 12pt; background-color: #f4f4f4; margin: 20px 0px 10px; padding-left: 4px; width: 97.5%; padding-right: 4px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; max-height: 200px; font-size: 8pt; overflow: auto; border-top: silver 1px solid; cursor: text; border-right: silver 1px solid; padding-top: 4px" id="codeSnippetWrapper">   <div style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px" id="codeSnippet">     <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"><span style="color: #606060" id="lnum1">   1:</span> AmazonEC2 ec2 = AWSClientFactory.CreateAmazonEC2Client(</pre>
-<!--CRLF--></div></div></p>
-
-<p>    <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"><span style="color: #606060" id="lnum2">   2:</span>                 appConfig[<span style="color: #006080">&quot;AWSAccessKey&quot;</span>],</pre>
-<!--CRLF--></p>
-
-<p>    <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"><span style="color: #606060" id="lnum3">   3:</span>                 appConfig[<span style="color: #006080">&quot;AWSSecretKey&quot;</span>], <span style="color: #0000ff">new</span> AmazonEC2Config().WithServiceURL(<span style="color: #006080"><a href="https://ec2.ap-southeast-1.amazonaws.com">https://ec2.ap-southeast-1.amazonaws.com</a></span>);</pre>
-<!--CRLF-->
-</p>
-
-<p><p>只要在appConfig[<span style="color: #006080">&quot;AWSSecretKey&quot;</span>], 後面加上new AmazonEC2Config().WithServiceURL(&quot;地區位址&quot;)</p></p>
-
-<p><ul>
-  <li>英國-https://ec2.eu-west-1.amazonaws.com</li></ul></p>
-
-<p>  <li>美國(加州)-https://ec2.us-east-1.amazonaws.com</li></p>
-
-<p>  <li>亞太(東京)-https://ec2.ap-northeast-1.amazonaws.com</li></p>
-
-<p>  <li>美國(弗吉尼亞州)-https://ec2.us-west-1.amazonaws.com</li></p>
-
-<p>  <li>亞太(新加波)-https://ec2.ap-southeast-1.amazonaws.com</li>
-</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
     
       <h1 class="entry-title"><a href="/awsec2%E7%82%BAinstance%E7%A7%9F%E7%94%A8%E4%B8%80%E5%80%8Belastic-ip/">[AWS][EC2]為Instance租用一個Elastic IP</a></h1>
-    
-  </header>
-
-
-  
-    <p class="meta">
       
+      
+    
+      <p class="meta">
+        
 
 
 
@@ -274,18 +99,12 @@
 
 
 <time datetime="2011-05-29T00:00:00+08:00" pubdate data-updated="true"></time>
-      
-       | <a href="/awsec2%E7%82%BAinstance%E7%A7%9F%E7%94%A8%E4%B8%80%E5%80%8Belastic-ip/#disqus_thread">Comments</a>
-      
-    </p>
-  
-  
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/amazon-web-services-aws/'>Amazon Web Services (AWS)</a>, <a class='category' href='/blog/categories/elastic-compute-cloud-ec2/'>Elastic Compute Cloud(EC2)</a>
-  
-</span>
+        
+         | <a href="/awsec2%E7%82%BAinstance%E7%A7%9F%E7%94%A8%E4%B8%80%E5%80%8Belastic-ip/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
 
 
   <div class="entry-content"><p><p> Instance的私人、公用DNS及私人IP都會會變動的，在你重開機之後，他就會改變，筆者上次就被這個給嚇到了想說原來的架好的網站怎麼突然上不去，而且回到aws web Console明明Instance是running，經過一連串的檢查，原來是dns跟ip都跑掉了，害我一陣慌亂~~，所以如果你是需要一個長期安定不改變的ip的話那就申請一個Elastic IP吧！(真奇怪~~IPv4不是發完了嗎？怎麼還可以這樣子的申請，所以如果不要用的話要記得取消掉喔，不然是要多收錢的喔！)</p>  <h4><font color="#0000ff">申請Elastic IP</font></h4>  <p>1.在左側欄點「Elasitc IPs」</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image33.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb33.png" width="171" height="386" /></a></p>  <p>2.點選「Allocate New Address」</p></div>
@@ -303,15 +122,14 @@
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/awsec2%E5%BB%BA%E7%AB%8B%E5%AF%A6%E9%AB%94launch-instance/">[AWS][EC2]建立實體(Launch Instance)</a></h1>
-    
-  </header>
-
-
-  
-    <p class="meta">
       
+      
+    
+      <p class="meta">
+        
 
 
 
@@ -324,18 +142,12 @@
 
 
 <time datetime="2011-05-28T00:00:00+08:00" pubdate data-updated="true"></time>
-      
-       | <a href="/awsec2%E5%BB%BA%E7%AB%8B%E5%AF%A6%E9%AB%94launch-instance/#disqus_thread">Comments</a>
-      
-    </p>
-  
-  
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/amazon-web-services-aws/'>Amazon Web Services (AWS)</a>, <a class='category' href='/blog/categories/elastic-compute-cloud-ec2/'>Elastic Compute Cloud(EC2)</a>
-  
-</span>
+        
+         | <a href="/awsec2%E5%BB%BA%E7%AB%8B%E5%AF%A6%E9%AB%94launch-instance/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
 
 
   <div class="entry-content"><p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image7.png"><img style="padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb7.png" border="0" alt="image" width="544" height="321" /></a></p>
@@ -360,15 +172,14 @@
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/awsec2%E5%88%A9%E7%94%A8ssh%E9%80%A3%E5%85%A5%E5%AF%A6%E9%AB%94linux%E4%B8%BB%E6%A9%9F/">[AWS][EC2]利用SSH連入實體Linux主機</a></h1>
-    
-  </header>
-
-
-  
-    <p class="meta">
       
+      
+    
+      <p class="meta">
+        
 
 
 
@@ -381,18 +192,12 @@
 
 
 <time datetime="2011-05-28T00:00:00+08:00" pubdate data-updated="true"></time>
-      
-       | <a href="/awsec2%E5%88%A9%E7%94%A8ssh%E9%80%A3%E5%85%A5%E5%AF%A6%E9%AB%94linux%E4%B8%BB%E6%A9%9F/#disqus_thread">Comments</a>
-      
-    </p>
-  
-  
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/amazon-web-services-aws/'>Amazon Web Services (AWS)</a>, <a class='category' href='/blog/categories/elastic-compute-cloud-ec2/'>Elastic Compute Cloud(EC2)</a>
-  
-</span>
+        
+         | <a href="/awsec2%E5%88%A9%E7%94%A8ssh%E9%80%A3%E5%85%A5%E5%AF%A6%E9%AB%94linux%E4%B8%BB%E6%A9%9F/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
 
 
   <div class="entry-content"><p>在剛剛那篇文章「<a title="http://blog.cornerlife.tw/awsec2%E5%BB%BA%E7%AB%8B%E5%AF%A6%E9%AB%94launch-instance.html" href="http://blog.cornerlife.tw/awsec2%E5%BB%BA%E7%AB%8B%E5%AF%A6%E9%AB%94launch-instance.html" target="_blank">[AWS][EC2]建立實體(Launch Instance)</a>」我們利用了<a href="http://console.aws.amazon.com/ec2/home">AWS Management Console</a>建立了實體，很可惜Amazon 的 Console沒辦法直接連到主機(以後有可能嗎？~~看情況吧~)所以我們用SSH方式連入，請先下載以下兩個軟體：
@@ -419,15 +224,14 @@
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/wordpress-google-analytics-plusins/">[WordPress]Google Analytics分析</a></h1>
-    
-  </header>
-
-
-  
-    <p class="meta">
       
+      
+    
+      <p class="meta">
+        
 
 
 
@@ -440,18 +244,12 @@
 
 
 <time datetime="2011-05-25T00:00:00+08:00" pubdate data-updated="true"></time>
-      
-       | <a href="/wordpress-google-analytics-plusins/#disqus_thread">Comments</a>
-      
-    </p>
-  
-  
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/wordpress/'>WordPress</a>
-  
-</span>
+        
+         | <a href="/wordpress-google-analytics-plusins/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
 
 
   <div class="entry-content"><p>通常一個專業的網站管理員，或者是專業的行銷人員，都需要一些數據來分析，過去的網站流量以及進出單一頁面或是整個網站的次數統計是一個費時又耗工的動作有了Google Analytics，好像所有的事情都變的很簡單了，利爭了javascript將資料回傳至google的server做統計，我們只要申請&gt;登入&gt;設定，接下來就等老闆伸手要報告的時候就可以馬上給他一份又美數據又完整的報告了！</p>
@@ -475,15 +273,14 @@
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/awsamazon-web-services-e6-a6-82-e8-ab-96/">[AWS]Amazon Web Services 概論</a></h1>
-    
-  </header>
-
-
-  
-    <p class="meta">
       
+      
+    
+      <p class="meta">
+        
 
 
 
@@ -496,18 +293,12 @@
 
 
 <time datetime="2011-05-25T00:00:00+08:00" pubdate data-updated="true"></time>
-      
-       | <a href="/awsamazon-web-services-e6-a6-82-e8-ab-96/#disqus_thread">Comments</a>
-      
-    </p>
-  
-  
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/amazon-web-services-aws/'>Amazon Web Services (AWS)</a>
-  
-</span>
+        
+         | <a href="/awsamazon-web-services-e6-a6-82-e8-ab-96/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
 
 
   <div class="entry-content"><p><img src="http://d36cz9buwru1tt.cloudfront.net/logo_aws.gif" alt="Amazon Web Services" /></p>
@@ -535,15 +326,14 @@
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/asp-net-dynamic-data/">[ASP.NET]一行程式碼建立ASP.NET資料表-Dynamic Data</a></h1>
-    
-  </header>
-
-
-  
-    <p class="meta">
       
+      
+    
+      <p class="meta">
+        
 
 
 
@@ -556,18 +346,12 @@
 
 
 <time datetime="2009-09-24T00:00:00+08:00" pubdate data-updated="true"></time>
-      
-       | <a href="/asp-net-dynamic-data/#disqus_thread">Comments</a>
-      
-    </p>
-  
-  
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/asp-dot-net/'>ASP.NET</a>
-  
-</span>
+        
+         | <a href="/asp-net-dynamic-data/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
 
 
   <div class="entry-content"><p>剛剛參加完Tech Day 2009回來聽到了最新的技術，不過很可惜，沒有想像多那麼多新的技術。</p>
@@ -593,15 +377,14 @@
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/db%E6%8A%93%E5%8F%96%E6%AD%A3%E8%A6%8F%E5%8C%96%E8%B3%87%E6%96%99%E5%BA%AB%E8%B3%87%E6%96%99/">[DB]簡易抓取正規化資料庫資料</a></h1>
-    
-  </header>
-
-
-  
-    <p class="meta">
       
+      
+    
+      <p class="meta">
+        
 
 
 
@@ -614,18 +397,12 @@
 
 
 <time datetime="2008-12-10T22:46:00+08:00" pubdate data-updated="true">Dec 10<span>th</span>, 2008</time>
-      
-       | <a href="/db%E6%8A%93%E5%8F%96%E6%AD%A3%E8%A6%8F%E5%8C%96%E8%B3%87%E6%96%99%E5%BA%AB%E8%B3%87%E6%96%99/#disqus_thread">Comments</a>
-      
-    </p>
-  
-  
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/asp-dot-net/'>ASP.NET</a>, <a class='category' href='/blog/categories/database/'>DataBase</a>
-  
-</span>
+        
+         | <a href="/db%E6%8A%93%E5%8F%96%E6%AD%A3%E8%A6%8F%E5%8C%96%E8%B3%87%E6%96%99%E5%BA%AB%E8%B3%87%E6%96%99/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
 
 
   <div class="entry-content"><p>相信對於剛接觸ASP.NET的人來說都會使用內建的控制項來抓資料~</p>
@@ -847,14 +624,6 @@
 </div>
 <aside class="sidebar">
   
-    <form action="https://www.google.com/search" method="get">
-      <fieldset role="search">
-        <input type="hidden" name="q" value="site:blog.sammylin.tw" />
-        <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-      </fieldset>
-    </form>
-  
-  
     <section>
   <h1>About Me</h1>
   <p>A little something about me.</p>
@@ -902,12 +671,11 @@
   
 </aside>
 
-
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Sammy -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  Copyright &copy; 2015 - Sammy <br/>
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>, customized with <a href="https://github.com/mjhea0/whiterspace">whiterspace</a>.</span>
 </p>
 
 </footer>
@@ -932,7 +700,7 @@
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
+  js = d.createElement(s); js.id = id; js.async = true;
   js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
@@ -962,9 +730,6 @@
 
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="/javascripts/aharris.js"></script>
 
 </body>
 </html>

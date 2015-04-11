@@ -18,17 +18,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.sammylin.tw/awsec2-e6-96-b0-e5-8a-9f-e8-83-bdec2-e6-94-af-e6-8f-b4redhat/">
+  <link rel="canonical" href="http://blog.sammylin.tw/awsec2-e6-96-b0-e5-8a-9f-e8-83-bdec2-e6-94-af-e6-8f-b4redhat">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>
-
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
   
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -43,34 +45,63 @@
   </script>
 
 
+  <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
 </head>
 
-<body   >
-  <header role="banner"><hgroup>
-  <img src="/images/ah_frame_transparent.svg" />
-  <h1><a href="/">Sammy Lin</a></h1>
-</hgroup>
-
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner">
 </header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/igotcloud" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.sammylin.tw" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
   <div id="main">
     <div id="content">
       <div>
 <article class="hentry" role="article">
   
   <header>
+  
     
       <h1 class="entry-title">[AWS][EC2]新功能EC2支援redhat</h1>
     
+  
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-22T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
   </header>
-
-
-
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/amazon-web-services-aws/'>Amazon Web Services (AWS)</a>, <a class='category' href='/blog/categories/elastic-compute-cloud-ec2/'>Elastic Compute Cloud(EC2)</a>
-  
-</span>
 
 
 <div class="entry-content"><p><p> <a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/1.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: left; border-top: 0px; border-right: 0px; padding-top: 0px" title="未命名-1" border="0" alt="未命名-1" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/1_thumb.png" width="183" height="128" /></a></p>  <p> 在美國時間2011/6/20，Amazon發佈了EC2對於redhat的支援，對一些愛用redhat可能是個好消息，不過說實在我是沒有用過(這不是自曝其短嗎~&gt;&lt;)，沒有關係，反正只是分享一些消息而以啦！在同一時間也看到一個好消息，而筆者昨天也在測試，還蠻好玩的就是「CloudFormation」的功能，晚一點也來做個介紹，那我們先看一下圖片吧！~~~   <br /></p>  <p>在快速啟動裡多了兩個redhat，在這裡是提供Red Hat Enterprise Linux 6.1的。   <br /></p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image54.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb52.png" width="544" height="358" /></a></p>  <p>或者是說可以到三方提供的AMI，裡是就有5.5, 5.6,&#160; 6.0, 6.1版的。</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image55.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb53.png" width="544" height="357" /></a></p>  <table border="2" cellspacing="0" cellpadding="0" width="540"><tbody>     <tr>       <td valign="top" width="540"><font color="#ff0000" size="2">Note: 不過目前只提供按時計價(On-Demand Instances)及Spot Requests，尚未提供預付主機(Reserved Instances)。</font></td>     </tr>   </tbody></table>  <h3>RedHat的價錢：   <br /><font size="2"><font style="font-weight: normal">(參考網站：</font></font><a href="http://aws.amazon.com/rhel/"><font size="2"><font style="font-weight: normal">http://aws.amazon.com/rhel/</font></font></a><font size="2"><font style="font-weight: normal">)</font></font></h3>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image56.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb54.png" width="544" height="350" /></a></p></p>
@@ -97,6 +128,15 @@
 
 
 <time datetime="2011-06-22T00:00:00+08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/amazon-web-services-aws/'>Amazon Web Services (AWS)</a>, <a class='category' href='/blog/categories/elastic-compute-cloud-ec2/'>Elastic Compute Cloud(EC2)</a>
+  
+</span>
+
+
     </p>
     
       <div class="sharing">
@@ -132,14 +172,6 @@
 </div>
 
 <aside class="sidebar">
-  
-    <form action="https://www.google.com/search" method="get">
-      <fieldset role="search">
-        <input type="hidden" name="q" value="site:blog.sammylin.tw" />
-        <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-      </fieldset>
-    </form>
-  
   
     <section>
   <h1>About Me</h1>
@@ -189,12 +221,11 @@
 </aside>
 
 
-
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Sammy -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  Copyright &copy; 2015 - Sammy <br/>
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>, customized with <a href="https://github.com/mjhea0/whiterspace">whiterspace</a>.</span>
 </p>
 
 </footer>
@@ -222,7 +253,7 @@
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
+  js = d.createElement(s); js.id = id; js.async = true;
   js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
@@ -252,9 +283,6 @@
 
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="/javascripts/aharris.js"></script>
 
 </body>
 </html>
