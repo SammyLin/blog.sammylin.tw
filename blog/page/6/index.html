@@ -642,11 +642,8 @@ $ rvm install &#8211;force ree</p>
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
-  <p>A little something about me.</p>
-</section>
-<section id="titles">
-  <a href="http://blog.sammylin.tw" title="Sammy Lin"><img id="logo" src="http://blog.sammylin.tw/images/" /></a>
+  <img src="/images/avatar.jpg" alt="Sammy">
+</section><section id="titles">
   <h1 id="site_title"><a href="http://blog.sammylin.tw" title="Sammy Lin">Sammy Lin</a></h1>
   <h3 id="site_subtitle">旅居台北的高雄人</h3>
 </section>
@@ -669,6 +666,8 @@ $ rvm install &#8211;force ree</p>
     <a href="" title="g+#113306354398877276439"><i class="fa fa-google-plus fa-2x"></i></a>
   
 
+  
+    <a href="https://github.com/sammylintw" title="sammylintw"><i class="fa fa-github fa-2x"></i></a>
   
 
   
@@ -704,6 +703,35 @@ $ rvm install &#8211;force ree</p>
       </li>
     
   </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/sammylintw">@sammylintw</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'sammylintw',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 
