@@ -127,18 +127,18 @@
 
 <h2>套件 Package</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>package 'nginx' do
-</span><span class='line'>  action :install     # 動作 (如果是 :install 可省略
-</span><span class='line'>  version "&lt;version&gt;" # 版本 (如不指定就安裝最新的
-</span><span class='line'>end
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">package</span> <span class="s1">&#39;nginx&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">action</span> <span class="ss">:install</span>     <span class="c1"># 動作 (如果是 :install 可省略</span>
+</span><span class='line'>  <span class="n">version</span> <span class="s2">&quot;&lt;version&gt;&quot;</span> <span class="c1"># 版本 (如不指定就安裝最新的</span>
+</span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><code>:action</code> 的方法屬性</p>
+<h3><code>:action</code> 的方法屬性</h3>
 
 <table>
 <thead>
@@ -180,21 +180,22 @@
 
 <h2>目錄 Directory</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>directory "&lt;path&gt;" do
-</span><span class='line'>  owner "root"   # 資料夾擁有者
-</span><span class='line'>  group "root"   # 資料夾群組
-</span><span class='line'>  mode "0755"    # 檔案權限
-</span><span class='line'>  action :create # 動作 (如果是 :create 可省略
-</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">directory</span> <span class="s2">&quot;&lt;path&gt;&quot;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">owner</span> <span class="s2">&quot;root&quot;</span>   <span class="c1"># 資料夾擁有者</span>
+</span><span class='line'>  <span class="n">group</span> <span class="s2">&quot;root&quot;</span>   <span class="c1"># 資料夾群組</span>
+</span><span class='line'>  <span class="n">mode</span> <span class="s2">&quot;0755&quot;</span>    <span class="c1"># 檔案權限</span>
+</span><span class='line'>  <span class="n">action</span> <span class="ss">:create</span> <span class="c1"># 動作 (如果是 :create 可省略</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p><code>:action</code> 的方法屬性</p>
+<h3><code>:action</code> 的方法屬性</h3>
 
 <table>
 <thead>
@@ -221,15 +222,16 @@
 
 <h2>服務 Service</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>service "&lt;service name&gt;" do
-</span><span class='line'>  action :start # 動作
-</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">service</span> <span class="s2">&quot;&lt;service name&gt;&quot;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">action</span> <span class="ss">:start</span> <span class="c1"># 動作</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p><code>:action</code> 的方法屬性</p>
+<h3><code>:action</code> 的方法屬性</h3>
 
 <table>
 <thead>
@@ -279,20 +281,20 @@
 </table>
 
 
-<p><code>:supports</code> 的方法屬性說明</p>
+<h3><code>:supports</code> 的方法屬性說明</h3>
 
 <p>預設是 <code>{ :restart =&gt; false, :reload =&gt; false, :status =&gt; false }</code> ，這個其實就是說 chef-client 把這三個動作都自已處理了，<code>:restart</code>，這個動作就是先執行 <code>:stop</code>，再執行<code>:start</code>；<code>:status</code>就是去檢查 process 有沒有這個 service name，<code>:reload</code>，這個不知道怎麼做的=_=。</p>
 
 <p>假設</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>service "nginx" do
-</span><span class='line'>  supports :status =&gt; true, :restart =&gt; false, :reload =&gt; fasle
-</span><span class='line'>  action :start # 動作
-</span><span class='line'>end
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">service</span> <span class="s2">&quot;nginx&quot;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">supports</span> <span class="ss">:status</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">:restart</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">,</span> <span class="ss">:reload</span> <span class="o">=&gt;</span> <span class="n">fasle</span>
+</span><span class='line'>  <span class="n">action</span> <span class="ss">:start</span> <span class="c1"># 動作</span>
+</span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -300,31 +302,33 @@
 
 <p>&lt;小提示> 可以讓他開機自動啟用，再來現在就開啟服務。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>service "nginx" do
-</span><span class='line'>  action [:enable, :start]
-</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">service</span> <span class="s2">&quot;nginx&quot;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">action</span> <span class="o">[</span><span class="ss">:enable</span><span class="p">,</span> <span class="ss">:start</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>File 處理檔案</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>file "/tmp/something" do # 檔案位置
-</span><span class='line'>  owner 'root'           # 擁有者
-</span><span class='line'>  group 'root'           # 群組
-</span><span class='line'>  mode '0755'            # 權限
-</span><span class='line'>  action :create         # 動作 (如果是 :create 可省略
-</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">file</span> <span class="s2">&quot;/tmp/something&quot;</span> <span class="k">do</span> <span class="c1"># 檔案位置</span>
+</span><span class='line'>  <span class="n">owner</span> <span class="s1">&#39;root&#39;</span>           <span class="c1"># 擁有者</span>
+</span><span class='line'>  <span class="n">group</span> <span class="s1">&#39;root&#39;</span>           <span class="c1"># 群組</span>
+</span><span class='line'>  <span class="n">mode</span> <span class="s1">&#39;0755&#39;</span>            <span class="c1"># 權限</span>
+</span><span class='line'>  <span class="n">action</span> <span class="ss">:create</span>         <span class="c1"># 動作 (如果是 :create 可省略</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p><code>:action</code> 的方法屬性</p>
+<h3><code>:action</code> 的方法屬性</h3>
 
 <table>
 <thead>
@@ -363,7 +367,7 @@
 
 <p>你可以建立 ERB 的檔案，利用 ruby 的寫法來製作檔案，更可以載入 attributes 的值。而 template 的檔案必需要放在 <code>/COOKBOOK_NAME/templates/default</code> 底下。Action 的方法跟 file 一樣。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -374,59 +378,63 @@
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  template “&lt;filename&gt;" do                        # 目標檔案位置
-</span><span class='line'>    source “&lt;file name&gt;.erb”                      # ERB 檔案來源
-</span><span class='line'>    mode 0755                                     # 檔案權限
-</span><span class='line'>    owner "root"                                  # 擁有者
-</span><span class='line'>    group “root"                                  # 群組
-</span><span class='line'>    variables({                                   # 載入 variables ，所以按照範例可以在 template，可以使用 @xxx 及 @ooo
-</span><span class='line'>       :xxx =&gt; node[:hello_world][:xxx][:groups],
-</span><span class='line'>       :ooo =&gt; node[:hello_world][:ooo][:users]
-</span><span class='line'>     })
-</span><span class='line'>    action :create                                # 動作 (如果是 :create 可省略
-</span><span class='line'>  end</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">template</span> <span class="err">“</span><span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span><span class="s2">&quot; do                        # 目標檔案位置</span>
+</span><span class='line'><span class="s2">    source “&lt;file name&gt;.erb”                      # ERB 檔案來源</span>
+</span><span class='line'><span class="s2">    mode 0755                                     # 檔案權限</span>
+</span><span class='line'><span class="s2">    owner &quot;</span><span class="n">root</span><span class="s2">&quot;                                  # 擁有者</span>
+</span><span class='line'><span class="s2">    group “root&quot;</span>                                  <span class="c1"># 群組</span>
+</span><span class='line'>    <span class="n">variables</span><span class="p">({</span>                                   <span class="c1"># 載入 variables ，所以按照範例可以在 template，可以使用 @xxx 及 @ooo</span>
+</span><span class='line'>       <span class="ss">:xxx</span> <span class="o">=&gt;</span> <span class="n">node</span><span class="o">[</span><span class="ss">:hello_world</span><span class="o">][</span><span class="ss">:xxx</span><span class="o">][</span><span class="ss">:groups</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>       <span class="ss">:ooo</span> <span class="o">=&gt;</span> <span class="n">node</span><span class="o">[</span><span class="ss">:hello_world</span><span class="o">][</span><span class="ss">:ooo</span><span class="o">][</span><span class="ss">:users</span><span class="o">]</span>
+</span><span class='line'>     <span class="p">})</span>
+</span><span class='line'>    <span class="n">action</span> <span class="ss">:create</span>                                <span class="c1"># 動作 (如果是 :create 可省略</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>cookbook_file 從 cookbook 送檔案進去</h2>
 
 <p>這個檔案通常會存放在 cookbook 的 <code>/COOKBOOK_NAME/files/default</code> 裡面，跟 template 不同的是，他是原封不同的把檔案傳偷主機裡面去，Action 的方法跟 file 一樣。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cookbook_file "&lt;file name&gt;" do # 目標檔案位置
-</span><span class='line'>  path "&lt;file name&gt;"           # 來源檔案位置
-</span><span class='line'>  action :create               # 動作 (如果是 :create 可省略
-</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">cookbook_file</span> <span class="s2">&quot;&lt;file name&gt;&quot;</span> <span class="k">do</span> <span class="c1"># 目標檔案位置</span>
+</span><span class='line'>  <span class="n">path</span> <span class="s2">&quot;&lt;file name&gt;&quot;</span>           <span class="c1"># 來源檔案位置</span>
+</span><span class='line'>  <span class="n">action</span> <span class="ss">:create</span>               <span class="c1"># 動作 (如果是 :create 可省略</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>remote_file 從外部下載檔案</h2>
 
 <p>一般來說，大家在從外部下載檔案進來都是個壓縮檔，或是要執行的檔案，那 Chef 提供了一個方法可以暫存的地方，你可以用 <code>Chef::Config[:file_cache_path]</code> 來呼叫它。先暫存在那邊，之後再處理這個 remote file。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>remote_file "#{Chef::Config[:file_cache_path]}/large-file.tar.gz" do  # 目標檔案位置
-</span><span class='line'>  source "http://www.example.org/large-file.tar.gz"                   # 來源檔案位置
-</span><span class='line'>  action :create                                                      # 動作 (如果是 :create 可省略
-</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">remote_file</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="ss">Chef</span><span class="p">:</span><span class="ss">:Config</span><span class="o">[</span><span class="ss">:file_cache_path</span><span class="o">]</span><span class="si">}</span><span class="s2">/large-file.tar.gz&quot;</span> <span class="k">do</span>  <span class="c1"># 目標檔案位置</span>
+</span><span class='line'>  <span class="n">source</span> <span class="s2">&quot;http://www.example.org/large-file.tar.gz&quot;</span>                   <span class="c1"># 來源檔案位置</span>
+</span><span class='line'>  <span class="n">action</span> <span class="ss">:create</span>                                                      <span class="c1"># 動作 (如果是 :create 可省略</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>execute 執行</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  execute "&lt;name&gt;" do                       # 這個執行動作的名稱
-</span><span class='line'>    cwd "&lt;path&gt;"                            # 前往哪個目錄
-</span><span class='line'>    command "&lt;command&gt;"                     # 執行的 command
-</span><span class='line'>    not_if { ::File.exists?("&lt;file_path&gt;")} # 也可建立條件式
-</span><span class='line'>  end</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">execute</span> <span class="s2">&quot;&lt;name&gt;&quot;</span> <span class="k">do</span>                       <span class="c1"># 這個執行動作的名稱</span>
+</span><span class='line'>    <span class="n">cwd</span> <span class="s2">&quot;&lt;path&gt;&quot;</span>                            <span class="c1"># 前往哪個目錄</span>
+</span><span class='line'>    <span class="n">command</span> <span class="s2">&quot;&lt;command&gt;&quot;</span>                     <span class="c1"># 執行的 command</span>
+</span><span class='line'>    <span class="n">not_if</span> <span class="p">{</span> <span class="o">::</span><span class="no">File</span><span class="o">.</span><span class="n">exists?</span><span class="p">(</span><span class="s2">&quot;&lt;file_path&gt;&quot;</span><span class="p">)}</span> <span class="c1"># 也可建立條件式</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>2015.4.11 目前就先筆記這幾個，之後在寫 recipe 的時候覺得哪些重要跟常用的 resources 再慢慢補上了。</p>

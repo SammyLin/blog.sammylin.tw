@@ -4,7 +4,7 @@
   <title><![CDATA[Category: chef | Sammy Lin]]></title>
   <link href="http://blog.sammylin.tw/blog/categories/chef/atom.xml" rel="self"/>
   <link href="http://blog.sammylin.tw/"/>
-  <updated>2015-04-11T18:20:33+08:00</updated>
+  <updated>2015-04-11T18:30:41+08:00</updated>
   <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
@@ -63,7 +63,7 @@
 
 <h2>套件 Package</h2>
 
-<p>```
+<p>``` ruby
 package &lsquo;nginx&rsquo; do
   action :install     # 動作 (如果是 :install 可省略
   version &ldquo;<version>&rdquo; # 版本 (如不指定就安裝最新的
@@ -71,7 +71,7 @@ end</p>
 
 <p>```</p>
 
-<p><code>:action</code> 的方法屬性</p>
+<h3><code>:action</code> 的方法屬性</h3>
 
 <table>
 <thead>
@@ -113,7 +113,7 @@ end</p>
 
 <h2>目錄 Directory</h2>
 
-<p><code>
+<p><code>ruby
 directory "&lt;path&gt;" do
   owner "root"   # 資料夾擁有者
   group "root"   # 資料夾群組
@@ -122,7 +122,7 @@ directory "&lt;path&gt;" do
 end
 </code></p>
 
-<p><code>:action</code> 的方法屬性</p>
+<h3><code>:action</code> 的方法屬性</h3>
 
 <table>
 <thead>
@@ -149,13 +149,13 @@ end
 
 <h2>服務 Service</h2>
 
-<p><code>
+<p><code>ruby
 service "&lt;service name&gt;" do
   action :start # 動作
 end
 </code></p>
 
-<p><code>:action</code> 的方法屬性</p>
+<h3><code>:action</code> 的方法屬性</h3>
 
 <table>
 <thead>
@@ -205,13 +205,13 @@ end
 </table>
 
 
-<p><code>:supports</code> 的方法屬性說明</p>
+<h3><code>:supports</code> 的方法屬性說明</h3>
 
 <p>預設是 <code>{ :restart =&gt; false, :reload =&gt; false, :status =&gt; false }</code> ，這個其實就是說 chef-client 把這三個動作都自已處理了，<code>:restart</code>，這個動作就是先執行 <code>:stop</code>，再執行<code>:start</code>；<code>:status</code>就是去檢查 process 有沒有這個 service name，<code>:reload</code>，這個不知道怎麼做的=_=。</p>
 
 <p>假設</p>
 
-<p>```
+<p>``` ruby
 service &ldquo;nginx&rdquo; do
   supports :status => true, :restart => false, :reload => fasle
   action :start # 動作
@@ -223,7 +223,7 @@ end</p>
 
 <p>&lt;小提示> 可以讓他開機自動啟用，再來現在就開啟服務。</p>
 
-<p><code>
+<p><code>ruby
 service "nginx" do
   action [:enable, :start]
 end
@@ -231,7 +231,7 @@ end
 
 <h2>File 處理檔案</h2>
 
-<p><code>
+<p><code>ruby
 file "/tmp/something" do # 檔案位置
   owner 'root'           # 擁有者
   group 'root'           # 群組
@@ -240,7 +240,7 @@ file "/tmp/something" do # 檔案位置
 end
 </code></p>
 
-<p><code>:action</code> 的方法屬性</p>
+<h3><code>:action</code> 的方法屬性</h3>
 
 <table>
 <thead>
@@ -279,7 +279,7 @@ end
 
 <p>你可以建立 ERB 的檔案，利用 ruby 的寫法來製作檔案，更可以載入 attributes 的值。而 template 的檔案必需要放在 <code>/COOKBOOK_NAME/templates/default</code> 底下。Action 的方法跟 file 一樣。</p>
 
-<p>```
+<p>``` ruby
   template “<filename>&ldquo; do                        # 目標檔案位置</p>
 
 <pre><code>source “&lt;file name&gt;.erb”                      # ERB 檔案來源
@@ -300,7 +300,7 @@ action :create                                # 動作 (如果是 :create 可省
 
 <p>這個檔案通常會存放在 cookbook 的 <code>/COOKBOOK_NAME/files/default</code> 裡面，跟 template 不同的是，他是原封不同的把檔案傳偷主機裡面去，Action 的方法跟 file 一樣。</p>
 
-<p><code>
+<p><code>ruby
 cookbook_file "&lt;file name&gt;" do # 目標檔案位置
   path "&lt;file name&gt;"           # 來源檔案位置
   action :create               # 動作 (如果是 :create 可省略
@@ -311,7 +311,7 @@ end
 
 <p>一般來說，大家在從外部下載檔案進來都是個壓縮檔，或是要執行的檔案，那 Chef 提供了一個方法可以暫存的地方，你可以用 <code>Chef::Config[:file_cache_path]</code> 來呼叫它。先暫存在那邊，之後再處理這個 remote file。</p>
 
-<p><code>
+<p><code>ruby
 remote_file "#{Chef::Config[:file_cache_path]}/large-file.tar.gz" do  # 目標檔案位置
   source "http://www.example.org/large-file.tar.gz"                   # 來源檔案位置
   action :create                                                      # 動作 (如果是 :create 可省略
