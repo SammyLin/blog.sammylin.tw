@@ -21,22 +21,22 @@ Chef 有多重要，有多好那我們就不說了，如果你只是路過想了
 ├── attributes     (給 recipe 使用的預設值
 ├── files          (需要傳入到節點的檔案
 │   └── default
-├── metadata.rb    (描述 cookbook 
+├── metadata.rb    (描述 cookbook
 ├── recipes        (這個 cookbook 的食譜的做法，這篇就是要講怎麼做 (不知道怎麼翻XD
 │   └── default.rb
 └── templates      (透過 ERB template 可以產出檔案到節點
     └── default
 ```
 
-所以我們會在 recipes 中建立這個 cookbook 要做的事情有什麼，所以要利用 chef 的 resources 寫這個 recipe。 
+所以我們會在 recipes 中建立這個 cookbook 要做的事情有什麼，所以要利用 chef 的 resources 寫這個 recipe。
 
 <!-- more -->
 
 
-### 套件 Package
+## 套件 Package
 
-```
-package 'nginx' do
+``` ruby
+package "nginx" do
   action :install     # 動作 (如果是 :install 可省略
   version "<version>" # 版本 (如不指定就安裝最新的
 end
@@ -55,9 +55,9 @@ end
 
 
 
-### 目錄 Directory
+## 目錄 Directory
 
-```
+``` ruby
 directory "<path>" do
   owner "root"   # 資料夾擁有者
   group "root"   # 資料夾群組
@@ -74,11 +74,11 @@ end
 | :delete   | 刪除目錄                                                 |
 
 
-### 服務 Service
+## 服務 Service
 
-```
+``` ruby
 service "<service name>" do
-  action :start # 動作 
+  action :start # 動作
 end
 ```
 
@@ -96,11 +96,11 @@ end
 
 `:supports` 的方法屬性說明
 
-預設是 `{ :restart => false, :reload => false, :status => false }` ，這個其實就是說 chef-client 把這三個動作都自已處理了，`:restart`，這個動作就是先執行 `:stop`，再執行`:start`；`:status`就是去檢查 process 有沒有這個 service name，`:reload`，這個不知道怎麼做的=_=。 
+預設是 `{ :restart => false, :reload => false, :status => false }` ，這個其實就是說 chef-client 把這三個動作都自已處理了，`:restart`，這個動作就是先執行 `:stop`，再執行`:start`；`:status`就是去檢查 process 有沒有這個 service name，`:reload`，這個不知道怎麼做的=_=。
 
 假設
 
-```
+``` ruby
 service "nginx" do
   supports :status => true, :restart => false, :reload => fasle
   action :start # 動作
@@ -112,19 +112,19 @@ end
 
 <小提示> 可以讓他開機自動啟用，再來現在就開啟服務。
 
-```
+``` ruby
 service "nginx" do
   action [:enable, :start]
 end
 ```
 
-### File 處理檔案
+## File 處理檔案
 
-```
+``` ruby
 file "/tmp/something" do # 檔案位置
-  owner 'root'           # 擁有者
-  group 'root'           # 群組
-  mode '0755'            # 權限
+  owner "root"           # 擁有者
+  group "root"           # 群組
+  mode "0755"            # 權限
   action :create         # 動作 (如果是 :create 可省略
 end
 ```
@@ -141,16 +141,16 @@ end
 
 
 
-### Template 模版
+## Template 模版
 
 你可以建立 ERB 的檔案，利用 ruby 的寫法來製作檔案，更可以載入 attributes 的值。而 template 的檔案必需要放在 `/COOKBOOK_NAME/templates/default` 底下。Action 的方法跟 file 一樣。
 
-```
-  template “<filename>" do                        # 目標檔案位置
-    source “<file name>.erb”                      # ERB 檔案來源
+``` ruby
+  template "<filename>" do                        # 目標檔案位置
+    source "<file name>.erb"                      # ERB 檔案來源
     mode 0755                                     # 檔案權限
     owner "root"                                  # 擁有者
-    group “root"                                  # 群組
+    group "root"                                  # 群組
     variables({                                   # 載入 variables ，所以按照範例可以在 template，可以使用 @xxx 及 @ooo
        :xxx => node[:hello_world][:xxx][:groups],
        :ooo => node[:hello_world][:ooo][:users]
@@ -159,11 +159,11 @@ end
   end
 ```
 
-### cookbook_file 從 cookbook 送檔案進去
+## cookbook_file 從 cookbook 送檔案進去
 
 這個檔案通常會存放在 cookbook 的 `/COOKBOOK_NAME/files/default` 裡面，跟 template 不同的是，他是原封不同的把檔案傳偷主機裡面去，Action 的方法跟 file 一樣。
 
-```
+``` ruby
 cookbook_file "<file name>" do # 目標檔案位置
   path "<file name>"           # 來源檔案位置
   action :create               # 動作 (如果是 :create 可省略
@@ -171,18 +171,18 @@ end
 ```
 
 
-### remote_file 從外部下載檔案
+## remote_file 從外部下載檔案
 
 一般來說，大家在從外部下載檔案進來都是個壓縮檔，或是要執行的檔案，那 Chef 提供了一個方法可以暫存的地方，你可以用 `Chef::Config[:file_cache_path]` 來呼叫它。先暫存在那邊，之後再處理這個 remote file。
 
-```
+``` ruby
 remote_file "#{Chef::Config[:file_cache_path]}/large-file.tar.gz" do  # 目標檔案位置
   source "http://www.example.org/large-file.tar.gz"                   # 來源檔案位置
   action :create                                                      # 動作 (如果是 :create 可省略
 end
 ```
 
-### execute 執行
+## execute 執行
 
 ```
   execute "<name>" do                       # 這個執行動作的名稱
