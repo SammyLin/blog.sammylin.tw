@@ -4,7 +4,7 @@
   <title><![CDATA[Category: chef | Sammy Lin]]></title>
   <link href="http://blog.sammylin.tw/blog/categories/chef/atom.xml" rel="self"/>
   <link href="http://blog.sammylin.tw/"/>
-  <updated>2015-04-11T18:16:16+08:00</updated>
+  <updated>2015-04-11T18:20:33+08:00</updated>
   <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
@@ -61,7 +61,7 @@
 <!-- more -->
 
 
-<h3>套件 Package</h3>
+<h2>套件 Package</h2>
 
 <p>```
 package &lsquo;nginx&rsquo; do
@@ -111,7 +111,7 @@ end</p>
 </table>
 
 
-<h3>目錄 Directory</h3>
+<h2>目錄 Directory</h2>
 
 <p><code>
 directory "&lt;path&gt;" do
@@ -147,7 +147,7 @@ end
 </table>
 
 
-<h3>服務 Service</h3>
+<h2>服務 Service</h2>
 
 <p><code>
 service "&lt;service name&gt;" do
@@ -229,7 +229,7 @@ service "nginx" do
 end
 </code></p>
 
-<h3>File 處理檔案</h3>
+<h2>File 處理檔案</h2>
 
 <p><code>
 file "/tmp/something" do # 檔案位置
@@ -275,7 +275,7 @@ end
 </table>
 
 
-<h3>Template 模版</h3>
+<h2>Template 模版</h2>
 
 <p>你可以建立 ERB 的檔案，利用 ruby 的寫法來製作檔案，更可以載入 attributes 的值。而 template 的檔案必需要放在 <code>/COOKBOOK_NAME/templates/default</code> 底下。Action 的方法跟 file 一樣。</p>
 
@@ -296,7 +296,7 @@ action :create                                # 動作 (如果是 :create 可省
 <p>  end
 ```</p>
 
-<h3>cookbook_file 從 cookbook 送檔案進去</h3>
+<h2>cookbook_file 從 cookbook 送檔案進去</h2>
 
 <p>這個檔案通常會存放在 cookbook 的 <code>/COOKBOOK_NAME/files/default</code> 裡面，跟 template 不同的是，他是原封不同的把檔案傳偷主機裡面去，Action 的方法跟 file 一樣。</p>
 
@@ -307,7 +307,7 @@ cookbook_file "&lt;file name&gt;" do # 目標檔案位置
 end
 </code></p>
 
-<h3>remote_file 從外部下載檔案</h3>
+<h2>remote_file 從外部下載檔案</h2>
 
 <p>一般來說，大家在從外部下載檔案進來都是個壓縮檔，或是要執行的檔案，那 Chef 提供了一個方法可以暫存的地方，你可以用 <code>Chef::Config[:file_cache_path]</code> 來呼叫它。先暫存在那邊，之後再處理這個 remote file。</p>
 
@@ -318,7 +318,7 @@ remote_file "#{Chef::Config[:file_cache_path]}/large-file.tar.gz" do  # 目標�
 end
 </code></p>
 
-<h3>execute 執行</h3>
+<h2>execute 執行</h2>
 
 <p>```
   execute &ldquo;<name>&rdquo; do                       # 這個執行動作的名稱</p>
