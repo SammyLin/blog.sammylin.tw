@@ -9,7 +9,7 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="今天又學到一招好用的東西，就是在vim裡面做Tab(分頁)，用法很簡單。 開啟第一個Tab :tabedit &lt;filename&gt; or :tabe &lt;filename&gt; ">
+  <meta name="description" content="在裝了vimfiles之後，果然vim變生動了，慢慢的愛用他了，其實我另外只是想說，體會一下那些coding高高手的fu而以，不像我過去在coding一邊動滑鼠一邊用鍵盤，那種強大的IDE令我的腦袋變的鈍鈍的。 不過我在過程中發現一個問題，只要你是有裝vimfile的話， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,94 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/vimfile-copy-text/">如何在安裝vimfile之後複製vim中的文字</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-18T10:05:00+08:00" pubdate data-updated="true">Jan 18<span>th</span>, 2012</time>
+        
+           | <a href="/vimfile-copy-text/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/vimfile-copy-text/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在裝了<a href="https://github.com/akitaonrails/vimfiles">vimfiles</a>之後，果然vim變生動了，慢慢的愛用他了，其實我另外只是想說，體會一下那些coding高高手的fu而以，不像我過去在coding一邊動滑鼠一邊用鍵盤，那種強大的IDE令我的腦袋變的鈍鈍的。</p>
+
+<p>不過我在過程中發現一個問題，只要你是有裝vimfile的話，滑鼠是可以使用在vim上面的，不過你在選擇文字的時候會發現你會被切換成<code>VISUAL</code>模式，不能夠copy paste。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/vimfile-copy-text/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/aws-windows2008/">在AWS可以免費用Windows Server 2008</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-17T09:28:00+08:00" pubdate data-updated="true">Jan 17<span>th</span>, 2012</time>
+        
+           | <a href="/aws-windows2008/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/aws-windows2008/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>自從<code>AWS</code>釋出Free Tier之後，雖然只有免費一年，但是還是有一些剛入門的新手，像我一樣，會去玩一下所謂的雲端是什麼，當初我也是看上他有免費可以玩，所以才會到AWS來玩玩，過去AWS EC2只讓你使用Amazon OS 做免費的項目，在昨天的時候官方網站釋出了好消息，就是可以使用Windows Server 2008的image，可能是AWS內windows的image使用率太低的關係吧，為了讓大家可以先嘗鮮看看，所以才跟微軟做出這樣子的協調。</p>
+
+<p>我們打開來 <a href="https://console.aws.amazon.com/console/home">AWS Management Console</a>來開啟一個新的instance然後把他拉到最下面就可以看到Windows Server 2008 旁邊有星星了(之前有講過星星代表有在Free Tier裡)
+<img src="https://lh3.googleusercontent.com/-yb9diAY9gtI/TxTO3V2B8rI/AAAAAAAABnA/E5CvtwroOj0/s640/Screen%252520Shot%2525202012-01-17%252520at%252520%2525E4%2525B8%25258A%2525E5%25258D%2525889.27.25.png" alt="" /></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -598,109 +686,6 @@ service mysqld start
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/rails-rails-mongo-devise/">[Rails]安裝devise在mongo_mapper</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-12-03T00:03:00+08:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2011</time>
-        
-           | <a href="/rails-rails-mongo-devise/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/rails-rails-mongo-devise/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>參考了<a href="http://blog.xdite.net/">XDite</a>的<code>Rails 101</code>慢慢的上手了，而我希望可以配合<code>MongoDB</code>來建立我的網站不過還有些地方跟<code>Rails 101</code>不大一樣，所以來筆記一下了</p>
-
-<p>使用者機制在<code>Rails</code>很快就可以完成，因為我們可以直接用別人開發過的Plugin，就可以懶懶的完成你所要的功能了，在<code>Rails 101</code>上面推薦的使用者Plugin是<code>Devise</code></p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/rails-rails-mongo-devise/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/jquery-set-selectbox/">[Jquery]設定下拉選單的初始值</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-11-30T11:13:00+08:00" pubdate data-updated="true">Nov 30<span>th</span>, 2011</time>
-        
-           | <a href="/jquery-set-selectbox/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/jquery-set-selectbox/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;select</span> <span class="na">id =</span><span class="s">&quot;selectbox&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'><span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;google&quot;</span><span class="nt">&gt;</span>google<span class="nt">&lt;/option&gt;</span>
-</span><span class='line'><span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;yahoo&quot;</span><span class="nt">&gt;</span>yahoo<span class="nt">&lt;/option&gt;</span>
-</span><span class='line'><span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;bing&quot;</span><span class="nt">&gt;</span>bing<span class="nt">&lt;/option&gt;</span>
-</span><span class='line'><span class="nt">&lt;/seltion&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#selectbox option[value=google]&#39;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;selected&#39;</span><span class="p">,</span><span class="s1">&#39;selected&#39;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -729,6 +714,14 @@ service mysqld start
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/chef-supermarket/">[Chef] Cookbook 超市，滿滿的 Coobook 等你來用</a>
+      </li>
+    
+      <li class="post">
+        <a href="/cookbook-resources/">[Chef] Cookbook 寫 Recipe 常用的 Resource 介紹</a>
+      </li>
+    
+      <li class="post">
         <a href="/cgi-escape/">Ruby 下載檔案時遇到中文字</a>
       </li>
     
@@ -738,14 +731,6 @@ service mysqld start
     
       <li class="post">
         <a href="/rails-recreate-versions/">[Carrierwave]重新處理縮圖</a>
-      </li>
-    
-      <li class="post">
-        <a href="/nhi/">利用自然人憑證申請健保卡不用出門就到手</a>
-      </li>
-    
-      <li class="post">
-        <a href="/vimrc/">My Vimrc</a>
       </li>
     
   </ul>
@@ -770,7 +755,7 @@ service mysqld start
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Sammy -
+  Copyright &copy; 2015 - Sammy -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

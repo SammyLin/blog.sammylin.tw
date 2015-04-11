@@ -9,9 +9,8 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="在Mac裡如果想到清除垃圾工具，第一個應該會想到的是CleanMyMac，不過要花$29.95美金，因為我是個省吃儉用的人，所以想一想就算了，還是不要好了，最近發現一個軟體，還不錯。 Magican
-容量：3.8MB 畫面其實很乾淨，沒有很亂，左邊是Menu 功能 清除你Mac的圾垃
-檢查有無木馬 &hellip;">
+  <meta name="description" content="有時候專案尚未公開時，還是需要放到網路上讓其他人來瀏覽，這時候為了怕非相關人員看到這個網站的話，就需要有個關卡，通常都會在nginx或apache來設定，但是這往往還要進到server去處理。
+如果在rails上你不想這麼麻煩的話，可以在ApplicationController上直接加上這一行 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +79,121 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/http-basic-authenticate/">[Rails] 進入網站前驗證</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-04T20:41:00+08:00" pubdate data-updated="true">Dec 4<span>th</span>, 2012</time>
+        
+           | <a href="/http-basic-authenticate/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/http-basic-authenticate/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>有時候專案尚未公開時，還是需要放到網路上讓其他人來瀏覽，這時候為了怕非相關人員看到這個網站的話，就需要有個關卡，通常都會在nginx或apache來設定，但是這往往還要進到server去處理。
+如果在rails上你不想這麼麻煩的話，可以在<code>ApplicationController</code>上直接加上這一行</p>
+
+<pre><code>http_basic_authenticate_with name: "admin", password: "pw"
+</code></pre>
+
+<p>就像下面這樣</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="ss">ActionController</span><span class="p">:</span><span class="ss">:Base</span>  <span class="n">protect_from_forgery</span>
+</span><span class='line'>  <span class="n">http_basic_authenticate_with</span> <span class="nb">name</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span> <span class="ss">password</span><span class="p">:</span> <span class="s2">&quot;pw&quot;</span>
+</span><span class='line'>  <span class="n">protect_from_forgery</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>當你在進入網站的時候就會需要你輸入帳密才能進入了</p>
+
+<p><img src="https://lh6.googleusercontent.com/-RYBzUO6WDHE/UL3yLnBSaEI/AAAAAAAACBQ/hB0LWke0YaA/s800/b2c64cda0232f18a97b8a215bc138e7b.png" alt="" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/nokogiri-encoding/">[Ruby]編碼學問很大</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-10T11:56:00+08:00" pubdate data-updated="true">Oct 10<span>th</span>, 2012</time>
+        
+           | <a href="/nokogiri-encoding/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/nokogiri-encoding/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>問題：</h3>
+
+<p><a href="http://nokogiri.org">Nokogiri</a>是一個網頁擷取的一個很好的工具，所以我會用他當做我要抓網站資料的首選，就像Nokogiri的網站使用說明一樣，我們只要用下面三行就可以使用Nokogiri，之後在用他內建幾個method來做處理，但今天不講怎麼做處理</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;nokogiri&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;open-uri&#39;</span>
+</span><span class='line'><span class="n">doc</span> <span class="o">=</span> <span class="ss">Nokogiri</span><span class="p">:</span><span class="ss">:HTML</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;http://www.google.com/search?q=sparklemotion&#39;</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/nokogiri-encoding/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -592,144 +706,6 @@ map &lt;Down&gt; :echo "Use j you asshole!"&lt;cr&gt;
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/write-uploader-error/">出現private Method `write_uploader&#8217; Called For</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-04-24T22:29:00+08:00" pubdate data-updated="true">Apr 24<span>th</span>, 2012</time>
-        
-           | <a href="/write-uploader-error/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/write-uploader-error/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>用<a href="https://github.com/jnicklas/carrierwave">carrierwave</a>做我的upload plugin
-用的時候很正常，有一天突然噴出了錯誤訊息</p>
-
-<pre><code>NoMethodError in Admin::ArticlesController#update
-
-private method `write_uploader' called for #&lt;Article:0x007f8f6cd1c3d0&gt;
-</code></pre>
-
-<p>解了老半天也上網google了一下，也到Github上找<a href="https://github.com/jnicklas/carrierwave/issues/511">issue</a>，都沒辦法！</p>
-
-<p>最後才發現</p>
-
-<div><script src='https://gist.github.com/2485397.js'></script>
-<noscript><pre><code>class Article &lt; ActiveRecord::Base                                                                                                                       
-  default_scope order('post_date DESC')
-  #scope :public, where( :post_status =&gt; 'public' )
-  scope :public_article, where( :post_status =&gt; 'public' )
-  mount_uploader :article_image, ArticleImageUploader
-end</code></pre></noscript></div>
-
-
-<p> 我有一個<code>scope</code>叫做<code>public</code>，經過<a href="http://stackoverflow.com/questions/7658359/what-is-objectprivate-and-objectpublic-in-ruby">小小的了解</a>發現雖然不是不是保留字，不過是拿來當修飾詞的，雖然不是每一個method都會用到，不過拿來用可能會有問題！</p>
-
-<p> 所以只要把<code>scope :public</code>改成其他的字就行了</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/simple-form-collection/">[Rails]製作下拉式選單集合</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-04-20T10:34:00+08:00" pubdate data-updated="true">Apr 20<span>th</span>, 2012</time>
-        
-           | <a href="/simple-form-collection/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/simple-form-collection/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>目前的狀況是這樣子的，目前是有做<code>CMS</code>所以需要有</p>
-
-<pre><code># Public(公開)
-# Private(私人)
-# Draft(草稿)
-</code></pre>
-
-<p>這三種，不過這個集合可以用類似<a href="https://github.com/jeffp/enumerated_attribute">jeffp/enumerated_attribute</a>的gem配合或者是說用<a href="https://github.com/twinslash/enumerize">twinslash/enumerize</a>，不過我更懶，我直接把data丟到collection裡面就好了，因為其他地方是用不大到的~</p>
-
-<pre><code>#view/articles/_form.html.erb 
-&lt;%= f.input :post_status, :collection =&gt; ["public", "private", "draft"]%&gt;
-</code></pre>
-
-<p>因為我使用的是<a href="https://github.com/plataformatec/simple_form">plataformatec/simple_form</a>的關係，所以他自動幫我產生一個select的下拉式選單，應該是長這樣子</p>
-
-<p><img src="https://lh3.googleusercontent.com/-gKzIpoD9cSE/T5DP9853W2I/AAAAAAAABwo/3fcIwnDxQq0/s800/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-20%2520%25E4%25B8%258A%25E5%258D%258810.50.34.png" alt="" /></p>
-
-<p>但是如果是需要多國語系的話</p>
-
-<pre><code>#view/articles/_form.html.erb 
-&lt;%= f.input :post_status, :collection =&gt; [[t(".public"),"public"], [t(".private"), "private"], [t(".draft"), "draft"]]%&gt;
-</code></pre>
-
-<p>再來就是新增你的i18n的語系檔，我個人的習慣是另外新增一個檔案，我目前的controller叫做articles所以我建立一個i18n的中文yml檔時就會是這樣子</p>
-
-<pre><code># config/locales/articles.zh-TW.yml
-zh-TW:
-    articles:
-      form:
-        public: 公開
-        private: 私人
-        draft: 草稿
-</code></pre>
-
-<p>然後要記得重啟server
-就會成功了</p>
-
-<p><img src="https://lh4.googleusercontent.com/-zrcnqhAxZ4Q/T5DRrfHqOQI/AAAAAAAABw4/U64XX2hvhwE/s800/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-20%2520%25E4%25B8%258A%25E5%258D%258811.01.43.png" alt="" /></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -758,6 +734,14 @@ zh-TW:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/chef-supermarket/">[Chef] Cookbook 超市，滿滿的 Coobook 等你來用</a>
+      </li>
+    
+      <li class="post">
+        <a href="/cookbook-resources/">[Chef] Cookbook 寫 Recipe 常用的 Resource 介紹</a>
+      </li>
+    
+      <li class="post">
         <a href="/cgi-escape/">Ruby 下載檔案時遇到中文字</a>
       </li>
     
@@ -767,14 +751,6 @@ zh-TW:
     
       <li class="post">
         <a href="/rails-recreate-versions/">[Carrierwave]重新處理縮圖</a>
-      </li>
-    
-      <li class="post">
-        <a href="/nhi/">利用自然人憑證申請健保卡不用出門就到手</a>
-      </li>
-    
-      <li class="post">
-        <a href="/vimrc/">My Vimrc</a>
       </li>
     
   </ul>
@@ -799,7 +775,7 @@ zh-TW:
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Sammy -
+  Copyright &copy; 2015 - Sammy -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

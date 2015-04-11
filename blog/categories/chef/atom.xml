@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Chef | Sammy Lin]]></title>
+  <link href="http://blog.sammylin.tw/blog/categories/chef/atom.xml" rel="self"/>
+  <link href="http://blog.sammylin.tw/"/>
+  <updated>2015-04-11T17:28:39+08:00</updated>
+  <id>http://blog.sammylin.tw/</id>
+  <author>
+    <name><![CDATA[Sammy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[Chef] Cookbook 超市，滿滿的 Coobook 等你來用]]></title>
+    <link href="http://blog.sammylin.tw/chef-supermarket/"/>
+    <updated>2015-04-11T17:23:08+08:00</updated>
+    <id>http://blog.sammylin.tw/chef-supermarket</id>
+    <content type="html"><![CDATA[<p><img src="http://i.imgur.com/ZgstOx2.png" alt="https://supermarket.chef.io/" /></p>
+
+<p>之前要找 Cookbook，一定是開 google 然後打「xxx cookbook」，剛剛才知道有這個網站，可以直接找 cookbook</p>
+
+<p>URL: <a href="https://supermarket.chef.io/">https://supermarket.chef.io/</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[Chef] Cookbook 寫 Recipe 常用的 Resource 介紹]]></title>
+    <link href="http://blog.sammylin.tw/cookbook-resources/"/>
+    <updated>2015-04-11T14:51:43+08:00</updated>
+    <id>http://blog.sammylin.tw/cookbook-resources</id>
+    <content type="html"><![CDATA[<p>Chef 有多重要，有多好那我們就不說了，如果你只是路過想了解什麼是 Chef 那你可以參考下面這個連結：</p>
+
+<p><a href="http://gogojimmy.net/2013/06/01/Chef-Solo-Basic-with-Vagrant/">[Rails佈署實戰教學]使用Chef-Solo一鍵安裝機器 &ndash; 好麻煩部落格</a></p>
+
+<p><strong>這篇重點放在幾個常用的 Resource (我覺得常用的 XD)，如果有大大覺得哪個也是重要的那也可以一起討論或分享一下。若是文章有錯誤的地方也煩請指教</strong></p>
+
+<p>如果你已經開始在製作一個 cookbook 時，在寫一個 recipe 常常會不知道要用什麼 resource ，或是不知道有什麼可以用。而且我看英文的速度沒辦法一目十行呀，而且中文的資料找不到，所以只能自已做個筆記來提醒我自已。也可以直接到 <a href="https://docs.chef.io/resources.html">Resources Reference — Chef Docs</a> 參考官方網站的資料(當然那邊是最齊全的)，</p>
+
+<p>先簡單了解一下一個 cookbook 的資料夾架構</p>
+
+<p>```</p>
+
+<p>├── attributes     (給 recipe 使用的預設值
+├── files          (需要傳入到節點的檔案
+│   └── default
+├── metadata.rb    (描述 cookbook
+├── recipes        (這個 cookbook 的食譜的做法，這篇就是要講怎麼做 (不知道怎麼翻XD
+│   └── default.rb
+└── templates      (透過 ERB template 可以產出檔案到節點</p>
+
+<pre><code>└── default
+</code></pre>
+
+<p>```</p>
+
+<p>所以我們會在 recipes 中建立這個 cookbook 要做的事情有什麼，所以要利用 chef 的 resources 寫這個 recipe。</p>
+
+<!-- more -->
+
+
+<h3>套件 Package</h3>
+
+<p>```
+package &lsquo;nginx&rsquo; do
+  action :install     # 動作 (如果是 :install 可省略
+  version &ldquo;<version>&rdquo; # 版本 (如不指定就安裝最新的
+end</p>
+
+<p>```</p>
+
+<p><code>:action</code> 的方法屬性</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> Action    </th>
+<th> Description                                                </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> :install  </td>
+<td> <strong>(預設)</strong> 安裝                                             |</td>
+</tr>
+<tr>
+<td></td>
+<td> :purge    </td>
+<td> 移除 package (只有 Debian 上可以用，其他平台還是用 <code>:remove</code>)   |</td>
+</tr>
+<tr>
+<td></td>
+<td> :reconfig </td>
+<td> 配合 <code>response file</code> 重新設定                                |</td>
+</tr>
+<tr>
+<td></td>
+<td> :remove    </td>
+<td> 移除 package                                               |</td>
+</tr>
+<tr>
+<td></td>
+<td> :upgrade   </td>
+<td> 升級 package 到最新版                                       |</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>目錄 Directory</h3>
+
+<p><code>
+directory "&lt;path&gt;" do
+  owner "root"   # 資料夾擁有者
+  group "root"   # 資料夾群組
+  mode "0755"    # 檔案權限
+  action :create # 動作 (如果是 :create 可省略
+end
+</code></p>
+
+<p><code>:action</code> 的方法屬性</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> Action    </th>
+<th> Description                                             </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> :create   </td>
+<td> <strong>(預設)</strong> 建立目錄(但是如果設定不一樣還是會處理到符合設定)   |</td>
+</tr>
+<tr>
+<td></td>
+<td> :delete   </td>
+<td> 刪除目錄                                                 |</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>服務 Service</h3>
+
+<p><code>
+service "&lt;service name&gt;" do
+  action :start # 動作
+end
+</code></p>
+
+<p><code>:action</code> 的方法屬性</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> Action   </th>
+<th> Description                </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> :disable </td>
+<td> 關閉開機時並開啟服務          |</td>
+</tr>
+<tr>
+<td></td>
+<td> :enable  </td>
+<td> 啟用開機時並開啟服務          |</td>
+</tr>
+<tr>
+<td></td>
+<td> :nothing </td>
+<td> <strong>(預設)</strong> 不做任何事          |</td>
+</tr>
+<tr>
+<td></td>
+<td> :reload  </td>
+<td> 重新載入 configuration 配置  |</td>
+</tr>
+<tr>
+<td></td>
+<td> :restart </td>
+<td> 重啟服務                     |</td>
+</tr>
+<tr>
+<td></td>
+<td> :start   </td>
+<td> 開啟服務                     |</td>
+</tr>
+<tr>
+<td></td>
+<td> :stop    </td>
+<td> 停止服務                     |</td>
+</tr>
+</tbody>
+</table>
+
+
+<p><code>:supports</code> 的方法屬性說明</p>
+
+<p>預設是 <code>{ :restart =&gt; false, :reload =&gt; false, :status =&gt; false }</code> ，這個其實就是說 chef-client 把這三個動作都自已處理了，<code>:restart</code>，這個動作就是先執行 <code>:stop</code>，再執行<code>:start</code>；<code>:status</code>就是去檢查 process 有沒有這個 service name，<code>:reload</code>，這個不知道怎麼做的=_=。</p>
+
+<p>假設</p>
+
+<p>```
+service &ldquo;nginx&rdquo; do
+  supports :status => true, :restart => false, :reload => fasle
+  action :start # 動作
+end</p>
+
+<p>```</p>
+
+<p>那就是如果會執行到檢查 status 時就會去執行 <code>service nginx status</code> ，而不是去檢查 process。</p>
+
+<p>&lt;小提示> 可以讓他開機自動啟用，再來現在就開啟服務。</p>
+
+<p><code>
+service "nginx" do
+  action [:enable, :start]
+end
+</code></p>
+
+<h3>File 處理檔案</h3>
+
+<p><code>
+file "/tmp/something" do # 檔案位置
+  owner 'root'           # 擁有者
+  group 'root'           # 群組
+  mode '0755'            # 權限
+  action :create         # 動作 (如果是 :create 可省略
+end
+</code></p>
+
+<p><code>:action</code> 的方法屬性</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> Action    </th>
+<th> Description                                                            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> :create   </td>
+<td> <strong>(預設)</strong> 新增檔案，如果檔案存在但不符合的話，就會重新產生一個檔案覆蓋        |</td>
+</tr>
+<tr>
+<td></td>
+<td> :create_if_missing   </td>
+<td> 如果檔案存在就不產生檔案                                       |</td>
+</tr>
+<tr>
+<td></td>
+<td> :delete   </td>
+<td> 刪除檔案                                                                |</td>
+</tr>
+<tr>
+<td></td>
+<td> :touch   </td>
+<td> 不太懂，感覺意思是說，不管檔案是不符合，都會覆蓋檔案，所以會變動檔案的&lt;修改時間>。|</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>Template 模版</h3>
+
+<p>你可以建立 ERB 的檔案，利用 ruby 的寫法來製作檔案，更可以載入 attributes 的值。而 template 的檔案必需要放在 <code>/COOKBOOK_NAME/templates/default</code> 底下。Action 的方法跟 file 一樣。</p>
+
+<p>```
+  template “<filename>&ldquo; do                        # 目標檔案位置</p>
+
+<pre><code>source “&lt;file name&gt;.erb”                      # ERB 檔案來源
+mode 0755                                     # 檔案權限
+owner "root"                                  # 擁有者
+group “root"                                  # 群組
+variables({                                   # 載入 variables ，所以按照範例可以在 template，可以使用 @xxx 及 @ooo
+   :xxx =&gt; node[:hello_world][:xxx][:groups],
+   :ooo =&gt; node[:hello_world][:ooo][:users]
+ })
+action :create                                # 動作 (如果是 :create 可省略
+</code></pre>
+
+<p>  end
+```</p>
+
+<h3>cookbook_file 從 cookbook 送檔案進去</h3>
+
+<p>這個檔案通常會存放在 cookbook 的 <code>/COOKBOOK_NAME/files/default</code> 裡面，跟 template 不同的是，他是原封不同的把檔案傳偷主機裡面去，Action 的方法跟 file 一樣。</p>
+
+<p><code>
+cookbook_file "&lt;file name&gt;" do # 目標檔案位置
+  path "&lt;file name&gt;"           # 來源檔案位置
+  action :create               # 動作 (如果是 :create 可省略
+end
+</code></p>
+
+<h3>remote_file 從外部下載檔案</h3>
+
+<p>一般來說，大家在從外部下載檔案進來都是個壓縮檔，或是要執行的檔案，那 Chef 提供了一個方法可以暫存的地方，你可以用 <code>Chef::Config[:file_cache_path]</code> 來呼叫它。先暫存在那邊，之後再處理這個 remote file。</p>
+
+<p><code>
+remote_file "#{Chef::Config[:file_cache_path]}/large-file.tar.gz" do  # 目標檔案位置
+  source "http://www.example.org/large-file.tar.gz"                   # 來源檔案位置
+  action :create                                                      # 動作 (如果是 :create 可省略
+end
+</code></p>
+
+<h3>execute 執行</h3>
+
+<p>```
+  execute &ldquo;<name>&rdquo; do                       # 這個執行動作的名稱</p>
+
+<pre><code>cwd "&lt;path&gt;"                            # 前往哪個目錄
+command "&lt;command&gt;"                     # 執行的 command
+not_if { ::File.exists?("&lt;file_path&gt;")} # 也可建立條件式
+</code></pre>
+
+<p>  end
+```</p>
+
+<p>2015.4.11 目前就先筆記這幾個，之後在寫 recipe 的時候覺得哪些重要跟常用的 resources 再慢慢補上了。</p>
+]]></content>
+  </entry>
+  
+</feed>

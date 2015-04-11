@@ -4,7 +4,7 @@
   <title><![CDATA[Sammy Lin]]></title>
   <link href="http://blog.sammylin.tw/atom.xml" rel="self"/>
   <link href="http://blog.sammylin.tw/"/>
-  <updated>2014-12-26T08:55:52+08:00</updated>
+  <updated>2015-04-11T17:28:39+08:00</updated>
   <id>http://blog.sammylin.tw/</id>
   <author>
     <name><![CDATA[Sammy]]></name>
@@ -12,6 +12,367 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[[Chef] Cookbook 超市，滿滿的 Coobook 等你來用]]></title>
+    <link href="http://blog.sammylin.tw/chef-supermarket/"/>
+    <updated>2015-04-11T17:23:08+08:00</updated>
+    <id>http://blog.sammylin.tw/chef-supermarket</id>
+    <content type="html"><![CDATA[<p><img src="http://i.imgur.com/ZgstOx2.png" alt="https://supermarket.chef.io/" /></p>
+
+<p>之前要找 Cookbook，一定是開 google 然後打「xxx cookbook」，剛剛才知道有這個網站，可以直接找 cookbook</p>
+
+<p>URL: <a href="https://supermarket.chef.io/">https://supermarket.chef.io/</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[Chef] Cookbook 寫 Recipe 常用的 Resource 介紹]]></title>
+    <link href="http://blog.sammylin.tw/cookbook-resources/"/>
+    <updated>2015-04-11T14:51:43+08:00</updated>
+    <id>http://blog.sammylin.tw/cookbook-resources</id>
+    <content type="html"><![CDATA[<p>Chef 有多重要，有多好那我們就不說了，如果你只是路過想了解什麼是 Chef 那你可以參考下面這個連結：</p>
+
+<p><a href="http://gogojimmy.net/2013/06/01/Chef-Solo-Basic-with-Vagrant/">[Rails佈署實戰教學]使用Chef-Solo一鍵安裝機器 &ndash; 好麻煩部落格</a></p>
+
+<p><strong>這篇重點放在幾個常用的 Resource (我覺得常用的 XD)，如果有大大覺得哪個也是重要的那也可以一起討論或分享一下。若是文章有錯誤的地方也煩請指教</strong></p>
+
+<p>如果你已經開始在製作一個 cookbook 時，在寫一個 recipe 常常會不知道要用什麼 resource ，或是不知道有什麼可以用。而且我看英文的速度沒辦法一目十行呀，而且中文的資料找不到，所以只能自已做個筆記來提醒我自已。也可以直接到 <a href="https://docs.chef.io/resources.html">Resources Reference — Chef Docs</a> 參考官方網站的資料(當然那邊是最齊全的)，</p>
+
+<p>先簡單了解一下一個 cookbook 的資料夾架構</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>
+</span><span class='line'>├── attributes     (給 recipe 使用的預設值
+</span><span class='line'>├── files          (需要傳入到節點的檔案
+</span><span class='line'>│   └── default
+</span><span class='line'>├── metadata.rb    (描述 cookbook 
+</span><span class='line'>├── recipes        (這個 cookbook 的食譜的做法，這篇就是要講怎麼做 (不知道怎麼翻XD
+</span><span class='line'>│   └── default.rb
+</span><span class='line'>└── templates      (透過 ERB template 可以產出檔案到節點
+</span><span class='line'>    └── default</span></code></pre></td></tr></table></div></figure>
+
+
+<p>所以我們會在 recipes 中建立這個 cookbook 要做的事情有什麼，所以要利用 chef 的 resources 寫這個 recipe。</p>
+
+<!-- more -->
+
+
+<h3>套件 Package</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>package 'nginx' do
+</span><span class='line'>  action :install     # 動作 (如果是 :install 可省略
+</span><span class='line'>  version "&lt;version&gt;" # 版本 (如不指定就安裝最新的
+</span><span class='line'>end
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>:action</code> 的方法屬性</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> Action    </th>
+<th> Description                                                </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> :install  </td>
+<td> <strong>(預設)</strong> 安裝                                             |</td>
+</tr>
+<tr>
+<td></td>
+<td> :purge    </td>
+<td> 移除 package (只有 Debian 上可以用，其他平台還是用 <code>:remove</code>)   |</td>
+</tr>
+<tr>
+<td></td>
+<td> :reconfig </td>
+<td> 配合 <code>response file</code> 重新設定                                |</td>
+</tr>
+<tr>
+<td></td>
+<td> :remove    </td>
+<td> 移除 package                                               |</td>
+</tr>
+<tr>
+<td></td>
+<td> :upgrade   </td>
+<td> 升級 package 到最新版                                       |</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>目錄 Directory</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>directory "&lt;path&gt;" do
+</span><span class='line'>  owner "root"   # 資料夾擁有者
+</span><span class='line'>  group "root"   # 資料夾群組
+</span><span class='line'>  mode "0755"    # 檔案權限
+</span><span class='line'>  action :create # 動作 (如果是 :create 可省略
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>:action</code> 的方法屬性</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> Action    </th>
+<th> Description                                             </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> :create   </td>
+<td> <strong>(預設)</strong> 建立目錄(但是如果設定不一樣還是會處理到符合設定)   |</td>
+</tr>
+<tr>
+<td></td>
+<td> :delete   </td>
+<td> 刪除目錄                                                 |</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>服務 Service</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>service "&lt;service name&gt;" do
+</span><span class='line'>  action :start # 動作 
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>:action</code> 的方法屬性</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> Action   </th>
+<th> Description                </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> :disable </td>
+<td> 關閉開機時並開啟服務          |</td>
+</tr>
+<tr>
+<td></td>
+<td> :enable  </td>
+<td> 啟用開機時並開啟服務          |</td>
+</tr>
+<tr>
+<td></td>
+<td> :nothing </td>
+<td> <strong>(預設)</strong> 不做任何事          |</td>
+</tr>
+<tr>
+<td></td>
+<td> :reload  </td>
+<td> 重新載入 configuration 配置  |</td>
+</tr>
+<tr>
+<td></td>
+<td> :restart </td>
+<td> 重啟服務                     |</td>
+</tr>
+<tr>
+<td></td>
+<td> :start   </td>
+<td> 開啟服務                     |</td>
+</tr>
+<tr>
+<td></td>
+<td> :stop    </td>
+<td> 停止服務                     |</td>
+</tr>
+</tbody>
+</table>
+
+
+<p><code>:supports</code> 的方法屬性說明</p>
+
+<p>預設是 <code>{ :restart =&gt; false, :reload =&gt; false, :status =&gt; false }</code> ，這個其實就是說 chef-client 把這三個動作都自已處理了，<code>:restart</code>，這個動作就是先執行 <code>:stop</code>，再執行<code>:start</code>；<code>:status</code>就是去檢查 process 有沒有這個 service name，<code>:reload</code>，這個不知道怎麼做的=_=。</p>
+
+<p>假設</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>service "nginx" do
+</span><span class='line'>  supports :status =&gt; true, :restart =&gt; false, :reload =&gt; fasle
+</span><span class='line'>  action :start # 動作
+</span><span class='line'>end
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>那就是如果會執行到檢查 status 時就會去執行 <code>service nginx status</code> ，而不是去檢查 process。</p>
+
+<p>&lt;小提示> 可以讓他開機自動啟用，再來現在就開啟服務。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>service "nginx" do
+</span><span class='line'>  action [:enable, :start]
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>File 處理檔案</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>file "/tmp/something" do # 檔案位置
+</span><span class='line'>  owner 'root'           # 擁有者
+</span><span class='line'>  group 'root'           # 群組
+</span><span class='line'>  mode '0755'            # 權限
+</span><span class='line'>  action :create         # 動作 (如果是 :create 可省略
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>:action</code> 的方法屬性</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> Action    </th>
+<th> Description                                                            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> :create   </td>
+<td> <strong>(預設)</strong> 新增檔案，如果檔案存在但不符合的話，就會重新產生一個檔案覆蓋        |</td>
+</tr>
+<tr>
+<td></td>
+<td> :create_if_missing   </td>
+<td> 如果檔案存在就不產生檔案                                       |</td>
+</tr>
+<tr>
+<td></td>
+<td> :delete   </td>
+<td> 刪除檔案                                                                |</td>
+</tr>
+<tr>
+<td></td>
+<td> :touch   </td>
+<td> 不太懂，感覺意思是說，不管檔案是不符合，都會覆蓋檔案，所以會變動檔案的&lt;修改時間>。|</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>Template 模版</h3>
+
+<p>你可以建立 ERB 的檔案，利用 ruby 的寫法來製作檔案，更可以載入 attributes 的值。而 template 的檔案必需要放在 <code>/COOKBOOK_NAME/templates/default</code> 底下。Action 的方法跟 file 一樣。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  template “&lt;filename&gt;" do                        # 目標檔案位置
+</span><span class='line'>    source “&lt;file name&gt;.erb”                      # ERB 檔案來源
+</span><span class='line'>    mode 0755                                     # 檔案權限
+</span><span class='line'>    owner "root"                                  # 擁有者
+</span><span class='line'>    group “root"                                  # 群組
+</span><span class='line'>    variables({                                   # 載入 variables ，所以按照範例可以在 template，可以使用 @xxx 及 @ooo
+</span><span class='line'>       :xxx =&gt; node[:hello_world][:xxx][:groups],
+</span><span class='line'>       :ooo =&gt; node[:hello_world][:ooo][:users]
+</span><span class='line'>     })
+</span><span class='line'>    action :create                                # 動作 (如果是 :create 可省略
+</span><span class='line'>  end</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>cookbook_file 從 cookbook 送檔案進去</h3>
+
+<p>這個檔案通常會存放在 cookbook 的 <code>/COOKBOOK_NAME/files/default</code> 裡面，跟 template 不同的是，他是原封不同的把檔案傳偷主機裡面去，Action 的方法跟 file 一樣。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cookbook_file "&lt;file name&gt;" do # 目標檔案位置
+</span><span class='line'>  path "&lt;file name&gt;"           # 來源檔案位置
+</span><span class='line'>  action :create               # 動作 (如果是 :create 可省略
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>remote_file 從外部下載檔案</h3>
+
+<p>一般來說，大家在從外部下載檔案進來都是個壓縮檔，或是要執行的檔案，那 Chef 提供了一個方法可以暫存的地方，你可以用 <code>Chef::Config[:file_cache_path]</code> 來呼叫它。先暫存在那邊，之後再處理這個 remote file。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>remote_file "#{Chef::Config[:file_cache_path]}/large-file.tar.gz" do  # 目標檔案位置
+</span><span class='line'>  source "http://www.example.org/large-file.tar.gz"                   # 來源檔案位置
+</span><span class='line'>  action :create                                                      # 動作 (如果是 :create 可省略
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>execute 執行</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  execute "&lt;name&gt;" do                       # 這個執行動作的名稱
+</span><span class='line'>    cwd "&lt;path&gt;"                            # 前往哪個目錄
+</span><span class='line'>    command "&lt;command&gt;"                     # 執行的 command
+</span><span class='line'>    not_if { ::File.exists?("&lt;file_path&gt;")} # 也可建立條件式
+</span><span class='line'>  end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>2015.4.11 目前就先筆記這幾個，之後在寫 recipe 的時候覺得哪些重要跟常用的 resources 再慢慢補上了。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ruby 下載檔案時遇到中文字]]></title>
@@ -1002,84 +1363,6 @@ map &lt;Down&gt; :echo "Use j you asshole!"&lt;cr&gt;
 <p><a href="http://www.etsy.com/shop/SIDONIEYANG?ref=top_trail">紙樣。YANG 的etsy店面</a></p>
 
 <p><a href="http://www.pinkoi.com/product/1JbKaVk5">No.186 紙製 錢包 極簡超薄款可水洗牛皮紙短夾</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[出現private Method `write_uploader' Called For]]></title>
-    <link href="http://blog.sammylin.tw/write-uploader-error/"/>
-    <updated>2012-04-24T22:29:00+08:00</updated>
-    <id>http://blog.sammylin.tw/write-uploader-error</id>
-    <content type="html"><![CDATA[<p>用<a href="https://github.com/jnicklas/carrierwave">carrierwave</a>做我的upload plugin
-用的時候很正常，有一天突然噴出了錯誤訊息</p>
-
-<pre><code>NoMethodError in Admin::ArticlesController#update
-
-private method `write_uploader' called for #&lt;Article:0x007f8f6cd1c3d0&gt;
-</code></pre>
-
-<p>解了老半天也上網google了一下，也到Github上找<a href="https://github.com/jnicklas/carrierwave/issues/511">issue</a>，都沒辦法！</p>
-
-<p>最後才發現</p>
-
-<div><script src='https://gist.github.com/2485397.js'></script>
-<noscript><pre><code>class Article &lt; ActiveRecord::Base                                                                                                                       
-  default_scope order('post_date DESC')
-  #scope :public, where( :post_status =&gt; 'public' )
-  scope :public_article, where( :post_status =&gt; 'public' )
-  mount_uploader :article_image, ArticleImageUploader
-end</code></pre></noscript></div>
-
-
-<p> 我有一個<code>scope</code>叫做<code>public</code>，經過<a href="http://stackoverflow.com/questions/7658359/what-is-objectprivate-and-objectpublic-in-ruby">小小的了解</a>發現雖然不是不是保留字，不過是拿來當修飾詞的，雖然不是每一個method都會用到，不過拿來用可能會有問題！</p>
-
-<p> 所以只要把<code>scope :public</code>改成其他的字就行了</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[Rails]製作下拉式選單集合]]></title>
-    <link href="http://blog.sammylin.tw/simple-form-collection/"/>
-    <updated>2012-04-20T10:34:00+08:00</updated>
-    <id>http://blog.sammylin.tw/simple-form-collection</id>
-    <content type="html"><![CDATA[<p>目前的狀況是這樣子的，目前是有做<code>CMS</code>所以需要有</p>
-
-<pre><code># Public(公開)
-# Private(私人)
-# Draft(草稿)
-</code></pre>
-
-<p>這三種，不過這個集合可以用類似<a href="https://github.com/jeffp/enumerated_attribute">jeffp/enumerated_attribute</a>的gem配合或者是說用<a href="https://github.com/twinslash/enumerize">twinslash/enumerize</a>，不過我更懶，我直接把data丟到collection裡面就好了，因為其他地方是用不大到的~</p>
-
-<pre><code>#view/articles/_form.html.erb 
-&lt;%= f.input :post_status, :collection =&gt; ["public", "private", "draft"]%&gt;
-</code></pre>
-
-<p>因為我使用的是<a href="https://github.com/plataformatec/simple_form">plataformatec/simple_form</a>的關係，所以他自動幫我產生一個select的下拉式選單，應該是長這樣子</p>
-
-<p><img src="https://lh3.googleusercontent.com/-gKzIpoD9cSE/T5DP9853W2I/AAAAAAAABwo/3fcIwnDxQq0/s800/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-20%2520%25E4%25B8%258A%25E5%258D%258810.50.34.png" alt="" /></p>
-
-<p>但是如果是需要多國語系的話</p>
-
-<pre><code>#view/articles/_form.html.erb 
-&lt;%= f.input :post_status, :collection =&gt; [[t(".public"),"public"], [t(".private"), "private"], [t(".draft"), "draft"]]%&gt;
-</code></pre>
-
-<p>再來就是新增你的i18n的語系檔，我個人的習慣是另外新增一個檔案，我目前的controller叫做articles所以我建立一個i18n的中文yml檔時就會是這樣子</p>
-
-<pre><code># config/locales/articles.zh-TW.yml
-zh-TW:
-    articles:
-      form:
-        public: 公開
-        private: 私人
-        draft: 草稿
-</code></pre>
-
-<p>然後要記得重啟server
-就會成功了</p>
-
-<p><img src="https://lh4.googleusercontent.com/-zrcnqhAxZ4Q/T5DRrfHqOQI/AAAAAAAABw4/U64XX2hvhwE/s800/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-20%2520%25E4%25B8%258A%25E5%258D%258811.01.43.png" alt="" /></p>
 ]]></content>
   </entry>
   

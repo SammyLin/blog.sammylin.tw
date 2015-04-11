@@ -9,7 +9,7 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="在剛剛那篇文章「[AWS][EC2]建立實體(Launch Instance)」我們利用了AWS Management Console建立了實體，很可惜Amazon 的 Console沒辦法直接連到主機(以後有可能嗎？~~看情況吧~)所以我們用SSH方式連入，請先下載以下兩個軟體： PuTTY &hellip;">
+  <meta name="description" content="Instance的私人、公用DNS及私人IP都會會變動的，在你重開機之後，他就會改變，筆者上次就被這個給嚇到了想說原來的架好的網站怎麼突然上不去，而且回到aws web Console明明Instance是running，經過一連串的檢查，原來是dns跟ip都跑掉了，害我一陣慌亂~~， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,97 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/awsec2%E7%82%BAinstance%E7%A7%9F%E7%94%A8%E4%B8%80%E5%80%8Belastic-ip/">[AWS][EC2]為Instance租用一個Elastic IP</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-29T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/awsec2%E7%82%BAinstance%E7%A7%9F%E7%94%A8%E4%B8%80%E5%80%8Belastic-ip/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/awsec2%E7%82%BAinstance%E7%A7%9F%E7%94%A8%E4%B8%80%E5%80%8Belastic-ip/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><p> Instance的私人、公用DNS及私人IP都會會變動的，在你重開機之後，他就會改變，筆者上次就被這個給嚇到了想說原來的架好的網站怎麼突然上不去，而且回到aws web Console明明Instance是running，經過一連串的檢查，原來是dns跟ip都跑掉了，害我一陣慌亂~~，所以如果你是需要一個長期安定不改變的ip的話那就申請一個Elastic IP吧！(真奇怪~~IPv4不是發完了嗎？怎麼還可以這樣子的申請，所以如果不要用的話要記得取消掉喔，不然是要多收錢的喔！)</p>  <h4><font color="#0000ff">申請Elastic IP</font></h4>  <p>1.在左側欄點「Elasitc IPs」</p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image33.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb33.png" width="171" height="386" /></a></p>  <p>2.點選「Allocate New Address」</p></div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/awsec2%E7%82%BAinstance%E7%A7%9F%E7%94%A8%E4%B8%80%E5%80%8Belastic-ip/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/awsec2%E5%BB%BA%E7%AB%8B%E5%AF%A6%E9%AB%94launch-instance/">[AWS][EC2]建立實體(Launch Instance)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-28T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/awsec2%E5%BB%BA%E7%AB%8B%E5%AF%A6%E9%AB%94launch-instance/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/awsec2%E5%BB%BA%E7%AB%8B%E5%AF%A6%E9%AB%94launch-instance/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image7.png"><img style="padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/05/image_thumb7.png" border="0" alt="image" width="544" height="321" /></a></p>
+
+<p>Amazon Web Services Elastic Compute Cloud(EC2) 是IaaS因此他的彈性相當的大，升級或是添加軟體都相當的方便，並且不像一般的主機服務商那樣，以月或以年計費，如果沒有那麼大的使用量，那你的C/P值不就是降低很多，話說用多少就算多少(<a title="EC2計價方式" href="http://aws.amazon.com/ec2/#pricing">EC2計價方式</a>)，而EC2他是以Xen做為執行環境，我們想要幾顆CPU，多少的RAM也可以選擇你想要的OS。</p>
+
+<p>申請AWS的帳號可以參考「<a href="http://www.inside.com.tw/2010/11/02/amazon-aws-1">免費玩雲端運算，Amazon Web Service 雲端運算平台攻略 【1】</a>」</p>
+
+<p>今天來學習如何
+<h4><span style="color: #ff0000;">建立一台Instance</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/awsec2%E5%BB%BA%E7%AB%8B%E5%AF%A6%E9%AB%94launch-instance/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -546,6 +637,14 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/chef-supermarket/">[Chef] Cookbook 超市，滿滿的 Coobook 等你來用</a>
+      </li>
+    
+      <li class="post">
+        <a href="/cookbook-resources/">[Chef] Cookbook 寫 Recipe 常用的 Resource 介紹</a>
+      </li>
+    
+      <li class="post">
         <a href="/cgi-escape/">Ruby 下載檔案時遇到中文字</a>
       </li>
     
@@ -555,14 +654,6 @@
     
       <li class="post">
         <a href="/rails-recreate-versions/">[Carrierwave]重新處理縮圖</a>
-      </li>
-    
-      <li class="post">
-        <a href="/nhi/">利用自然人憑證申請健保卡不用出門就到手</a>
-      </li>
-    
-      <li class="post">
-        <a href="/vimrc/">My Vimrc</a>
       </li>
     
   </ul>
@@ -587,7 +678,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Sammy -
+  Copyright &copy; 2015 - Sammy -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

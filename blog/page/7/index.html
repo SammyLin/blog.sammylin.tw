@@ -9,7 +9,7 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="今天一起來發現AWS Management Console 有明顯的不同也就是上原來選擇不同的Service的Tab變成了下拉選單，按照我拙劣的判斷是因為頁面上方已經容納不下新Service 的Tab(可能又有Service要做進來AWS Management Console了， &hellip;">
+  <meta name="description" content="最近一直有一台電腦就是要印東西時，發現按了列印就會擋掉，一直找不到原因，只能叫同事要印的時候重開機看看吧，沒想到就好了。不過事隔多日，同事反應開了快100次都沒辦法好，上網找了個方法，可以把服務「Print Spooler」重啟就馬上好，就不用重開機了，但這只是治標不治本的方法，但沒辦法， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,100 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/windows-printer-open/">[Windows]印表機打不開</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-08T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/windows-printer-open/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/windows-printer-open/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近一直有一台電腦就是要印東西時，發現按了列印就會擋掉，一直找不到原因，只能叫同事要印的時候重開機看看吧，沒想到就好了。不過事隔多日，同事反應開了快100次都沒辦法好，上網找了個方法，可以把服務「Print Spooler」重啟就馬上好，就不用重開機了，但這只是治標不治本的方法，但沒辦法，我能力就是有限，最好的方法就是寫一個vbs讓他去執行，一個動作就可以搞定了！
+<a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image32.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/09/image_thumb32.png" alt="image" width="544" height="434" border="0" /></a></p>
+
+<p>寫成vbs
+<pre lang="LANGUAGE" line="1">
+Set ServiceSet = GetObject("winmgmts:").ExecQuery("select * from Win32_Service where Name='Spooler'")</pre></p>
+
+<p>for each Service in ServiceSet<br />
+Service.StopService()<br />
+Service.StartService()<br />
+next
+</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/aws-discount-android-app-development-plan/">[AWS]開發Android App優惠計畫</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-08T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/aws-discount-android-app-development-plan/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/aws-discount-android-app-development-plan/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>如果你有Android的開發經驗，又對AWS有興趣的話，一定要看過來，因為AWS提供了一個優惠計畫，就你是開發Android App 會使用到AWS Service那就會獲得50元促銷代碼(感覺興致缺缺XD，不過不無少補啦)只要在2011/11/15之後提交到<a href="https://developer.amazon.com/welcome.html?pid=promo-aws-090711" target="_blank">Amazon Appstore Developer Program</a>，且現在加入<a href="https://developer.amazon.com/welcome.html?pid=promo-aws-090711" target="_blank">Amazon Appstore Developer Program</a>可以第一年免費(原價美金99元)</p>
+
+<p></div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/aws-discount-android-app-development-plan/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -457,124 +551,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/ec2-cpu-load-when-100-solution-died/">[EC2]CPU 負載 100% 死當 解決方法</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-07-27T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/ec2-cpu-load-when-100-solution-died/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/ec2-cpu-load-when-100-solution-died/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這個月來我架的EC2，因為CPU 100%達到了三次，自已的就算了，另外幫客戶架的也是如此，我們來看一下我開的EC2 Instance type
-<table width="200" border="1" cellspacing="1" cellpadding="1">
-<tbody>
-<tr>
-<td valign="top" width="100"></td>
-<td valign="top" width="100">Micro Instance</td>
-</tr>
-<tr>
-<td valign="top" width="100">記憶體</td>
-<td valign="top" width="100">613 MB</td>
-</tr>
-<tr>
-<td valign="top" width="100">CPU Unit</td>
-<td valign="top" width="100">Up to 2 ECUs</td>
-</tr>
-<tr>
-<td valign="top" width="100">CPU Cores</td>
-<td valign="top" width="100">1 Core</td>
-</tr>
-</tbody>
-</table>
-因為個人是偏向使用那麼大的運算不會去升自己的主機，除非量大，不然的話應該還是夠用就行了，但發生了這個狀況我也回逤過去的CPU使用率，發現其實在流量方面是沒有什麼問題，因為平常都會只會保持在10%左右，就算上次因為Google+的關係寫了一篇<a href="http://blog.cornerlife.tw/googleplus1.html" target="_blank">Google+的功能</a>流量爆增8倍，也是沒有發生死當的情況！</p>
-
-<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image49.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb50.png" alt="image" width="299" height="131" border="0" /></a></p>
-
-<p>只能請出Google大神了，發現其實也有人使用Micro Instance有這個狀況<a href="http://crm2.tw/?p=1005" target="_blank">[CRM2] 網站已經恢復正常</a>(看來很多人都這樣子~~~)</p>
-
-<p>經過高人指點之後，才驚覺自己的RAM太小了</p>
-
-<p>馬上SSH到我的Instance用free 看了一下我的RAM</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/ec2-cpu-load-when-100-solution-died/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/amazon-s3-already-has-44-9-billion-objects/">Amazon S3 己經擁有449億個物件</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-07-20T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/amazon-s3-already-has-44-9-billion-objects/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/amazon-s3-already-has-44-9-billion-objects/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>在2011年第二季結算下來，Amazon S3已經擁有了449億個物件以及在尖峰時間中每秒29萬個requests。</p>
-
-<p>不管企業怎麼樣想，雲端是多麼不安全，不穩定，之前我還聽到一個笑話，還是一個總經理嘴巴講出來的他說：「雲端發展不完全，也沒有很流行。」其實這是我一個好友去面試時從那個總經理嘴巴講出來的，不然的話應該會想當面吐他槽的。</p>
-
-<p>其實不是雲端不安全也不穩定，其實雲端發展已經很建全了，只是看你怎麼使用而以，而且S3可以用API把你的檔案在本地加密之後上傳了，在S3上面的檔案也就是加過密的資料，金錀你就可以留在本地端，或者是說，把你的檔案分機密、普通，可以把你普通一般重要的資料就可以放到雲端上面去。</p>
-
-<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image47.png"><img title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb48.png" alt="image" width="493" height="289" border="0" /></a></p>
-
-<p>相關文章：<a href="http://aws.typepad.com/aws/2011/07/amazon-s3-more-than-449-billion-objects.html?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29">http://aws.typepad.com/aws/2011/07/amazon-s3-more-than-449-billion-objects.html?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -603,6 +579,14 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/chef-supermarket/">[Chef] Cookbook 超市，滿滿的 Coobook 等你來用</a>
+      </li>
+    
+      <li class="post">
+        <a href="/cookbook-resources/">[Chef] Cookbook 寫 Recipe 常用的 Resource 介紹</a>
+      </li>
+    
+      <li class="post">
         <a href="/cgi-escape/">Ruby 下載檔案時遇到中文字</a>
       </li>
     
@@ -612,14 +596,6 @@
     
       <li class="post">
         <a href="/rails-recreate-versions/">[Carrierwave]重新處理縮圖</a>
-      </li>
-    
-      <li class="post">
-        <a href="/nhi/">利用自然人憑證申請健保卡不用出門就到手</a>
-      </li>
-    
-      <li class="post">
-        <a href="/vimrc/">My Vimrc</a>
       </li>
     
   </ul>
@@ -644,7 +620,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Sammy -
+  Copyright &copy; 2015 - Sammy -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

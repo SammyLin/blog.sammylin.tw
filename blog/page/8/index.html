@@ -9,7 +9,10 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="大家應該很熟析jQuery了，jQuery已經很簡單了，jQurey EasyUI更簡單了，他是base在jQuery的Web UI 框架裡，你可以用很少很少的JS來做你想要的功能，沒辦法，我就是太懶了而且我也沒有一個很高強的前端網頁工程師，所以才會想要用很簡單的東西來做到我想要的效果(哈~~) &hellip;">
+  <meta name="description" content="這個月來我架的EC2，因為CPU 100%達到了三次，自已的就算了，另外幫客戶架的也是如此，我們來看一下我開的EC2 Instance type Micro Instance 記憶體
+613 MB CPU Unit
+Up to 2 ECUs CPU Cores
+1 Core &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +81,124 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/ec2-cpu-load-when-100-solution-died/">[EC2]CPU 負載 100% 死當 解決方法</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-27T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/ec2-cpu-load-when-100-solution-died/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/ec2-cpu-load-when-100-solution-died/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這個月來我架的EC2，因為CPU 100%達到了三次，自已的就算了，另外幫客戶架的也是如此，我們來看一下我開的EC2 Instance type
+<table width="200" border="1" cellspacing="1" cellpadding="1">
+<tbody>
+<tr>
+<td valign="top" width="100"></td>
+<td valign="top" width="100">Micro Instance</td>
+</tr>
+<tr>
+<td valign="top" width="100">記憶體</td>
+<td valign="top" width="100">613 MB</td>
+</tr>
+<tr>
+<td valign="top" width="100">CPU Unit</td>
+<td valign="top" width="100">Up to 2 ECUs</td>
+</tr>
+<tr>
+<td valign="top" width="100">CPU Cores</td>
+<td valign="top" width="100">1 Core</td>
+</tr>
+</tbody>
+</table>
+因為個人是偏向使用那麼大的運算不會去升自己的主機，除非量大，不然的話應該還是夠用就行了，但發生了這個狀況我也回逤過去的CPU使用率，發現其實在流量方面是沒有什麼問題，因為平常都會只會保持在10%左右，就算上次因為Google+的關係寫了一篇<a href="http://blog.cornerlife.tw/googleplus1.html" target="_blank">Google+的功能</a>流量爆增8倍，也是沒有發生死當的情況！</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image49.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb50.png" alt="image" width="299" height="131" border="0" /></a></p>
+
+<p>只能請出Google大神了，發現其實也有人使用Micro Instance有這個狀況<a href="http://crm2.tw/?p=1005" target="_blank">[CRM2] 網站已經恢復正常</a>(看來很多人都這樣子~~~)</p>
+
+<p>經過高人指點之後，才驚覺自己的RAM太小了</p>
+
+<p>馬上SSH到我的Instance用free 看了一下我的RAM</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/ec2-cpu-load-when-100-solution-died/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/amazon-s3-already-has-44-9-billion-objects/">Amazon S3 己經擁有449億個物件</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-20T00:00:00+08:00" pubdate data-updated="true"></time>
+        
+           | <a href="/amazon-s3-already-has-44-9-billion-objects/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/amazon-s3-already-has-44-9-billion-objects/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在2011年第二季結算下來，Amazon S3已經擁有了449億個物件以及在尖峰時間中每秒29萬個requests。</p>
+
+<p>不管企業怎麼樣想，雲端是多麼不安全，不穩定，之前我還聽到一個笑話，還是一個總經理嘴巴講出來的他說：「雲端發展不完全，也沒有很流行。」其實這是我一個好友去面試時從那個總經理嘴巴講出來的，不然的話應該會想當面吐他槽的。</p>
+
+<p>其實不是雲端不安全也不穩定，其實雲端發展已經很建全了，只是看你怎麼使用而以，而且S3可以用API把你的檔案在本地加密之後上傳了，在S3上面的檔案也就是加過密的資料，金錀你就可以留在本地端，或者是說，把你的檔案分機密、普通，可以把你普通一般重要的資料就可以放到雲端上面去。</p>
+
+<p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image47.png"><img title="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/07/image_thumb48.png" alt="image" width="493" height="289" border="0" /></a></p>
+
+<p>相關文章：<a href="http://aws.typepad.com/aws/2011/07/amazon-s3-more-than-449-billion-objects.html?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29">http://aws.typepad.com/aws/2011/07/amazon-s3-more-than-449-billion-objects.html?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -553,87 +674,6 @@ jQuery EasyUI 下載：<a href="http://www.jeasyui.com/download/index.php">http:
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/googlegoogle-ef-bc-8c-e5-a2-9e-e5-8a-a0-e7-a4-be-e7-be-a4-e7-9a-84-e4-ba-92-e5-8b-95-e6-80-a7/">[Google]Google+，增加社群的互動性</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-06-29T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/googlegoogle-ef-bc-8c-e5-a2-9e-e5-8a-a0-e7-a4-be-e7-be-a4-e7-9a-84-e4-ba-92-e5-8b-95-e6-80-a7/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/googlegoogle-ef-bc-8c-e5-a2-9e-e5-8a-a0-e7-a4-be-e7-be-a4-e7-9a-84-e4-ba-92-e5-8b-95-e6-80-a7/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><p>今天早上，我搭捷運的時候，聽到有一個人說有一個社群網站超厲害，叫做什麼Google+，那時候我大笑了，因為他一定沒聽說過什麼叫做FaceBook，這才是最大的社群網站，不過FaceBook的遊戲或是有的沒有的垃圾資訊實在太多了，有點討人厭就是了。</p>  <p align="center"><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image79.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb78.png" width="281" height="87" /></a></p>  <p>美國時間的2011/6/28早上的時候，在<a href="http://googleblog.blogspot.com" target="_blank">Google Bolg</a>介紹了一個新功能Google +，這是一個Google的社群網站，跟前幾年發表的功能<a href="https://wave.google.com/wave/" target="_blank">Wave</a>或是<a href="https://wave.google.com/wave/" target="_blank">Buzz</a>不大一樣，不過我覺得應該是會結合在一起吧！這是一個全新的思維，而主要的功能有</p></div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/googlegoogle-ef-bc-8c-e5-a2-9e-e5-8a-a0-e7-a4-be-e7-be-a4-e7-9a-84-e4-ba-92-e5-8b-95-e6-80-a7/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/e7-ac-ac-e4-b8-80-e5-8f-b0facebook-e5-b0-88-e7-94-a8-e6-a9-9f-e5-8f-af-e8-83-bd-e5-9c-a8hp-touchpad-e4-b8-8d-e5-9c-a8ipad/">第一台FaceBook專用機可能在HP TouchPad不在iPad</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-06-28T00:00:00+08:00" pubdate data-updated="true"></time>
-        
-           | <a href="/e7-ac-ac-e4-b8-80-e5-8f-b0facebook-e5-b0-88-e7-94-a8-e6-a9-9f-e5-8f-af-e8-83-bd-e5-9c-a8hp-touchpad-e4-b8-8d-e5-9c-a8ipad/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/e7-ac-ac-e4-b8-80-e5-8f-b0facebook-e5-b0-88-e7-94-a8-e6-a9-9f-e5-8f-af-e8-83-bd-e5-9c-a8hp-touchpad-e4-b8-8d-e5-9c-a8ipad/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image76.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb75.png" width="365" height="307" /></a></p>  <table border="2" cellspacing="0" cellpadding="0" width="540"><tbody>     <tr>       <td valign="top" width="540">資料來源：<a href="http://techcrunch.com/2011/06/27/facebook-tablet-app-hp-touchpad/">http://techcrunch.com/2011/06/27/facebook-tablet-app-hp-touchpad/</a></td>     </tr>   </tbody></table>  <p>看來FaceBook不想要在iPad上推出來，據文中指出因為Apple跟FaceBook處於緊張的階段，看來在iPad上推出是不大可能了，話說其實在圖上看起來，跟一般在iPad上的FaceBook沒什麼兩樣嘛~~<a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image77.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb76.png" width="544" height="409" /></a></p>  <p><a href="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image78.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://blog-img.igotcloud.com/wp-content/uploads/2011/06/image_thumb77.png" width="544" height="416" /></a></p></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/9/">&larr; Older</a>
@@ -662,6 +702,14 @@ jQuery EasyUI 下載：<a href="http://www.jeasyui.com/download/index.php">http:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/chef-supermarket/">[Chef] Cookbook 超市，滿滿的 Coobook 等你來用</a>
+      </li>
+    
+      <li class="post">
+        <a href="/cookbook-resources/">[Chef] Cookbook 寫 Recipe 常用的 Resource 介紹</a>
+      </li>
+    
+      <li class="post">
         <a href="/cgi-escape/">Ruby 下載檔案時遇到中文字</a>
       </li>
     
@@ -671,14 +719,6 @@ jQuery EasyUI 下載：<a href="http://www.jeasyui.com/download/index.php">http:
     
       <li class="post">
         <a href="/rails-recreate-versions/">[Carrierwave]重新處理縮圖</a>
-      </li>
-    
-      <li class="post">
-        <a href="/nhi/">利用自然人憑證申請健保卡不用出門就到手</a>
-      </li>
-    
-      <li class="post">
-        <a href="/vimrc/">My Vimrc</a>
       </li>
     
   </ul>
@@ -703,7 +743,7 @@ jQuery EasyUI 下載：<a href="http://www.jeasyui.com/download/index.php">http:
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Sammy -
+  Copyright &copy; 2015 - Sammy -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

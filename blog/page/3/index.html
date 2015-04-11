@@ -9,9 +9,8 @@
   <meta name="author" content="Sammy">
 
   
-  <meta name="description" content="960 Grid System (網格設計系統)也是我最近看Become the designer這本書我才知道的。
-至於這是什麼呢。 網路上有很多參考資料，不在贅述。以下有參考網站 [網頁設計] 網頁尺寸的黃金比例：960 Grid System(網格設計)
-使用 960 Grid System &hellip;">
+  <meta name="description" content="用carrierwave做我的upload plugin
+用的時候很正常，有一天突然噴出了錯誤訊息 NoMethodError in Admin::ArticlesController#update private method `write_uploader' called for #&lt; &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +79,144 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/write-uploader-error/">出現private Method `write_uploader&#8217; Called For</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-24T22:29:00+08:00" pubdate data-updated="true">Apr 24<span>th</span>, 2012</time>
+        
+           | <a href="/write-uploader-error/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/write-uploader-error/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>用<a href="https://github.com/jnicklas/carrierwave">carrierwave</a>做我的upload plugin
+用的時候很正常，有一天突然噴出了錯誤訊息</p>
+
+<pre><code>NoMethodError in Admin::ArticlesController#update
+
+private method `write_uploader' called for #&lt;Article:0x007f8f6cd1c3d0&gt;
+</code></pre>
+
+<p>解了老半天也上網google了一下，也到Github上找<a href="https://github.com/jnicklas/carrierwave/issues/511">issue</a>，都沒辦法！</p>
+
+<p>最後才發現</p>
+
+<div><script src='https://gist.github.com/2485397.js'></script>
+<noscript><pre><code>class Article &lt; ActiveRecord::Base                                                                                                                       
+  default_scope order('post_date DESC')
+  #scope :public, where( :post_status =&gt; 'public' )
+  scope :public_article, where( :post_status =&gt; 'public' )
+  mount_uploader :article_image, ArticleImageUploader
+end</code></pre></noscript></div>
+
+
+<p> 我有一個<code>scope</code>叫做<code>public</code>，經過<a href="http://stackoverflow.com/questions/7658359/what-is-objectprivate-and-objectpublic-in-ruby">小小的了解</a>發現雖然不是不是保留字，不過是拿來當修飾詞的，雖然不是每一個method都會用到，不過拿來用可能會有問題！</p>
+
+<p> 所以只要把<code>scope :public</code>改成其他的字就行了</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/simple-form-collection/">[Rails]製作下拉式選單集合</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-20T10:34:00+08:00" pubdate data-updated="true">Apr 20<span>th</span>, 2012</time>
+        
+           | <a href="/simple-form-collection/#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw/simple-form-collection/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>目前的狀況是這樣子的，目前是有做<code>CMS</code>所以需要有</p>
+
+<pre><code># Public(公開)
+# Private(私人)
+# Draft(草稿)
+</code></pre>
+
+<p>這三種，不過這個集合可以用類似<a href="https://github.com/jeffp/enumerated_attribute">jeffp/enumerated_attribute</a>的gem配合或者是說用<a href="https://github.com/twinslash/enumerize">twinslash/enumerize</a>，不過我更懶，我直接把data丟到collection裡面就好了，因為其他地方是用不大到的~</p>
+
+<pre><code>#view/articles/_form.html.erb 
+&lt;%= f.input :post_status, :collection =&gt; ["public", "private", "draft"]%&gt;
+</code></pre>
+
+<p>因為我使用的是<a href="https://github.com/plataformatec/simple_form">plataformatec/simple_form</a>的關係，所以他自動幫我產生一個select的下拉式選單，應該是長這樣子</p>
+
+<p><img src="https://lh3.googleusercontent.com/-gKzIpoD9cSE/T5DP9853W2I/AAAAAAAABwo/3fcIwnDxQq0/s800/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-20%2520%25E4%25B8%258A%25E5%258D%258810.50.34.png" alt="" /></p>
+
+<p>但是如果是需要多國語系的話</p>
+
+<pre><code>#view/articles/_form.html.erb 
+&lt;%= f.input :post_status, :collection =&gt; [[t(".public"),"public"], [t(".private"), "private"], [t(".draft"), "draft"]]%&gt;
+</code></pre>
+
+<p>再來就是新增你的i18n的語系檔，我個人的習慣是另外新增一個檔案，我目前的controller叫做articles所以我建立一個i18n的中文yml檔時就會是這樣子</p>
+
+<pre><code># config/locales/articles.zh-TW.yml
+zh-TW:
+    articles:
+      form:
+        public: 公開
+        private: 私人
+        draft: 草稿
+</code></pre>
+
+<p>然後要記得重啟server
+就會成功了</p>
+
+<p><img src="https://lh4.googleusercontent.com/-zrcnqhAxZ4Q/T5DRrfHqOQI/AAAAAAAABw4/U64XX2hvhwE/s800/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-20%2520%25E4%25B8%258A%25E5%258D%258811.01.43.png" alt="" /></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -481,94 +618,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/vimfile-copy-text/">如何在安裝vimfile之後複製vim中的文字</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-18T10:05:00+08:00" pubdate data-updated="true">Jan 18<span>th</span>, 2012</time>
-        
-           | <a href="/vimfile-copy-text/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/vimfile-copy-text/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>在裝了<a href="https://github.com/akitaonrails/vimfiles">vimfiles</a>之後，果然vim變生動了，慢慢的愛用他了，其實我另外只是想說，體會一下那些coding高高手的fu而以，不像我過去在coding一邊動滑鼠一邊用鍵盤，那種強大的IDE令我的腦袋變的鈍鈍的。</p>
-
-<p>不過我在過程中發現一個問題，只要你是有裝vimfile的話，滑鼠是可以使用在vim上面的，不過你在選擇文字的時候會發現你會被切換成<code>VISUAL</code>模式，不能夠copy paste。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/vimfile-copy-text/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/aws-windows2008/">在AWS可以免費用Windows Server 2008</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-17T09:28:00+08:00" pubdate data-updated="true">Jan 17<span>th</span>, 2012</time>
-        
-           | <a href="/aws-windows2008/#disqus_thread"
-             data-disqus-identifier="http://blog.sammylin.tw/aws-windows2008/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>自從<code>AWS</code>釋出Free Tier之後，雖然只有免費一年，但是還是有一些剛入門的新手，像我一樣，會去玩一下所謂的雲端是什麼，當初我也是看上他有免費可以玩，所以才會到AWS來玩玩，過去AWS EC2只讓你使用Amazon OS 做免費的項目，在昨天的時候官方網站釋出了好消息，就是可以使用Windows Server 2008的image，可能是AWS內windows的image使用率太低的關係吧，為了讓大家可以先嘗鮮看看，所以才跟微軟做出這樣子的協調。</p>
-
-<p>我們打開來 <a href="https://console.aws.amazon.com/console/home">AWS Management Console</a>來開啟一個新的instance然後把他拉到最下面就可以看到Windows Server 2008 旁邊有星星了(之前有講過星星代表有在Free Tier裡)
-<img src="https://lh3.googleusercontent.com/-yb9diAY9gtI/TxTO3V2B8rI/AAAAAAAABnA/E5CvtwroOj0/s640/Screen%252520Shot%2525202012-01-17%252520at%252520%2525E4%2525B8%25258A%2525E5%25258D%2525889.27.25.png" alt="" /></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -597,6 +646,14 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/chef-supermarket/">[Chef] Cookbook 超市，滿滿的 Coobook 等你來用</a>
+      </li>
+    
+      <li class="post">
+        <a href="/cookbook-resources/">[Chef] Cookbook 寫 Recipe 常用的 Resource 介紹</a>
+      </li>
+    
+      <li class="post">
         <a href="/cgi-escape/">Ruby 下載檔案時遇到中文字</a>
       </li>
     
@@ -606,14 +663,6 @@
     
       <li class="post">
         <a href="/rails-recreate-versions/">[Carrierwave]重新處理縮圖</a>
-      </li>
-    
-      <li class="post">
-        <a href="/nhi/">利用自然人憑證申請健保卡不用出門就到手</a>
-      </li>
-    
-      <li class="post">
-        <a href="/vimrc/">My Vimrc</a>
       </li>
     
   </ul>
@@ -638,7 +687,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Sammy -
+  Copyright &copy; 2015 - Sammy -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

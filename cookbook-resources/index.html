@@ -1,0 +1,646 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>[Chef] Cookbook 寫 Recipe 常用的 Resource 介紹 - Sammy Lin</title>
+  <meta name="author" content="Sammy">
+
+  
+  <meta name="description" content="Chef 有多重要，有多好那我們就不說了，如果你只是路過想了解什麼是 Chef 那你可以參考下面這個連結： [Rails佈署實戰教學]使用Chef-Solo一鍵安裝機器 &ndash; 好麻煩部落格 這篇重點放在幾個常用的 Resource (我覺得常用的 XD)， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.sammylin.tw/cookbook-resources">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/igotcloud" rel="alternate" title="Sammy Lin" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23558179-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Sammy Lin</a></h1>
+  
+    <h2>旅居台北的高雄人</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/igotcloud" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.sammylin.tw" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="http://sammylin.tw/about-i">About Me</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">[Chef] Cookbook 寫 Recipe 常用的 Resource 介紹</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-04-11T14:51:43+08:00" pubdate data-updated="true">Apr 11<span>th</span>, 2015</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://blog.sammylin.tw">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Chef 有多重要，有多好那我們就不說了，如果你只是路過想了解什麼是 Chef 那你可以參考下面這個連結：</p>
+
+<p><a href="http://gogojimmy.net/2013/06/01/Chef-Solo-Basic-with-Vagrant/">[Rails佈署實戰教學]使用Chef-Solo一鍵安裝機器 &ndash; 好麻煩部落格</a></p>
+
+<p><strong>這篇重點放在幾個常用的 Resource (我覺得常用的 XD)，如果有大大覺得哪個也是重要的那也可以一起討論或分享一下。若是文章有錯誤的地方也煩請指教</strong></p>
+
+<p>如果你已經開始在製作一個 cookbook 時，在寫一個 recipe 常常會不知道要用什麼 resource ，或是不知道有什麼可以用。而且我看英文的速度沒辦法一目十行呀，而且中文的資料找不到，所以只能自已做個筆記來提醒我自已。也可以直接到 <a href="https://docs.chef.io/resources.html">Resources Reference — Chef Docs</a> 參考官方網站的資料(當然那邊是最齊全的)，</p>
+
+<p>先簡單了解一下一個 cookbook 的資料夾架構</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>
+</span><span class='line'>├── attributes     (給 recipe 使用的預設值
+</span><span class='line'>├── files          (需要傳入到節點的檔案
+</span><span class='line'>│   └── default
+</span><span class='line'>├── metadata.rb    (描述 cookbook 
+</span><span class='line'>├── recipes        (這個 cookbook 的食譜的做法，這篇就是要講怎麼做 (不知道怎麼翻XD
+</span><span class='line'>│   └── default.rb
+</span><span class='line'>└── templates      (透過 ERB template 可以產出檔案到節點
+</span><span class='line'>    └── default</span></code></pre></td></tr></table></div></figure>
+
+
+<p>所以我們會在 recipes 中建立這個 cookbook 要做的事情有什麼，所以要利用 chef 的 resources 寫這個 recipe。</p>
+
+<!-- more -->
+
+
+<h3>套件 Package</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>package 'nginx' do
+</span><span class='line'>  action :install     # 動作 (如果是 :install 可省略
+</span><span class='line'>  version "&lt;version&gt;" # 版本 (如不指定就安裝最新的
+</span><span class='line'>end
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>:action</code> 的方法屬性</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> Action    </th>
+<th> Description                                                </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> :install  </td>
+<td> <strong>(預設)</strong> 安裝                                             |</td>
+</tr>
+<tr>
+<td></td>
+<td> :purge    </td>
+<td> 移除 package (只有 Debian 上可以用，其他平台還是用 <code>:remove</code>)   |</td>
+</tr>
+<tr>
+<td></td>
+<td> :reconfig </td>
+<td> 配合 <code>response file</code> 重新設定                                |</td>
+</tr>
+<tr>
+<td></td>
+<td> :remove    </td>
+<td> 移除 package                                               |</td>
+</tr>
+<tr>
+<td></td>
+<td> :upgrade   </td>
+<td> 升級 package 到最新版                                       |</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>目錄 Directory</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>directory "&lt;path&gt;" do
+</span><span class='line'>  owner "root"   # 資料夾擁有者
+</span><span class='line'>  group "root"   # 資料夾群組
+</span><span class='line'>  mode "0755"    # 檔案權限
+</span><span class='line'>  action :create # 動作 (如果是 :create 可省略
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>:action</code> 的方法屬性</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> Action    </th>
+<th> Description                                             </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> :create   </td>
+<td> <strong>(預設)</strong> 建立目錄(但是如果設定不一樣還是會處理到符合設定)   |</td>
+</tr>
+<tr>
+<td></td>
+<td> :delete   </td>
+<td> 刪除目錄                                                 |</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>服務 Service</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>service "&lt;service name&gt;" do
+</span><span class='line'>  action :start # 動作 
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>:action</code> 的方法屬性</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> Action   </th>
+<th> Description                </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> :disable </td>
+<td> 關閉開機時並開啟服務          |</td>
+</tr>
+<tr>
+<td></td>
+<td> :enable  </td>
+<td> 啟用開機時並開啟服務          |</td>
+</tr>
+<tr>
+<td></td>
+<td> :nothing </td>
+<td> <strong>(預設)</strong> 不做任何事          |</td>
+</tr>
+<tr>
+<td></td>
+<td> :reload  </td>
+<td> 重新載入 configuration 配置  |</td>
+</tr>
+<tr>
+<td></td>
+<td> :restart </td>
+<td> 重啟服務                     |</td>
+</tr>
+<tr>
+<td></td>
+<td> :start   </td>
+<td> 開啟服務                     |</td>
+</tr>
+<tr>
+<td></td>
+<td> :stop    </td>
+<td> 停止服務                     |</td>
+</tr>
+</tbody>
+</table>
+
+
+<p><code>:supports</code> 的方法屬性說明</p>
+
+<p>預設是 <code>{ :restart =&gt; false, :reload =&gt; false, :status =&gt; false }</code> ，這個其實就是說 chef-client 把這三個動作都自已處理了，<code>:restart</code>，這個動作就是先執行 <code>:stop</code>，再執行<code>:start</code>；<code>:status</code>就是去檢查 process 有沒有這個 service name，<code>:reload</code>，這個不知道怎麼做的=_=。</p>
+
+<p>假設</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>service "nginx" do
+</span><span class='line'>  supports :status =&gt; true, :restart =&gt; false, :reload =&gt; fasle
+</span><span class='line'>  action :start # 動作
+</span><span class='line'>end
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>那就是如果會執行到檢查 status 時就會去執行 <code>service nginx status</code> ，而不是去檢查 process。</p>
+
+<p>&lt;小提示> 可以讓他開機自動啟用，再來現在就開啟服務。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>service "nginx" do
+</span><span class='line'>  action [:enable, :start]
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>File 處理檔案</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>file "/tmp/something" do # 檔案位置
+</span><span class='line'>  owner 'root'           # 擁有者
+</span><span class='line'>  group 'root'           # 群組
+</span><span class='line'>  mode '0755'            # 權限
+</span><span class='line'>  action :create         # 動作 (如果是 :create 可省略
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>:action</code> 的方法屬性</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> Action    </th>
+<th> Description                                                            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> :create   </td>
+<td> <strong>(預設)</strong> 新增檔案，如果檔案存在但不符合的話，就會重新產生一個檔案覆蓋        |</td>
+</tr>
+<tr>
+<td></td>
+<td> :create_if_missing   </td>
+<td> 如果檔案存在就不產生檔案                                       |</td>
+</tr>
+<tr>
+<td></td>
+<td> :delete   </td>
+<td> 刪除檔案                                                                |</td>
+</tr>
+<tr>
+<td></td>
+<td> :touch   </td>
+<td> 不太懂，感覺意思是說，不管檔案是不符合，都會覆蓋檔案，所以會變動檔案的&lt;修改時間>。|</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>Template 模版</h3>
+
+<p>你可以建立 ERB 的檔案，利用 ruby 的寫法來製作檔案，更可以載入 attributes 的值。而 template 的檔案必需要放在 <code>/COOKBOOK_NAME/templates/default</code> 底下。Action 的方法跟 file 一樣。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  template “&lt;filename&gt;" do                        # 目標檔案位置
+</span><span class='line'>    source “&lt;file name&gt;.erb”                      # ERB 檔案來源
+</span><span class='line'>    mode 0755                                     # 檔案權限
+</span><span class='line'>    owner "root"                                  # 擁有者
+</span><span class='line'>    group “root"                                  # 群組
+</span><span class='line'>    variables({                                   # 載入 variables ，所以按照範例可以在 template，可以使用 @xxx 及 @ooo
+</span><span class='line'>       :xxx =&gt; node[:hello_world][:xxx][:groups],
+</span><span class='line'>       :ooo =&gt; node[:hello_world][:ooo][:users]
+</span><span class='line'>     })
+</span><span class='line'>    action :create                                # 動作 (如果是 :create 可省略
+</span><span class='line'>  end</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>cookbook_file 從 cookbook 送檔案進去</h3>
+
+<p>這個檔案通常會存放在 cookbook 的 <code>/COOKBOOK_NAME/files/default</code> 裡面，跟 template 不同的是，他是原封不同的把檔案傳偷主機裡面去，Action 的方法跟 file 一樣。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cookbook_file "&lt;file name&gt;" do # 目標檔案位置
+</span><span class='line'>  path "&lt;file name&gt;"           # 來源檔案位置
+</span><span class='line'>  action :create               # 動作 (如果是 :create 可省略
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>remote_file 從外部下載檔案</h3>
+
+<p>一般來說，大家在從外部下載檔案進來都是個壓縮檔，或是要執行的檔案，那 Chef 提供了一個方法可以暫存的地方，你可以用 <code>Chef::Config[:file_cache_path]</code> 來呼叫它。先暫存在那邊，之後再處理這個 remote file。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>remote_file "#{Chef::Config[:file_cache_path]}/large-file.tar.gz" do  # 目標檔案位置
+</span><span class='line'>  source "http://www.example.org/large-file.tar.gz"                   # 來源檔案位置
+</span><span class='line'>  action :create                                                      # 動作 (如果是 :create 可省略
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>execute 執行</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  execute "&lt;name&gt;" do                       # 這個執行動作的名稱
+</span><span class='line'>    cwd "&lt;path&gt;"                            # 前往哪個目錄
+</span><span class='line'>    command "&lt;command&gt;"                     # 執行的 command
+</span><span class='line'>    not_if { ::File.exists?("&lt;file_path&gt;")} # 也可建立條件式
+</span><span class='line'>  end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>2015.4.11 目前就先筆記這幾個，之後在寫 recipe 的時候覺得哪些重要跟常用的 resources 再慢慢補上了。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sammy</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-04-11T14:51:43+08:00" pubdate data-updated="true">Apr 11<span>th</span>, 2015</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/chef/'>chef</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.sammylin.tw/cookbook-resources/" data-via="SammyLinTw" data-counturl="http://blog.sammylin.tw/cookbook-resources/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/cgi-escape/" title="Previous Post: Ruby 下載檔案時遇到中文字">&laquo; Ruby 下載檔案時遇到中文字</a>
+      
+      
+        <a class="basic-alignment right" href="/chef-supermarket/" title="Next Post: [Chef] Cookbook 超市，滿滿的 Coobook 等你來用">[Chef] Cookbook 超市，滿滿的 Coobook 等你來用 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+<h1>About</h1>
+<p>
+  <img src="http://services.nexodyne.com/email/icon/ZbGAyriFaHk9vw%3D%3D/139A9mU%3D/R01haWw%3D/0/image.png"/>
+</p>
+<p><a href="http://feeds.feedburner.com/igotcloud"><img src="http://feeds.feedburner.com/~fc/igotcloud?bg=99CCFF&amp;fg=444444&amp;anim=1" height="26" width="88" style="border:0" alt="" /></a></p>
+</p>
+<p>
+<a href="http://twitter.com/sammylintw" class="twitter-follow-button">Follow @SammyLinTw</a>
+</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/chef-supermarket/">[Chef] Cookbook 超市，滿滿的 Coobook 等你來用</a>
+      </li>
+    
+      <li class="post">
+        <a href="/cookbook-resources/">[Chef] Cookbook 寫 Recipe 常用的 Resource 介紹</a>
+      </li>
+    
+      <li class="post">
+        <a href="/cgi-escape/">Ruby 下載檔案時遇到中文字</a>
+      </li>
+    
+      <li class="post">
+        <a href="/traffic-ticket/">[生活]申訴交通罰單</a>
+      </li>
+    
+      <li class="post">
+        <a href="/rails-recreate-versions/">[Carrierwave]重新處理縮圖</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/113306354398877276439?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Sammy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'igotcloud';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.sammylin.tw/cookbook-resources/';
+        var disqus_url = 'http://blog.sammylin.tw/cookbook-resources/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<script>
+   !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
+        arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+     d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
+    insertBefore(d,q)}(window,document,'script','_gs');
+   
+   _gs('GSN-163630-O');
+ </script>
+
+
+
+</body>
+</html>
